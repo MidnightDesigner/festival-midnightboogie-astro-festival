@@ -126,7 +126,7 @@ export const artistas2026: Artista[] = [
     nombre: "BEA GB",
     origen: "GASTEIZ",
     estilo: "DJ - Música seleccionada",
-    imagen: "/artistas/bea-gb.png",
+    imagen: "/images/2026/bea-gb.png",
     web: "",
     video: "",
     biografia: [
