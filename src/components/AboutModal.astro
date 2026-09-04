@@ -1,0 +1,142 @@
+---
+// src/components/AboutModal.astro
+---
+
+<button 
+  id="open-about-modal"
+  class="font-bold text-lg uppercase tracking-wide mb-4 hover:opacity-60 transition-opacity cursor-pointer text-center md:text-left"
+  aria-haspopup="dialog"
+>
+  Quiénes somos
+</button>
+
+<!-- Modal -->
+<div 
+  id="about-modal"
+  class="fixed inset-0 z-[100] hidden items-center justify-center p-4"
+  role="dialog"
+  aria-modal="true"
+  aria-labelledby="about-modal-title"
+>
+  <!-- Overlay oscuro -->
+  <div 
+    class="absolute inset-0 bg-black/80 backdrop-blur-sm modal-overlay"
+    aria-hidden="true"
+  ></div>
+
+  <!-- Contenido del modal -->
+  <div class="relative bg-neutral-900 border border-[rgb(233,157,56)]/30 rounded-2xl max-w-2xl w-full max-h-[85vh] overflow-y-auto shadow-2xl">
+    
+    <!-- Botón cerrar -->
+    <button 
+      id="close-about-modal"
+      class="absolute top-4 right-4 w-10 h-10 flex items-center justify-center rounded-full bg-neutral-800 hover:bg-[rgb(233,157,56)] hover:text-neutral-950 text-white transition-colors z-10"
+      aria-label="Cerrar"
+    >
+      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-5 h-5">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+      </svg>
+    </button>
+
+    <!-- Contenido -->
+    <div class="p-8 md:p-12">
+      <h2 id="about-modal-title" class="font-avantgarde text-3xl md:text-4xl text-white mb-8 pr-12">
+        Quiénes somos
+      </h2>
+
+      <div class="space-y-6 text-white/80 text-sm md:text-base font-light leading-relaxed">
+        <p>
+          Ante todo, somos un@s apasionad@s del R&B, del Soul, del R'n'R, del Jazz... y del resto de las <span class="text-[rgb(233,157,56)] font-medium">"músicas del Diablo"</span>.
+        </p>
+        
+        <p>
+          Eso nos ha llevado a embarcarnos en este proyecto y a trabajar año tras año para que podáis disfrutar de actividades musicales y también educativas y culturales en un fin de semana muy especial.
+        </p>
+
+        <div class="pt-6 mt-6 border-t border-white/10 space-y-3 text-xs text-white/60">
+          <p>
+            <span class="text-[rgb(233,157,56)] font-bold uppercase tracking-wider">Midnight Boogie</span>, Asociación Cultural sin ánimo de lucro, es la organizadora de este evento.
+          </p>
+          <p>
+            <span class="font-medium text-white/70">CIF:</span> G67682088
+          </p>
+          <p>
+            <span class="font-medium text-white/70">Domiciliada en:</span> Vitoria-Gasteiz
+          </p>
+          <p>
+            <span class="font-medium text-white/70">Inscrita en el registro de asociaciones del Gobierno Vasco</span> con el Nº de registro AS/A/23878/2021.
+          </p>
+        </div>
+
+        <div class="pt-6 mt-6 border-t border-white/10">
+          <p class="text-white/70 text-sm">
+            Contamos con la colaboración de la <span class="text-[rgb(233,157,56)] font-medium">Fundación Vital Fundazioa</span>, a la que estamos muy agradecidos por su apoyo todos estos años.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<style>
+  /* Animación de entrada */
+  #about-modal.active {
+    display: flex;
+    animation: fadeIn 0.3s ease-out;
+  }
+
+  #about-modal.active > div:last-child {
+    animation: slideUp 0.3s ease-out;
+  }
+
+  @keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+
+  @keyframes slideUp {
+    from { 
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to { 
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  /* Bloquear scroll del body cuando el modal está abierto */
+  body.modal-open {
+    overflow: hidden;
+  }
+</style>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const openBtn = document.getElementById('open-about-modal');
+    const closeBtn = document.getElementById('close-about-modal');
+    const modal = document.getElementById('about-modal');
+    const overlay = modal?.querySelector('.modal-overlay');
+
+    const openModal = () => {
+      modal?.classList.add('active');
+      document.body.classList.add('modal-open');
+    };
+
+    const closeModal = () => {
+      modal?.classList.remove('active');
+      document.body.classList.remove('modal-open');
+    };
+
+    openBtn?.addEventListener('click', openModal);
+    closeBtn?.addEventListener('click', closeModal);
+    overlay?.addEventListener('click', closeModal);
+
+    // Cerrar con tecla Escape
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && modal?.classList.contains('active')) {
+        closeModal();
+      }
+    });
+  });
+</script>
