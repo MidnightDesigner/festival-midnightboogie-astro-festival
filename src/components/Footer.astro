@@ -93,20 +93,148 @@ import AboutModal from './AboutModal.astro';
         <p class="text-black/70 text-sm">Recibe las novedades del festival en tu email.</p>
       </div>
 
-      <form class="flex flex-col sm:flex-row gap-2 w-full md:w-auto" onsubmit="event.preventDefault(); alert('¡Gracias por suscribirte!');">
+      <form 
+        id="newsletter-form"
+        class="flex flex-col sm:flex-row gap-2 w-full md:w-auto" 
+        action="https://formspree.io/f/xgaezzow" 
+        method="POST"
+      >
         <input 
           type="email" 
+          name="email"
           placeholder="tu@email.com" 
           required
           class="px-4 py-2 rounded-full bg-transparent border border-black/30 text-black placeholder-black/50 text-sm font-medium focus:outline-none focus:border-black transition-colors w-full sm:w-64"
         />
+        <input type="hidden" name="_subject" value="Nueva suscripción a la newsletter" />
         <button 
           type="submit" 
+          id="newsletter-submit"
           class="px-6 py-2 rounded-full bg-black text-[rgb(233,157,56)] text-sm font-bold uppercase tracking-widest hover:bg-black/80 transition-colors whitespace-nowrap"
         >
           Suscribirme
         </button>
       </form>
+
+      <!-- Modal de éxito -->
+      <div 
+        id="newsletter-modal"
+        class="fixed inset-0 z-[100] hidden items-center justify-center p-4"
+      >
+        <div class="absolute inset-0 bg-black/80 backdrop-blur-sm modal-overlay"></div>
+        <div class="relative bg-neutral-900 border border-[rgb(233,157,56)]/30 rounded-2xl max-w-md w-full p-8 md:p-10 shadow-2xl text-center">
+          <button 
+            id="close-newsletter-modal"
+            class="absolute top-4 right-4 w-10 h-10 flex items-center justify-center rounded-full bg-neutral-800 hover:bg-[rgb(233,157,56)] hover:text-neutral-950 text-white transition-colors"
+            aria-label="Cerrar"
+          >
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-5 h-5">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+            </svg>
+          </button>
+          
+          <div class="w-16 h-16 mx-auto mb-6 rounded-full bg-[rgb(233,157,56)] flex items-center justify-center">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor" class="w-8 h-8 text-black">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" />
+            </svg>
+          </div>
+          
+          <h3 class="font-avantgarde text-2xl md:text-3xl text-white mb-3">¡Bienvenid@!</h3>
+          <p class="text-white/70 text-sm md:text-base font-light leading-relaxed mb-6">
+            Gracias por suscribirte a la newsletter de Midnight Boogie. 
+            Te mantendremos al tanto de todas las novedades del festival.
+          </p>
+          <button 
+            id="close-newsletter-modal-btn"
+            class="px-6 py-2 rounded-full bg-[rgb(233,157,56)] text-black text-sm font-bold uppercase tracking-widest hover:bg-white transition-colors"
+          >
+            Perfecto
+          </button>
+        </div>
+      </div>
+
+<style>
+  #newsletter-modal.active {
+    display: flex;
+    animation: fadeIn 0.3s ease-out;
+  }
+  #newsletter-modal.active > div:last-child {
+    animation: slideUp 0.3s ease-out;
+  }
+  @keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+  @keyframes slideUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  body.modal-open {
+    overflow: hidden;
+  }
+</style>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const form = document.getElementById('newsletter-form');
+    const modal = document.getElementById('newsletter-modal');
+    const closeBtn = document.getElementById('close-newsletter-modal');
+    const closeBtn2 = document.getElementById('close-newsletter-modal-btn');
+    const overlay = modal?.querySelector('.modal-overlay');
+    const submitBtn = document.getElementById('newsletter-submit');
+
+    const closeModal = () => {
+      modal?.classList.remove('active');
+      document.body.classList.remove('modal-open');
+    };
+
+    const openModal = () => {
+      modal?.classList.add('active');
+      document.body.classList.add('modal-open');
+    };
+
+    // Envío del formulario por AJAX
+    form?.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      
+      // Desactivar botón mientras envía
+      if (submitBtn) {
+        submitBtn.disabled = true;
+        submitBtn.textContent = 'Enviando...';
+      }
+
+      try {
+        const response = await fetch(form.action, {
+          method: 'POST',
+          body: new FormData(form),
+          headers: { 'Accept': 'application/json' }
+        });
+
+        if (response.ok) {
+          form.reset();
+          openModal();
+        } else {
+          alert('Ha ocurrido un error. Por favor, inténtalo de nuevo.');
+        }
+      } catch (error) {
+        alert('Ha ocurrido un error. Por favor, inténtalo de nuevo.');
+      } finally {
+        if (submitBtn) {
+          submitBtn.disabled = false;
+          submitBtn.textContent = 'Suscribirme';
+        }
+      }
+    });
+
+    // Cerrar modal
+    closeBtn?.addEventListener('click', closeModal);
+    closeBtn2?.addEventListener('click', closeModal);
+    overlay?.addEventListener('click', closeModal);
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && modal?.classList.contains('active')) closeModal();
+    });
+  });
+</script>
     </div>
   </div>
   

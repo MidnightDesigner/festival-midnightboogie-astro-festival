@@ -33,18 +33,22 @@ export const artistas2026: Artista[] = [
       "Entre los artistas con los que han colaborado destacan Paul Weller, Kathryn Williams, Durand Jones, Peter Capaldi, Mick Talbot, William Bell, Bettye LaVette y Andy Fairweather Low, además de contar con remixes de Dennis Bovell, Leo Zero y Opolopo."
     ]
   },
- {
+   {
     slug: "nine-below-zero",
     nombre: "NINE BELOW ZERO",
     origen: "UNITED KINGDOM",
-    estilo: "R&B, PUBROCK",
+    estilo: "R&B, PUB ROCK",
     imagen: "/images/2026/NBZ-4.jpg",
-    web: "https://www.ninebelowzero.com", // ✏️ Verificar URL
-    video: "https://www.youtube.com/watch?v=example", // ✏️ Actualizar con URL de YouTube
+    web: "https://www.ninebelowzero.com",
+    video: "https://www.youtube.com/watch?v=yNuzkZLzNMo&list=RDyNuzkZLzNMo&start_radio=1", 
+
+
+// ⚠️ RECUERDA: Cambiar esto por la URL real de YouTube cuando la tengas
     biografia: [
-      "Leyendas vivas del R&B británico. Formados en Londres en 1977, Nine Below Zero emergieron de la escena Pub Rock con una energía arrolladora, liderados por la inconfundible armónica y voz de Dennis Greaves.",
-      "Su álbum debut 'Live at the Marquee' (1980) es considerado un clásico de culto. A lo largo de su carrera, han compartido cartel con gigantes como The Who, Status Quo y Rory Gallagher, y han sido pioneros en mantener vivo el espíritu del blues eléctrico en el Reino Unido.",
-      "Traer a Nine Below Zero al Midnight Boogie 2026 es un auténtico golpe sobre la mesa. Su directo es una clase magistral de cómo el R&B debe sonar: crudo, honesto y con una potencia que atraviesa el pecho."
+      "La banda británica de R&B Nine Below Zero, considerada banda de culto por toda Europa, se fundó en Londres en 1977, justo en medio del boom del punk-rock en Inglaterra. Su inspiración, sin embargo, era bien distinta, con miras al blues de Chicago y con influencias de John Mayall, The Kinks y The Who. Guardaban, no obstante, una influencia del punk rock de aquellos años, con el extremadamente energético ataque a sus instrumentos en los directos de la banda.",
+      "Considerados por la crítica los más directos rivales de Dr. Feelgood, la banda ha experimentado cambios en su formación, manteniendo no obstante sus dos frontmen: DENNIS GREAVES a la guitarra y voz (lideró también la mítica banda THE TRUTH) y MARK FELTHAM a la armónica y voz, que acompañó al gran RORY GALLAGHER durante 11 años, y que además tiene una grandiosa lista de colaboraciones en grabaciones de Roger Daltrey (The Who), Oasis, The Alarm, New Model Army, Manfred Mann, Nazareth...",
+      "A los líderes y miembros fundadores les acompañan ANTHONY HARTY al bajo (The Style Council, The Truth, Specials, The Beat, Badfinger, Steve Marriott, Primitives...) y SONNY GREAVES a la batería.",
+      "La banda ha estado presentando su magnífico último álbum '13 Shades of Blue' además de sus grandes clásicos. Además, se acaba de reeditar en España por el sello FOLC RECORDS su legendario 'Live At The Marque' de 1980, que cumple 45 años y que tendremos disponible en esta gira."
     ]
   },
   {
@@ -53,12 +57,15 @@ export const artistas2026: Artista[] = [
     origen: "BARCELONA",
     estilo: "BOOGALOO",
     imagen: "/images/2026/los-fulanos-1.jpg",
-    web: "", // ✏️ Actualizar con la web real
-    video: "", // ✏️ Actualizar con URL de YouTube
+    web: "https://www.facebook.com/losfulanosbcn", // ⚠️ RECUERDA: Añadir la web real cuando la tengas
+    video: "https://www.youtube.com/watch?v=aR5SPAJr69A", // ⚠️ RECUERDA: Añadir la URL de YouTube cuando la tengas
     biografia: [
-      "Desde Barcelona, Los Fulanos rescatan el sonido más auténtico y bailable del Boogaloo y el Latin Soul. Su música es un homenaje directo a la escena neoyorquina de finales de los 60, donde el jazz, el mambo y el R&B se fusionaron en las calles del Spanish Harlem.",
-      "Con una puesta en escena arrebatadora, metales potentes y ritmos que obligan a mover los pies, la banda ha sabido modernizar el género sin perder ni un ápice de su esencia clásica y festiva.",
-      "Su paso por el Midnight Boogie promete ser una de las noches más calientes del fin de semana, trayendo el sabor latino y el groove inconfundible que solo el buen boogaloo puede ofrecer."
+      "Después de 10 años de merecido descanso tras una intensa trayectoria por los escenarios de toda Europa, Los Fulanos, la banda más incendiaria del Latin Soul y el Boogaloo barcelonés, regresan a la carga con una formación arrolladora y la incorporación de Paquito Sex Machine a las voces, inyectando nueva energía, ritmo y elegancia a su sonido inconfundible.",
+      "Decir Los Fulanos es decir Boogaloo, el género mestizo nacido en el Spanish Harlem a principios de los años sesenta, venerado en los circuitos del Acid Jazz y el Northern Soul, y apadrinado por DJs como Gilles Peterson o Masters at Work. Sin más argumento que el amor por el género, Los Fulanos regeneraron la escena Latin Soul barcelonesa —siguiendo la tradición de bandas como Dr. Calypso— con directos incendiarios en los que rendían homenaje a figuras como Ray Barretto, Joe Bataan o Pete Rodríguez.",
+      "Su dinamita sonora se expandió rápidamente por todo el país y los llevó a colaborar con la discográfica Vampi Soul, donde grabaron una serie de singles y EPs (Arqueología EP 2006, Kiss 2007, Use It 2008). En ellos devolvieron joyas como 'Use It Before You Lose It' de Bobby Valentín, 'Soul Drummer' de Ray Barretto o 'Chance for Romance' de Héctor Rivera a su hábitat natural: las pistas de baile de todo el planeta.",
+      "El reconocimiento como auténticos renovadores del Latin Soul los llevó a grabar un álbum junto a una de las figuras capitales del género, Joe Bataan. Con él registraron 'King of Latin Soul' (Vampi Soul, 2009) y fueron su banda oficial durante una exitosa gira europea.",
+      "Tras años celebrando la edad dorada del Boogaloo, Los Fulanos dieron un paso más con su primer disco de temas propios, 'Si Esto Se Acaba Que Sea El Boogaloo' (Lovemonk, 2012), donde exploraron sus raíces afrolatinas y ampliaron su paleta sonora hacia la Salsa, el Soul y el Bolero. Su potente directo los llevó a festivales como Vic Fezensac (Francia), IlosaariRock (Finlandia), Actual (Logroño), Cultura Inquieta (Getafe), Pirineos Sur, Periferias (Huesca), Slap Festival (Zaragoza) o el BAM de Barcelona. Esa energía quedó plasmada en su álbum en vivo 'Live in Jamboree', que marcó el cierre de una etapa.",
+      "Fieles a su esencia, la banda presenta un repertorio non-stop donde el sabor 100% Fulano de sus composiciones originales se entrelaza con los himnos inmortales de Barretto, Rodríguez y Bataan. ¡Ya es un hecho! 2025 marcó el gran reencuentro de Los Fulanos y vuelven a la carga. Are you ready for more?"
     ]
   },
   
@@ -68,28 +75,34 @@ export const artistas2026: Artista[] = [
     origen: "VALENCIA",
     estilo: "BLUES Y R&B",
     imagen: "/images/2026/lazy-tones-1.jpg",
-    web: "", // ✏️ Actualizar con la web real
-    video: "", // ✏️ Actualizar con URL de YouTube
+    web: "https://thelazytones.jimdofree.com/", // ⚠️ RECUERDA: Añadir la web real cuando la tengas
+    video: "https://www.youtube.com/watch?v=42sS5ae9rTc", // ⚠️ RECUERDA: Añadir la URL de YouTube cuando la tengas
     biografia: [
-      "The Lazy Tones son una de las formaciones más vibrantes y auténticas de la escena musical de Valencia. Con una propuesta que bebe directamente de las fuentes del Blues y el R&B clásico, la banda ha logrado forjar un sonido propio, enérgico y contundente.",
-      "Sus directos son una explosión de honestidad musical, donde las guitarras punzantes, una sección rítmica sólida y unas voces con alma se combinan para transportar al público a los clubes de Chicago y Memphis de los años 60.",
-      "Con varios trabajos discográficos a sus espaldas y una presencia constante en los mejores festivales de blues del estado, The Lazy Tones aterrizan en el Midnight Boogie para demostrar por qué son una de las bandas de R&B más respetadas del momento."
+      "Nacidos en Valencia y profundamente inspirados por el sonido de Chess Records, Lazy Tones recupera la esencia del blues eléctrico de Chicago, el jump blues y el rhythm & blues que dieron forma al rock & roll. Un sonido forjado por artistas como Muddy Waters, Howlin’ Wolf, Little Walter, o Willie Dixon, cuya música cambió para siempre la historia de la música popular.",
+      "Su repertorio combina versiones cuidadosamente seleccionadas de los grandes clásicos del blues con composiciones propias que conservan el espíritu, la fuerza y la autenticidad de aquella época. Lejos de limitarse a reproducir el pasado, Lazy Tones aporta una personalidad propia, manteniendo vivo el lenguaje del blues con canciones originales que podrían haber sonado en un club del South Side de Chicago en los años cincuenta.",
+      "Con músicos de amplia experiencia sobre los escenarios y festivales por todo el país, la banda ofrece un directo intenso, elegante y lleno de improvisación. Guitarras con carácter, armónica, una sólida sección rítmica y una puesta en escena cercana convierten cada concierto en un viaje a la edad de oro del blues, donde la tradición y la creatividad caminan de la mano.",
+      "Porque el blues no pertenece al pasado. Sigue vivo cada vez que se toca con honestidad."
     ]
   },
  
 
-  {
+   {
     slug: "haylen",
     nombre: "HAYLEN",
     origen: "FRANCE",
     estilo: "SOUL, BLUES, R'N'R",
     imagen: "/images/2026/haylen-1.jpg",
-    web: "", // ✏️ Actualizar con la web real
-    video: "", // ✏️ Actualizar con URL de YouTube
+    web: "https://www.haylenofficial.com", // ⚠️ RECUERDA: Añadir la web real cuando la tengas
+    video: "https://www.youtube.com/watch?v=CC6fkqEtswk", // ⚠️ RECUERDA: Añadir la URL de YouTube cuando la tengas
     biografia: [
-      "Haylen llega desde Francia con una propuesta que fusiona la crudeza del Blues, la elegancia del Soul y la energía desenfrenada del Rock 'n' Roll. La banda ha destacado en la escena europea por su sonido potente y su carisma escénico.",
-      "Sus composiciones originales beben de las grandes leyendas del género, pero con un enfoque fresco y contemporáneo que los hace sonar actuales y urgentes. Las guitarras distorsionadas se entrelazan con melodías vocales cautivadoras.",
-      "Su actuación en el Helldorado durante el sábado noche del Midnight Boogie será una de las citas ineludibles, prometiendo un directo de alta octanaje que dejará huella en el público."
+      "Después de una gira de presentación de 5 fechas en España en enero de este año y con SOLD OUT en todas ellas, y de actuar en varios festivales de verano (Fisterra Experience, Motorbeach, Blues de Antequera, Semana Grande Bilbao...), volverá en Noviembre para continuar su gira por salas.",
+      "Haylen tiene una voz poderosa y carismática, una verdadera rockera con tacones altos y una energía escénica magnética. Cantante, guitarrista, autora-compositora, encarna una feminidad libre y moderna, nutrida de influencias vintage y de una profunda ansia de vivir. Su universo mezcla con maestría Soul, Blues y Rock'n'Roll, con una estética auténtica, una modernidad comprometida y un amor sincero por el escenario.",
+      "Después de recorrer Francia y Europa con su primer EP 'OUT OF LINE', Haylen se unió al elenco de 'FASHION FREAK SHOW' de Jean Paul Gaultier para una gira mundial y se convirtió en la artista principal del famoso cabaret 'CRAZY HORSE'. Entre 2023 y 2024 realiza dos giras de Zéniths por toda Francia como telonera de Dire Straits Experience, abre los conciertos en el Olympia para Chris Isaak, Post Modern Jukebox (en dos ocasiones), participa en el 120 aniversario de Harley Davidson, y también abre para Robert Cray en La Cigale o Asaf Avidan en Mogador. En abril, abre para una de sus ídolos, Imelda May, en La Traverse de Cléon.",
+      "Gracias a estas experiencias, ha sabido imponerse como una artista imprescindible en los últimos años. Recientemente, ha lanzado 'Blue Wine', un álbum de 13 temas, dos de ellos en francés y uno compuesto por Darrel Higham (guitarrista y compositor de Imelda May). En él encontramos la esencia misma de su estilo: una mezcla entre la elegancia de los años 50 y 60 y una urgencia emocional muy actual. El álbum ha sido aclamado por la crítica, en particular por Rolling Stone Magazine, que le dedicó un reportaje de doble página en su número de febrero de 2023.",
+      "En 2023 gana dos premios, entre ellos el Gran Premio del Jurado del Cahors Blues Festival. En 2025 actuará en el escenario principal, frente a una afluencia récord en la historia del Festival. Haylen cuenta con el apoyo de Gibson France y es embajadora de la marca estadounidense Klipsch.",
+      "En 2025 se presenta y defiende sus canciones en varios festivales y clubes por toda Europa. En abril, se embarca en el Havila Blues Cruise que recorre los fiordos noruegos. En esta ocasión comparte escenario con grandes artistas noruegos reconocidos, y sus conciertos reciben elogios de la prensa local. Actúa en el Wine Festival en Portugal, la noche del sábado como cabeza de cartel junto a su banda original francesa, en la que participa Phil Almosnino a la guitarra (Johnny Hallyday, Les Wampas...).",
+      "También se presenta en el Megève Blues Festival con su amigo Johnny Gallagher, donde interpretan dos canciones, entre ellas una versión de 'Tennessee Whiskey', cuya grabación en vídeo ha alcanzado miles de visualizaciones en YouTube. Gira en varias ocasiones por clubes y festivales de blues en toda España, ante un público que no deja de crecer.",
+      "En julio de 2025 llega la consagración: cumple uno de sus mayores sueños, tocar en el mítico escenario del Ronnie Scott’s en Londres, junto a su amiga Aisha Khan, en una fecha que se agota por completo."
     ]
   },
 
