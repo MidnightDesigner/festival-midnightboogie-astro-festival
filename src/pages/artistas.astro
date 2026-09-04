@@ -1,0 +1,43 @@
+---
+// src/pages/artistas.astro
+import Layout from '../layouts/Layout.astro';
+import Footer from '../components/Footer.astro';
+import ArtistCard from '../components/ArtistCard.astro';
+import { artistas2026 } from '../data/artistas';
+---
+
+<Layout 
+  title="Artistas y Lineup" 
+  description="Conoce a los artistas del Midnight Boogie 2026: Stone Foundation, Nine Below Zero, The Lazy Tones y los mejores DJs de soul y rhythm & blues." 
+  showStars={true}
+>
+  
+  <!-- Main SIN restricciones de ancho máximo, solo padding vertical -->
+  <main class="w-full py-16 md:py-24">
+    
+    <!-- Encabezado de la Sección -->
+    <header class="text-center mb-16 md:mb-24 px-4">
+      <!-- TÍTULO REDUCIDO AL 50% -->
+      <h1 class="font-avantgarde text-white text-2xl md:text-3xl lg:text-5xl font-light uppercase tracking-tight mb-6 drop-shadow-lg">
+        Artistas <span class="text-[rgb(233,157,56)]">2026</span>
+      </h1>
+      <p class="text-white/70 text-sm md:text-base font-light max-w-2xl mx-auto leading-relaxed">
+        El lineup de esta edición reúne lo mejor del soul, groove y rhythm & blues internacional. 
+        Descubre sus historias y su música.
+      </p>
+      
+      <!-- Línea decorativa -->
+      <div class="w-24 h-[1px] bg-[rgb(233,157,56)] mx-auto mt-8 opacity-80"></div>
+    </header>
+
+    <!-- Lista de Artistas: Espaciado vertical generoso (96px a 128px) -->
+    <div class="flex flex-col items-center space-y-24 md:space-y-32 w-full">
+      {artistas2026.map((artista) => (
+        <ArtistCard artista={artista} />
+      ))}
+    </div>
+
+  </main>
+
+  <Footer />
+</Layout>

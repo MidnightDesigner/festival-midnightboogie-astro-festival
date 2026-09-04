@@ -1,0 +1,78 @@
+---
+import '../styles/global.css'; 
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import StarBackground from '../components/StarBackground.astro';
+
+interface Props {
+  title: string;
+  description?: string;
+  image?: string;
+}
+
+const { 
+  title, 
+  description = "Midnight Boogie Festival - El mejor soul, blues y rhythm & blues en Vitoria-Gasteiz.",
+  image = "/images/og-default.png"
+} = Astro.props;
+
+const siteUrl = "https://www.midnightboogie.net"; 
+const fullTitle = title.includes("Midnight Boogie") ? title : `${title} | Midnight Boogie 2026`;
+const fullImageUrl = image.startsWith("http") ? image : `${siteUrl}${image}`;
+const currentUrl = `${siteUrl}${Astro.url.pathname}`;
+
+const isHomePage = Astro.url.pathname === '/' || Astro.url.pathname === '/index.html';
+const showStars = !isHomePage;
+---
+
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    
+    <!-- Activa las transiciones suaves de Astro -->
+    <meta name="view-transition" content="same-origin" />
+    
+    <title>{fullTitle}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={currentUrl} />
+    
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={currentUrl} />
+    <meta property="og:title" content={fullTitle} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={fullImageUrl} />
+    <meta property="og:locale" content="es_ES" />
+    <meta property="og:site_name" content="Midnight Boogie" />
+    
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:url" content={currentUrl} />
+    <meta name="twitter:title" content={fullTitle} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={fullImageUrl} />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Jost:wght@300;400;500;600;700;900&display=swap" rel="stylesheet">
+  </head>
+  
+  <!-- El body es bg-neutral-950 para coincidir con el fondo de las estrellas -->
+  <body class="m-0 p-0 bg-neutral-950 text-white font-jost antialiased flex flex-col min-h-screen relative">
+    
+    {showStars && <StarBackground transition:persist />}
+    
+    <Header />
+    
+    <main class="flex-grow relative z-10 pt-20 md:pt-[120px]">
+      <slot />
+    </main>
+
+    <Footer />
+  </body>
+</html>
+
+<style is:global>
+  .font-jost { font-family: 'Jost', sans-serif; }
+  .font-avantgarde { font-family: 'Avant Garde', sans-serif; }
+</style>

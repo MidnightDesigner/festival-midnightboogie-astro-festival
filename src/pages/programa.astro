@@ -1,0 +1,127 @@
+---
+// src/pages/programa.astro
+import Layout from '../layouts/Layout.astro';
+import Footer from '../components/Footer.astro';
+import EventoCard from '../components/EventoCard.astro';
+import { programa2026 } from '../data/programa';
+---
+
+<Layout 
+  title="Programa y Horarios" 
+  description="Programa oficial del Midnight Boogie Weekend 2026 en Vitoria-Gasteiz. Conciertos en Sala Arkabia y Helldorado, talleres y fiestas posteriores." 
+  showStars={true}
+> 
+  
+  <main class="max-w-4xl mx-auto px-6 py-16 space-y-24">
+      
+    <!-- ========================================== -->
+    <!-- PRESENTACIÓN (SEPTIEMBRE) -->
+    <!-- ========================================== -->
+    <section class="mb-24 px-4">
+      <h2 class="font-avantgarde text-white text-4xl md:text-6xl font-light uppercase tracking-tight mb-4 drop-shadow-lg text-center">
+        {programa2026.presentacion.dia} <span class="text-[rgb(233,157,56)]">Septiembre</span>
+      </h2>
+
+      <p class="text-white/80 text-xs md:text-sm font-medium uppercase tracking-[0.3em] text-center mb-8 drop-shadow-md">
+        {programa2026.presentacion.tag}
+      </p>
+
+      {programa2026.presentacion.eventos.map((evento, index) => (
+        <div class={index > 0 ? "max-w-2xl mx-auto border-t border-white/10 pt-12 mt-12" : ""}>
+          <EventoCard evento={evento} />
+        </div>
+      ))}
+    </section>
+
+    <!-- ========================================== -->
+    <!-- VIERNES 27 NOVIEMBRE -->
+    <!-- ========================================== -->
+    <section class="mb-24 px-4">
+      <h2 class="font-avantgarde text-white text-4xl md:text-6xl font-light uppercase tracking-tight mb-4 drop-shadow-lg text-center">
+        {programa2026.viernes.dia} <span class="text-[rgb(233,157,56)]">Noviembre</span>
+      </h2>
+
+      <p class="sr-only">{programa2026.viernes.tag}</p>
+
+      {programa2026.viernes.eventos.map((evento) => (
+        <EventoCard evento={evento} />
+      ))}
+    </section>
+
+    <!-- ========================================== -->
+    <!-- SÁBADO 28 - TALLER FAMILIAR -->
+    <!-- ========================================== -->
+    <section class="mb-24 px-4">
+      <h2 class="font-avantgarde text-white text-4xl md:text-6xl font-light uppercase tracking-tight mb-4 drop-shadow-lg text-center">
+        {programa2026.sabadoTaller.dia} <span class="text-[rgb(233,157,56)]">Noviembre</span>
+      </h2>
+
+      <p class="text-white/80 text-xs md:text-sm font-medium uppercase tracking-[0.3em] text-center mb-8 drop-shadow-md">
+        {programa2026.sabadoTaller.tag}
+      </p>
+
+      {programa2026.sabadoTaller.eventos.map((evento) => (
+        <EventoCard evento={evento} />
+      ))}
+    </section>
+
+    <!-- ========================================== -->
+    <!-- SÁBADO 28 - NOCHE DE SOUL & R'N'R -->
+    <!-- ========================================== -->
+    <section class="mb-24 px-4">
+      <h2 class="font-avantgarde text-white text-4xl md:text-6xl font-light uppercase tracking-tight mb-4 drop-shadow-lg text-center">
+        {programa2026.sabadoNoche.dia} <span class="text-[rgb(233,157,56)]">Noviembre</span>
+      </h2>
+
+      <p class="sr-only">{programa2026.sabadoNoche.tag}</p>
+
+      {programa2026.sabadoNoche.eventos.map((evento) => (
+        <EventoCard evento={evento} />
+      ))}
+    </section>
+
+   <!-- BLOQUE DE ABONO AL FINAL -->
+    {programa2026.abono && (
+      <div class="flex justify-center mt-24 mb-10">
+        <div class="inline-flex flex-col items-center bg-white/5 backdrop-blur-md border border-[rgb(233,157,56)]/50 rounded-xl px-6 py-6 md:px-8 md:py-8 text-center">
+          
+          <!-- Precio -->
+          <p class="font-avantgarde text-[rgb(233,157,56)] text-lg md:text-2xl font-light tracking-wide drop-shadow-lg">
+            Abono Weekend: {programa2026.abono.precio}
+          </p>
+          
+          <!-- Descripción -->
+          <p class="font-avantgarde text-white/70 text-[8px] md:text-[10px] font-light uppercase tracking-[0.25em] mt-2 mb-6 drop-shadow-md">
+            {programa2026.abono.descripcion}
+          </p>
+          
+          <!-- Botón de compra (solo si existe el link) -->
+          {programa2026.abono.link && (
+            <a 
+              href={programa2026.abono.link}
+              target="_blank"
+              rel="noopener noreferrer"
+              class="inline-flex items-center gap-2 bg-[rgb(233,157,56)] text-black px-6 py-2.5 rounded-full text-xs md:text-sm font-bold uppercase tracking-widest hover:bg-white transition-colors shadow-lg"
+            >
+              {programa2026.abono.linkTexto}
+              <!-- Icono de enlace externo -->
+              <svg 
+                xmlns="http://www.w3.org/2000/svg" 
+                fill="none" 
+                viewBox="0 0 24 24" 
+                stroke-width="2" 
+                stroke="currentColor" 
+                class="w-3 h-3 md:w-4 md:h-4"
+              >
+                <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 6H5.25A2.25 2.25 0 003 8.25v10.5A2.25 2.25 0 005.25 21h10.5A2.25 2.25 0 0018 18.75V10.5m-10.5 6L21 3m0 0h-5.25M21 3v5.25" />
+              </svg>
+            </a>
+          )}
+          
+        </div>
+      </div>
+    )}
+  </main>
+
+  <Footer />
+</Layout>

@@ -1,21 +1,53 @@
 ---
-// Frontmatter
-const title = "Midnight Boogie Festival 2026"
-const description = "Black Music Festival"
+import Layout from '../layouts/Layout.astro';
+
+const year = "2026";
+const location = "VITORIA GASTEIZ";
+const heroImage = "/images/welcome-2026.png";          
 ---
 
-<html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>{title}</title>
-    <meta name="description" content={description} />
-  </head>
-  <body>
-    <main>
-      <h1>🎵 {title}</h1>
-      <p>{description}</p>
-      <p><em>Site under construction...</em></p>
-    </main>
-  </body>
-</html>
+<Layout title="Inicio" description="Midnight Boogie Festival 2026 - Vitoria Gasteiz">
+  
+  <!-- PORTADA: Imagen que deja espacio exacto para el sponsor abajo -->
+  <main 
+    class="relative w-full cursor-pointer group" 
+    onclick="window.location.href='/programa'"
+    role="link"
+    aria-label="Ver programa del festival"
+  >
+   <img 
+  src={heroImage} 
+  alt={`Midnight Boogie Festival ${year}`} 
+  class="w-full h-[calc(100vh-180px)] md:h-[calc(100vh-270px)] object-cover object-bottom md:object-center transition-transform duration-700 group-hover:scale-105"
+/>
+    
+    <div class="absolute inset-0 bg-black/10 pointer-events-none"></div>
+    
+    <!-- UBICACIÓN: Overlay editorial -->
+    <div class="absolute bottom-6 left-6 md:bottom-10 md:left-10 z-20 pointer-events-none">
+      <div class="flex items-center gap-3">
+        <div class="w-8 h-[2px] bg-[rgb(233,157,56)]"></div>
+        <span class="text-white/80 text-xs md:text-sm font-bold uppercase tracking-[0.25em] drop-shadow-lg">
+          {location}
+        </span>
+      </div>
+    </div>
+    
+    <!-- Hint visual al hover -->
+    <div class="absolute bottom-8 right-8 md:bottom-10 md:right-10 opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-30 hidden md:block">
+      <span class="bg-white/90 text-black px-6 py-3 rounded-full text-sm font-bold uppercase tracking-widest shadow-lg backdrop-blur-sm">
+        Ver Programa
+      </span>
+    </div>
+  </main>
+
+  <!-- SPONSOR (Solo en la portada) -->
+  <section class="h-[100px] md:h-[150px] flex justify-center items-center bg-[rgb(233,157,56)] border-t border-black/10 shrink-0">
+    <img 
+      src="/images/sponsor-vital.svg" 
+      alt="Sponsor Principal" 
+      class="h-[60%] object-contain drop-shadow-md opacity-90"
+    />
+  </section>
+
+</Layout>

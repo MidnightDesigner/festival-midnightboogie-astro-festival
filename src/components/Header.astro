@@ -1,0 +1,115 @@
+---
+const { 
+  year = "2026", 
+  location = "VITORIA GASTEIZ", 
+  festivalLogo = "/images/logo-midnightboogie.svg" 
+} = Astro.props;
+
+const locationLines = location.split(" ");
+const currentPath = Astro.url.pathname;
+
+// Función auxiliar para generar las clases de forma limpia
+const getNavClass = (path) => {
+  const baseClass = "relative text-black font-bold text-xs uppercase tracking-widest hover:opacity-60 transition-opacity";
+  const activeClass = currentPath.startsWith(path) ? " active-link" : "";
+  return baseClass + activeClass;
+};
+
+const getMobileClass = (path) => {
+  const baseClass = "text-black font-bold text-lg uppercase transition-opacity";
+  const activeClass = currentPath.startsWith(path) ? " opacity-60" : "";
+  return baseClass + activeClass;
+};
+---
+
+<header class="fixed top-0 left-0 right-0 z-50 w-full bg-[rgb(233,157,56)] shadow-md">
+
+  <div class="max-w-7xl mx-auto px-6 md:px-12">
+    
+    <!-- Grilla de 3 columnas -->
+    <div class="grid grid-cols-[1fr_auto_1fr] items-center py-4">
+      
+      <!-- Columna 1: Año -->
+      <div class="text-left">
+        <span class="font-avantgarde text-lg md:text-4xl font-light text-black">
+          {year}
+        </span>
+      </div>
+      
+      <!-- Columna 2: Logo -->
+      <div class="text-center px-4">
+        <a href="/" class="block">
+          <img 
+            src={festivalLogo} 
+            alt="Midnight Boogie" 
+            class="h-12 md:h-14 object-contain mx-auto" 
+          />
+        </a>
+      </div>
+      
+      <!-- Columna 3: Ubicación / Menú Móvil -->
+      <div class="flex justify-end items-center">
+        <div class="hidden md:block">
+          <div class="font-avantgarde text-sm font-bold text-black text-justify text-justify-last leading-tight">
+            {locationLines.map((word) => (
+              <span class="block">{word}</span>
+            ))}
+          </div>
+        </div>
+        
+        <button 
+          id="menu-toggle"
+          class="md:hidden text-black ml-4"
+          aria-label="Abrir menú"
+        >
+          <svg class="w-8 h-8" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16" />
+          </svg>
+        </button>
+      </div>
+    </div>
+    
+    <!-- Menú Desktop -->
+    <nav class="hidden md:flex justify-center gap-8 pb-4 border-t border-black/10 pt-3 mt-1">
+      <a href="/programa" class={getNavClass('/programa')}>Programa</a>
+      <a href="/artistas" class={getNavClass('/artistas')}>Artistas</a>
+      <a href="/entradas" class={getNavClass('/entradas')}>Entradas</a>
+      <a href="/archivo" class={getNavClass('/archivo')}>Archivo</a>
+      <a href="/contacto" class={getNavClass('/contacto')}>Contacto</a>
+    </nav>
+  </div>
+  
+  <!-- Menú Móvil Desplegable (SIN "Inicio") -->
+  <div id="mobile-menu" class="md:hidden hidden bg-[rgb(233,157,56)] border-t border-black/20">
+    <nav class="flex flex-col p-6 gap-4">
+      <a href="/programa" class={getMobileClass('/programa')}>Programa</a>
+      <a href="/artistas" class={getMobileClass('/artistas')}>Artistas</a>
+      <a href="/entradas" class={getMobileClass('/entradas')}>Entradas</a>
+      <a href="/archivo" class={getMobileClass('/archivo')}>Archivo</a>
+      <a href="/contacto" class={getMobileClass('/contacto')}>Contacto</a>
+    </nav>
+  </div>
+</header>
+
+<script>
+  const toggleBtn = document.getElementById('menu-toggle');
+  const mobileMenu = document.getElementById('mobile-menu');
+  
+  toggleBtn?.addEventListener('click', () => {
+    mobileMenu?.classList.toggle('hidden');
+  });
+</script>
+
+<style>
+  /* Línea indicadora para página activa (Desktop) */
+  .active-link::after {
+    content: '';
+    position: absolute;
+    bottom: -6px;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background-color: black;
+    border-radius: 999px; /* Extremos redondeados */
+  }
+</style>

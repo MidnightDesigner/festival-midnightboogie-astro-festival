@@ -1,0 +1,111 @@
+---
+// src/components/EventCard.astro
+const { evento } = Astro.props;
+const esAfterparty = evento.esAfterparty || false;
+---
+
+<article class={`rounded-xl overflow-hidden shadow-2xl mb-8 transition-transform duration-300 hover:-translate-y-1 ${
+  esAfterparty 
+    ? 'bg-neutral-900 text-white border border-neutral-700' 
+    : 'bg-white text-neutral-900 border border-white/20'
+}`}>
+  
+  <!-- FRANJA SUPERIOR: Hora y Lugar -->
+  <div class={`px-6 py-3 flex flex-wrap justify-between items-center gap-2 border-b ${
+    esAfterparty ? 'bg-neutral-800 border-neutral-700' : 'bg-neutral-50 border-neutral-200'
+  }`}>
+    <div class="flex items-center gap-3">
+      <time class={`font-bold text-lg ${esAfterparty ? 'text-[rgb(233,157,56)]' : 'text-[rgb(233,157,56)]'}`}>
+        {evento.hora}h
+      </time>
+      <span class={`text-xs font-bold uppercase tracking-wider ${esAfterparty ? 'text-neutral-400' : 'text-neutral-500'}`}>
+        {evento.lugar}
+      </span>
+    </div>
+    {evento.precio && !esAfterparty && (
+      <span class="text-xs font-bold uppercase tracking-wider text-neutral-500">
+        {evento.precio}
+      </span>
+    )}
+  </div>
+
+  <!-- CONTENIDO PRINCIPAL -->
+  <div class="p-6 md:p-8">
+    
+    <!-- Título del Evento -->
+    <h3 class="font-avantgarde text-3xl md:text-5xl font-black uppercase leading-none mb-2 tracking-tight">
+      {evento.titulo}
+    </h3>
+    
+    {evento.subtitulo && (
+      <p class={`text-sm font-medium mb-6 ${esAfterparty ? 'text-neutral-400' : 'text-neutral-600'}`}>
+        {evento.subtitulo}
+      </p>
+    )}
+
+    <!-- MARCADOR DE IMAGEN (Se activará cuando tengamos las fotos en los datos) -->
+    <div class={`w-full h-48 md:h-64 rounded-lg mb-6 flex items-center justify-center text-xs uppercase tracking-[0.2em] font-bold ${
+      esAfterparty ? 'bg-neutral-800 text-neutral-600' : 'bg-neutral-100 text-neutral-400'
+    }`}>
+      [ Imagen del Evento / Artista ]
+    </div>
+
+    <!-- CASO A: Lista de Artistas -->
+    {evento.artistas && (
+      <ul class="space-y-3 mb-6">
+        {evento.artistas.map((artista) => (
+          <li class={`flex flex-col md:flex-row md:items-baseline md:gap-3 pb-2 border-b last:border-0 last:pb-0 ${
+            esAfterparty ? 'border-neutral-700' : 'border-neutral-200'
+          }`}>
+            <span class="font-bold text-base md:text-lg">{artista.nombre}</span>
+            {artista.origen && <span class={`text-sm ${esAfterparty ? 'text-neutral-500' : 'text-neutral-500'}`}>({artista.origen})</span>}
+            {artista.estilo && <span class={`text-sm mt-1 md:mt-0 md:ml-auto italic ${esAfterparty ? 'text-neutral-400' : 'text-neutral-600'}`}>
+              {artista.estilo}
+            </span>}
+          </li>
+        ))}
+      </ul>
+    )}
+
+    <!-- CASO B: Descripción (Talleres) -->
+    {evento.descripcion && (
+      <div class="mb-6">
+        <p class={`leading-relaxed ${esAfterparty ? 'text-neutral-300' : 'text-neutral-700'}`}>
+          {evento.descripcion}
+        </p>
+        {evento.link && (
+          <a 
+            href={evento.link} 
+            target="_blank" 
+            rel="noopener noreferrer"
+            class="inline-flex items-center gap-2 text-[rgb(233,157,56)] font-bold hover:underline mt-4 text-sm"
+          >
+            {evento.linkTexto || "Más información"}
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg>
+          </a>
+        )}
+      </div>
+    )}
+
+    <!-- FOOTER DE LA CARTA: Precio y Botón -->
+    {!esAfterparty && (
+      <div class={`mt-6 pt-4 border-t flex flex-col sm:flex-row sm:items-center justify-between gap-4 ${
+        esAfterparty ? 'border-neutral-700' : 'border-neutral-200'
+      }`}>
+        <span class="font-bold text-lg">{evento.precio}</span>
+        {evento.hora === "21:00" && (
+          <button class="bg-[rgb(233,157,56)] text-black px-6 py-2 rounded-full text-xs font-bold uppercase tracking-widest hover:bg-black hover:text-white transition-colors">
+            Comprar Entrada
+          </button>
+        )}
+      </div>
+    )}
+    
+    {esAfterparty && (
+      <div class="mt-6 pt-4 border-t border-neutral-700 text-center">
+        <span class="text-[rgb(233,157,56)] font-bold text-sm uppercase tracking-widest">Entrada libre / Consumición</span>
+      </div>
+    )}
+
+  </div>
+</article>

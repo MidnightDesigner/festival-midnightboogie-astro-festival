@@ -1,0 +1,65 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { pastEditions } from '../data/archivo';
+---
+
+<Layout 
+  title="Archivo"
+  description="Revive las ediciones pasadas del Midnight Boogie Festival. Fotos, vídeos y recuerdos de años anteriores."
+>
+  <div class="container mx-auto px-6 md:px-12 max-w-7xl py-12 relative z-10">
+    
+    <div class="text-center mb-16 md:mb-20">
+      <h1 class="font-avantgarde text-5xl md:text-7xl mb-6">Archivo</h1>
+      <p class="text-xl md:text-2xl text-neutral-400">Revive la historia del Midnight Boogie</p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
+      {pastEditions.map((edition) => (
+        <article class="group bg-neutral-800/80 backdrop-blur-sm rounded-lg overflow-hidden border border-neutral-700 hover:border-[rgb(233,157,56)] transition-all duration-300">
+          <div class="aspect-video bg-neutral-800 relative overflow-hidden">
+            {edition.image ? (
+              <img src={edition.image} alt={edition.title} class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" />
+            ) : (
+              <div class="absolute inset-0 flex items-center justify-center">
+                <span class="font-avantgarde text-6xl text-neutral-700">{edition.year}</span>
+              </div>
+            )}
+            
+            <div class="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+              {edition.link ? (
+                <a href={edition.link} class="px-6 py-3 bg-[rgb(233,157,56)] text-neutral-950 font-semibold rounded-full hover:bg-orange-400 transition-colors flex items-center gap-2">
+                  Ver edición
+                  <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                  </svg>
+                </a>
+              ) : (
+                <span class="text-neutral-400 font-semibold">Próximamente</span>
+              )}
+            </div>
+          </div>
+
+          <div class="p-6">
+            <h2 class="font-avantgarde text-2xl mb-2 group-hover:text-[rgb(233,157,56)] transition-colors">{edition.title}</h2>
+            <p class="text-[rgb(233,157,56)] text-sm mb-4 font-medium">{edition.dates}</p>
+            <div class="flex flex-wrap gap-2">
+              {edition.artists.map((artist) => (
+                <span class="px-3 py-1 bg-neutral-900 rounded-full text-xs text-neutral-300 border border-neutral-700">{artist}</span>
+              ))}
+            </div>
+          </div>
+        </article>
+      ))}
+    </div>
+
+    <div class="bg-neutral-800/80 backdrop-blur-sm rounded-lg p-8 md:p-12 border border-neutral-700 text-center">
+      <h2 class="font-avantgarde text-3xl md:text-4xl mb-4">¿Tienes material de ediciones pasadas?</h2>
+      <p class="text-neutral-400 mb-8">Nos encantaría revisar tu foto o vídeo para el archivo oficial del festival.</p>
+      <a href="/contacto" class="inline-block px-8 py-3 bg-[rgb(233,157,56)] text-neutral-950 font-bold uppercase tracking-wider rounded-full hover:bg-orange-400 transition-colors">
+        Contactar con el equipo
+      </a>
+    </div>
+
+  </div>
+</Layout>
