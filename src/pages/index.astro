@@ -13,10 +13,9 @@ const heroImage = "/images/welcome-2026.png";
 >
   
   <!-- PORTADA: Imagen que deja espacio exacto para el sponsor abajo -->
-  <main 
-    class="relative w-full cursor-pointer group" 
-    onclick="window.location.href='/programa'"
-    role="link"
+  <a 
+    href="/programa"
+    class="relative block w-full group" 
     aria-label="Ver programa del festival"
   >
    <img 
@@ -43,7 +42,7 @@ const heroImage = "/images/welcome-2026.png";
         Ver Programa
       </span>
     </div>
-  </main>
+  </a>
 
   <!-- SPONSOR (Solo en la portada) -->
   <section class="h-[100px] md:h-[150px] flex justify-center items-center bg-[rgb(233,157,56)] border-t border-black/10 shrink-0">

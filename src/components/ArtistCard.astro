@@ -35,20 +35,29 @@ const tieneVideo = youtubeId !== null;
     </p>
   </div>
 
-  <!-- BLOQUE CENTRAL: FOTOGRAFÍA (con Astro Image optimizada) -->
+  <!-- BLOQUE CENTRAL: FOTOGRAFÍA (clicable para lightbox) -->
   <div class="w-full">
-    <div class="aspect-[16/9] md:aspect-[2/1] overflow-hidden flex items-center justify-center">
+    <button 
+      class="lightbox-trigger w-full aspect-[16/9] md:aspect-[2/1] overflow-hidden flex items-center justify-center cursor-pointer relative group"
+      aria-label={`Ver foto de ${artista.nombre} a pantalla completa`}
+    >
       <Image 
         src={artista.imagen} 
         alt={`Foto de ${artista.nombre}`}
-        class="w-full h-full object-contain hover:scale-105 transition-transform duration-700 ease-out"
+        class="w-full h-full object-contain group-hover:scale-105 transition-transform duration-700 ease-out"
         loading="lazy"
         width={1200}
         height={675}
         format="webp"
         quality={80}
       />
-    </div>
+      <!-- Icono de lupa al hacer hover -->
+      <div class="absolute inset-0 bg-black/0 group-hover:bg-black/30 transition-colors duration-300 flex items-center justify-center">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-12 h-12 text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607zM10.5 7.5v6m3-3h-6" />
+        </svg>
+      </div>
+    </button>
   </div>
 
   <!-- BLOQUE INFERIOR: BIOGRAFÍA EXPANDIBLE -->
@@ -131,6 +140,26 @@ const tieneVideo = youtubeId !== null;
     </button>
   </div>
 
+     <!-- LIGHTBOX MODAL (clic en cualquier parte para cerrar) -->
+  <div 
+    class="lightbox-modal fixed inset-0 z-[200] hidden cursor-pointer"
+    role="dialog"
+    aria-modal="true"
+    aria-label={`Foto de ${artista.nombre}`}
+  >
+    <!-- Overlay clicable -->
+    <div class="lightbox-overlay absolute inset-0 bg-black/95 backdrop-blur-sm"></div>
+    
+    <!-- Imagen -->
+    <div class="absolute inset-0 flex items-center justify-center p-4">
+      <img 
+        src={artista.imagen} 
+        alt={`Foto de ${artista.nombre}`}
+        class="lightbox-image w-auto h-auto max-w-[95vw] max-h-[90vh] object-contain"
+      />
+    </div>
+  </div>
+
 </article>
 
 <style>
@@ -159,10 +188,41 @@ const tieneVideo = youtubeId !== null;
   .bio-toggle[aria-expanded="true"] .arrow-icon {
     transform: rotate(180deg);
   }
+
+  /* Lightbox animations */
+  .lightbox-modal.active {
+    display: flex;
+    animation: fadeIn 0.3s ease-out;
+  }
+
+  .lightbox-modal.active .lightbox-image {
+    animation: zoomIn 0.3s ease-out;
+  }
+
+  @keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+
+  @keyframes zoomIn {
+    from { 
+      opacity: 0;
+      transform: scale(0.9);
+    }
+    to { 
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+
+  body.lightbox-open {
+    overflow: hidden;
+  }
 </style>
 
 <script>
   document.addEventListener('DOMContentLoaded', () => {
+    // Toggle de biografía
     const toggleButtons = document.querySelectorAll('.bio-toggle');
     
     toggleButtons.forEach(button => {
@@ -176,6 +236,40 @@ const tieneVideo = youtubeId !== null;
         bioCompleta.classList.toggle('expanded');
         
         toggleText.textContent = isExpanded ? 'Ver biografía completa' : 'Ocultar biografía';
+      });
+    });
+
+    // Lightbox functionality
+    const lightboxTriggers = document.querySelectorAll('.lightbox-trigger');
+    
+    lightboxTriggers.forEach(trigger => {
+      trigger.addEventListener('click', () => {
+        const card = trigger.closest('.artist-card');
+        const modal = card.querySelector('.lightbox-modal');
+
+        const openLightbox = () => {
+          modal?.classList.add('active');
+          document.body.classList.add('lightbox-open');
+        };
+
+        const closeLightbox = () => {
+          modal?.classList.remove('active');
+          document.body.classList.remove('lightbox-open');
+        };
+
+        openLightbox();
+
+        // Cerrar al hacer clic en cualquier parte del modal
+        modal?.addEventListener('click', closeLightbox);
+
+        // Cerrar con tecla Escape
+        const handleEscape = (e: KeyboardEvent) => {
+          if (e.key === 'Escape' && modal?.classList.contains('active')) {
+            closeLightbox();
+            document.removeEventListener('keydown', handleEscape);
+          }
+        };
+        document.addEventListener('keydown', handleEscape);
       });
     });
   });
