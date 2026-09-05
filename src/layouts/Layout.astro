@@ -21,8 +21,7 @@ const fullTitle = title.includes("Midnight Boogie") ? title : `${title} | Midnig
 const fullImageUrl = image.startsWith("http") ? image : `${siteUrl}${image}`;
 const currentUrl = `${siteUrl}${Astro.url.pathname}`;
 
-const isHomePage = Astro.url.pathname === '/' || Astro.url.pathname === '/index.html';
-const showStars = !isHomePage;
+
 ---
 
 <!doctype html>
@@ -60,7 +59,7 @@ const showStars = !isHomePage;
   <!-- El body es bg-neutral-950 para coincidir con el fondo de las estrellas -->
   <body class="m-0 p-0 bg-neutral-950 text-white font-jost antialiased flex flex-col min-h-screen relative">
     
-    {showStars && <StarBackground transition:persist />}
+<StarBackground transition:persist />
     
     <Header />
     
