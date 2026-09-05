@@ -15,7 +15,7 @@ export const programa2026 = {
           { nombre: "Stone Foundation", origen: "UNITED KINGDOM", estilo: "Groove · Northern Soul · Funk" }
         ],
         precio: "Entrada única: 15€",
-        link: "https://www.arkabia.eus",
+        link: "https://arkabia.eus/evento/stone-foundation/",
         linkTexto: "Comprar entradas"
       },
       {

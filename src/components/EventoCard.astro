@@ -22,6 +22,15 @@ export interface Props {
 const { evento } = Astro.props;
 const tieneArtistas = evento.artistas && evento.artistas.length > 0;
 const tieneLink = evento.link && evento.link.trim() !== '';
+
+// Mapa: nombre exacto del lugar en los datos -> logo de la sala
+const logoPorSala: Record<string, string> = {
+  "Sala Arkabia": "/images/salas-logos/arkabia.jpg",
+  "Helldorado": "/images/salas-logos/helldorado.png",
+  "Ttipia Taberna": "/images/salas-logos/ttipia.webp",
+  "Creative Soul": "/images/salas-logos/creative-soul.jpg",
+};
+const logoSala = logoPorSala[evento.lugar];
 ---
 
 <div class="max-w-4xl mx-auto">
@@ -81,6 +90,17 @@ const tieneLink = evento.link && evento.link.trim() !== '';
   )}
 
   {/* Info de Sala, Hora y Dirección */}
+  {/* Logo de la sala (si tiene) */}
+{logoPorSala && (
+  <div class="flex justify-center mb-4">
+    <img 
+      src={logoSala} 
+      alt={`Logo de ${evento.lugar}`} 
+      class="h-14 md:h-20 w-auto object-contain"
+      loading="lazy"
+    />
+  </div>
+)}
   <div class="flex flex-col md:flex-row justify-center items-center gap-3 md:gap-6 text-white mb-10">
     <span class="font-bold text-xl uppercase tracking-wider">{evento.lugar}</span>
     <span class="hidden md:block w-1.5 h-1.5 bg-white/30 rounded-full"></span>

@@ -7,6 +7,7 @@ export interface Entrada {
   evento: string;
   artista: string;
   lugar: string;
+  direccion?: string;  
   precioAnticipada: string;
   precioTaquilla?: string; // Opcional (pon "?" al final si no siempre existe)
   link: string;
@@ -24,7 +25,8 @@ export const entradas2026: Entrada[] = [
     hora: "20:00h",
     evento: "Concierto de Presentación",
     artista: "Stone Foundation",
-    lugar: "Sala Arkabia, Vitoria-Gasteiz",
+    lugar: "Sala Arkabia",
+    direccion: "Postas 13-15, Vitoria-Gasteiz",
     precioAnticipada: "15€",
     precioTaquilla: "18€",
     link: "https://www.arkabia.eus",
@@ -41,7 +43,8 @@ export const entradas2026: Entrada[] = [
     hora: "21:00h",
     evento: "Abono Weekend",
     artista: "Acceso a ambos conciertos",
-    lugar: "Helldorado, Vitoria-Gasteiz",
+    lugar: "Helldorado",
+    direccion: "Venta de la Estrella, 6, Pab. 44, Vitoria-Gasteiz",
     precioAnticipada: "39€",
 
     link: "https://www.musikaze.net/web/?menu=138&pagina=&item=62415&siteID=infiernodorado",
@@ -58,7 +61,8 @@ export const entradas2026: Entrada[] = [
     hora: "21:00h",
     evento: "Noche de Blues & Boogaloo",
     artista: "The Lazy Tones · Los Fulanos",
-    lugar: "Helldorado, Vitoria-Gasteiz",
+    lugar: "Helldorado",
+    direccion: "Venta de la Estrella, 6, Pab. 44, Vitoria-Gasteiz",
     precioAnticipada: "22€",
     precioTaquilla: "26€",
     link: "https://www.musikaze.net/web/?menu=138&pagina=&item=62415&siteID=infiernodorado",
@@ -76,7 +80,8 @@ export const entradas2026: Entrada[] = [
     hora: "12:00h",
     evento: "Taller Creativo",
     artista: "Taller creativo para los más pequeños",
-    lugar: "Pintor Pablo Uranga Kalea 22",
+    lugar: "Creative Soul",
+    direccion: "Pintor Pablo Uranga Kalea 22, Vitoria-Gasteiz",
     precioAnticipada: "Gratis con inscripción",
     link: "https://www.fundacionvital.eus/",
     linkTexto: "Inscribirse en Fundación Vital Fundazioa",
@@ -95,7 +100,8 @@ export const entradas2026: Entrada[] = [
     hora: "21:00h",
     evento: "Noche de Soul & R'n'R",
     artista: "Haylen · Nine Below Zero ",
-    lugar: "Helldorado, Vitoria-Gasteiz",
+    lugar: "Helldorado",
+    direccion: "Venta de la Estrella, 6, Pab. 44, Vitoria-Gasteiz",
     precioAnticipada: "22€",
     precioTaquilla: "26€",
     link: "https://www.musikaze.net/web/?menu=138&pagina=&item=62415&siteID=infiernodorado",

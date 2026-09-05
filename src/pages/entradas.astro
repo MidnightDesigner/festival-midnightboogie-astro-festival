@@ -156,31 +156,24 @@ const shareText = "¡No te pierdas el Midnight Boogie Weekend 2026! Soul, R&B y 
   </main>
 
   <script>
-    document.addEventListener('DOMContentLoaded', () => {
-      const copyButtons = document.querySelectorAll('.copy-link-btn');
-      const toast = document.getElementById('copy-toast');
-      
-      copyButtons.forEach(button => {
-        button.addEventListener('click', async () => {
-          const url = button.getAttribute('data-url');
-          try {
-            await navigator.clipboard.writeText(url);
-            
-            // Mostrar toast
-            toast?.classList.remove('opacity-0');
-            toast?.classList.add('opacity-100');
-            
-            // Ocultar toast después de 2 segundos
-            setTimeout(() => {
-              toast?.classList.remove('opacity-100');
-              toast?.classList.add('opacity-0');
-            }, 2000);
-          } catch (err) {
-            alert('No se pudo copiar el enlace. Por favor, cópialo manualmente: ' + url);
-          }
-        });
-      });
-    });
-  </script>
+  document.addEventListener('click', async (e) => {
+    const button = e.target.closest('.copy-link-btn');
+    if (!button) return;
+
+    const url = button.getAttribute('data-url');
+    const toast = document.getElementById('copy-toast');
+    try {
+      await navigator.clipboard.writeText(url);
+      toast?.classList.remove('opacity-0');
+      toast?.classList.add('opacity-100');
+      setTimeout(() => {
+        toast?.classList.remove('opacity-100');
+        toast?.classList.add('opacity-0');
+      }, 2000);
+    } catch (err) {
+      alert('No se pudo copiar el enlace. Por favor, cópialo manualmente: ' + url);
+    }
+  });
+</script>
 
 </Layout>

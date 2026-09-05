@@ -91,7 +91,7 @@ export const artistas2026: Artista[] = [
     nombre: "HAYLEN",
     origen: "FRANCE",
     estilo: "SOUL, BLUES, R'N'R",
-    imagen: "/images/2026/haylen-1.jpg",
+    imagen: "/images/2026/haylen-2.jpg",
     web: "https://www.haylenofficial.com", // ⚠️ RECUERDA: Añadir la web real cuando la tengas
     video: "https://www.youtube.com/watch?v=CC6fkqEtswk", // ⚠️ RECUERDA: Añadir la URL de YouTube cuando la tengas
     biografia: [
