@@ -221,56 +221,50 @@ const tieneVideo = youtubeId !== null;
 </style>
 
 <script>
-  document.addEventListener('DOMContentLoaded', () => {
-    // Toggle de biografía
-    const toggleButtons = document.querySelectorAll('.bio-toggle');
-    
-    toggleButtons.forEach(button => {
-      button.addEventListener('click', () => {
-        const card = button.closest('.artist-card');
-        const bioCompleta = card.querySelector('.bio-completa');
-        const toggleText = button.querySelector('.toggle-text');
-        const isExpanded = button.getAttribute('aria-expanded') === 'true';
-        
-        button.setAttribute('aria-expanded', !isExpanded);
-        bioCompleta.classList.toggle('expanded');
-        
+  // Toggle de biografía (delegado)
+  document.addEventListener('click', (e) => {
+    const toggleButton = (e.target as HTMLElement).closest('.bio-toggle');
+    if (toggleButton) {
+      const card = toggleButton.closest('.artist-card');
+      const bioCompleta = card?.querySelector('.bio-completa');
+      const toggleText = toggleButton.querySelector('.toggle-text');
+      const isExpanded = toggleButton.getAttribute('aria-expanded') === 'true';
+
+      toggleButton.setAttribute('aria-expanded', String(!isExpanded));
+      bioCompleta?.classList.toggle('expanded');
+
+      if (toggleText) {
         toggleText.textContent = isExpanded ? 'Ver biografía completa' : 'Ocultar biografía';
-      });
-    });
+      }
+      return;
+    }
 
-    // Lightbox functionality
-    const lightboxTriggers = document.querySelectorAll('.lightbox-trigger');
-    
-    lightboxTriggers.forEach(trigger => {
-      trigger.addEventListener('click', () => {
-        const card = trigger.closest('.artist-card');
-        const modal = card.querySelector('.lightbox-modal');
+    // Abrir lightbox (delegado)
+    const trigger = (e.target as HTMLElement).closest('.lightbox-trigger');
+    if (trigger) {
+      const card = trigger.closest('.artist-card');
+      const modal = card?.querySelector('.lightbox-modal');
+      modal?.classList.add('active');
+      document.body.classList.add('lightbox-open');
+      return;
+    }
 
-        const openLightbox = () => {
-          modal?.classList.add('active');
-          document.body.classList.add('lightbox-open');
-        };
+    // Cerrar lightbox: clic dentro del modal activo lo cierra
+    const modalActivo = document.querySelector('.lightbox-modal.active');
+    if (modalActivo && modalActivo.contains(e.target as Node)) {
+      modalActivo.classList.remove('active');
+      document.body.classList.remove('lightbox-open');
+    }
+  });
 
-        const closeLightbox = () => {
-          modal?.classList.remove('active');
-          document.body.classList.remove('lightbox-open');
-        };
-
-        openLightbox();
-
-        // Cerrar al hacer clic en cualquier parte del modal
-        modal?.addEventListener('click', closeLightbox);
-
-        // Cerrar con tecla Escape
-        const handleEscape = (e: KeyboardEvent) => {
-          if (e.key === 'Escape' && modal?.classList.contains('active')) {
-            closeLightbox();
-            document.removeEventListener('keydown', handleEscape);
-          }
-        };
-        document.addEventListener('keydown', handleEscape);
-      });
-    });
+  // Cerrar lightbox con Escape (delegado, permanentemente en document)
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') {
+      const modal = document.querySelector('.lightbox-modal.active');
+      if (modal) {
+        modal.classList.remove('active');
+        document.body.classList.remove('lightbox-open');
+      }
+    }
   });
 </script>

@@ -95,7 +95,7 @@ export const entradas2026: Entrada[] = [
   // EVENTO 4: SÁBADO 28 NOVIEMBRE NOCHE
   // ============================================
   {
-    id: "sabado-28-noviembre",
+    id: "sabado-28-noche",
     fecha: "Sábado 28 de Noviembre",
     hora: "21:00h",
     evento: "Noche de Soul & R'n'R",
