@@ -1,7 +1,6 @@
 ---
 // src/pages/contacto.astro
 import Layout from '../layouts/Layout.astro';
-// ❌ ELIMINADO: import Footer from '../components/Footer.astro';
 
 const contactInfo = [
   {
@@ -48,10 +47,8 @@ const ubicaciones = [
 
 <Layout 
   title="Contacto y Prensa" 
-  description="Ponte en contacto con el equipo del Midnight Boogie Festival." 
-  /* ❌ ELIMINADO: showStars={true} (El Layout ya lo calcula solo) */
+  description="Ponte en contacto con el equipo del Midnight Boogie Festival."
 >
-  <!-- ✅ CAMBIADO: de <main> a <section> para evitar anidación inválida -->
   <section class="max-w-6xl mx-auto px-6 py-16 md:py-24 relative z-10">
     
     <div class="text-center mb-16">
@@ -136,7 +133,11 @@ const ubicaciones = [
           Envíanos un mensaje
         </h2>
         
-        <form class="space-y-5" action="https://formspree.io/f/TU_ID_AQUI" method="POST">
+        <form id="contact-form" class="space-y-5">
+          
+          <!-- Honeypot: invisible para humanos, los bots lo rellenan -->
+          <input type="text" name="website" id="website" class="hidden" tabindex="-1" autocomplete="off" aria-hidden="true" />
+
           <div>
             <label for="nombre" class="block text-white/50 text-xs font-light uppercase tracking-wider mb-2">Nombre completo</label>
             <input type="text" id="nombre" name="nombre" required class="w-full bg-neutral-900 border border-white/10 rounded-lg px-4 py-3 text-white placeholder-white/30 focus:outline-none focus:border-[rgb(233,157,56)] transition-colors" placeholder="Tu nombre" />
@@ -172,6 +173,50 @@ const ubicaciones = [
       </div>
     </div>
   </section>
-  
-  <!-- ❌ ELIMINADO: <Footer /> (Ya viene del Layout) -->
+
+  <script>
+    document.addEventListener('submit', async (e) => {
+      const form = e.target.closest('#contact-form');
+      if (!form) return;
+      e.preventDefault();
+
+      const submitBtn = form.querySelector('button[type="submit"]');
+      const textoOriginal = submitBtn?.textContent;
+      if (submitBtn) {
+        submitBtn.disabled = true;
+        submitBtn.textContent = 'Enviando...';
+      }
+
+      const formData = new FormData(form);
+      const data = {
+        nombre: formData.get('nombre'),
+        email: formData.get('email'),
+        asunto: formData.get('asunto'),
+        mensaje: formData.get('mensaje'),
+        website: formData.get('website') || ''
+      };
+
+      try {
+        const response = await fetch('/api/contacto', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(data)
+        });
+
+        if (response.ok) {
+          form.reset();
+          alert('¡Mensaje enviado con éxito! Te responderemos pronto.');
+        } else {
+          alert('Ha ocurrido un error. Inténtalo de nuevo o escríbenos a info@midnightboogie.net');
+        }
+      } catch (error) {
+        alert('Error de conexión. Inténtalo de nuevo más tarde.');
+      } finally {
+        if (submitBtn) {
+          submitBtn.disabled = false;
+          submitBtn.textContent = textoOriginal;
+        }
+      }
+    });
+  </script>
 </Layout>

@@ -16,16 +16,23 @@ import { pastEditions } from '../data/archivo';
 
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
       {pastEditions.map((edition) => (
-        <article class="group bg-neutral-800/80 backdrop-blur-sm rounded-lg overflow-hidden border border-neutral-700 hover:border-[rgb(233,157,56)] transition-all duration-300">
-          <div class="aspect-video bg-neutral-800 relative overflow-hidden">
+        <article class="group bg-neutral-800/80 backdrop-blur-sm rounded-lg overflow-hidden border border-neutral-700 hover:border-[rgb(233,157,56)] transition-all duration-300 flex flex-col">
+          <!-- IMAGEN: Formato vertical para flyers -->
+          <div class="aspect-[3/4] bg-neutral-900 relative overflow-hidden">
             {edition.image ? (
-              <img src={edition.image} alt={edition.title} class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" />
+              <img 
+                src={edition.image} 
+                alt={edition.title} 
+                class="w-full h-full object-contain group-hover:scale-105 transition-transform duration-500" 
+                loading="lazy" 
+              />
             ) : (
               <div class="absolute inset-0 flex items-center justify-center">
                 <span class="font-avantgarde text-6xl text-neutral-700">{edition.year}</span>
               </div>
             )}
             
+            <!-- Overlay con botón al hacer hover -->
             <div class="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
               {edition.link ? (
                 <a href={edition.link} class="px-6 py-3 bg-[rgb(233,157,56)] text-neutral-950 font-semibold rounded-full hover:bg-orange-400 transition-colors flex items-center gap-2">
@@ -40,19 +47,23 @@ import { pastEditions } from '../data/archivo';
             </div>
           </div>
 
-          <div class="p-6">
-            <h2 class="font-avantgarde text-2xl mb-2 group-hover:text-[rgb(233,157,56)] transition-colors">{edition.title}</h2>
-            <p class="text-[rgb(233,157,56)] text-sm mb-4 font-medium">{edition.dates}</p>
-            <div class="flex flex-wrap gap-2">
-              {edition.artists.map((artist) => (
-                <span class="px-3 py-1 bg-neutral-900 rounded-full text-xs text-neutral-300 border border-neutral-700">{artist}</span>
-              ))}
-            </div>
+          <!-- CONTENIDO DE TEXTO (100% DINÁMICO) -->
+          <div class="p-4 flex flex-col flex-grow">
+            <h2 class="font-avantgarde text-2xl mb-1 group-hover:text-[rgb(233,157,56)] transition-colors">{edition.title}</h2>
+            <p class="text-[rgb(233,157,56)] text-sm mb-3 font-medium">{edition.dates}</p>
+            
+            <!-- Texto descriptivo dinámico -->
+            {edition.description && (
+              <p class="text-white/80 text-sm leading-relaxed flex-grow">
+                {edition.description}
+              </p>
+            )}
           </div>
         </article>
       ))}
     </div>
 
+    <!-- CTA PARA CONTRIBUIR AL ARCHIVO -->
     <div class="bg-neutral-800/80 backdrop-blur-sm rounded-lg p-8 md:p-12 border border-neutral-700 text-center">
       <h2 class="font-avantgarde text-3xl md:text-4xl mb-4">¿Tienes material de ediciones pasadas?</h2>
       <p class="text-neutral-400 mb-8">Nos encantaría revisar tu foto o vídeo para el archivo oficial del festival.</p>
