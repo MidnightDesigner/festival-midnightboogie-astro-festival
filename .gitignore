@@ -30,4 +30,4 @@ pnpm-debug.log*
 *.sw?
 
 # OS
-Thumbs.db
+Thumbs.db.astro/
