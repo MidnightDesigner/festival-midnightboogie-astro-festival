@@ -60,10 +60,16 @@ Sitio web oficial del festival de música en Vitoria-Gasteiz.
 - Videos con url que pague derechos al grupo
 
 - Calcular el trabajo y hacer presupuesto standart, a precio de mercado profesional
-- Entregar presupuesto real, muy bajo, por ser viejo cliente y learnig-work
-- Mantener los gastos de dominio, alojamiento y mantenimiento cerca de 0.
-- Pasar de Arsys, son muy caros y antipáticos
+
 - Consultar últimas modificaciones y entregar el control total del contenido al dueño
 - Dejar todo el diseño bloqueado
 
 - IMPORTANTE DNS, y su email no me funciona, domingo por la mañana como tarde arreglar
+
+## Estado del formulario de contacto (en curso)
+- Sustituido Formspree por Brevo: función serverless api/contacto.js (raíz del repo)
+- Clave BREVO_API_KEY guardada en Vercel (Settings del proyecto → Environment Variables)
+- Remitente Brevo validado con igu.soul@gmail.com (sender de la función usa ese email)
+- contacto.astro: form con id="contact-form", honeypot "website", script delegado, fetch a /api/contacto
+- PENDIENTE: hacer commit+push, probar el formulario en producción y verificar llegada en Brevo
+- La función api/ solo corre en producción (Vercel), no en npm run dev

@@ -58,7 +58,7 @@ export const pastEditions: PastEdition[] = [
     dates: "27-28 de noviembre, 2020",
     description: "Espectacular edición del festival, con una gran afluencia a todos los eventos y las entradas agotadas el sábado.",
     artists: ["Artista 1", "Artista 2", "Artista 3"],
-    image: "/images/archivo-2020.jpg"
+    image: "/images/2020/2020.jpg"
   },
   {
     year: 2019,
@@ -84,12 +84,5 @@ export const pastEditions: PastEdition[] = [
     artists: ["Artista 1", "Artista 2", "Artista 3"],
     image: "/images/2017/2017.jpg"
   },
-  {
-    year: 2016,
-    title: "Midnight Boogie 2016",
-    dates: "25-26 de noviembre, 2016",
-    description: "Espectacular edición del festival, con una gran afluencia a todos los eventos y las entradas agotadas el sábado.",
-    artists: ["Artista 1", "Artista 2", "Artista 3"],
-    image: "/images/archivo-2016.jpg"
-  }
+ 
 ];

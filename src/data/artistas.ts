@@ -111,13 +111,19 @@ export const artistas2026: Artista[] = [
     nombre: "SYL AL",
     origen: "FRANCE",
     estilo: "DJ - Música seleccionada",
-    imagen: "/artistas/syl-al.jpg",
+    imagen: "/images/2026/syl_al.jpg",
     web: "", // ✏️ Actualizar con la web real
     video: "", // ✏️ Actualizar con URL de YouTube
     biografia: [
-      "Syl Al es un referente en la selección musical desde Francia, con una trayectoria dedicada a la excavación sonora y la promoción de los sonidos negros americanos más genuinos: Soul, Funk, Boogaloo y R&B.",
-      "Conocido por su capacidad para leer la pista de baile y conectar generaciones a través de la música, sus sets son una masterclass de programación musical, equilibrando himnos clásicos con joyas ocultas de 45 revoluciones.",
-      "Su presencia en el Midnight Boogie Weekend es un lujo para los amantes del vinilo, garantizando transiciones impecables y una atmósfera de club auténtico entre los conciertos en directo."
+      "Soy Syl All, francés de la región de Burdeos. Comencé a coleccionar discos a principios de los años 90 y, poco después, di el salto a las cabinas como DJ.Mi gran pasión es la música afroamericana de finales de los años 50 y los 60: Rhythm & Blues primitivo, Soul clásico, Mod Jazz, Latin Boogaloo, Bossa Nova, Exotica, sonidos Hammond, bongós y flauta, además de Ska y música jamaicana, R&B británico y Garage.",
+      "A lo largo de los años he participado en destacados festivales y encuentros de la escena mod y Rhythm & Blues europea, como Clean Cut, The Beat Goes On, León Mod Weekender, 123 R&B (Reino Unido), Paris Mod Weekend y Afterglow (Belfast), y compartiendo cabina con algunos de los mejores DJs del circuito internacional. Además de estos festivales, actúo habitualmente en restaurantes audiófilos y eventos privados de mi región, compartiendo una pasión que me acompaña desde hace más de tres décadas: descubrir y hacer bailar al público con música auténtica, elegante y atemporal.Es un auténtico placer haber sido invitado como DJ para esta nueva edición del Midnight Boogie Weekend. Espero que disfrutéis de mi selección musical tanto como yo disfrutaré compartiéndola con vosotros.",
+      "¡Muchas gracias y nos vemos en la pista de baile!.",
+      "TOP 5",
+      "1. Otis Rush - I am satisfied CHESS.",
+      "2. Toni Harper - Heavenly love RCA.",
+      "3. Willie Mae Thornton - Just like a dog PEACOCK",
+      "4. John Byner - Baby please dont go POP SIDE",
+      "5. Xavier Cugat - One mint julep MERCURY ",
     ]
   },
 
@@ -126,13 +132,18 @@ export const artistas2026: Artista[] = [
     nombre: "BEA GB",
     origen: "GASTEIZ",
     estilo: "DJ - Música seleccionada",
-    imagen: "/images/2026/bea-gb.png",
+    imagen: "/images/2026/bea-gb.webp",
     web: "",
     video: "",
     biografia: [
-      "BEA GB es una DJ con sede en Vitoria-Gasteiz, reconocida por una selección musical única que conecta la tradición del Northern Soul y el Funk con las pistas de baile más exigentes.",
-      "Sus sesiones son un viaje sonoro cuidadosamente curado, donde los vinilos raros y las ediciones limitadas cobran vida. Ha pinchado en algunas de las noches más memorables de la escena local y festivales del norte de España.",
-      "En Midnight Boogie 2026, BEA GB será la encargada de calentar los motores el viernes y cerrar la noche del sábado con una sesión especial, asegurando que el groove no se detenga hasta el amanecer."
+      "Hola a todos, estoy encantada de participar en este Midnight Boogie, impulsado por amigos muy queridos, que comparten mi pasión por esta música del alma. Y es que en tantos años se   amontonan en mi cabeza miles de anécdotas y buenos ratos, un tiempo en el que no he dejado de disfrutar aprendiendo y descubriendo los más estimulantes sonidos. 25 años que se han ido volando y durante los cuales prácticamente se ha definido mi parte en la mejor escena del mundo. Hay muchas formas de protestar y muchos elegimos esta, elegancia, estilo, clase, compromiso, resistencia… y fiesta!.",
+      "Mis sets están compuestos por soul (60’s-early70’s) y rhythm&blues, y siempre incluyo algo de latin refrescante. He tenido la ocasión de pinchar en eventos como el Mod Generation Club, Mojo Workin’, Beat Goes On, Euro Ye-Yé, All Saints Mod Holiday Lavarone, Clean Cut y Ebroclub.",
+      "TOP 5:",
+      "1. I'm shakin - Little Willie John",
+      "2. Heartbreaker - BB King",
+      "3. Sweet lover no more - Gene McDaniels",
+      "4. Keep an eye on love - Ernestine Anderson",
+      "5. He'll come back - Sylvia Shemwell",
     ]
   },
  

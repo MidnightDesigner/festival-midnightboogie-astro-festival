@@ -67,7 +67,7 @@ export const programa2026 = {
         descripcion: "Taller musical para los más pequeños. Un clásico en nuestra programación: la escuela de música Creative Soul ofrecerá un taller muy didáctico de improvisación y experimentación musical para los peques.",
         artistas: [],
         precio: "Gratis con inscripción",
-        link: "https://www.fundacionvital.eus/",
+        link: "https://www.fundacionvital.eus/taller-musical-infantil-creative-soul",
         linkTexto: "Inscripción en la web de Fundación Vital"
       }
     ]

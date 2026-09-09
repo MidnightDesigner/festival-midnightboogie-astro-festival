@@ -1,5 +1,7 @@
 ---
 // src/components/EventoCard.astro
+import { artistas2026 } from '../data/artistas';
+import { getSlug } from '../lib/getSlug';
 
 export interface Props {
   evento: {
@@ -25,12 +27,21 @@ const tieneLink = evento.link && evento.link.trim() !== '';
 
 // Mapa: nombre exacto del lugar en los datos -> logo de la sala
 const logoPorSala: Record<string, string> = {
-  "Sala Arkabia": "/images/salas-logos/arkabia.jpg",
+  "Sala Arkabia": "/images/salas-logos/arkabia-BLACK.webp",
   "Helldorado": "/images/salas-logos/helldorado.png",
   "Ttipia Taberna": "/images/salas-logos/ttipia.webp",
-  "Creative Soul": "/images/salas-logos/creative-soul.jpg",
+  "Creative Soul": "/images/salas-logos/creative-soul.webp",
 };
 const logoSala = logoPorSala[evento.lugar];
+
+// Crear mapa de artistas válidos de 2026 para mapear los enlaces del programa
+const artistasValidos = new Map(
+  artistas2026.map(a => [getSlug(a.nombre), a])
+);
+
+
+
+
 ---
 
 <div class="max-w-4xl mx-auto">
@@ -50,10 +61,22 @@ const logoSala = logoPorSala[evento.lugar];
     <ul class="space-y-10 mb-16">
       {evento.artistas?.map((artista) => {
         const esDJ = artista.estilo?.toLowerCase().includes('dj');
+        const slug = getSlug(artista.nombre);
+        const tienePagina = artistasValidos.has(slug);
         return (
           <li class="text-center border-b border-white/10 pb-10 last:border-0 last:pb-0">
-            <h4 class={`font-avantgarde text-white font-light uppercase tracking-tight mb-3 drop-shadow-2xl leading-tight px-4 ${esDJ ? 'text-2xl md:text-3xl text-white/70' : 'text-5xl sm:text-6xl md:text-8xl lg:text-9xl'}`}>
-              {artista.nombre}
+            <h4 class={`font-avantgarde text-white font-light uppercase tracking-tight mb-3 drop-shadow-2xl leading-tight px-4 ${esDJ ? 'text-2xl md:text-2xl text-white/70' : 'text-5xl sm:text-7xl md:text-8xl'}`}>
+              {tienePagina ? (
+                <a 
+                  href={`/artistas#${slug}`} 
+                  class="hover:text-[rgb(233,157,56)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[rgb(233,157,56)]/50 rounded-lg transition-colors duration-300"
+                  aria-label={`Ver biografía de ${artista.nombre}`}
+                >
+                  {artista.nombre}
+                </a>
+              ) : (
+                artista.nombre
+              )}
             </h4>
             
             {esDJ ? (

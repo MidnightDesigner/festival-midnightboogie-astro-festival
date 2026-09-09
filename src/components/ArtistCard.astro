@@ -2,6 +2,7 @@
 // src/components/ArtistCard.astro
 import type { Artista } from '../data/artistas';
 import { Image } from 'astro:assets';
+import { getSlug } from '../lib/getSlug';
 
 export interface Props {
   artista: Artista;
@@ -21,9 +22,11 @@ function getYoutubeId(url: string): string | null {
 
 const youtubeId = tieneWeb ? getYoutubeId(artista.video || '') : null;
 const tieneVideo = youtubeId !== null;
+
+const artistId = getSlug(artista.nombre);
 ---
 
-<article class="artist-card mx-auto bg-white/5 border border-white/10 rounded-2xl overflow-hidden hover:border-[rgb(233,157,56)]/40 transition-colors duration-500">
+<article id={artistId} class="artist-card scroll-mt-28 md:scroll-mt-40 mx-auto bg-white/5 border border-white/10 rounded-2xl overflow-hidden hover:border-[rgb(233,157,56)]/40 transition-colors duration-500">
   
   <!-- BLOQUE SUPERIOR: TÍTULO Y ORIGEN -->
   <div class="px-8 md:px-16 pt-12 md:pt-16 pb-8 md:pb-12 text-center">

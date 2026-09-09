@@ -31,7 +31,7 @@ export const entradas2026: Entrada[] = [
     precioTaquilla: "18€",
     link: "https://www.arkabia.eus",
     linkTexto: "Comprar en Arkabia",
-    estado: "Disponible"
+    estado: "Últimas entradas"
   },
 
   // ============================================
