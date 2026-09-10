@@ -29,7 +29,7 @@ export const entradas2026: Entrada[] = [
     direccion: "Postas 13-15, Vitoria-Gasteiz",
     precioAnticipada: "15€",
     precioTaquilla: "18€",
-    link: "https://www.arkabia.eus",
+    link: "https://arkabia.eus/evento/stone-foundation/",
     linkTexto: "Comprar en Arkabia",
     estado: "Últimas entradas"
   },

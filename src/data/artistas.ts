@@ -24,7 +24,7 @@ export const artistas2026: Artista[] = [
     estilo: "GROOVE · NORTHERN SOUL · FUNK",
     imagen: "/images/2026/stone-foundation.jpg",
     web: "https://www.stonefoundation.co.uk",
-    video: "https://www.youtube.com/watch?v=vO9_my5wPNg",
+    video: "https://youtu.be/xp1KC4SrxYs?si=Q10TfCTU7h3mLnuL",
     biografia: [
       "Stone Foundation es una banda británica, de los Midlands, liderada por Neil Jones y Neil Sheasby. Su estilo es un legado de la subcultura del Northern Soul, mezclando estilos como el funk, el soul y el rhythm and blues. La banda mantiene actualmente una estrecha relación y colaboración con Paul Weller.",
       "Se fundó a principios de los 90. Neil Sheasby (bajista) y Neil Jones (vocalista), que estaban en otros grupos, se conocieron compartiendo escenario. Días después, quedaron para componer, creando algo propio con diferentes estilos y sonidos.",
@@ -38,7 +38,7 @@ export const artistas2026: Artista[] = [
     nombre: "NINE BELOW ZERO",
     origen: "UNITED KINGDOM",
     estilo: "R&B, PUB ROCK",
-    imagen: "/images/2026/NBZ-4.jpg",
+    imagen: "/images/2026/nine-below-zero.jpg",
     web: "https://www.ninebelowzero.com",
     video: "https://www.youtube.com/watch?v=yNuzkZLzNMo&list=RDyNuzkZLzNMo&start_radio=1", 
 
@@ -56,7 +56,7 @@ export const artistas2026: Artista[] = [
     nombre: "LOS FULANOS",
     origen: "BARCELONA",
     estilo: "BOOGALOO",
-    imagen: "/images/2026/los-fulanos-1.jpg",
+    imagen: "/images/2026/los-fulanos.jpg",
     web: "https://www.facebook.com/losfulanosbcn", // ⚠️ RECUERDA: Añadir la web real cuando la tengas
     video: "https://www.youtube.com/watch?v=aR5SPAJr69A", // ⚠️ RECUERDA: Añadir la URL de YouTube cuando la tengas
     biografia: [
@@ -74,7 +74,7 @@ export const artistas2026: Artista[] = [
     nombre: "THE LAZY TONES",
     origen: "VALENCIA",
     estilo: "BLUES Y R&B",
-    imagen: "/images/2026/lazy-tones-1.jpg",
+    imagen: "/images/2026/lazy-tones.jpg",
     web: "https://thelazytones.jimdofree.com/", // ⚠️ RECUERDA: Añadir la web real cuando la tengas
     video: "https://www.youtube.com/watch?v=42sS5ae9rTc", // ⚠️ RECUERDA: Añadir la URL de YouTube cuando la tengas
     biografia: [
@@ -93,7 +93,7 @@ export const artistas2026: Artista[] = [
     estilo: "SOUL, BLUES, R'N'R",
     imagen: "/images/2026/haylen-2.jpg",
     web: "https://www.haylenofficial.com", // ⚠️ RECUERDA: Añadir la web real cuando la tengas
-    video: "https://www.youtube.com/watch?v=CC6fkqEtswk", // ⚠️ RECUERDA: Añadir la URL de YouTube cuando la tengas
+    video: "https://youtu.be/vxDYKQAaQT8?si=QM63YTgKFgRV0bVl", // ⚠️ RECUERDA: Añadir la URL de YouTube cuando la tengas
     biografia: [
       "Después de una gira de presentación de 5 fechas en España en enero de este año y con SOLD OUT en todas ellas, y de actuar en varios festivales de verano (Fisterra Experience, Motorbeach, Blues de Antequera, Semana Grande Bilbao...), volverá en Noviembre para continuar su gira por salas.",
       "Haylen tiene una voz poderosa y carismática, una verdadera rockera con tacones altos y una energía escénica magnética. Cantante, guitarrista, autora-compositora, encarna una feminidad libre y moderna, nutrida de influencias vintage y de una profunda ansia de vivir. Su universo mezcla con maestría Soul, Blues y Rock'n'Roll, con una estética auténtica, una modernidad comprometida y un amor sincero por el escenario.",
@@ -112,8 +112,8 @@ export const artistas2026: Artista[] = [
     origen: "FRANCE",
     estilo: "DJ - Música seleccionada",
     imagen: "/images/2026/syl_al.jpg",
-    web: "", // ✏️ Actualizar con la web real
-    video: "", // ✏️ Actualizar con URL de YouTube
+    web: "https://youtu.be/cPmppt8QP3w?si=A4eAFJ1-7a7IwFz6", // ✏️ Actualizar con la web real
+    video: "https://youtu.be/cPmppt8QP3w?si=A4eAFJ1-7a7IwFz6",
     biografia: [
       "Soy Syl All, francés de la región de Burdeos. Comencé a coleccionar discos a principios de los años 90 y, poco después, di el salto a las cabinas como DJ.Mi gran pasión es la música afroamericana de finales de los años 50 y los 60: Rhythm & Blues primitivo, Soul clásico, Mod Jazz, Latin Boogaloo, Bossa Nova, Exotica, sonidos Hammond, bongós y flauta, además de Ska y música jamaicana, R&B británico y Garage.",
       "A lo largo de los años he participado en destacados festivales y encuentros de la escena mod y Rhythm & Blues europea, como Clean Cut, The Beat Goes On, León Mod Weekender, 123 R&B (Reino Unido), Paris Mod Weekend y Afterglow (Belfast), y compartiendo cabina con algunos de los mejores DJs del circuito internacional. Además de estos festivales, actúo habitualmente en restaurantes audiófilos y eventos privados de mi región, compartiendo una pasión que me acompaña desde hace más de tres décadas: descubrir y hacer bailar al público con música auténtica, elegante y atemporal.Es un auténtico placer haber sido invitado como DJ para esta nueva edición del Midnight Boogie Weekend. Espero que disfrutéis de mi selección musical tanto como yo disfrutaré compartiéndola con vosotros.",
@@ -133,8 +133,8 @@ export const artistas2026: Artista[] = [
     origen: "GASTEIZ",
     estilo: "DJ - Música seleccionada",
     imagen: "/images/2026/bea-gb.webp",
-    web: "",
-    video: "",
+    web: "https://youtu.be/WaOh-wBJ6MY?si=V7w_dKnxdQgbFhY5",
+    video: "https://youtu.be/WaOh-wBJ6MY?si=V7w_dKnxdQgbFhY5",
     biografia: [
       "Hola a todos, estoy encantada de participar en este Midnight Boogie, impulsado por amigos muy queridos, que comparten mi pasión por esta música del alma. Y es que en tantos años se   amontonan en mi cabeza miles de anécdotas y buenos ratos, un tiempo en el que no he dejado de disfrutar aprendiendo y descubriendo los más estimulantes sonidos. 25 años que se han ido volando y durante los cuales prácticamente se ha definido mi parte en la mejor escena del mundo. Hay muchas formas de protestar y muchos elegimos esta, elegancia, estilo, clase, compromiso, resistencia… y fiesta!.",
       "Mis sets están compuestos por soul (60’s-early70’s) y rhythm&blues, y siempre incluyo algo de latin refrescante. He tenido la ocasión de pinchar en eventos como el Mod Generation Club, Mojo Workin’, Beat Goes On, Euro Ye-Yé, All Saints Mod Holiday Lavarone, Clean Cut y Ebroclub.",

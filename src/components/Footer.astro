@@ -10,20 +10,7 @@ import AboutModal from './AboutModal.astro';
     <div class="flex flex-col items-center md:items-start gap-6">
       <AboutModal />
       
-      <!-- Logo Fundación Vital (clicable, sin fondo blanco) -->
-      <a 
-        href="https://www.fundacionvital.eus/" 
-        target="_blank" 
-        rel="noopener noreferrer"
-        class="inline-block hover:opacity-80 transition-opacity"
-        aria-label="Visitar la web de Fundación Vital Fundazioa"
-      >
-        <img 
-          src="/images/vital/logo-vital.jpg" 
-          alt="Patrocinador: Fundación Vital Fundazioa" 
-          class="h-24 md:h-32 w-auto object-contain mix-blend-multiply brightness-100 contrast-100"
-        />
-      </a>
+     
     </div>
 
     <!-- COLUMNA 2 (CENTRO): Redes Sociales -->
@@ -70,6 +57,26 @@ import AboutModal from './AboutModal.astro';
           </svg>
         </a>
       </div>
+
+ <!-- Logo Fundación Vital (clicable, sin fondo blanco) -->
+
+ <div class="max-w-7xl mx-auto mt-8 pt-6 border-t border-black/10 text-center text-xs font-medium text-black/60">
+    Con el apoyo de:
+  </div>
+      <a 
+        href="https://www.fundacionvital.eus/" 
+        target="_blank" 
+        rel="noopener noreferrer"
+        class="inline-block hover:opacity-80 transition-opacity"
+        aria-label="Visitar la web de Fundación Vital Fundazioa"
+      >
+        <img 
+          src="/images/vital/logo-vital.jpg" 
+          alt="Patrocinador: Fundación Vital Fundazioa" 
+          class="h-24 md:h-32 w-auto object-contain mix-blend-multiply brightness-100 contrast-100"
+        />
+      </a>
+
     </div>
 
     <!-- COLUMNA 3 (DERECHA): Enlaces -->

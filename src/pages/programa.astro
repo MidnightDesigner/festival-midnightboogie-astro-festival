@@ -12,12 +12,12 @@ import { programa2026 } from '../data/programa';
   showStars={true}
 > 
   
-  <main class="max-w-4xl mx-auto px-6 py-16 space-y-24">
+  <main class="max-w-4xl mx-auto px-6 py-16 space-y-16">
       
     <!-- ========================================== -->
     <!-- PRESENTACIÓN (SEPTIEMBRE) -->
     <!-- ========================================== -->
-    <section class="mb-24 px-4">
+    <section class="px-4">
       <h2 class="font-avantgarde text-white text-4xl md:text-6xl font-light uppercase tracking-tight mb-4 drop-shadow-lg text-center">
         {programa2026.presentacion.dia} <span class="text-[rgb(233,157,56)]">Septiembre</span>
       </h2>
@@ -26,32 +26,39 @@ import { programa2026 } from '../data/programa';
         {programa2026.presentacion.tag}
       </p>
 
+
       {programa2026.presentacion.eventos.map((evento, index) => (
-        <div class={index > 0 ? "max-w-2xl mx-auto border-t border-white/10 pt-12 mt-12" : ""}>
+        <div class={index > 0 ? "max-w-2xl mx-auto border-t border-[rgb(233,157,56)]/60 pt-12 mt-12" : ""}>
           <EventoCard evento={evento} />
         </div>
       ))}
     </section>
 
+    <hr class="border-[rgb(233,157,56)]/60 max-w-3xl mx-auto" />
+
     <!-- ========================================== -->
     <!-- VIERNES 27 NOVIEMBRE -->
     <!-- ========================================== -->
-    <section class="mb-24 px-4">
+    <section class="px-4">
       <h2 class="font-avantgarde text-white text-4xl md:text-6xl font-light uppercase tracking-tight mb-4 drop-shadow-lg text-center">
         {programa2026.viernes.dia} <span class="text-[rgb(233,157,56)]">Noviembre</span>
       </h2>
 
       <p class="sr-only">{programa2026.viernes.tag}</p>
 
-      {programa2026.viernes.eventos.map((evento) => (
-        <EventoCard evento={evento} />
+      {programa2026.viernes.eventos.map((evento, index) => (
+        <div class={index > 0 ? "max-w-2xl mx-auto border-t border-white/10 pt-12 mt-12" : ""}>
+          <EventoCard evento={evento} />
+        </div>
       ))}
     </section>
+
+    <hr class="border-[rgb(233,157,56)]/60 max-w-3xl mx-auto" />
 
     <!-- ========================================== -->
     <!-- SÁBADO 28 - TALLER FAMILIAR -->
     <!-- ========================================== -->
-    <section class="mb-24 px-4">
+    <section class="px-4">
       <h2 class="font-avantgarde text-white text-4xl md:text-6xl font-light uppercase tracking-tight mb-4 drop-shadow-lg text-center">
         {programa2026.sabadoTaller.dia} <span class="text-[rgb(233,157,56)]">Noviembre</span>
       </h2>
@@ -60,25 +67,34 @@ import { programa2026 } from '../data/programa';
         {programa2026.sabadoTaller.tag}
       </p>
 
-      {programa2026.sabadoTaller.eventos.map((evento) => (
-        <EventoCard evento={evento} />
+      {programa2026.sabadoTaller.eventos.map((evento, index) => (
+        <div class={index > 0 ? "max-w-2xl mx-auto border-t border-white/10 pt-12 mt-12" : ""}>
+          <EventoCard evento={evento} />
+        </div>
       ))}
     </section>
+
+    <hr class="border-[rgb(233,157,56)]/60 max-w-3xl mx-auto" />
 
     <!-- ========================================== -->
     <!-- SÁBADO 28 - NOCHE DE SOUL & R'N'R -->
     <!-- ========================================== -->
-    <section class="mb-24 px-4">
+    <section class="px-4">
       <h2 class="font-avantgarde text-white text-4xl md:text-6xl font-light uppercase tracking-tight mb-4 drop-shadow-lg text-center">
         {programa2026.sabadoNoche.dia} <span class="text-[rgb(233,157,56)]">Noviembre</span>
       </h2>
 
       <p class="sr-only">{programa2026.sabadoNoche.tag}</p>
 
-      {programa2026.sabadoNoche.eventos.map((evento) => (
-        <EventoCard evento={evento} />
+      {programa2026.sabadoNoche.eventos.map((evento, index) => (
+        <div class={index > 0 ? "max-w-2xl mx-auto border-t border-white/10 pt-12 mt-12" : ""}>
+          <EventoCard evento={evento} />
+        </div>
       ))}
     </section>
+
+    <hr class="border-[rgb(233,157,56)]/60 max-w-3xl mx-auto" />
+
 
    <!-- BLOQUE DE ABONO AL FINAL -->
     {programa2026.abono && (

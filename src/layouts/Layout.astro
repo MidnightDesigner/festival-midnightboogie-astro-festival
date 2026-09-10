@@ -8,12 +8,14 @@ interface Props {
   title: string;
   description?: string;
   image?: string;
+  showFooter?: boolean;
 }
 
 const { 
   title, 
   description = "Midnight Boogie Festival - El mejor soul, blues y rhythm & blues en Vitoria-Gasteiz.",
-  image = "/images/og-default.png"
+  image = "/images/og-default.png",
+  showFooter = true
 } = Astro.props;
 
 const siteUrl = "https://www.midnightboogie.net"; 
@@ -67,7 +69,7 @@ const currentUrl = `${siteUrl}${Astro.url.pathname}`;
       <slot />
     </main>
 
-    <Footer />
+    {showFooter && <Footer />}
   </body>
 </html>
 
