@@ -24,7 +24,7 @@ export const artistas2026: Artista[] = [
     estilo: "GROOVE · NORTHERN SOUL · FUNK",
     imagen: "/images/2026/stone-foundation.jpg",
     web: "https://www.stonefoundation.co.uk",
-    video: "https://youtu.be/xp1KC4SrxYs?si=Q10TfCTU7h3mLnuL",
+    video: "https://www.youtube.com/watch?v=vO9_my5wPNg",
     biografia: [
       "Stone Foundation es una banda británica, de los Midlands, liderada por Neil Jones y Neil Sheasby. Su estilo es un legado de la subcultura del Northern Soul, mezclando estilos como el funk, el soul y el rhythm and blues. La banda mantiene actualmente una estrecha relación y colaboración con Paul Weller.",
       "Se fundó a principios de los 90. Neil Sheasby (bajista) y Neil Jones (vocalista), que estaban en otros grupos, se conocieron compartiendo escenario. Días después, quedaron para componer, creando algo propio con diferentes estilos y sonidos.",
