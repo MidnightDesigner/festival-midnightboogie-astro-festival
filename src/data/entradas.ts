@@ -83,7 +83,7 @@ export const entradas2026: Entrada[] = [
     lugar: "Creative Soul",
     direccion: "Pintor Pablo Uranga Kalea 22, Vitoria-Gasteiz",
     precioAnticipada: "Gratis con inscripción",
-    link: "https://www.fundacionvital.eus/",
+    link: "https://www.fundacionvital.eus/taller-musical-infantil-creative-soul",
     linkTexto: "Inscribirse en Fundación Vital Fundazioa",
     estado: "Disponible"
   },
