@@ -3,12 +3,12 @@ import Layout from '../layouts/Layout.astro';
 import { pastEditions } from '../data/archivo';
 ---
 
-<Layout 
+<Layout
   title="Archivo"
   description="Revive las ediciones pasadas del Midnight Boogie Festival. Fotos, vídeos y recuerdos de años anteriores."
 >
   <div class="container mx-auto px-6 md:px-12 max-w-7xl py-12 relative z-10">
-    
+
     <div class="text-center mb-16 md:mb-20">
       <h1 class="font-avantgarde text-3xl md:text-5xl mb-4">ARCHIVO</h1>
       <p class="text-xl md:text-2xl text-neutral-400">Revive la historia del Midnight Boogie</p>
@@ -16,47 +16,51 @@ import { pastEditions } from '../data/archivo';
 
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
       {pastEditions.map((edition) => (
-        <article class="group bg-neutral-800/80 backdrop-blur-sm rounded-lg overflow-hidden border border-neutral-700 hover:border-[rgb(233,157,56)] transition-all duration-300 flex flex-col">
+        <article
+          class:list={[
+            'group bg-neutral-800/80 backdrop-blur-sm rounded-lg overflow-hidden border border-neutral-700 hover:border-[rgb(233,157,56)] transition-all duration-300 flex flex-col',
+            edition.image && 'cursor-pointer'
+          ]}
+          data-flyer-card
+          data-title={edition.title}
+          data-front={edition.image ?? ''}
+          data-back={edition.imageBack ?? ''}
+        >
           <!-- IMAGEN: Formato vertical para flyers -->
           <div class="aspect-[3/4] bg-neutral-900 relative overflow-hidden">
             {edition.image ? (
-              <img 
-                src={edition.image} 
-                alt={edition.title} 
-                class="w-full h-full object-contain group-hover:scale-105 transition-transform duration-500" 
-                loading="lazy" 
+              <img
+                src={edition.image}
+                alt={`Flyer ${edition.title}`}
+                class="w-full h-full object-contain group-hover:scale-105 transition-transform duration-500"
+                loading="lazy"
               />
             ) : (
               <div class="absolute inset-0 flex items-center justify-center">
                 <span class="font-avantgarde text-6xl text-neutral-700">{edition.year}</span>
               </div>
             )}
-            
-            <!-- Overlay con botón al hacer hover -->
-            <div class="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-              {edition.link ? (
-                <a href={edition.link} class="px-6 py-3 bg-[rgb(233,157,56)] text-neutral-950 font-semibold rounded-full hover:bg-orange-400 transition-colors flex items-center gap-2">
-                  Ver edición
-                  <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
-                  </svg>
-                </a>
+
+            <!-- Overlay al hacer hover -->
+            <div class="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center pointer-events-none">
+              {edition.image ? (
+                <span class="px-6 py-3 bg-[rgb(233,157,56)] text-neutral-950 font-semibold rounded-full">
+                  Ver flyer
+                </span>
               ) : (
                 <span class="text-neutral-400 font-semibold">Próximamente</span>
               )}
             </div>
           </div>
 
-          <!-- CONTENIDO DE TEXTO (100% DINÁMICO) -->
+          <!-- CONTENIDO DE TEXTO -->
           <div class="p-4 flex flex-col flex-grow">
-            <h2 class="font-avantgarde text-2xl mb-1 group-hover:text-[rgb(233,157,56)] transition-colors">{edition.title}</h2>
+            <h2 class="font-avantgarde text-2xl mb-1 group-hover:text-[rgb(233,157,56)] transition-colors">
+              {edition.title}
+            </h2>
             <p class="text-[rgb(233,157,56)] text-sm mb-3 font-medium">{edition.dates}</p>
-            
-            <!-- Texto descriptivo dinámico -->
             {edition.description && (
-              <p class="text-white/80 text-sm leading-relaxed flex-grow">
-                {edition.description}
-              </p>
+              <p class="text-white/80 text-sm leading-relaxed flex-grow">{edition.description}</p>
             )}
           </div>
         </article>
@@ -73,4 +77,104 @@ import { pastEditions } from '../data/archivo';
     </div>
 
   </div>
+
+  <!-- LIGHTBOX DE FLYERS -->
+  <dialog id="flyer-dialog" class="bg-transparent p-0 backdrop:bg-black/80">
+    <div class="relative flex items-center justify-center m-auto w-fit">
+
+<!-- Botón cerrar -->
+<button
+  id="flyer-close"
+  class="cursor-pointer absolute top-2 right-2 z-10 p-2 bg-neutral-900 rounded-full text-white hover:text-[rgb(233,157,56)] transition-colors"
+  aria-label="Cerrar"
+>
+  <svg class="w-7 h-7" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+  </svg>
+</button>
+
+      <img
+        id="flyer-image"
+        src=""
+        alt=""
+        class="max-h-[75vh] max-w-[88vw] w-auto rounded-lg shadow-2xl select-none block"
+        draggable="false"
+      />
+
+      <!-- Flecha: ir a la contraportada (derecha) -->
+<!-- Flecha derecha -->
+<button
+  id="face-next"
+  class="cursor-pointer absolute right-3 top-1/2 -translate-y-1/2 p-2 bg-neutral-900/70 rounded-full text-white hover:text-[rgb(233,157,56)] transition-colors"
+  aria-label="Ver la otra cara del flyer"
+>
+
+        <svg class="w-10 h-10" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+        </svg>
+      </button>
+
+      <!-- Flecha: volver a la portada (izquierda) -->
+      <!-- Flecha izquierda -->
+<button
+  id="face-prev"
+  class="cursor-pointer absolute left-3 top-1/2 -translate-y-1/2 p-2 bg-neutral-900/70 rounded-full text-white hover:text-[rgb(233,157,56)] transition-colors hidden"
+  aria-label="Volver a la portada del flyer"
+>
+        <svg class="w-10 h-10" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
+        </svg>
+      </button>
+    </div>
+  </dialog>
 </Layout>
+
+<script>
+  const dialog = document.getElementById('flyer-dialog') as HTMLDialogElement;
+  const imgEl = document.getElementById('flyer-image') as HTMLImageElement;
+  const closeBtn = document.getElementById('flyer-close') as HTMLButtonElement;
+  const nextBtn = document.getElementById('face-next') as HTMLButtonElement;
+  const prevBtn = document.getElementById('face-prev') as HTMLButtonElement;
+
+  let faces: Record<'front' | 'back', string> = { front: '', back: '' };
+  let current: 'front' | 'back' = 'front';
+  let editionTitle = '';
+
+  function show(face: 'front' | 'back') {
+    const url = faces[face];
+    if (!url) return;
+    current = face;
+    imgEl.src = url;
+    imgEl.alt = `Flyer ${editionTitle} ${face === 'front' ? '— portada' : '— contraportada'}`;
+    nextBtn.classList.toggle('hidden', face === 'back' || !faces.back);
+    prevBtn.classList.toggle('hidden', face === 'front');
+  }
+
+  function openCard(card: HTMLElement) {
+    faces = {
+      front: card.dataset.front ?? '',
+      back: card.dataset.back ?? '',
+    };
+    if (!faces.front) return; // sin flyer no abre
+    editionTitle = card.dataset.title ?? '';
+    show('front');
+    dialog.showModal();
+  }
+
+  // Click en cards (delegación de eventos)
+  document.addEventListener('click', (e) => {
+    const card = (e.target as HTMLElement).closest<HTMLElement>('[data-flyer-card]');
+    if (card && !dialog.open) openCard(card);
+  });
+
+  // Flechas de navegación entre caras
+  nextBtn.addEventListener('click', () => show('back'));
+  prevBtn.addEventListener('click', () => show('front'));
+
+  // Cerrar: botón, clic en el fondo (backdrop) o Escape (nativo del <dialog>)
+  closeBtn.addEventListener('click', () => dialog.close());
+  dialog.addEventListener('click', (e) => {
+    if (e.target === dialog) dialog.close();
+  });
+</script>
+
