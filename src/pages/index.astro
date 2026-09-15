@@ -26,6 +26,23 @@ const heroImage = "/images/welcome-2026.png";
   alt={`Midnight Boogie Festival ${year}`} 
   class="w-full h-[calc(100vh-180px)] md:h-[calc(100vh-270px)] object-cover object-bottom md:object-center transition-transform duration-700 group-hover:scale-105"
 />
+
+<!-- H1 OCULTO SEMÁNTICAMENTE -->
+<h1 class="sr-only">Midnight Boogie Festival 2026 - Soul, Blues & Rhythm & Blues en Vitoria-Gasteiz</h1>
+
+<style is:global>
+  .sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border-width: 0;
+  }
+</style>
     
     <div class="absolute inset-0 bg-black/10 pointer-events-none"></div>
     
@@ -55,5 +72,8 @@ const heroImage = "/images/welcome-2026.png";
       class="h-[60%] object-contain drop-shadow-md opacity-90"
     />
   </section>
+
+
+  
 
 </Layout>
