@@ -1,9 +1,7 @@
 ---
 // src/pages/programa.astro
 import Layout from '../layouts/Layout.astro';
-
 import EventSchema from '../components/EventSchema.astro';
-
 import EventoCard from '../components/EventoCard.astro';
 import { programa2026 } from '../data/programa';
 ---
@@ -19,8 +17,7 @@ import { programa2026 } from '../data/programa';
     <!-- ========================================== -->
     <!-- PRESENTACIÓN (SEPTIEMBRE) -->
     <!-- ========================================== -->
-<section class="px-4 sm:px-6 md:px-8 lg:px-12">
-
+    <section class="px-4 sm:px-6 md:px-8 lg:px-12">
       <h2 class="font-avantgarde text-white text-4xl md:text-6xl font-light uppercase tracking-tight mb-4 drop-shadow-lg text-center">
         {programa2026.presentacion.dia} <span class="text-[rgb(233,157,56)]">Septiembre</span>
       </h2>
@@ -29,12 +26,33 @@ import { programa2026 } from '../data/programa';
         {programa2026.presentacion.tag}
       </p>
 
-
-      {programa2026.presentacion.eventos.map((evento, index) => (
-        <div class={index > 0 ? "max-w-2xl mx-auto border-t border-[rgb(233,157,56)]/60 pt-12 mt-12" : ""}>
-          <EventoCard evento={evento} />
-        </div>
-      ))}
+      {programa2026.presentacion.eventos.map((evento, index) => {
+        const primerArtista = evento.artistas?.[0];
+        return (
+          <>
+            <EventSchema 
+              evento={{
+                nombre: `${primerArtista?.nombre || evento.titulo} - ${evento.lugar}`,
+                fechaInicio: "2026-09-12",
+                lugar: evento.lugar,
+                direccion: evento.direccion || "",
+                ciudad: "Vitoria-Gasteiz",
+                provincia: "Álava",
+                pais: "ES",
+                codigoPostal: "01001",
+                precio: evento.precio || "0",
+                urlEntrada: evento.link,
+                organizador: "Stone Foundation",
+                descripcion: `${primerArtista?.nombre || evento.titulo} en ${evento.lugar}.`,
+                imagen: primerArtista?.imagen ? `/images/artistas/${primerArtista.nombre.toLowerCase().replace(/\s+/g, '-')}.jpg` : undefined
+              }} 
+            />
+            <div class={index > 0 ? "max-w-2xl mx-auto border-t border-[rgb(233,157,56)]/60 pt-12 mt-12" : ""}>
+              <EventoCard evento={evento} />
+            </div>
+          </>
+        );
+      })}
     </section>
 
     <hr class="border-[rgb(233,157,56)]/60 max-w-3xl mx-auto" />
@@ -49,11 +67,33 @@ import { programa2026 } from '../data/programa';
 
       <p class="sr-only">{programa2026.viernes.tag}</p>
 
-      {programa2026.viernes.eventos.map((evento, index) => (
-        <div class={index > 0 ? "max-w-2xl mx-auto border-t border-white/10 pt-12 mt-12" : ""}>
-          <EventoCard evento={evento} />
-        </div>
-      ))}
+      {programa2026.viernes.eventos.map((evento, index) => {
+        const primerArtista = evento.artistas?.[0];
+        return (
+          <>
+            <EventSchema 
+              evento={{
+                nombre: `${primerArtista?.nombre || evento.titulo} - ${evento.lugar}`,
+                fechaInicio: "2026-11-27",
+                lugar: evento.lugar,
+                direccion: evento.direccion || "",
+                ciudad: "Vitoria-Gasteiz",
+                provincia: "Álava",
+                pais: "ES",
+                codigoPostal: "01001",
+                precio: evento.precio || "0",
+                urlEntrada: evento.link,
+                organizador: "Stone Foundation",
+                descripcion: `${primerArtista?.nombre || evento.titulo} en ${evento.lugar}.`,
+                imagen: primerArtista?.imagen ? `/images/artistas/${primerArtista.nombre.toLowerCase().replace(/\s+/g, '-')}.jpg` : undefined
+              }} 
+            />
+            <div class={index > 0 ? "max-w-2xl mx-auto border-t border-white/10 pt-12 mt-12" : ""}>
+              <EventoCard evento={evento} />
+            </div>
+          </>
+        );
+      })}
     </section>
 
     <hr class="border-[rgb(233,157,56)]/60 max-w-3xl mx-auto" />
@@ -70,11 +110,33 @@ import { programa2026 } from '../data/programa';
         {programa2026.sabadoTaller.tag}
       </p>
 
-      {programa2026.sabadoTaller.eventos.map((evento, index) => (
-        <div class={index > 0 ? "max-w-2xl mx-auto border-t border-white/10 pt-12 mt-12" : ""}>
-          <EventoCard evento={evento} />
-        </div>
-      ))}
+      {programa2026.sabadoTaller.eventos.map((evento, index) => {
+        const primerArtista = evento.artistas?.[0];
+        return (
+          <>
+            <EventSchema 
+              evento={{
+                nombre: `${primerArtista?.nombre || evento.titulo} - ${evento.lugar}`,
+                fechaInicio: "2026-11-28",
+                lugar: evento.lugar,
+                direccion: evento.direccion || "",
+                ciudad: "Vitoria-Gasteiz",
+                provincia: "Álava",
+                pais: "ES",
+                codigoPostal: "01001",
+                precio: evento.precio || "0",
+                urlEntrada: evento.link,
+                organizador: "Stone Foundation",
+                descripcion: `${primerArtista?.nombre || evento.titulo} - Taller familiar en ${evento.lugar}.`,
+                imagen: primerArtista?.imagen ? `/images/artistas/${primerArtista.nombre.toLowerCase().replace(/\s+/g, '-')}.jpg` : undefined
+              }} 
+            />
+            <div class={index > 0 ? "max-w-2xl mx-auto border-t border-white/10 pt-12 mt-12" : ""}>
+              <EventoCard evento={evento} />
+            </div>
+          </>
+        );
+      })}
     </section>
 
     <hr class="border-[rgb(233,157,56)]/60 max-w-3xl mx-auto" />
@@ -89,14 +151,34 @@ import { programa2026 } from '../data/programa';
 
       <p class="sr-only">{programa2026.sabadoNoche.tag}</p>
 
-      {programa2026.sabadoNoche.eventos.map((evento, index) => (
-        <div class={index > 0 ? "max-w-2xl mx-auto border-t border-white/10 pt-12 mt-12" : ""}>
-          <EventoCard evento={evento} />
-        </div>
-      ))}
+      {programa2026.sabadoNoche.eventos.map((evento, index) => {
+        const primerArtista = evento.artistas?.[0];
+        return (
+          <>
+            <EventSchema 
+              evento={{
+                nombre: `${primerArtista?.nombre || evento.titulo} - ${evento.lugar}`,
+                fechaInicio: "2026-11-28",
+                lugar: evento.lugar,
+                direccion: evento.direccion || "",
+                ciudad: "Vitoria-Gasteiz",
+                provincia: "Álava",
+                pais: "ES",
+                codigoPostal: "01001",
+                precio: evento.precio || "0",
+                urlEntrada: evento.link,
+                organizador: "Stone Foundation",
+                descripcion: `${primerArtista?.nombre || evento.titulo} - Noche de Soul & Rock'n'Roll en ${evento.lugar}.`,
+                imagen: primerArtista?.imagen ? `/images/artistas/${primerArtista.nombre.toLowerCase().replace(/\s+/g, '-')}.jpg` : undefined
+              }} 
+            />
+            <div class={index > 0 ? "max-w-2xl mx-auto border-t border-white/10 pt-12 mt-12" : ""}>
+              <EventoCard evento={evento} />
+            </div>
+          </>
+        );
+      })}
     </section>
-
-    <hr class="border-[rgb(233,157,56)]/60 max-w-3xl mx-auto" />
 
 
    <!-- BLOQUE DE ABONO AL FINAL -->
