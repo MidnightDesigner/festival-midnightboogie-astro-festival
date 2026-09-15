@@ -1,0 +1,11 @@
+User-agent: *
+Allow: /
+
+# Sitemaps principales
+Sitemap: https://www.midnightboogie.net/sitemap.xml
+
+# Bloquear paths internos (si existen)
+Disallow: /_astro/
+Disallow: /admin/
+Disallow: /private/
+Disallow: /*?*
