@@ -6,9 +6,9 @@ import { entradas2026 } from '../data/entradas';
 
 import EventSchema from '../components/EventSchema.astro';
 
-// URL base para compartir
-const shareUrl = "https://midnightboogie.net/entradas";
-const shareText = "¡No te pierdas el Midnight Boogie Weekend 2026! Soul, R&B y mucho más en Vitoria-Gasteiz. ";
+// URL base para compartir → HOME (no /entradas)
+const shareUrl = "https://midnightboogie.net";
+const shareText = "¡No te pierdas el Midnight Boogie Weekend 2026! Soul, R&B y mucho más en Vitoria-Gasteiz. 🎸 Descargar Flyer: ";
 ---
 
 <Layout 
@@ -74,7 +74,7 @@ const shareText = "¡No te pierdas el Midnight Boogie Weekend 2026! Soul, R&B y 
             Descargar PDF
           </a>
 
-          <!-- Botones Compartir -->
+          <!-- Botones Compartir (HOME como destino) -->
           <div class="flex justify-center gap-3 pt-4 border-t border-white/10">
             <!-- WhatsApp -->
             <a href={`https://wa.me/?text=${encodeURIComponent(shareText + shareUrl)}`} target="_blank" rel="noopener noreferrer" class="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-[#25D366] hover:text-white transition-colors" aria-label="Compartir en WhatsApp">
@@ -95,11 +95,17 @@ const shareText = "¡No te pierdas el Midnight Boogie Weekend 2026! Soul, R&B y 
           </div>
         </div>
 
-        <!-- FLYER 2: FESTIVAL COMPLETO -->
-        <div class="bg-white/5 border border-white/10 rounded-2xl p-6 hover:border-[rgb(233,157,56)]/40 transition-colors duration-300">
+        <!-- FLYER 2: FESTIVAL COMPLETO (DESTACADO COMO RECOMENDADO) -->
+        <div class="bg-white/5 border border-[rgb(233,157,56)]/60 rounded-2xl p-6 hover:border-[rgb(233,157,56)] transition-colors duration-300 relative">
+          
+          <!-- Badge RECOMENDADO -->
+          <div class="absolute top-4 right-4 bg-[rgb(233,157,56)] text-black text-[10px] font-bold uppercase tracking-widest px-3 py-1 rounded-full">
+            Recomendado
+          </div>
+          
           <div class="aspect-[3/4] bg-black/30 rounded-lg overflow-hidden mb-6 flex items-center justify-center border border-white/5">
             <img 
-              src="/images/2026/programa-mbw-2026-01.jpg" 
+              src="/images/2026/programa-mbw-2026-01.png" 
               alt="Flyer Festival Completo Midnight Boogie" 
               class="w-full h-full object-contain p-4"
             />
@@ -109,14 +115,14 @@ const shareText = "¡No te pierdas el Midnight Boogie Weekend 2026! Soul, R&B y 
           <p class="text-white/50 text-xs text-center mb-6">Programación completa, artistas y detalles del evento.</p>
           
           <a 
-            href="/images/2026/MIDNIGHT-BOOGIE-WEEKEND-2026.pdf" 
+            href="/images/2026/programa-mbw-2026.pdf" 
             download
             class="block w-full text-center py-3 rounded-full bg-[rgb(233,157,56)] text-black font-bold uppercase tracking-wider text-sm hover:bg-white transition-colors mb-4"
           >
             Descargar PDF
           </a>
 
-          <!-- Botones Compartir -->
+          <!-- Botones Compartir (HOME como destino) -->
           <div class="flex justify-center gap-3 pt-4 border-t border-white/10">
             <!-- WhatsApp -->
             <a href={`https://wa.me/?text=${encodeURIComponent(shareText + shareUrl)}`} target="_blank" rel="noopener noreferrer" class="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-[#25D366] hover:text-white transition-colors" aria-label="Compartir en WhatsApp">
@@ -144,8 +150,6 @@ const shareText = "¡No te pierdas el Midnight Boogie Weekend 2026! Soul, R&B y 
         ¡Enlace copiado! Pégalo en Instagram
       </div>
     </section>
-
-   
 
   </main>
 
