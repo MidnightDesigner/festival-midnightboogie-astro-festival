@@ -1,0 +1,67 @@
+---
+// src/components/EventSchema.astro
+export interface Props {
+  evento: {
+    nombre: string;
+    fechaInicio: string; // ISO format: "2026-09-12"
+    fechaFin?: string;   // ISO format opcional
+    lugar: string;
+    direccion: string;
+    ciudad: string;
+    provincia: string;
+    pais: string;
+    codigoPostal?: string;
+    precio?: string;
+    urlEntrada?: string;
+    organizador?: string;
+    descripcion?: string;
+    imagen?: string;
+  };
+}
+
+const { evento } = Astro.props;
+
+const schemaData = {
+  "@context": "https://schema.org",
+  "@type": "MusicEvent",
+  "name": evento.nombre,
+  "startDate": evento.fechaInicio,
+  ...(evento.fechaFin && { "endDate": evento.fechaFin }),
+  "description": evento.descripcion || `Concierto de ${evento.nombre} en ${evento.lugar}`,
+  "location": {
+    "@type": "Place",
+    "name": evento.lugar,
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": evento.direccion,
+      "addressLocality": evento.ciudad,
+      "addressRegion": evento.provincia,
+      "postalCode": evento.codigoPostal || "",
+      "addressCountry": evento.pais
+    }
+  },
+  "performer": {
+    "@type": "MusicGroup",
+    "name": evento.organizador || "Midnight Boogie Festival"
+  },
+  "organizer": {
+    "@type": "Organization",
+    "name": evento.organizador || "Midnight Boogie Festival",
+    "url": "https://www.midnightboogie.net"
+  },
+  ...(evento.urlEntrada && {
+    "offers": {
+      "@type": "Offer",
+      "url": evento.urlEntrada,
+      "priceCurrency": "EUR",
+      "price": evento.precio || "0",
+      "availability": "https://schema.org/InStock"
+    }
+  }),
+  ...(evento.imagen && {
+    "image": evento.imagen
+  })
+};
+---
+
+<script type="application/ld+json" set:html={JSON.stringify(schemaData)} />

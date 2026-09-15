@@ -2,6 +2,8 @@
 // src/pages/programa.astro
 import Layout from '../layouts/Layout.astro';
 
+import EventSchema from '../components/EventSchema.astro';
+
 import EventoCard from '../components/EventoCard.astro';
 import { programa2026 } from '../data/programa';
 ---
@@ -17,7 +19,8 @@ import { programa2026 } from '../data/programa';
     <!-- ========================================== -->
     <!-- PRESENTACIÓN (SEPTIEMBRE) -->
     <!-- ========================================== -->
-    <section class="px-4">
+<section class="px-4 sm:px-6 md:px-8 lg:px-12">
+
       <h2 class="font-avantgarde text-white text-4xl md:text-6xl font-light uppercase tracking-tight mb-4 drop-shadow-lg text-center">
         {programa2026.presentacion.dia} <span class="text-[rgb(233,157,56)]">Septiembre</span>
       </h2>

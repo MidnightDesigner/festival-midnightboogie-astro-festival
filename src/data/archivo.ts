@@ -52,7 +52,7 @@ export const pastEditions: PastEdition[] = [
   },
   {
     year: 2021,
-    title: "Midnight Boogie 2021",
+    title: "Midnight Boogie 2021 2º",
     dates: "26-27 de noviembre, 2021",
     description: "Edición del festival de 2021.",
     artists: ["Artista 1", "Artista 2", "Artista 3"],
@@ -60,10 +60,10 @@ export const pastEditions: PastEdition[] = [
     imageBack: "/images/2021/2021-2.jpg",
   },
   {
-    year: 2020,
-    title: "Midnight Boogie 2020",
+    year: 2021,
+    title: "Midnight Boogie 2021 1º",
     dates: "27-28 de noviembre, 2020",
-    description: "Edición del festival de 2020.",
+    description: "Edición del festival de 2021.",
     artists: ["Artista 1", "Artista 2", "Artista 3"],
     image: "/images/2020/2020.jpg"
   },

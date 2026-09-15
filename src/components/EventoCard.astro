@@ -39,23 +39,20 @@ const logoSala = logoPorSala[evento.lugar];
 const artistasValidos = new Map(
   artistas2026.map(a => [getSlug(a.nombre), a])
 );
-
-
-
-
 ---
 
 <div class="max-w-4xl mx-auto">
-  <!-- Línea Naranja superior -->
-  <div class="w-132 h-[1px] bg-white mx-auto mb-4 opacity-80"></div>
+
+<!-- Línea decorativa superior -->
+<div class="w-24 sm:w-32 md:w-56 h-[1px] bg-white mx-auto mb-4 opacity-80"></div>
   
   <!-- Título del Evento -->
   <h3 class="font-avantgarde text-white text-sm md:text-xl font-light uppercase tracking-[0.2em] mb-4 drop-shadow-md text-center">
     {evento.titulo}
   </h3>
   
-  <!-- Línea Naranja inferior -->
-  <div class={`w-132 h-[1px] bg-white mx-auto opacity-80 ${esFiestaPosterior ? 'mb-6' : 'mb-12'}`}></div>
+  <!-- Línea decorativa inferior -->
+<div class={`w-24 sm:w-32 md:w-56 h-[1px] bg-white mx-auto opacity-80 ${esFiestaPosterior ? 'mb-6' : 'mb-12'}`}></div>
 
   {/* Lista de Artistas */}
   {tieneArtistas && (
@@ -116,16 +113,16 @@ const artistasValidos = new Map(
 
   {/* Info de Sala, Hora y Dirección */}
   {/* Logo de la sala (si tiene) */}
-{logoSala && (
-  <div class={`flex justify-center ${esFiestaPosterior ? 'mb-2' : 'mb-4'}`}>
-    <img 
-      src={logoSala} 
-      alt={`Logo de ${evento.lugar}`} 
-      class={`w-auto object-contain ${esFiestaPosterior ? 'h-10 md:h-14' : 'h-14 md:h-20'}`}
-      loading="lazy"
-    />
-  </div>
-)}
+  {logoSala && (
+    <div class={`flex justify-center ${esFiestaPosterior ? 'mb-2' : 'mb-4'}`}>
+      <img 
+        src={logoSala} 
+        alt={`Logo de ${evento.lugar}`} 
+        class={`w-auto object-contain ${esFiestaPosterior ? 'h-10 md:h-14' : 'h-14 md:h-20'}`}
+        loading="lazy"
+      />
+    </div>
+  )}
   <div class={`flex flex-col md:flex-row justify-center items-center gap-2 md:gap-4 text-white ${esFiestaPosterior ? 'mb-4 text-sm' : 'mb-10'}`}>
     <span class={`font-bold uppercase tracking-wider ${esFiestaPosterior ? 'text-base' : 'text-xl'}`}>{evento.lugar}</span>
     <span class="hidden md:block w-1.5 h-1.5 bg-white/30 rounded-full"></span>

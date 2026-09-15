@@ -34,14 +34,19 @@ const currentUrl = `${siteUrl}${Astro.url.pathname}`;
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+      <title>{title} | Midnight Boogie Festival</title>
+  <meta name="description" content={description} />
     
     <!-- Activa las transiciones suaves de Astro -->
     <meta name="view-transition" content="same-origin" />
     
+      <!-- Meta tags básicos -->
     <title>{fullTitle}</title>
     <meta name="description" content={description} />
     <link rel="canonical" href={currentUrl} />
     
+      <!-- Open Graph -->
     <meta property="og:type" content="website" />
     <meta property="og:url" content={currentUrl} />
     <meta property="og:title" content={fullTitle} />
@@ -50,6 +55,7 @@ const currentUrl = `${siteUrl}${Astro.url.pathname}`;
     <meta property="og:locale" content="es_ES" />
     <meta property="og:site_name" content="Midnight Boogie" />
     
+      <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:url" content={currentUrl} />
     <meta name="twitter:title" content={fullTitle} />
@@ -60,7 +66,30 @@ const currentUrl = `${siteUrl}${Astro.url.pathname}`;
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Jost:wght@300;400;500;600;700;900&display=swap" rel="stylesheet">
 
-
+<!-- Canonical URL -->
+  <link rel="canonical" href={Astro.url.href} />
+  
+  <!-- Schema.org para la organización (una sola vez en home) -->
+  {Astro.url.pathname === '/' && (
+    <script type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "MusicFestival",
+      "name": "Midnight Boogie Weekend 2026",
+      "startDate": "2026-09-12",
+      "endDate": "2026-11-28",
+      "location": {
+        "@type": "City",
+        "name": "Vitoria-Gasteiz",
+        "addressCountry": "ES"
+      },
+      "organizer": {
+        "@type": "Organization",
+        "name": "Midnight Boogie Festival",
+        "url": "https://www.midnightboogie.net"
+      },
+      "image": "/images/festival-hero.jpg"
+    })} />
+  )}
 
   </head>
   
@@ -78,6 +107,8 @@ const currentUrl = `${siteUrl}${Astro.url.pathname}`;
     {showFooter && <Footer />}
 
  <Analytics /> 
+
+ 
 
   </body>
 </html>
