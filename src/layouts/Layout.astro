@@ -37,6 +37,33 @@ const currentUrl = `${siteUrl}${Astro.url.pathname}`;
 
       <title>{title} | Midnight Boogie Festival</title>
   <meta name="description" content={description} />
+
+{Astro.url.pathname === '/' && (
+  <script type="application/ld+json" set:html={JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "MusicFestival",
+    "name": "Midnight Boogie Weekend 2026",
+    "startDate": "2026-09-12",
+    "endDate": "2026-11-28",
+    "location": {
+      "@type": "Place",
+      "name": "Vitoria-Gasteiz",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Vitoria-Gasteiz",
+        "addressRegion": "Álava",
+        "addressCountry": "ES"
+      }
+    },
+    "organizer": {
+      "@type": "Organization",
+      "name": "Midnight Boogie Festival",
+      "url": "https://www.midnightboogie.net"
+    },
+    "image": "https://www.midnightboogie.net/images/festival-hero.jpg"
+  })} />
+)}
+
     
     <!-- Activa las transiciones suaves de Astro -->
     <meta name="view-transition" content="same-origin" />

@@ -40,10 +40,12 @@ const schemaData = {
       "addressCountry": evento.pais
     }
   },
-  "performer": {
-    "@type": "MusicGroup",
-    "name": evento.organizador || "Midnight Boogie Festival"
-  },
+  "performer": [
+    {
+      "@type": "MusicGroup",
+      "name": evento.organizador || "Midnight Boogie Festival"
+    }
+  ],
   "organizer": {
     "@type": "Organization",
     "name": evento.organizador || "Midnight Boogie Festival",
