@@ -1,11 +1,20 @@
 User-agent: *
 Allow: /
 
-# Sitemaps principales
-Sitemap: https://www.midnightboogie.net/sitemap.xml
-
-# Bloquear paths internos (si existen)
+# Rutas técnicas/administrativas
 Disallow: /_astro/
 Disallow: /admin/
 Disallow: /private/
-Disallow: /*?*
+Disallow: /login/
+Disallow: /checkout/
+
+# Parámetros problemáticos (más específico)
+Disallow: /*?sessionid=*
+Disallow: /*?ref=*
+Disallow: /*?utm_*
+
+# Permitir filtros legítimos (opcional)
+Allow: /*?category=*
+Allow: /*?sort=*
+
+Sitemap: https://www.midnightboogie.net/sitemap.xml
