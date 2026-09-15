@@ -4,23 +4,14 @@ import sitemap from '@astrojs/sitemap';
 import tailwind from '@tailwindcss/vite';
 
 export default defineConfig({
-  site: 'https://www.midnightboogie.net', // Importante para canonical URLs
+  site: 'https://www.midnightboogie.net',
   vite: {
-    plugins: [tailwind()],
-    build: {
-      // Optimitzación de assets
-      rollupOptions: {
-        output: {
-          manualChunks: {
-            vendor: ['@astrojs/sitemap']
-          }
-        }
-      }
-    }
+    plugins: [tailwind()]
+    // ← Eliminado: build.rollupOptions.output.manualChunks
   },
   integrations: [sitemap()],
   build: {
-    inlineStylesheets: 'auto', // CSS crítico inline
-    assetsInlineLimit: 4096   // Imágenes pequeñas inline (<4KB)
+    inlineStylesheets: 'auto',
+    assetsInlineLimit: 4096
   }
 });
