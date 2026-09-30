@@ -1,0 +1,328 @@
+{
+  "$schema": "https://json.schemastore.org/json",
+  "name": "Midnight Boogie Design Tokens",
+  "version": "1.0.0-alpha",
+  "meta": {
+    "description": "Tokens centrales para el sistema de diseño del festival Midnight Boogie",
+    "author": "Pedro 'Peru' Rodríguez Lozano / Peter Rodri",
+    "lastUpdated": "2026-09-23",
+    "languagePriority": ["eu", "es", "en", "fr"]
+  },
+  "color": {
+    "brand": {
+      "orange": {
+        "value": "#EC9726",
+        "description": "Color principal del festival (Midnight Orange)",
+        "rgb": "rgb(233, 157, 56)"
+      },
+      "orange-60": {
+        "value": "rgba(233, 157, 56, 0.60)",
+        "description": "Naranja con 60% opacidad para highlights"
+      },
+      "orange-10": {
+        "value": "rgba(233, 157, 56, 0.10)",
+        "description": "Naranja con 10% opacidad para bordes sutiles"
+      }
+    },
+    "background": {
+      "dark": {
+        "value": "#0a0a0a",
+        "description": "Fondo principal oscuro"
+      },
+      "card": {
+        "value": "rgba(255, 255, 255, 0.05)",
+        "description": "Fondo translúcido para tarjetas (backdrop-blur)"
+      },
+      "card-hover": {
+        "value": "rgba(255, 255, 255, 0.10)",
+        "description": "Hover para tarjetas"
+      },
+      "modal-overlay": {
+        "value": "rgba(0, 0, 0, 0.85)",
+        "description": "Overlay para modales/lightbox"
+      }
+    },
+    "border": {
+      "subtle": {
+        "value": "rgba(255, 255, 255, 0.10)",
+        "description": "Bordes sutiles en componentes oscuros"
+      },
+      "accent": {
+        "value": "rgba(255, 255, 255, 0.20)",
+        "description": "Bordes destacados"
+      }
+    },
+    "text": {
+      "primary": {
+        "value": "#ffffff",
+        "description": "Texto principal (blanco puro)"
+      },
+      "secondary": {
+        "value": "rgba(255, 255, 255, 0.80)",
+        "description": "Texto secundario (80% opacity)"
+      },
+      "tertiary": {
+        "value": "rgba(255, 255, 255, 0.60)",
+        "description": "Texto terciario (60% opacity)"
+      },
+      "disabled": {
+        "value": "rgba(255, 255, 255, 0.40)",
+        "description": "Texto deshabilitado (40% opacity)"
+      }
+    },
+    "semantic": {
+      "success": {
+        "value": "#22c55e",
+        "description": "Estado exitoso"
+      },
+      "warning": {
+        "value": "#f59e0b",
+        "description": "Advertencia/atención"
+      },
+      "error": {
+        "value": "#ef4444",
+        "description": "Error/problema"
+      },
+      "link": {
+        "value": "#EC9726",
+        "description": "Enlaces (usa brand orange)"
+      }
+    }
+  },
+  "typography": {
+    "fontFamily": {
+      "display": {
+        "value": "'ITC Avant Garde Gothic Pro', 'Century Gothic', 'Jost', sans-serif",
+        "description": "Fuente principal para títulos (brand)"
+      },
+      "body": {
+        "value": "Inter, system-ui, -apple-system, sans-serif",
+        "description": "Fuente secundaria para cuerpo/UI"
+      }
+    },
+    "fontWeight": {
+      "light": { "value": 300 },
+      "normal": { "value": 400 },
+      "medium": { "value": 500 },
+      "semibold": { "value": 600 },
+      "bold": { "value": 700 }
+    },
+    "fontSize": {
+      "xs": { "value": "0.75rem", "description": "12px - Etiquetas pequeñas" },
+      "sm": { "value": "0.875rem", "description": "14px - Metadata" },
+      "base": { "value": "1rem", "description": "16px - Cuerpo estándar" },
+      "lg": { "value": "1.125rem", "description": "18px - Destacado" },
+      "xl": { "value": "1.25rem", "description": "20px - H3" },
+      "2xl": { "value": "1.5rem", "description": "24px - H2" },
+      "3xl": { "value": "1.875rem", "description": "30px - H1 tablet" },
+      "4xl": { "value": "2.25rem", "description": "36px - H1 desktop" },
+      "5xl": { "value": "3rem", "description": "48px - Hero grande" }
+    },
+    "lineHeight": {
+      "tight": { "value": 1.25, "description": "Títulos compactos" },
+      "normal": { "value": 1.5, "description": "Cuerpo estándar" },
+      "relaxed": { "value": 1.75, "description": "Texto largo/lectura" }
+    },
+    "letterSpacing": {
+      "tight": { "value": "-0.02em", "description": "Títulos densos" },
+      "normal": { "value": "0", "description": "Cuerpo estándar" },
+      "wide": { "value": "0.05em", "description": "Etiquetas uppercase" },
+      "widest": { "value": "0.1em", "description": "Labels decorativos" }
+    }
+  },
+  "spacing": {
+    "unit": { "value": "0.25rem", "description": "4px - Unidad base (Tailwind rem)" },
+    "xs": { "value": "0.5rem", "description": "8px - Gap mínimo" },
+    "sm": { "value": "0.75rem", "description": "12px" },
+    "md": { "value": "1rem", "description": "16px" },
+    "lg": { "value": "1.5rem", "description": "24px" },
+    "xl": { "value": "2rem", "description": "32px" },
+    "2xl": { "value": "3rem", "description": "48px" },
+    "3xl": { "value": "4rem", "description": "64px" },
+    "gap-1.5": {
+      "value": "0.375rem",
+      "description": "GAP REGLA DE ORO: Nombre + Dirección ubicación"
+    },
+    "gap-2": {
+      "value": "0.5rem",
+      "description": "GAP alternativo para ubicaciones"
+    }
+  },
+  "borderRadius": {
+    "sm": { "value": "0.25rem", "description": "4px - Pequeño" },
+    "md": { "value": "0.375rem", "description": "6px - Mediano" },
+    "lg": { "value": "0.5rem", "description": "8px - Estándar" },
+    "xl": { "value": "0.75rem", "description": "12px - Tarjetas" },
+    "2xl": { "value": "1rem", "description": "16px - Destacado" },
+    "full": { "value": "9999px", "description": "Botones redondos, medallón" }
+  },
+  "shadow": {
+    "sm": {
+      "value": "0 1px 2px rgba(0, 0, 0, 0.3)",
+      "description": "Sombra leve"
+    },
+    "md": {
+      "value": "0 4px 6px rgba(0, 0, 0, 0.4)",
+      "description": "Sombra estándar"
+    },
+    "lg": {
+      "value": "0 10px 15px rgba(0, 0, 0, 0.5)",
+      "description": "Sombra grande (hover cards)"
+    },
+    "glow-orange": {
+      "value": "0 0 20px rgba(233, 157, 56, 0.4)",
+      "description": "Resplandor naranja para elementos destacados"
+    }
+  },
+  "breakpoints": {
+    "mobile": { "value": "0px", "description": "Base móvil" },
+    "sm": { "value": "640px", "description": "Tablet vertical" },
+    "md": { "value": "768px", "description": "Tablet horizontal" },
+    "lg": { "value": "1024px", "description": "Desktop pequeño" },
+    "xl": { "value": "1280px", "description": "Desktop estándar" },
+    "2xl": { "value": "1536px", "description": "Pantallas grandes" },
+    "nav-critical": {
+      "value": "612px",
+      "description": "BREAKPOINT CRÍTICO: Corrección línea divisoria móvil (actualmente en uso)"
+    }
+  },
+  "zIndex": {
+    "base": { "value": 0 },
+    "dropdown": { "value": 100 },
+    "sticky": { "value": 200 },
+    "fixed": { "value": 300 },
+    "modal-backdrop": { "value": 400 },
+    "modal": { "value": 500 },
+    "toast": { "value": 600 }
+  },
+  "transition": {
+    "fast": {
+      "value": "150ms ease-in-out",
+      "description": "Transiciones rápidas (hover)"
+    },
+    "normal": {
+      "value": "300ms ease-in-out",
+      "description": "Transiciones estándar"
+    },
+    "slow": {
+      "value": "500ms ease-in-out",
+      "description": "Transiciones dramáticas"
+    },
+    "default": {
+      "value": "300ms ease-in-out",
+      "description": "Por defecto en todo el sitio"
+    }
+  },
+  "accessibility": {
+    "minTouchTarget": {
+      "value": "44px",
+      "description": "WCAG: Tamaño mínimo táctil (iOS Human Interface)"
+    },
+    "minContrastAA": {
+      "value": "4.5:1",
+      "description": "WCAG AA para texto normal"
+    },
+    "minContrastAAA": {
+      "value": "7:1",
+      "description": "WCAG AAA para texto crítico"
+    },
+    "focusVisible": {
+      "value": true,
+      "description": "Focus ring siempre visible (keyboard nav)"
+    }
+  },
+  "i18n": {
+    "priority": ["eu", "es", "en", "fr"],
+    "rtl": false,
+    "defaultLocale": "es",
+    "fallbackLocale": "es",
+    "localeStorageKey": "preferred-language",
+    "notes": {
+      "basque": "Prioridad por contexto local (Euskadi)",
+      "spanish": "Idioma principal actual",
+      "english": "Internacionalización",
+      "french": "Mercado europeo adyacente"
+    }
+  },
+  "componentRules": {
+    "card": {
+      "defaultHover": "bg-[rgb(233,157,56)]/10",
+      "alternativeHover": "white",
+      "padding": "p-6",
+      "borderRadius": "rounded-2xl",
+      "borderWidth": "border border-white/10"
+    },
+    "location": {
+      "iconSize": "w-5 h-5",
+      "textGap": "gap-1.5",
+      "venueNameFont": "uppercase tracking-wide",
+      "addressFont": "text-sm opacity-80"
+    },
+    "divider": {
+      "defaultWidth": "max-w-3xl",
+      "defaultMargin": "mx-auto my-8",
+      "defaultColor": "bg-[rgb(233,157,56)]/60"
+    }
+  }
+}
+
+Estructura del Proyecto:
+
+
+
+Componentes Core:
+
+Button
+<Button href="#" variant="primary" class="w-full justify-center mt-4">
+  Descargar PDF
+</Button>
+
+Variantes:
+
+primary → Fondo naranja, texto blanco
+outline → Borde blanco, fondo transparente
+
+
+Card
+<Card class="p-6" hover="white">
+  <p class="text-white">Contenido de tarjeta</p>
+</Card>
+
+Props:
+
+hover → "orange" (default) | "white" | "none"
+
+TextMeta
+<TextMeta variant="venue-name" text="SALA ARKABIA" />
+<TextMeta variant="venue-address" text="Postas 13-15, Vitoria-Gasteiz" />
+
+Uso obligatorio con container flex + gap-1.5:
+
+🌍 Internacionalización (i18n)
+
+Idiomas Soportados
+Código	Idioma	Prioridad
+eu	Euskera	1 (local)
+es	Español	2 (actual)
+en	Inglés	3 (intl)
+fr	Francés	4 (europeo)
+Estructura de Archivos
+locales/
+├── eu.json
+├── es.json
+├── en.json
+└── fr.json
+
+Nota: El Euskera tiene prioridad por contexto cultural y normativo local.
+
+
+♿ Accesibilidad (A11Y)
+
+Checklist Mínimo Requerido
+ Todos los botones tienen aria-label descriptivo
+ Iconos SVG tienen aria-hidden="true" + texto alternativo
+ Focus rings visibles en todos los elementos interactivos
+ Contraste mínimo WCAG AA (4.5:1 para texto normal)
+ Touch targets ≥ 44px × 44px (iOS HIG)
+ Navegación por teclado completa (Tab, Enter, Escape)
+ Modal/Lightbox trap focus correctamente

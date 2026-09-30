@@ -12,7 +12,7 @@ export interface Entrada {
   precioTaquilla?: string; // Opcional (pon "?" al final si no siempre existe)
   link: string;
   linkTexto: string;
-  estado: "Disponible" | "Últimas entradas" | "Agotado";
+  estado: "Disponibles" | "Últimas entradas" | "Agotadas";
 }
 
 export const entradas2026: Entrada[] = [
@@ -49,7 +49,7 @@ export const entradas2026: Entrada[] = [
 
     link: "https://www.musikaze.net/web/?menu=138&pagina=&item=62415&siteID=infiernodorado",
     linkTexto: "Comprar Abono",
-    estado: "Disponible"
+    estado: "Disponibles"
   },
 
   // ============================================
@@ -67,7 +67,7 @@ export const entradas2026: Entrada[] = [
     precioTaquilla: "26€",
     link: "https://www.musikaze.net/web/?menu=138&pagina=&item=62415&siteID=infiernodorado",
     linkTexto: "Comprar en Musikaze",
-    estado: "Disponible"
+    estado: "Disponibles"
   },
 
 
@@ -85,7 +85,7 @@ export const entradas2026: Entrada[] = [
     precioAnticipada: "Gratis con inscripción",
     link: "https://www.fundacionvital.eus/taller-musical-infantil-creative-soul",
     linkTexto: "Inscribirse en Fundación Vital Fundazioa",
-    estado: "Disponible"
+    estado: "Disponibles"
   },
 
 
@@ -106,7 +106,7 @@ export const entradas2026: Entrada[] = [
     precioTaquilla: "26€",
     link: "https://www.musikaze.net/web/?menu=138&pagina=&item=62415&siteID=infiernodorado",
     linkTexto: "Comprar en Musikaze",
-    estado: "Disponible"
+    estado: "Disponibles"
   }
 
   // ============================================

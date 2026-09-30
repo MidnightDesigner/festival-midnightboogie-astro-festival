@@ -1,6 +1,9 @@
 ---
 // src/components/TicketCard.astro
 import type { Entrada } from '../data/entradas';
+import Button from './DesignSystem/Button.astro';
+import TextMeta from './DesignSystem/TextMeta.astro';
+import Card from './DesignSystem/Card.astro'; // ✅ Import del nuevo componente Card
 
 export interface Props {
   entrada: Entrada;
@@ -9,9 +12,9 @@ export interface Props {
 const { entrada } = Astro.props;
 
 const estadoColors = {
-  "Disponible": "bg-green-500/20 text-green-400 border-green-500/30",
-  "Últimas entradas": "bg-[rgb(233,157,56)]/20 text-[rgb(233,157,56)] border-[rgb(233,157,56)]/30",
-  "Agotado": "bg-red-500/20 text-red-400 border-red-500/30"
+  "Disponibles": "bg-green-500/30 text-green-300 border-green-500/50",
+  "Últimas entradas": "bg-[rgb(233,157,56)]/30 text-[rgb(233,157,56)] border-[rgb(233,157,56)]/50",
+  "Entradas agotadas": "bg-red-500/30 text-red-300 border-red-500/50"
 };
 
 const logoPorSala: Record<string, string> = {
@@ -28,18 +31,14 @@ const logoSala = Object.entries(logoPorSala).find(([sala]) =>
 const mapUrl = entrada.direccion
   ? `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(entrada.direccion + ", Vitoria-Gasteiz")}`
   : null;
-
 ---
 
-<article class="ticket-card mx-auto bg-white/5 border border-white/10 rounded-2xl overflow-hidden hover:border-[rgb(233,157,56)]/40 transition-colors duration-500 mb-8 md:mb-12">
-  
+<Card class="mx-auto w-[90vw] md:w-[64vw] mb-8 md:mb-12">
   <div class="p-6 md:p-8">
     
-    <!-- Cabecera: Fecha -->
+    <!-- ✅ FECHA Y HORA -->
     <div class="mb-4">
-      <span class="text-[rgb(233,157,56)] text-sm md:text-base font-bold uppercase tracking-[0.2em]">
-        {entrada.fecha} · {entrada.hora}
-      </span>
+      <TextMeta variant="date" text={`${entrada.fecha} · ${entrada.hora}`} />
     </div>
 
     <!-- EVENTO -->
@@ -55,118 +54,91 @@ const mapUrl = entrada.direccion
     <!-- Línea separadora -->
     <div class="w-full h-[1px] bg-white/10 my-4"></div>
 
-{logoSala && (
-  <div class="flex mb-6">
-    <img 
-      src={logoSala} 
-      alt={`Logo de ${entrada.lugar}`} 
-      class="h-14 md:h-20 w-auto object-contain"
-      loading="lazy"
-    />
-  </div>
-)}
+    {logoSala && (
+      <div class="flex mb-6">
+        <img 
+          src={logoSala} 
+          alt={`Logo de ${entrada.lugar}`} 
+          class="h-14 md:h-20 w-auto object-contain"
+          loading="lazy"
+        />
+      </div>
+    )}
 
-<!-- Lugar + dirección + enlace a Google Maps -->
-{entrada.direccion && (
-  <a 
-    href={mapUrl ?? '#'}
-    target="_blank"
-    rel="noopener noreferrer"
-    class="flex items-start gap-3 mb-4 group/lugar w-fit"
-    aria-label={`Ver ${entrada.lugar} en Google Maps`}
-  >
-    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5 text-[rgb(233,157,56)] mt-0.5 flex-shrink-0 group-hover/lugar:scale-110 transition-transform">
-      <path stroke-linecap="round" stroke-linejoin="round" d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z" />
-      <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z" />
-    </svg>
-    <span class="text-left">
-      <span class="block text-white/80 text-sm md:text-base font-light leading-relaxed group-hover/lugar:text-[rgb(233,157,56)] transition-colors">
-        {entrada.lugar}
-      </span>
-      <span class="block text-white/50 text-xs md:text-sm font-light">
-        {entrada.direccion}
-      </span>
-    </span>
-  </a>
-)}
+    <!-- ✅ UBICACIÓN -->
+    {entrada.direccion && (
+      <a 
+        href={mapUrl ?? '#'}
+        target="_blank"
+        rel="noopener noreferrer"
+        class="flex items-start gap-3 mb-6 group/lugar w-fit"
+        aria-label={`Ver ${entrada.lugar} en Google Maps`}
+      >
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5 text-[rgb(233,157,56)] mt-0.5 flex-shrink-0 group-hover/lugar:scale-110 transition-transform">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z" />
+          <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z" />
+        </svg>
+        
+        <div class="flex flex-col gap-1.5">
+          <TextMeta variant="venue-name" text={entrada.lugar} />
+          <TextMeta variant="venue-address" text={entrada.direccion} />
+        </div>
+      </a>
+    )}
 
-{/* Si no hay dirección, muestra solo el nombre sin enlace */}
-{!entrada.direccion && (
-  <div class="flex items-start gap-3 mb-4">
-    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5 text-[rgb(233,157,56)] mt-0.5 flex-shrink-0">
-      <path stroke-linecap="round" stroke-linejoin="round" d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z" />
-      <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z" />
-    </svg>
-    <span class="text-white/80 text-sm md:text-base font-light leading-relaxed">
-      {entrada.lugar}
-    </span>
-  </div>
-)}
+    {!entrada.direccion && (
+      <div class="flex items-start gap-3 mb-6">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5 text-[rgb(233,157,56)] mt-0.5 flex-shrink-0">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z" />
+          <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z" />
+        </svg>
+        <TextMeta variant="venue-name" text={entrada.lugar} />
+      </div>
+    )}
 
-    <!-- Badge de Estado -->
+    <!-- ✅ BADGE DE ESTADO -->
     <div class="mb-6">
-      <span class={`inline-flex items-center px-4 py-2 rounded-full text-[10px] md:text-xs font-bold uppercase tracking-widest border ${estadoColors[entrada.estado]}`}>
-        {entrada.estado}
-      </span>
+      <TextMeta 
+        variant="badge" 
+        text={entrada.estado} 
+        class={estadoColors[entrada.estado]} 
+      />
     </div>
 
-    <!-- Precios -->
+    <!-- ✅ PRECIOS -->
     {entrada.precioTaquilla && (
       <div class="flex items-center mb-6" style="gap: 48px;">
         <div>
-          <span class="text-white/50 text-sm font-light uppercase tracking-wider">Anticipada: </span>
-          <span class="text-white text-xl md:text-2xl font-light tracking-tight">
-            {entrada.precioAnticipada}
-          </span>
+          <TextMeta variant="tag" text="Anticipada:" />
+          <TextMeta variant="price" text={entrada.precioAnticipada} />
         </div>
         <div>
-          <span class="text-white/50 text-sm font-light uppercase tracking-wider">Taquilla: </span>
-          <span class="text-white text-xl md:text-2xl font-light tracking-tight">
-            {entrada.precioTaquilla}
-          </span>
+          <TextMeta variant="tag" text="Taquilla:" />
+          <TextMeta variant="price" text={entrada.precioTaquilla} />
         </div>
       </div>
     )}
 
     {!entrada.precioTaquilla && (
       <div class="mb-6">
-        <span class="text-white/50 text-sm font-light uppercase tracking-wider">Anticipada: </span>
-        <span class="text-white text-xl md:text-2xl font-light tracking-tight">
-          {entrada.precioAnticipada}
-        </span>
+        <TextMeta variant="tag" text="Anticipada:" />
+        <TextMeta variant="price" text={entrada.precioAnticipada} />
       </div>
     )}
 
     <!-- Botón de Acción -->
-    {entrada.estado !== "Agotado" ? (
-      <a 
-        href={entrada.link}
-        target="_blank"
-        rel="noopener noreferrer"
-        class="inline-flex items-center justify-center gap-2 w-full md:w-auto bg-[rgb(233,157,56)] text-black px-8 py-3 rounded-full text-sm font-bold uppercase tracking-widest hover:bg-white transition-colors duration-300 shadow-lg"
-      >
+    {entrada.estado !== "Entradas agotadas" ? (
+      <Button href={entrada.link} variant="primary" class="w-full md:w-auto gap-2">
         {entrada.linkTexto}
         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-4 h-4">
           <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 6H5.25A2.25 2.25 0 003 8.25v10.5A2.25 2.25 0 005.25 21h10.5A2.25 2.25 0 0018 18.75V10.5m-10.5 6L21 3m0 0h-5.25M21 3v5.25" />
         </svg>
-      </a>
+      </Button>
     ) : (
       <button disabled class="inline-flex items-center justify-center gap-2 w-full md:w-auto bg-white/10 text-white/40 px-8 py-3 rounded-full text-sm font-bold uppercase tracking-widest cursor-not-allowed">
-        Entradas Agotadas
+        Entradas agotadas
       </button>
     )}
 
   </div>
-</article>
-
-<style>
-  .ticket-card {
-    width: 90vw;
-  }
-
-  @media (min-width: 768px) {
-    .ticket-card {
-      width: 64vw;
-    }
-  }
-</style>
+</Card>

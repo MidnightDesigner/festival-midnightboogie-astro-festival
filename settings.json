@@ -1,0 +1,21 @@
+{
+  "editor.quickSuggestions": {
+    "strings": true
+  },
+  "tailwindCSS.includeLanguages": {
+    "html": "html",
+    "javascript": "javascript",
+    "astro": "astro"
+  },
+  "tailwindCSS.emmetCompletions": true,
+  "files.associations": {
+    "*.astro": "astro"
+  },
+  "[css]": {
+    "editor.quickSuggestions": {
+      "other": true,
+      "comments": true,
+      "strings": true
+    }
+  }
+}

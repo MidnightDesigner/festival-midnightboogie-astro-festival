@@ -1,0 +1,17 @@
+models:
+  - title: "Qwen Coder Local"
+    provider: ollama
+    model: "qwen2.5-coder:7b"
+    apiBase: "http://localhost:11434"
+
+  - title: "StarCoder Autocomplete"
+    provider: ollama
+    model: "starcoder2:3b"
+    apiBase: "http://localhost:11434"
+
+tabAutocomplete:
+  model: "starcoder2:3b"
+
+defaultModel: "Qwen Coder Local"
+
+allowAnonymousTelemetry: false

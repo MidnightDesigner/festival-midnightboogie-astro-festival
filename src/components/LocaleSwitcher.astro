@@ -1,0 +1,21 @@
+---
+import { supportedLocales } from '../data/translations';
+const currentLocale = Astro.params.locale || 'es';
+const currentPath = Astro.url.pathname.replace(`/${currentLocale}`, '');
+---
+
+<nav class="locale-switcher flex gap-3 items-center">
+  {supportedLocales.map((locale) => (
+    <a
+      href={`/${locale}${currentPath}`}
+      class={`uppercase text-xs font-bold transition-colors ${
+        locale === currentLocale 
+          ? 'text-black' 
+          : 'text-black/60 hover:text-black'
+      }`}
+      aria-current={locale === currentLocale ? 'page' : undefined}
+    >
+      {locale.toUpperCase()}
+    </a>
+  ))}
+</nav>

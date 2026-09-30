@@ -1,0 +1,53 @@
+---
+interface Props {
+  text: string;
+  variant?: keyof typeof variants;
+  icon?: string;
+  class?: string;
+}
+
+const { text, variant = 'default', icon, class: className } = Astro.props;
+
+const variants = {
+  date: "text-[rgb(233,157,56)] text-base md:text-lg font-bold uppercase tracking-[0.2em]",
+  price: "text-white text-xl md:text-2xl font-light tracking-tight mb-4",
+  location: "text-white/80 text-sm md:text-base font-light leading-relaxed",
+  tag: "text-white/60 text-xs md:text-sm font-light uppercase tracking-wider mb-4",
+  default: "text-white/70 text-sm md:text-base font-light leading-relaxed mb-4",
+  meta: "text-white/60 text-xs md:text-sm font-light uppercase tracking-[0.25em]",
+  "contact-title": "text-white text-lg font-light uppercase tracking-wider",
+  "location-title": "text-white text-sm font-bold uppercase tracking-wider group-hover:text-[rgb(233,157,56)] transition-colors",
+  "footer-heading": "text-black text-xs md:text-sm font-medium uppercase tracking-[0.25em] mb-4",
+  "footer-link": "text-black/80 text-sm font-medium hover:text-black transition-colors duration-300",
+  "footer-copy": "text-black/60 text-xs font-medium",
+  "section-tag": "text-white/80 text-xs md:text-sm font-medium uppercase tracking-[0.3em] drop-shadow-md",
+  "default-center": "text-white/70 text-sm md:text-base font-light leading-relaxed mb-6",
+  "tag-center": "text-white/60 text-xs md:text-sm font-light uppercase tracking-wider mb-6",
+  "badge": "inline-flex items-center justify-center px-4 py-1.5 rounded-full text-[11px] md:text-xs font-bold uppercase tracking-widest",
+  
+  // ✅ NUEVAS VARIANTES PARA UBICACIÓN (Ortográficamente correctas)
+  "venue-name": "text-white text-sm md:text-base font-medium uppercase tracking-wider",
+  "venue-address": "text-white/60 text-xs md:text-sm font-light leading-relaxed" // Sin 'uppercase', respeta mayúsculas/minúsculas
+};
+
+// ✅ LÓGICA INTELIGENTE: Si es una variante centrada, usa un contenedor de bloque completo
+const isCentered = variant?.includes('center');
+const baseClass = isCentered 
+  ? "flex flex-col items-center justify-center w-full text-center" 
+  : "inline-flex items-center gap-2";
+
+const finalClass = `${baseClass} ${variants[variant]} ${className || ''}`;
+---
+
+<!-- ✅ RENDERIZADO CONDICIONAL: Div para centrados, Span para inline -->
+{isCentered ? (
+  <div class={finalClass}>
+    {icon && <span set:html={icon} class="w-4 h-4 flex-shrink-0 mb-2"></span>}
+    {text}
+  </div>
+) : (
+  <span class={finalClass}>
+    {icon && <span set:html={icon} class="w-4 h-4 flex-shrink-0"></span>}
+    {text}
+  </span>
+)}

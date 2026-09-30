@@ -31,6 +31,17 @@ const currentUrl = `${siteUrl}${Astro.url.pathname}`;
 <!doctype html>
 <html lang="es">
   <head>
+
+<meta property="og:locale" content={Astro.params.locale || 'es_ES'} />
+<link rel="alternate" hreflang="es" href="https://midnightboogie.net/es/" />
+<link rel="alternate" hreflang="eu" href="https://midnightboogie.net/eu/" />
+<link rel="alternate" hreflang="en" href="https://midnightboogie.net/en/" />
+<link rel="alternate" hreflang="fr" href="https://midnightboogie.net/fr/" />
+<link rel="alternate" hreflang="x-default" href="https://midnightboogie.net/" />
+
+
+
+
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     

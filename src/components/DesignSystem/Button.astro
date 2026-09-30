@@ -1,0 +1,49 @@
+---
+// src/components/DesignSystem/Button.astro
+interface Props {
+  href?: string; // Si tiene href, se renderiza como <a>. Si no, como <button>.
+  variant?: 'primary' | 'secondary';
+  size?: 'sm' | 'md';
+  class?: string; // Para añadir clases extra si las necesitas en algún caso puntual
+}
+
+const { 
+  href, 
+  variant = 'primary', 
+  size = 'md', 
+  class: className = '' 
+} = Astro.props;
+
+// Clases base que comparten todos los botones
+const baseClasses = "inline-flex items-center justify-center font-bold uppercase tracking-wider transition-all duration-300 rounded-full font-avantgarde cursor-pointer no-underline";
+
+// Tamaños
+const sizeClasses = size === 'sm' 
+  ? "text-xs px-5 py-2" 
+  : "text-sm px-8 py-3";
+
+// Colores y estilos según la variante
+const variantClasses = variant === 'secondary'
+  ? "bg-transparent border border-[rgb(233,157,56)] text-[rgb(233,157,56)] hover:bg-[rgb(233,157,56)] hover:text-neutral-950"
+  : "bg-[rgb(233,157,56)] text-neutral-950 hover:bg-white hover:scale-105 shadow-lg hover:shadow-xl";
+
+const finalClasses = `${baseClasses} ${sizeClasses} ${variantClasses} ${className}`;
+
+// Determinamos si es un enlace o un botón
+const isExternal = href && href.startsWith('http');
+---
+
+{href ? (
+  <a 
+    href={href} 
+    class={finalClasses} 
+    target={isExternal ? "_blank" : undefined} 
+    rel={isExternal ? "noopener noreferrer" : undefined}
+  >
+    <slot />
+  </a>
+) : (
+  <button class={finalClasses} type="button">
+    <slot />
+  </button>
+)}

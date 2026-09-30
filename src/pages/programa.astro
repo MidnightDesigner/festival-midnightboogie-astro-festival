@@ -5,6 +5,13 @@ import EventSchema from '../components/EventSchema.astro';
 import EventoCard from '../components/EventoCard.astro';
 import { programa2026 } from '../data/programa';
 
+// Design System Imports
+import PageHero from '../components/DesignSystem/PageHero.astro';
+import SectionTitle from '../components/DesignSystem/SectionTitle.astro';
+import Divider from '../components/DesignSystem/Divider.astro';
+import TextMeta from '../components/DesignSystem/TextMeta.astro';
+import Button from '../components/DesignSystem/Button.astro';
+
 // URL base para compartir → HOME
 const shareUrl = "https://midnightboogie.net";
 const shareText = "¡No te pierdas el Midnight Boogie Weekend 2026! Soul, R&B y mucho más en Vitoria-Gasteiz. 🎸 Descargar Flyer: ";
@@ -15,33 +22,31 @@ const shareText = "¡No te pierdas el Midnight Boogie Weekend 2026! Soul, R&B y 
   description="Programa oficial del Midnight Boogie Weekend 2026 en Vitoria-Gasteiz. Conciertos en Sala Arkabia y Helldorado, talleres y fiestas posteriores." 
   showStars={true}
 >
-
   
-  <main class="max-w-4xl mx-auto px-6 py-16 space-y-16">
+  <main class="max-w-4xl mx-auto px-6 md:px-8 pb-16 space-y-16">
     
-    <!-- H1 PRINCIPAL DE LA PÁGINA -->
-    <header class="text-center mb-12">
-      <h1 class="font-avantgarde text-white text-4xl md:text-6xl font-light uppercase tracking-tight drop-shadow-lg">
-        Programa <span class="text-[rgb(233,157,56)]">2026</span>
-      </h1>
-      <p class="text-white/70 text-sm max-w-2xl mx-auto mt-4">
-        Conciertos en Sala Arkabia y Helldorado, talleres y fiestas posteriores.
-      </p>
-    </header>
+    <!-- HERO -->
+    <PageHero 
+      title="Programa" 
+      highlight="2026" 
+      subtitle="Conciertos en Sala Arkabia y Helldorado, talleres y fiestas posteriores." 
+    />
 
-        <hr class="border-[rgb(233,157,56)]/60 max-w-3xl mx-auto" />
+    <!-- ✅ DIVIDER DEL DESIGN SYSTEM (Reemplaza al <hr> suelto) -->
+    <Divider width="max-w-3xl" color="bg-[rgb(233,157,56)]/60" margin="mx-auto my-12" />
     
     <!-- ========================================== -->
     <!-- PRESENTACIÓN (SEPTIEMBRE) -->
     <!-- ========================================== -->
-    <section class="px-4 sm:px-6 md:px-8 lg:px-12">
-      <h2 class="font-avantgarde text-white text-4xl md:text-6xl font-light uppercase tracking-tight mb-4 drop-shadow-lg text-center">
+    <section class="px-0 md:px-4">
+      <h2 class="font-avantgarde text-white text-3xl md:text-5xl font-light uppercase tracking-tight mb-4 drop-shadow-lg text-center">
         {programa2026.presentacion.dia} <span class="text-[rgb(233,157,56)]">Septiembre</span>
       </h2>
 
-      <p class="text-white/80 text-xs md:text-sm font-medium uppercase tracking-[0.3em] text-center mb-8 drop-shadow-md">
-        {programa2026.presentacion.tag}
-      </p>
+      <!-- ✅ TEXTMETA para la etiqueta -->
+<div class="text-center mb-8">
+  <TextMeta variant="section-tag" text={programa2026.presentacion.tag} />
+</div>
 
       {programa2026.presentacion.eventos.map((evento, index) => {
         const primerArtista = evento.artistas?.[0];
@@ -64,7 +69,7 @@ const shareText = "¡No te pierdas el Midnight Boogie Weekend 2026! Soul, R&B y 
                 imagen: primerArtista?.imagen ? `/images/artistas/${primerArtista.nombre.toLowerCase().replace(/\s+/g, '-')}.jpg` : undefined
               }} 
             />
-            <div class={index > 0 ? "max-w-2xl mx-auto border-t border-[rgb(233,157,56)]/60 pt-12 mt-12" : ""}>
+            <div class={index > 0 ? "max-w-2xl mx-auto border-t border-white/10 pt-12 mt-12" : ""}>
               <EventoCard evento={evento} />
             </div>
           </>
@@ -72,13 +77,13 @@ const shareText = "¡No te pierdas el Midnight Boogie Weekend 2026! Soul, R&B y 
       })}
     </section>
 
-    <hr class="border-[rgb(233,157,56)]/60 max-w-3xl mx-auto" />
+    <Divider width="max-w-3xl" color="bg-[rgb(233,157,56)]/60" margin="mx-auto my-12" />
 
     <!-- ========================================== -->
     <!-- VIERNES 27 NOVIEMBRE -->
     <!-- ========================================== -->
-    <section class="px-4">
-      <h2 class="font-avantgarde text-white text-4xl md:text-6xl font-light uppercase tracking-tight mb-4 drop-shadow-lg text-center">
+    <section class="px-0 md:px-4">
+      <h2 class="font-avantgarde text-white text-3xl md:text-5xl font-light uppercase tracking-tight mb-4 drop-shadow-lg text-center">
         {programa2026.viernes.dia} <span class="text-[rgb(233,157,56)]">Noviembre</span>
       </h2>
 
@@ -113,19 +118,19 @@ const shareText = "¡No te pierdas el Midnight Boogie Weekend 2026! Soul, R&B y 
       })}
     </section>
 
-    <hr class="border-[rgb(233,157,56)]/60 max-w-3xl mx-auto" />
+    <Divider width="max-w-3xl" color="bg-[rgb(233,157,56)]/60" margin="mx-auto my-12" />
 
     <!-- ========================================== -->
     <!-- SÁBADO 28 - TALLER FAMILIAR -->
     <!-- ========================================== -->
-    <section class="px-4">
-      <h2 class="font-avantgarde text-white text-4xl md:text-6xl font-light uppercase tracking-tight mb-4 drop-shadow-lg text-center">
+    <section class="px-0 md:px-4">
+      <h2 class="font-avantgarde text-white text-3xl md:text-5xl font-light uppercase tracking-tight mb-4 drop-shadow-lg text-center">
         {programa2026.sabadoTaller.dia} <span class="text-[rgb(233,157,56)]">Noviembre</span>
       </h2>
 
-      <p class="text-white/80 text-xs md:text-sm font-medium uppercase tracking-[0.3em] text-center mb-8 drop-shadow-md">
-        {programa2026.sabadoTaller.tag}
-      </p>
+<div class="text-center mb-8">
+  <TextMeta variant="section-tag" text={programa2026.sabadoTaller.tag} />
+</div>
 
       {programa2026.sabadoTaller.eventos.map((evento, index) => {
         const primerArtista = evento.artistas?.[0];
@@ -156,13 +161,13 @@ const shareText = "¡No te pierdas el Midnight Boogie Weekend 2026! Soul, R&B y 
       })}
     </section>
 
-    <hr class="border-[rgb(233,157,56)]/60 max-w-3xl mx-auto" />
+    <Divider width="max-w-3xl" color="bg-[rgb(233,157,56)]/60" margin="mx-auto my-12" />
 
     <!-- ========================================== -->
     <!-- SÁBADO 28 - NOCHE DE SOUL & R'N'R -->
     <!-- ========================================== -->
-    <section class="px-4">
-      <h2 class="font-avantgarde text-white text-4xl md:text-6xl font-light uppercase tracking-tight mb-4 drop-shadow-lg text-center">
+    <section class="px-0 md:px-4">
+      <h2 class="font-avantgarde text-white text-3xl md:text-5xl font-light uppercase tracking-tight mb-4 drop-shadow-lg text-center">
         {programa2026.sabadoNoche.dia} <span class="text-[rgb(233,157,56)]">Noviembre</span>
       </h2>
 
@@ -197,146 +202,94 @@ const shareText = "¡No te pierdas el Midnight Boogie Weekend 2026! Soul, R&B y 
       })}
     </section>
 
-   <!-- BLOQUE DE ABONO AL FINAL -->
+        <!-- BLOQUE DE ABONO AL FINAL -->
     {programa2026.abono && (
-      <div class="flex justify-center mt-24 mb-10">
-        <div class="inline-flex flex-col items-center bg-white/5 backdrop-blur-md border border-[rgb(233,157,56)]/50 rounded-xl px-6 py-6 md:px-8 md:py-8 text-center">
+      <div class="flex justify-center mt-16 mb-12">
+        <div class="flex flex-col items-center bg-white/5 backdrop-blur-md border border-[rgb(233,157,56)]/50 rounded-2xl px-8 py-8 md:px-12 md:py-10 text-center max-w-md w-full">
           
-          <!-- Precio -->
-          <p class="font-avantgarde text-[rgb(233,157,56)] text-lg md:text-2xl font-light tracking-wide drop-shadow-lg">
-            Abono Weekend: {programa2026.abono.precio}
-          </p>
+          <TextMeta variant="price" text={`Abono Weekend: ${programa2026.abono.precio}`} class="justify-center" />
+          <TextMeta variant="tag" text={programa2026.abono.descripcion} class="justify-center" />
           
-          <!-- Descripción -->
-          <p class="font-avantgarde text-white/70 text-[8px] md:text-[10px] font-light uppercase tracking-[0.25em] mt-2 mb-6 drop-shadow-md">
-            {programa2026.abono.descripcion}
-          </p>
-          
-          <!-- Botón de compra (solo si existe el link) -->
           {programa2026.abono.link && (
-            <a 
-              href={programa2026.abono.link}
-              target="_blank"
-              rel="noopener noreferrer"
-              class="inline-flex items-center gap-2 bg-[rgb(233,157,56)] text-black px-6 py-2.5 rounded-full text-xs md:text-sm font-bold uppercase tracking-widest hover:bg-white transition-colors shadow-lg"
-            >
+            <Button href={programa2026.abono.link} variant="primary" class="w-full justify-center gap-2">
               {programa2026.abono.linkTexto}
-              <!-- Icono de enlace externo -->
-              <svg 
-                xmlns="http://www.w3.org/2000/svg" 
-                fill="none" 
-                viewBox="0 0 24 24" 
-                stroke-width="2" 
-                stroke="currentColor" 
-                class="w-3 h-3 md:w-4 md:h-4"
-              >
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-4 h-4">
                 <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 6H5.25A2.25 2.25 0 003 8.25v10.5A2.25 2.25 0 005.25 21h10.5A2.25 2.25 0 0018 18.75V10.5m-10.5 6L21 3m0 0h-5.25M21 3v5.25" />
               </svg>
-            </a>
+            </Button>
           )}
           
         </div>
       </div>
     )}
 
+
     <!-- ========================================== -->
     <!-- SECCIÓN DE FLYERS Y MATERIAL PROMOCIONAL   -->
     <!-- ========================================== -->
-    <section class="max-w-5xl mx-auto mt-24 md:mt-32 px-6">
-      <h2 class="font-avantgarde text-white text-2xl md:text-3xl font-light uppercase tracking-tight mb-4 text-center">
-        Material Promocional
-      </h2>
-      <p class="text-white/60 text-center mb-12 max-w-2xl mx-auto text-sm md:text-base">
-        Descarga nuestros flyers oficiales para compartir con tus amigos o imprimir.
-      </p>
+    <section class="mt-24 md:mt-32">
+      <!-- ✅ SECTION TITLE DEL DESIGN SYSTEM -->
+      <SectionTitle title="Material Promocional" align="center" />
+      
+      <!-- ✅ TEXTMETA para el subtítulo -->
+  <TextMeta variant="default-center" text="Descarga nuestros flyers oficiales para compartir con tus amigos o imprimir." />
 
       <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
         
         <!-- FLYER 1: PRESENTACIÓN -->
         <div class="bg-white/5 border border-white/10 rounded-2xl p-6 hover:border-[rgb(233,157,56)]/40 transition-colors duration-300">
           <div class="aspect-[3/4] bg-black/30 rounded-lg overflow-hidden mb-6 flex items-center justify-center border border-white/5">
-            <img 
-              src="/images/2026/FLYERS_MNB_2026_PRESENTACION-01.png" 
-              alt="Flyer Presentación Midnight Boogie" 
-              class="w-full h-full object-contain p-4"
-            />
+            <img src="/images/2026/FLYERS_MNB_2026_PRESENTACION-01.png" alt="Flyer Presentación Midnight Boogie" class="w-full h-full object-contain p-4" />
           </div>
           
-          <h3 class="text-white font-bold text-xl mb-2 text-center">Flyer Presentación</h3>
-          <p class="text-white/50 text-xs text-center mb-6">Conciertos de presentación y primeras fechas.</p>
+          <h3 class="text-white font-medium text-xl mb-2 text-center">Flyer Presentación</h3>
+          <TextMeta variant="tag-center" text="Conciertos de presentación y primeras fechas." class="justify-center mb-6" />
           
-          <a 
-            href="/images/2026/FLYERS_MNB_2026_PRESENTACION.pdf" 
-            download
-            class="block w-full text-center py-3 rounded-full bg-[rgb(233,157,56)] text-black font-bold uppercase tracking-wider text-sm hover:bg-white transition-colors mb-4"
-          >
+          <!-- ✅ BUTTON DEL DESIGN SYSTEM (con atributo download) -->
+          <Button href="/images/2026/FLYERS_MNB_2026_PRESENTACION.pdf" variant="primary" class="w-full justify-center mb-4" download>
             Descargar PDF
-          </a>
+          </Button>
 
-          <!-- Botones Compartir (HOME como destino) -->
+          <!-- Botones Compartir -->
           <div class="flex justify-center gap-3 pt-4 border-t border-white/10">
-            <!-- WhatsApp -->
             <a href={`https://wa.me/?text=${encodeURIComponent(shareText + shareUrl)}`} target="_blank" rel="noopener noreferrer" class="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-[#25D366] hover:text-white transition-colors" aria-label="Compartir en WhatsApp">
               <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
             </a>
-            <!-- Facebook -->
             <a href={`https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(shareUrl)}`} target="_blank" rel="noopener noreferrer" class="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-[#1877F2] hover:text-white transition-colors" aria-label="Compartir en Facebook">
               <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
             </a>
-            <!-- Instagram (Copiar enlace) -->
-            <button 
-              class="copy-link-btn w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-gradient-to-tr hover:from-[#feda75] hover:via-[#d62976] hover:to-[#962fbf] hover:text-white transition-all" 
-              data-url={shareUrl}
-              aria-label="Copiar enlace para Instagram"
-            >
+            <button class="copy-link-btn w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-gradient-to-tr hover:from-[#feda75] hover:via-[#d62976] hover:to-[#962fbf] hover:text-white transition-all" data-url={shareUrl} aria-label="Copiar enlace para Instagram">
               <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
             </button>
           </div>
         </div>
 
-        <!-- FLYER 2: FESTIVAL COMPLETO (DESTACADO COMO RECOMENDADO) -->
+        <!-- FLYER 2: FESTIVAL COMPLETO -->
         <div class="bg-white/5 border border-[rgb(233,157,56)]/60 rounded-2xl p-6 hover:border-[rgb(233,157,56)] transition-colors duration-300 relative">
-          
-          <!-- Badge RECOMENDADO -->
-          <div class="absolute top-4 right-4 bg-[rgb(233,157,56)] text-black text-[10px] font-bold  tracking-widest px-3 py-1 rounded-full">
+          <div class="absolute top-4 right-4 bg-[rgb(233,157,56)] text-black text-[10px] font-bold uppercase tracking-widest px-3 py-1 rounded-full">
             Recomiéndalo
           </div>
           
           <div class="aspect-[3/4] bg-black/30 rounded-lg overflow-hidden mb-6 flex items-center justify-center border border-white/5">
-            <img 
-              src="/images/2026/programa-mbw-2026-01.png" 
-              alt="Flyer Festival Completo Midnight Boogie" 
-              class="w-full h-full object-contain p-4"
-            />
+            <img src="/images/2026/programa-mbw-2026-01.png" alt="Flyer Festival Completo Midnight Boogie" class="w-full h-full object-contain p-4" />
           </div>
           
-          <h3 class="text-white font-bold text-xl mb-2 text-center">Flyer Festival Completo</h3>
-          <p class="text-white/50 text-xs text-center mb-6">Programación completa, artistas y detalles del evento.</p>
+          <h3 class="text-white font-medium text-xl mb-2 text-center">Flyer Festival Completo</h3>
+          <TextMeta variant="tag-center" text="Programación completa, artistas y detalles del evento." class="justify-center mb-6" />
           
-          <a 
-            href="/images/2026/MIDNIGHT-BOOGIE-WEEKEND-2026.pdf" 
-            download
-            class="block w-full text-center py-3 rounded-full bg-[rgb(233,157,56)] text-black font-bold uppercase tracking-wider text-sm hover:bg-white transition-colors mb-4"
-          >
+          <Button href="/images/2026/MIDNIGHT-BOOGIE-WEEKEND-2026.pdf" variant="primary" class="w-full justify-center mb-4" download>
             Descargar PDF
-          </a>
+          </Button>
 
-          <!-- Botones Compartir (HOME como destino) -->
+          <!-- Botones Compartir -->
           <div class="flex justify-center gap-3 pt-4 border-t border-white/10">
-            <!-- WhatsApp -->
             <a href={`https://wa.me/?text=${encodeURIComponent(shareText + shareUrl)}`} target="_blank" rel="noopener noreferrer" class="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-[#25D366] hover:text-white transition-colors" aria-label="Compartir en WhatsApp">
               <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
             </a>
-            <!-- Facebook -->
             <a href={`https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(shareUrl)}`} target="_blank" rel="noopener noreferrer" class="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-[#1877F2] hover:text-white transition-colors" aria-label="Compartir en Facebook">
               <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
             </a>
-            <!-- Instagram (Copiar enlace) -->
-            <button 
-              class="copy-link-btn w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-gradient-to-tr hover:from-[#feda75] hover:via-[#d62976] hover:to-[#962fbf] hover:text-white transition-all" 
-              data-url={shareUrl}
-              aria-label="Copiar enlace para Instagram"
-            >
+            <button class="copy-link-btn w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-gradient-to-tr hover:from-[#feda75] hover:via-[#d62976] hover:to-[#962fbf] hover:text-white transition-all" data-url={shareUrl} aria-label="Copiar enlace para Instagram">
               <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
             </button>
           </div>
@@ -344,8 +297,8 @@ const shareText = "¡No te pierdas el Midnight Boogie Weekend 2026! Soul, R&B y 
 
       </div>
 
-      <!-- Toast de confirmación (aparece al copiar enlace) -->
-      <div id="copy-toast" class="fixed bottom-8 left-1/2 -translate-x-1/2 bg-white text-black px-6 py-3 rounded-full shadow-2xl font-bold text-sm opacity-0 pointer-events-none transition-opacity duration-300 z-50">
+      <!-- Toast de confirmación -->
+      <div id="copy-toast" class="fixed bottom-8 left-1/2 -translate-x-1/2 bg-white text-black px-6 py-3 rounded-full shadow-2xl font-medium text-sm opacity-0 pointer-events-none transition-opacity duration-300 z-50">
         ¡Enlace copiado! Pégalo en Instagram
       </div>
     </section>
@@ -353,24 +306,24 @@ const shareText = "¡No te pierdas el Midnight Boogie Weekend 2026! Soul, R&B y 
   </main>
 
   <script>
-  document.addEventListener('click', async (e) => {
-    const button = e.target.closest('.copy-link-btn');
-    if (!button) return;
+    document.addEventListener('click', async (e) => {
+      const button = e.target.closest('.copy-link-btn');
+      if (!button) return;
 
-    const url = button.getAttribute('data-url');
-    const toast = document.getElementById('copy-toast');
-    try {
-      await navigator.clipboard.writeText(url);
-      toast?.classList.remove('opacity-0');
-      toast?.classList.add('opacity-100');
-      setTimeout(() => {
-        toast?.classList.remove('opacity-100');
-        toast?.classList.add('opacity-0');
-      }, 2000);
-    } catch (err) {
-      alert('No se pudo copiar el enlace. Por favor, cópialo manualmente: ' + url);
-    }
-  });
-</script>
+      const url = button.getAttribute('data-url');
+      const toast = document.getElementById('copy-toast');
+      try {
+        await navigator.clipboard.writeText(url);
+        toast?.classList.remove('opacity-0');
+        toast?.classList.add('opacity-100');
+        setTimeout(() => {
+          toast?.classList.remove('opacity-100');
+          toast?.classList.add('opacity-0');
+        }, 2000);
+      } catch (err) {
+        alert('No se pudo copiar el enlace. Por favor, cópialo manualmente: ' + url);
+      }
+    });
+  </script>
 
 </Layout>

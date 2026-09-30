@@ -1,0 +1,25 @@
+
+---
+interface Props {
+  title: string;
+  subtitle?: string;
+  highlight?: string;
+}
+
+const { title, subtitle, highlight } = Astro.props;
+---
+
+<header class="text-center pt-8 md:pt-16 mb-6 px-6 md:px-8">
+  <h1 class="font-avantgarde text-white text-4xl md:text-6xl font-light uppercase tracking-tight drop-shadow-lg">
+    {title}
+    {highlight && <span class="text-[rgb(233,157,56)]"> {highlight}</span>}
+  </h1>
+  
+  {subtitle && (
+    <p class="text-white/70 text-sm max-w-2xl mx-auto mt-4 whitespace-pre-line">
+      {subtitle}
+    </p>
+  )}
+  
+  <slot name="subtitle" />
+</header>

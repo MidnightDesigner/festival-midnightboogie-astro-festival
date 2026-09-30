@@ -1,0 +1,583 @@
+---
+// src/pages/design-system.astro
+import Layout from '../layouts/Layout.astro';
+import PageHero from '../components/DesignSystem/PageHero.astro';
+import SectionTitle from '../components/DesignSystem/SectionTitle.astro';
+import Button from '../components/DesignSystem/Button.astro';
+import Divider from '../components/DesignSystem/Divider.astro';
+import TextMeta from '../components/DesignSystem/TextMeta.astro';
+import Card from '../components/DesignSystem/Card.astro';
+import Footer from '../components/Footer.astro';
+
+const salaLogos = [
+  { nombre: "Sala Arkabia", src: "/images/salas-logos/arkabia-BLACK.webp" },
+  { nombre: "Helldorado", src: "/images/salas-logos/helldorado.png" },
+  { nombre: "Ttipia", src: "/images/salas-logos/ttipia.webp" },
+  { nombre: "Creative Soul", src: "/images/salas-logos/creative-soul.webp" }
+];
+---
+
+<Layout title="Design System | Midnight Boogie" showFooter={false}>
+  <main class="max-w-6xl mx-auto px-6 py-12 space-y-20 min-h-screen">
+    
+    <PageHero title="Design System" highlight="2026" subtitle="Biblia visual oficial: tipografía, componentes, iconos y reglas de espaciado." />
+    <Divider width="max-w-3xl" color="bg-[rgb(233,157,56)]/60" margin="mx-auto my-8" />
+
+    <!-- ========================================== -->
+    <!-- 1. TIPOGRAFÍA -->
+    <!-- ========================================== -->
+    <section class="space-y-6">
+      <SectionTitle title="1. Tipografía" />
+      <div class="p-8 bg-white/5 backdrop-blur-sm rounded-2xl border border-white/10 space-y-8">
+        <div class="space-y-4">
+          <p class="text-white/40 text-xs uppercase tracking-widest">Fuente Principal (Títulos)</p>
+          <h1 class="font-avantgarde text-4xl md:text-5xl font-light text-white uppercase tracking-tight">Avantgarde (Light)</h1>
+          <h2 class="font-avantgarde text-3xl md:text-4xl font-medium text-white uppercase tracking-tight">Avantgarde (Medium)</h2>
+          <h3 class="font-avantgarde text-2xl md:text-3xl font-bold text-white uppercase tracking-tight">Avantgarde (Bold)</h3>
+        </div>
+        <Divider width="w-full" color="bg-white/10" />
+        <div class="space-y-4">
+          <p class="text-white/40 text-xs uppercase tracking-widest">Fuente Secundaria (Cuerpo / UI)</p>
+          <p class="text-white text-lg font-normal">Inter / System UI (Normal - 400)</p>
+          <p class="text-white/80 text-base font-medium">Inter / System UI (Medium - 500)</p>
+          <p class="text-white/60 text-sm font-light">Inter / System UI (Light - 300)</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================================== -->
+    <!-- 2. BOTONES -->
+    <!-- ========================================== -->
+    <section class="space-y-6">
+      <SectionTitle title="2. Botones (Buttons)" />
+      <div class="p-8 bg-white/5 backdrop-blur-sm rounded-2xl border border-white/10 space-y-6">
+        <p class="text-white/60 text-sm mb-4">Variantes principales. Los estados hover y active se aplican automáticamente por CSS.</p>
+        <div class="flex flex-wrap items-center gap-4 border-b border-white/10 pb-6">
+          <Button variant="primary">Comprar Entradas</Button>
+          <Button variant="secondary">Descargar PDF</Button>
+          <Button variant="primary" size="sm">Ver más</Button>
+        </div>
+        <p class="text-white/60 text-sm mb-4">Estado deshabilitado (ej. cuando no hay acción posible).</p>
+        <button disabled class="inline-flex items-center justify-center gap-2 px-8 py-3 rounded-full text-sm font-bold uppercase tracking-widest cursor-not-allowed bg-white/10 text-white/40 border border-white/10">
+          Entradas agotadas
+        </button>
+      </div>
+    </section>
+
+    <!-- ========================================== -->
+    <!-- 3. ESTADOS DE DISPONIBILIDAD (INFORMATIVOS) -->
+    <!-- ========================================== -->
+    <section class="space-y-6">
+      <SectionTitle title="3. Estados de Disponibilidad (Badges)" />
+      <div class="p-8 bg-white/5 backdrop-blur-sm rounded-2xl border border-white/10 space-y-6">
+        <p class="text-white/60 text-sm mb-4">Indicadores visuales puramente informativos del estado de las entradas.</p>
+        <div class="flex flex-wrap gap-4">
+          <TextMeta variant="badge" text="Disponibles" class="bg-green-500/30 text-green-300 border border-green-500/50" />
+          <TextMeta variant="badge" text="Últimas entradas" class="bg-[rgb(233,157,56)]/30 text-[rgb(233,157,56)] border border-[rgb(233,157,56)]/50" />
+          <TextMeta variant="badge" text="Entradas agotadas" class="bg-red-500/30 text-red-300 border border-red-500/50" />
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================================== -->
+    <!-- 4. COMPONENTE CARD -->
+    <!-- ========================================== -->
+    <section class="space-y-6">
+      <SectionTitle title="4. Contenedor Universal (Card)" />
+      <div class="p-8 bg-white/5 backdrop-blur-sm rounded-2xl border border-white/10 space-y-6">
+        <p class="text-white/60 text-sm mb-4">Caja semitransparente base. Pasa el ratón para ver la interacción natural de borde.</p>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <Card class="p-6 w-full text-center">
+            <p class="text-white">Card por defecto (Hover Naranja)</p>
+          </Card>
+          <Card class="p-6 w-full text-center" hover="white">
+            <p class="text-white">Card con Hover Blanco</p>
+          </Card>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================================== -->
+    <!-- 5. TEXTMETA Y UBICACIONES -->
+    <!-- ========================================== -->
+    <section class="space-y-6">
+      <SectionTitle title="5. TextMeta y Regla de Ubicaciones" />
+      <div class="p-8 bg-white/5 backdrop-blur-sm rounded-2xl border border-white/10 space-y-8">
+        <p class="text-white/60 text-sm">⚠️ <strong>Regla de oro:</strong> Para ubicaciones, usar SIEMPRE un contenedor flex con <code class="text-[rgb(233,157,56)]">gap-1.5</code> para evitar que el nombre y la dirección se peguen.</p>
+        <div class="flex items-start gap-3 p-4 rounded-xl hover:bg-white/5 transition-colors cursor-default">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5 text-[rgb(233,157,56)] mt-0.5 flex-shrink-0">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z" />
+            <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z" />
+          </svg>
+          <div class="flex flex-col gap-1.5">
+            <TextMeta variant="venue-name" text="SALA ARKABIA" />
+            <TextMeta variant="venue-address" text="Postas 13-15, Vitoria-Gasteiz" />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================================== -->
+    <!-- 6. REGLAS DE ESPACIADO -->
+    <!-- ========================================== -->
+    <section class="space-y-6">
+      <SectionTitle title="6. Reglas de Espaciado (Spacing)" />
+      <div class="p-8 bg-white/5 backdrop-blur-sm rounded-2xl border border-white/10 space-y-6">
+        <p class="text-white/60 text-sm mb-4">Estándares de separación para mantener la consistencia visual.</p>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div class="space-y-2">
+            <p class="text-white/40 text-xs uppercase tracking-widest">gap-1.5 (6px) - Detalles tight</p>
+            <div class="flex flex-col gap-1.5">
+              <div class="h-2 bg-[rgb(233,157,56)] rounded"></div>
+              <div class="h-2 bg-white/20 rounded"></div>
+            </div>
+          </div>
+          <div class="space-y-2">
+            <p class="text-white/40 text-xs uppercase tracking-widest">gap-4 (16px) - Estándar UI</p>
+            <div class="flex flex-col gap-4">
+              <div class="h-2 bg-[rgb(233,157,56)] rounded"></div>
+              <div class="h-2 bg-white/20 rounded"></div>
+            </div>
+          </div>
+          <div class="space-y-2">
+            <p class="text-white/40 text-xs uppercase tracking-widest">gap-8 (32px) - Separación de bloques</p>
+            <div class="flex flex-col gap-8">
+              <div class="h-2 bg-[rgb(233,157,56)] rounded"></div>
+              <div class="h-2 bg-white/20 rounded"></div>
+            </div>
+          </div>
+          <div class="space-y-2">
+            <p class="text-white/40 text-xs uppercase tracking-widest">mb-8 (32px) - Margen inferior estándar</p>
+            <div class="flex flex-col">
+              <div class="h-8 bg-[rgb(233,157,56)] rounded mb-8"></div>
+              <div class="h-2 bg-white/20 rounded"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================================== -->
+    <!-- 7. ACTIVOS VISUALES: LOGOS E ICONOS -->
+    <!-- ========================================== -->
+    <section class="space-y-6">
+      <SectionTitle title="7. Activos Visuales (Logos e Iconos)" />
+      <div class="p-8 bg-white/5 backdrop-blur-sm rounded-2xl border border-white/10 space-y-10">
+        
+        <!-- Logotipo Principal -->
+        <div>
+          <p class="text-white/40 text-xs uppercase tracking-widest mb-4">Logotipo Principal (Fondo Gris Medio)</p>
+          <div class="bg-neutral-500 border border-white/20 rounded-xl p-6 flex items-center justify-center h-32">
+            <img src="/images/logo-midnightboogie.svg" alt="Midnight Boogie Logo" class="h-16 w-auto object-contain" />
+          </div>
+        </div>
+
+               <!-- Patrocinadores (Tamaño absoluto igualado) -->
+        <div>
+          <p class="text-white/40 text-xs uppercase tracking-widest mb-4">Patrocinadores (Fondo Claro)</p>
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <div class="bg-white border border-white/20 rounded-xl p-6 flex flex-col items-center justify-center h-40">
+              <!-- ✅ h-14 fijo para ambos, mismo tamaño absoluto -->
+              <img src="/images/vital/logo-vital.jpg" alt="Vital Color" class="h-14 w-auto object-contain mb-3" />
+              <span class="text-black/40 text-[10px] uppercase font-medium">Color (Original)</span>
+            </div>
+            <div class="bg-white border border-white/20 rounded-xl p-6 flex flex-col items-center justify-center h-40">
+              <!-- ✅ Nueva ruta + misma altura h-14 -->
+              <img src="/images/vital/vital_bn_muestra.png" alt="Vital B/N" class="h-14 w-auto object-contain mb-3" />
+              <span class="text-black/40 text-[10px] uppercase font-medium">Blanco y Negro (Monocromo)</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Logos de Salas -->
+        <div>
+          <p class="text-white/40 text-xs uppercase tracking-widest mb-4">Logotipos de Salas</p>
+          <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+            {salaLogos.map((sala) => (
+              <div class="bg-white/5 border border-white/10 rounded-xl p-4 flex items-center justify-center h-24">
+                <img src={sala.src} alt={sala.nombre} class="max-h-full max-w-full object-contain" />
+              </div>
+            ))}
+          </div>
+        </div>
+
+        <!-- Iconos de Redes Sociales -->
+        <div>
+          <p class="text-white/40 text-xs uppercase tracking-widest mb-4">Iconos de Redes Sociales (Interactivos)</p>
+          <div class="flex flex-wrap gap-6">
+            <button class="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center text-white transition-all duration-300 hover:bg-[#1877F2] hover:scale-110">
+              <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.988C18.343 21.128 22 16.991 22 12z"/></svg>
+            </button>
+            <button class="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center text-white transition-all duration-300 hover:bg-gradient-to-tr hover:from-[#feda75] hover:via-[#d62976] hover:to-[#962fbf] hover:scale-110">
+              <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+            </button>
+            <button class="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center text-white transition-all duration-300 hover:bg-[#FF0000] hover:scale-110">
+              <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M19.812 5.418c.861.23 1.538.907 1.768 1.768C21.998 8.746 22 12 22 12s0 3.255-.418 4.814a2.504 2.504 0 0 1-1.768 1.768c-1.56.419-7.814.419-7.814.419s-6.255 0-7.814-.419a2.505 2.505 0 0 1-1.768-1.768C2 15.255 2 12 2 12s0-3.255.417-4.814a2.507 2.507 0 0 1 1.768-1.768C5.744 5 11.998 5 11.998 5s6.255 0 7.814.418ZM15.194 12 10 15V9l5.194 3Z"/></svg>
+            </button>
+            <button class="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center text-white transition-all duration-300 hover:bg-[#25D366] hover:scale-110">
+              <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+            </button>
+          </div>
+        </div>
+
+        <!-- Iconos UI -->
+        <div>
+          <p class="text-white/40 text-xs uppercase tracking-widest mb-4">Iconos de Interfaz (UI) - Interactivos</p>
+          <div class="flex flex-wrap gap-6">
+            <div class="flex flex-col items-center gap-2 group cursor-pointer">
+              <svg class="w-6 h-6 text-[rgb(233,157,56)] transition-transform duration-300 group-hover:scale-125" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z" /><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z" /></svg>
+              <span class="text-white/50 text-[10px] group-hover:text-white transition-colors">Mapa</span>
+            </div>
+            <div class="flex flex-col items-center gap-2 group cursor-pointer">
+              <svg class="w-6 h-6 text-white transition-transform duration-300 group-hover:scale-125 group-hover:text-[rgb(233,157,56)]" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M13.5 6H5.25A2.25 2.25 0 003 8.25v10.5A2.25 2.25 0 005.25 21h10.5A2.25 2.25 0 0018 18.75V10.5m-10.5 6L21 3m0 0h-5.25M21 3v5.25" /></svg>
+              <span class="text-white/50 text-[10px] group-hover:text-white transition-colors">Externo</span>
+            </div>
+            <div class="flex flex-col items-center gap-2 group cursor-pointer">
+              <svg class="w-6 h-6 text-white transition-transform duration-300 group-hover:scale-125 group-hover:text-red-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M6 18L18 6M6 6l12 12" /></svg>
+              <span class="text-white/50 text-[10px] group-hover:text-white transition-colors">Cerrar</span>
+            </div>
+            <div class="flex flex-col items-center gap-2 group cursor-pointer">
+              <svg class="w-6 h-6 text-[rgb(233,157,56)] transition-transform duration-300 group-hover:translate-y-1" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19.5 8.25l-7.5 7.5-7.5-7.5" /></svg>
+              <span class="text-white/50 text-[10px] group-hover:text-white transition-colors">Expandir</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================================== -->
+    <!-- 8. RADIOS DE BORDE -->
+    <!-- ========================================== -->
+    <section class="space-y-6">
+      <SectionTitle title="8. Radios de Borde (Border Radius)" />
+      <div class="p-8 bg-white/5 backdrop-blur-sm rounded-2xl border border-white/10 space-y-6">
+        <p class="text-white/60 text-sm">Reglas de redondeo para mantener la consistencia.</p>
+        <div class="flex flex-wrap gap-8 items-end">
+          <div class="flex flex-col items-center gap-2">
+            <div class="w-16 h-16 bg-white/10 rounded-lg border border-white/20"></div>
+            <span class="text-white/50 text-[10px]">rounded-lg</span>
+          </div>
+          <div class="flex flex-col items-center gap-2">
+            <div class="w-16 h-16 bg-white/10 rounded-2xl border border-white/20"></div>
+            <span class="text-white/50 text-[10px]">rounded-2xl</span>
+          </div>
+          <div class="flex flex-col items-center gap-2">
+            <div class="w-16 h-16 bg-white/10 rounded-full border border-white/20"></div>
+            <span class="text-white/50 text-[10px]">rounded-full</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================================== -->
+    <!-- 9. CAJAS COMPLEJAS (TAMAÑO REAL Y FUNCIONAL) -->
+    <!-- ========================================== -->
+    <section class="space-y-6">
+      <SectionTitle title="9. Cajas Complejas (Ejemplos en Tamaño Real)" />
+      <p class="text-white/60 text-sm mb-8 max-w-3xl">Componentes mostrados en su estructura y ancho real. Las tarjetas de Archivo y Promo se muestran en cuadrícula para simular su tamaño relativo en el site.</p>
+      
+      <div class="space-y-12 max-w-3xl mx-auto">
+        
+        <!-- ========================================== -->
+        <!-- MOCK 1: TICKET CARD -->
+        <!-- ========================================== -->
+        <div class="space-y-3">
+          <p class="text-white/40 text-xs uppercase tracking-widest">Ticket Card (Concierto)</p>
+          <Card class="mx-auto w-full">
+            <div class="p-6 md:p-8">
+              <div class="mb-4">
+                <TextMeta variant="date" text="VIERNES 27 NOVIEMBRE · 22:00H" />
+              </div>
+              <h3 class="font-avantgarde text-white/70 text-sm md:text-base font-light uppercase tracking-[0.2em] mb-2">Conciertos de Noviembre</h3>
+              <h2 class="font-avantgarde text-white text-3xl md:text-5xl font-light uppercase tracking-tight mb-6 drop-shadow-lg">THE LAZY TONES</h2>
+              <div class="w-full h-[1px] bg-white/10 my-4"></div>
+              
+              <div class="flex mb-6">
+                <img src="/images/salas-logos/helldorado.png" alt="Logo de Helldorado" class="h-14 md:h-20 w-auto object-contain" loading="lazy" />
+              </div>
+
+              <a href="#" class="flex items-start gap-3 mb-6 group/lugar w-fit">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5 text-[rgb(233,157,56)] mt-0.5 flex-shrink-0 group-hover/lugar:scale-110 transition-transform">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z" />
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z" />
+                </svg>
+                <div class="flex flex-col gap-1.5">
+                  <TextMeta variant="venue-name" text="HELLDORADO" />
+                  <TextMeta variant="venue-address" text="Venta de la Estrella, 6 Pab. 44, Vitoria-Gasteiz" />
+                </div>
+              </a>
+
+              <div class="mb-6">
+                <TextMeta variant="badge" text="Disponibles" class="bg-green-500/30 text-green-300 border border-green-500/50" />
+              </div>
+
+              <div class="flex items-center mb-6 gap-12">
+                <div>
+                  <TextMeta variant="tag" text="Anticipada:" class="mb-1" />
+                  <TextMeta variant="price" text="15€" class="mb-0" />
+                </div>
+                <div>
+                  <TextMeta variant="tag" text="Taquilla:" class="mb-1" />
+                  <TextMeta variant="price" text="18€" class="mb-0" />
+                </div>
+              </div>
+
+              <Button href="#" variant="primary" class="w-full md:w-auto gap-2">
+                Comprar Entrada
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-4 h-4">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 6H5.25A2.25 2.25 0 003 8.25v10.5A2.25 2.25 0 005.25 21h10.5A2.25 2.25 0 0018 18.75V10.5m-10.5 6L21 3m0 0h-5.25M21 3v5.25" />
+                </svg>
+              </Button>
+            </div>
+          </Card>
+        </div>
+
+        <!-- ========================================== -->
+        <!-- MOCK 2: ARTIST CARD (CON INTERACCIÓN REAL) -->
+        <!-- ========================================== -->
+        <div class="space-y-3">
+          <p class="text-white/40 text-xs uppercase tracking-widest">Artist Card (Perfil de Artista con Bio Expandible)</p>
+          <Card class="mx-auto w-full">
+            <div class="px-6 md:px-12 lg:px-16 pt-10 md:pt-14 pb-6 md:pb-10 text-center">
+              <h3 class="font-avantgarde text-white text-3xl md:text-5xl font-light uppercase tracking-tight mb-4 drop-shadow-lg">STONE FOUNDATION</h3>
+              <TextMeta variant="meta" text="Reino Unido · Soul · R&B" class="justify-center" />
+            </div>
+
+            <div class="w-full">
+              <div class="w-full aspect-[16/9] md:aspect-[2/1] bg-neutral-800 flex items-center justify-center cursor-pointer relative group">
+                <span class="font-avantgarde text-4xl text-neutral-600 group-hover:text-neutral-500 transition-colors">FOTO ARTISTA</span>
+                <div class="absolute inset-0 bg-black/0 group-hover:bg-black/30 transition-colors duration-300 flex items-center justify-center">
+                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-12 h-12 text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607zM10.5 7.5v6m3-3h-6" />
+                  </svg>
+                </div>
+              </div>
+            </div>
+
+            <div class="px-6 md:px-12 lg:px-16 pt-10 md:pt-14 pb-10 md:pb-14 text-center">
+              <p class="text-white/70 text-sm md:text-base font-light leading-relaxed mb-6">
+                Banda británica de soul clásico con más de 20 años de trayectoria, reconocida por sus potentes directos y su fidelidad al sonido Motown.
+              </p>
+
+              <!-- Contenido oculto que se muestra al expandir -->
+              <div id="mock-bio-content" class="max-h-0 overflow-hidden opacity-0 transition-all duration-500 ease-in-out">
+                <div class="space-y-6 pt-6 text-center">
+                  <p class="text-white/70 text-sm font-light leading-relaxed">
+                    Han publicado 4 álbumes de estudio y compartido escenario con leyendas del género. Su último disco ha sido aclamado por la crítica internacional.
+                  </p>
+
+                  <div class="pt-6 border-t border-white/10">
+                    <p class="text-white/60 text-xs md:text-sm font-normal uppercase tracking-[0.2em] mb-4">Web Oficial</p>
+                    <a href="#" class="inline-flex flex-wrap items-center justify-center gap-2 text-[rgb(233,157,56)] text-sm md:text-base font-medium uppercase tracking-[0.15em] hover:text-white transition-all duration-300 max-w-full mx-auto">
+                      <span>www.stonefoundationband.com</span>
+                      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-4 h-4 flex-shrink-0">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 6H5.25A2.25 2.25 0 003 8.25v10.5A2.25 2.25 0 005.25 21h10.5A2.25 2.25 0 0018 18.75V10.5m-10.5 6L21 3m0 0h-5.25M21 3v5.25" />
+                      </svg>
+                    </a>
+                  </div>
+
+                  <div class="pt-6 border-t border-white/10">
+                    <p class="text-white/60 text-xs md:text-sm font-normal uppercase tracking-[0.2em] mb-4">Vídeo</p>
+                    <div class="relative w-full aspect-video rounded-lg overflow-hidden bg-black shadow-2xl flex items-center justify-center">
+                      <span class="text-white/30 text-sm">[ YouTube Embed Placeholder ]</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Botón Toggle CENTRADO -->
+              <button id="mock-bio-toggle" class="inline-flex items-center gap-2 text-[rgb(233,157,56)] text-xs md:text-sm font-medium uppercase tracking-[0.2em] hover:text-white transition-colors duration-300 mt-12 mx-auto cursor-pointer">
+                <span id="mock-bio-text">Ver biografía completa</span>
+                <svg id="mock-bio-arrow" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-4 h-4 transition-transform duration-300">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
+                </svg>
+              </button>
+            </div>
+          </Card>
+        </div>
+
+        <!-- ========================================== -->
+        <!-- MOCK 3 y 4: ARCHIVE Y PROMO (TAMAÑO REAL DE GRID) -->
+        <!-- ========================================== -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+          
+          <!-- Archive Card -->
+          <div class="space-y-3">
+            <p class="text-white/40 text-xs uppercase tracking-widest">Archive Card (Tamaño real de grid)</p>
+            <Card class="p-0 overflow-hidden group cursor-pointer">
+              <div class="aspect-[3/4] bg-neutral-900 relative overflow-hidden">
+                <span class="font-avantgarde text-6xl text-neutral-700 absolute inset-0 flex items-center justify-center">2025</span>
+                <!-- Overlay al hacer hover -->
+                <div class="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center pointer-events-none">
+                  <span class="px-6 py-3 bg-[rgb(233,157,56)] text-neutral-950 font-semibold rounded-full text-sm">Ver flyer</span>
+                </div>
+              </div>
+              <div class="p-4 flex flex-col flex-grow">
+                <h3 class="font-avantgarde text-white text-xl mb-1 group-hover:text-[rgb(233,157,56)] transition-colors">Edición 2025</h3>
+                <p class="text-[rgb(233,157,56)] text-sm mb-3 font-medium">25-26 Noviembre</p>
+                <p class="text-white/80 text-sm leading-relaxed flex-grow">Décima edición del festival con artistas internacionales y lleno absoluto.</p>
+              </div>
+            </Card>
+          </div>
+
+          <!-- Promo / Download Card -->
+          <div class="space-y-3">
+            <p class="text-white/40 text-xs uppercase tracking-widest">Promo / Download Card (Tamaño real)</p>
+            <Card class="p-6 flex flex-col items-center text-center relative">
+              
+              <!-- Badge Recomendado -->
+              <div class="absolute top-4 right-4 bg-[rgb(233,157,56)] text-black text-[10px] font-bold uppercase tracking-widest px-3 py-1 rounded-full z-10">
+                Recomiéndalo
+              </div>
+              
+              <!-- ✅ IMAGEN DEL FLYER: Ahora ocupa todo el ancho (w-full) como en el site real -->
+              <div class="w-full aspect-[3/4] bg-neutral-900 rounded-lg mb-6 flex items-center justify-center border border-white/10 overflow-hidden">
+                <span class="font-avantgarde text-5xl text-neutral-700">FLYER</span>
+              </div>
+              
+              <h3 class="font-avantgarde text-white text-xl mb-2">Flyer Festival Completo</h3>
+              <TextMeta variant="tag-center" text="Programación completa, artistas y detalles del evento." class="mb-0" />
+              
+              <Button href="#" variant="primary" size="sm" class="w-full justify-center mt-6">Descargar PDF</Button>
+              
+              <!-- Iconos de compartir -->
+              <div class="flex justify-center gap-3 mt-6 pt-6 border-t border-white/10 w-full">
+                <!-- WhatsApp -->
+                <button class="w-8 h-8 rounded-full bg-white/10 flex items-center justify-center text-white transition-all duration-300 hover:bg-[#25D366] hover:scale-110">
+                  <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+                </button>
+                <!-- Facebook -->
+                <button class="w-8 h-8 rounded-full bg-white/10 flex items-center justify-center text-white transition-all duration-300 hover:bg-[#1877F2] hover:scale-110">
+                  <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+                </button>
+                <!-- Instagram -->
+                <button class="w-8 h-8 rounded-full bg-white/10 flex items-center justify-center text-white transition-all duration-300 hover:bg-gradient-to-tr hover:from-[#feda75] hover:via-[#d62976] hover:to-[#962fbf] hover:scale-110">
+                  <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+                </button>
+              </div>
+            </Card>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================================== -->
+    <!-- 10. FOOTER -->
+    <!-- ========================================== -->
+    <section class="mt-20">
+      <SectionTitle title="10. Footer (Pie de página)" align="center" class="mb-8" />
+      <p class="text-white/60 text-sm text-center mb-8 max-w-2xl mx-auto">
+        El footer es un componente real e interactivo. Pasa el ratón por los enlaces para ver los estados hover.
+      </p>
+      <Footer />
+    </section>
+
+    <!-- ========================================== -->
+    <!-- 11. ESTADOS DE FORMULARIO (NUEVO) -->
+    <!-- ========================================== -->
+    <section class="space-y-6">
+      <SectionTitle title="11. Estados de Formulario (Inputs)" />
+      <div class="p-8 bg-white/5 backdrop-blur-sm rounded-2xl border border-white/10 space-y-6">
+        <p class="text-white/60 text-sm mb-4">Reglas visuales para campos de entrada de datos.</p>
+        
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+          <!-- Estado Normal / Focus -->
+          <div class="space-y-2">
+            <label class="text-white/60 text-xs uppercase tracking-wider">Default & Focus State</label>
+            <input type="text" placeholder="Escribe tu email..." class="w-full bg-white/5 border border-white/10 rounded-lg px-4 py-3 text-white placeholder-white/30 focus:outline-none focus:border-[rgb(233,157,56)] focus:ring-1 focus:ring-[rgb(233,157,56)]/50 transition-all" />
+            <p class="text-white/40 text-[10px]">Haz clic para ver el anillo naranja de foco.</p>
+          </div>
+
+          <!-- Estado Error -->
+          <div class="space-y-2">
+            <label class="text-red-400 text-xs uppercase tracking-wider">Error State</label>
+            <input type="text" value="email-invalido" class="w-full bg-red-500/5 border border-red-500/50 rounded-lg px-4 py-3 text-red-300 focus:outline-none focus:border-red-400 focus:ring-1 focus:ring-red-400/50 transition-all" />
+            <p class="text-red-400/80 text-xs mt-1">Por favor, introduce un email válido.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================================== -->
+    <!-- 12. EMPTY STATES (NUEVO) -->
+    <!-- ========================================== -->
+    <section class="space-y-6">
+      <SectionTitle title="12. Empty States (Estados Vacíos)" />
+      <div class="p-8 bg-white/5 backdrop-blur-sm rounded-2xl border border-white/10 space-y-6">
+        <p class="text-white/60 text-sm mb-4">Cómo mostrar la ausencia de resultados de forma elegante.</p>
+        
+        <div class="flex flex-col items-center justify-center text-center py-12 border-2 border-dashed border-white/10 rounded-xl">
+          <svg class="w-12 h-12 text-white/20 mb-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+          </svg>
+          <h3 class="font-avantgarde text-white text-xl mb-2">No se encontraron resultados</h3>
+          <p class="text-white/50 text-sm max-w-xs">No hay ediciones disponibles para el año seleccionado. Prueba con otra fecha.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================================== -->
+    <!-- 13. SOMBRAS Y PROFUNDIDAD (NUEVO) -->
+    <!-- ========================================== -->
+    <section class="space-y-6">
+      <SectionTitle title="13. Sombras y Profundidad (Shadows)" />
+      <div class="p-8 bg-white/5 backdrop-blur-sm rounded-2xl border border-white/10 space-y-6">
+        <p class="text-white/60 text-sm mb-4">Jerarquía de sombras para dar profundidad a los elementos.</p>
+        
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+          <div class="flex flex-col items-center gap-4">
+            <div class="w-32 h-32 bg-white/10 rounded-2xl shadow-2xl flex items-center justify-center">
+              <span class="text-white/50 text-xs">shadow-2xl</span>
+            </div>
+            <span class="text-white/50 text-[10px] uppercase tracking-widest">Modales y Tarjetas</span>
+          </div>
+          <div class="flex flex-col items-center gap-4">
+            <div class="w-32 h-32 flex items-center justify-center">
+              <h2 class="font-avantgarde text-white text-2xl drop-shadow-lg">Drop Shadow</h2>
+            </div>
+            <span class="text-white/50 text-[10px] uppercase tracking-widest">Títulos Principales</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ========================================== -->
+  <!-- SCRIPT: Toggle de biografía en el MOCK de Artist Card -->
+  <!-- ========================================== -->
+  <script is:inline>
+    document.addEventListener('DOMContentLoaded', () => {
+      const mockToggle = document.getElementById('mock-bio-toggle');
+      const mockContent = document.getElementById('mock-bio-content');
+      const mockText = document.getElementById('mock-bio-text');
+      const mockArrow = document.getElementById('mock-bio-arrow');
+
+      if (mockToggle && mockContent) {
+        mockToggle.addEventListener('click', () => {
+          const isExpanded = mockContent.style.maxHeight && mockContent.style.maxHeight !== '0px';
+          
+          if (isExpanded) {
+            mockContent.style.maxHeight = '0px';
+            mockContent.style.opacity = '0';
+            mockText.textContent = 'Ver biografía completa';
+            mockArrow.style.transform = 'rotate(0deg)';
+          } else {
+            // Forzamos un reflow para que la transición funcione
+            mockContent.style.display = 'block';
+            const scrollHeight = mockContent.scrollHeight;
+            mockContent.style.maxHeight = scrollHeight + 'px';
+            mockContent.style.opacity = '1';
+            mockText.textContent = 'Ocultar biografía';
+            mockArrow.style.transform = 'rotate(180deg)';
+          }
+        });
+      }
+    });
+  </script>
+</Layout>
+
+
+
+</Layout>

@@ -3,6 +3,8 @@
 import type { Artista } from '../data/artistas';
 import { Image } from 'astro:assets';
 import { getSlug } from '../lib/getSlug';
+import TextMeta from './DesignSystem/TextMeta.astro';
+import Card from './DesignSystem/Card.astro'; // ✅ Import del componente Card
 
 export interface Props {
   artista: Artista;
@@ -22,20 +24,18 @@ function getYoutubeId(url: string): string | null {
 
 const youtubeId = tieneWeb ? getYoutubeId(artista.video || '') : null;
 const tieneVideo = youtubeId !== null;
-
 const artistId = getSlug(artista.nombre);
 ---
 
-<article id={artistId} class="artist-card scroll-mt-28 md:scroll-mt-40 mx-auto bg-white/5 border border-white/10 rounded-2xl overflow-hidden hover:border-[rgb(233,157,56)]/40 transition-colors duration-500">
+<!-- ✅ Usamos Card en lugar de article, pasando el id y las clases de ancho -->
+<Card id={artistId} class="artist-card scroll-mt-28 md:scroll-mt-40 mx-auto w-[92vw] md:w-[70vw] mb-8 md:mb-12">
   
   <!-- BLOQUE SUPERIOR: TÍTULO Y ORIGEN -->
-  <div class="px-8 md:px-16 pt-12 md:pt-16 pb-8 md:pb-12 text-center">
-    <h3 class="font-avantgarde text-white text-4xl md:text-6xl font-light uppercase tracking-tight mb-4 drop-shadow-lg group-hover:text-[rgb(233,157,56)] transition-colors duration-300">
+  <div class="px-6 md:px-12 lg:px-16 pt-10 md:pt-14 pb-6 md:pb-10 text-center">
+    <h3 class="font-avantgarde text-white text-3xl md:text-5xl font-light uppercase tracking-tight mb-4 drop-shadow-lg">
       {artista.nombre}
     </h3>
-    <p class="text-white/60 text-[11px] md:text-sm font-light uppercase tracking-[0.25em]">
-      {artista.origen} <span class="mx-2 text-[rgb(233,157,56)]">·</span> {artista.estilo}
-    </p>
+    <TextMeta variant="meta" text={`${artista.origen} · ${artista.estilo}`} />
   </div>
 
   <!-- BLOQUE CENTRAL: FOTOGRAFÍA (clicable para lightbox) -->
@@ -54,7 +54,6 @@ const artistId = getSlug(artista.nombre);
         format="webp"
         quality={80}
       />
-      <!-- Icono de lupa al hacer hover -->
       <div class="absolute inset-0 bg-black/0 group-hover:bg-black/30 transition-colors duration-300 flex items-center justify-center">
         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-12 h-12 text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300">
           <path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607zM10.5 7.5v6m3-3h-6" />
@@ -64,14 +63,12 @@ const artistId = getSlug(artista.nombre);
   </div>
 
   <!-- BLOQUE INFERIOR: BIOGRAFÍA EXPANDIBLE -->
-  <div class="px-8 md:px-16 pt-12 md:pt-16 pb-12 md:pb-16 text-center">
+  <div class="px-6 md:px-12 lg:px-16 pt-10 md:pt-14 pb-10 md:pb-14 text-center">
     
-    <!-- Extracto (siempre visible) -->
     <p class="text-white/70 text-sm md:text-base font-light leading-relaxed mb-6">
       {extractoBio}
     </p>
 
-    <!-- Biografía Completa (OCULTA por defecto) -->
     <div class="bio-completa">
       <div class="space-y-4 mb-8">
         {bioCompleta.map((parrafo) => (
@@ -81,41 +78,36 @@ const artistId = getSlug(artista.nombre);
         ))}
       </div>
 
-      <!-- Enlace a la Web Oficial (solo si existe) -->
+      <!-- WEB OFICIAL -->
       {tieneWeb && (
         <div class="pt-8 mt-8 border-t border-white/10">
-          <p class="text-white/50 text-[10px] md:text-xs font-light uppercase tracking-[0.25em] mb-3">
+          <p class="text-white/60 text-xs md:text-sm font-normal uppercase tracking-[0.2em] mb-4">       
             Web Oficial
           </p>
+          
           <a 
             href={artista.web}
             target="_blank"
             rel="noopener noreferrer"
-            class="inline-flex flex-wrap items-center justify-center gap-2 text-[rgb(233,157,56)] text-[10px] md:text-sm font-bold uppercase tracking-[0.15em] md:tracking-[0.2em] border-b border-[rgb(233,157,56)] pb-1 hover:text-white hover:border-white transition-colors duration-300 max-w-full"
+            class="inline-flex flex-wrap items-center justify-center gap-2 text-[rgb(233,157,56)] text-sm md:text-base font-medium uppercase tracking-[0.15em] hover:text-white transition-all duration-300 max-w-full mx-auto"
           >
             <span class="truncate">
               {artista.web.replace(/^https?:\/\//, '').replace(/\/$/, '')}
             </span>
-            <svg 
-              xmlns="http://www.w3.org/2000/svg" 
-              fill="none" 
-              viewBox="0 0 24 24" 
-              stroke-width="1.5" 
-              stroke="currentColor" 
-              class="w-4 h-4 flex-shrink-0"
-            >
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-4 h-4 flex-shrink-0">
               <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 6H5.25A2.25 2.25 0 003 8.25v10.5A2.25 2.25 0 005.25 21h10.5A2.25 2.25 0 0018 18.75V10.5m-10.5 6L21 3m0 0h-5.25M21 3v5.25" />
             </svg>
           </a>
         </div>
       )}
 
-      <!-- VÍDEO OFICIAL (solo si existe y es YouTube válido) -->
+      <!-- VÍDEO -->
       {tieneVideo && (
         <div class="pt-8 mt-8 border-t border-white/10">
-          <p class="text-white/50 text-[10px] md:text-xs font-light uppercase tracking-[0.25em] mb-4">
+          <p class="text-white/60 text-xs md:text-sm font-normal uppercase tracking-[0.2em] mb-4">       
             Vídeo
           </p>
+          
           <div class="relative w-full aspect-video rounded-lg overflow-hidden bg-black shadow-2xl">
             <iframe
               src={`https://www.youtube.com/embed/${youtubeId}`}
@@ -133,7 +125,7 @@ const artistId = getSlug(artista.nombre);
 
     <!-- Botón Toggle con Flecha -->
     <button 
-      class="bio-toggle inline-flex items-center gap-2 text-[rgb(233,157,56)] text-xs md:text-sm font-bold uppercase tracking-[0.2em] border-b border-[rgb(233,157,56)] pb-1 hover:text-white hover:border-white transition-colors duration-300 mt-12"
+      class="bio-toggle inline-flex items-center gap-2 text-[rgb(233,157,56)] text-xs md:text-sm font-medium uppercase tracking-[0.2em] hover:text-white transition-colors duration-300 mt-12 mx-auto cursor-pointer"
       aria-expanded="false"
     >
       <span class="toggle-text">Ver biografía completa</span>
@@ -141,90 +133,44 @@ const artistId = getSlug(artista.nombre);
         <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
       </svg>
     </button>
+    
   </div>
 
-     <!-- LIGHTBOX MODAL (clic en cualquier parte para cerrar) -->
-  <div 
-    class="lightbox-modal fixed inset-0 z-[200] hidden cursor-pointer"
-    role="dialog"
-    aria-modal="true"
-    aria-label={`Foto de ${artista.nombre}`}
-  >
-    <!-- Overlay clicable -->
+  <!-- LIGHTBOX MODAL -->
+  <div class="lightbox-modal fixed inset-0 z-[200] hidden cursor-pointer" role="dialog" aria-modal="true" aria-label={`Foto de ${artista.nombre}`}>
     <div class="lightbox-overlay absolute inset-0 bg-black/95 backdrop-blur-sm"></div>
-    
-    <!-- Imagen -->
     <div class="absolute inset-0 flex items-center justify-center p-4">
-      <img 
-        src={artista.imagen} 
-        alt={`Foto de ${artista.nombre}`}
-        class="lightbox-image w-auto h-auto max-w-[95vw] max-h-[90vh] object-contain"
-      />
+      <img src={artista.imagen} alt={`Foto de ${artista.nombre}`} class="lightbox-image w-auto h-auto max-w-[95vw] max-h-[90vh] object-contain" />
     </div>
   </div>
 
-</article>
+</Card>
 
 <style>
-  .artist-card {
-    width: 92vw;
-  }
+  /* ✅ Eliminada la regla .artist-card width porque ahora se controla con Tailwind en el Card */
   
-  @media (min-width: 768px) {
-    .artist-card {
-      width: 70vw;
-    }
-  }
-
   .bio-completa {
     max-height: 0;
     overflow: hidden;
     opacity: 0;
     transition: max-height 0.5s ease-in-out, opacity 0.3s ease-in-out;
   }
-
   .bio-completa.expanded {
     max-height: 3000px;
     opacity: 1;
   }
-
   .bio-toggle[aria-expanded="true"] .arrow-icon {
     transform: rotate(180deg);
   }
 
-  /* Lightbox animations */
-  .lightbox-modal.active {
-    display: flex;
-    animation: fadeIn 0.3s ease-out;
-  }
-
-  .lightbox-modal.active .lightbox-image {
-    animation: zoomIn 0.3s ease-out;
-  }
-
-  @keyframes fadeIn {
-    from { opacity: 0; }
-    to { opacity: 1; }
-  }
-
-  @keyframes zoomIn {
-    from { 
-      opacity: 0;
-      transform: scale(0.9);
-    }
-    to { 
-      opacity: 1;
-      transform: scale(1);
-    }
-  }
-
-  body.lightbox-open {
-    overflow: hidden;
-  }
+  .lightbox-modal.active { display: flex; animation: fadeIn 0.3s ease-out; }
+  .lightbox-modal.active .lightbox-image { animation: zoomIn 0.3s ease-out; }
+  @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+  @keyframes zoomIn { from { opacity: 0; transform: scale(0.9); } to { opacity: 1; transform: scale(1); } }
+  body.lightbox-open { overflow: hidden; }
 </style>
 
 <script>
-  // Toggle de biografía (delegado)
   document.addEventListener('click', (e) => {
     const toggleButton = (e.target as HTMLElement).closest('.bio-toggle');
     if (toggleButton) {
@@ -242,7 +188,6 @@ const artistId = getSlug(artista.nombre);
       return;
     }
 
-    // Abrir lightbox (delegado)
     const trigger = (e.target as HTMLElement).closest('.lightbox-trigger');
     if (trigger) {
       const card = trigger.closest('.artist-card');
@@ -252,7 +197,6 @@ const artistId = getSlug(artista.nombre);
       return;
     }
 
-    // Cerrar lightbox: clic dentro del modal activo lo cierra
     const modalActivo = document.querySelector('.lightbox-modal.active');
     if (modalActivo && modalActivo.contains(e.target as Node)) {
       modalActivo.classList.remove('active');
@@ -260,7 +204,6 @@ const artistId = getSlug(artista.nombre);
     }
   });
 
-  // Cerrar lightbox con Escape (delegado, permanentemente en document)
   document.addEventListener('keydown', (e) => {
     if (e.key === 'Escape') {
       const modal = document.querySelector('.lightbox-modal.active');
