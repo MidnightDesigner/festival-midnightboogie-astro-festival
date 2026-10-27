@@ -1,0 +1,203 @@
+---
+import { artistas2026 } from '~/data/artistas';
+import { getSlug } from '~/lib/getSlug';
+import Button from '~/components/ui/Button.astro';
+import SectionHeader from '~/components/ui/SectionHeader.astro';
+import { getRelativeLocaleUrl } from 'astro:i18n';
+import { useTranslations, type Locale } from '~/i18n';
+
+export interface Props {
+  evento: {
+    hora: string;
+    horaSuffix?: string;
+    lugar: string;
+    direccion: string;
+    titulo: string;
+    artistas?: Array<string | { nombre: string; origen?: string; estilo?: string; tipo?: 'artista' | 'dj' }>;
+    descripcion?: string;
+    precio: string;
+    link?: string;
+    linkTexto?: string;
+    compacto?: boolean;
+  };
+}
+
+const { evento } = Astro.props;
+
+const lang = Astro.currentLocale || 'es';
+const t = useTranslations(lang);
+const getLocaleUrl = (path: string) => getRelativeLocaleUrl(lang, path);
+
+const artistasNormalizados = (evento.artistas || []).map(a => 
+  typeof a === 'string' ? { nombre: a, estilo: '', origen: '', tipo: 'artista' as const } : a
+);
+
+const tieneArtistas = artistasNormalizados.length > 0;
+const tieneLink = evento.link && evento.link.trim() !== '';
+
+const esFiestaPosterior = evento.titulo.toLowerCase().includes('fiesta posterior');
+const esTaller = evento.titulo.toLowerCase().includes('taller');
+const todosSonDjs = artistasNormalizados.length > 0 && artistasNormalizados.every(a => 
+  (a.estilo || '').toLowerCase().includes('dj') || a.nombre.toLowerCase().includes('dj')
+);
+
+const esEventoCompacto = evento.compacto ?? (esFiestaPosterior || esTaller || todosSonDjs);
+
+const logoPorSala: Record<string, string> = {
+  "Sala Arkabia": "/images/salas-logos/arkabia-BLACK.webp",
+  "Arkabia Aretoa": "/images/salas-logos/arkabia-BLACK.webp",
+  "Helldorado": "/images/salas-logos/helldorado.png",
+  "Ttipia Taberna": "/images/salas-logos/ttipia.webp",
+  "Ttipia": "/images/salas-logos/ttipia.webp",
+  "Creative Soul": "/images/salas-logos/creative-soul.webp",
+};
+
+const logoSala = logoPorSala[evento.lugar];
+const artistasValidos = new Map(artistas2026.map(a => [getSlug(a.nombre), a]));
+
+const theme = esEventoCompacto ? {
+  container: 'max-w-4xl mx-auto',
+  headerSize: 'sm' as const,
+  headerDividerMargin: 'mb-6',
+  list: 'space-y-3 mb-8',
+  listItem: 'border-b border-border/50 pb-3 last:border-0 last:pb-0',
+  artistName: 'text-2xl md:text-3xl text-foreground/80 mb-0.5',
+  artistNameDj: 'text-lg md:text-xl text-foreground/80 mb-0.5',
+  artistMeta: 'text-xs mb-0.5',
+  artistMetaDj: 'text-[10px] mb-0.5',
+  logo: 'h-12 md:h-16 mb-2',
+  infoRow: 'mb-4 text-sm',
+  infoPlace: 'text-base',
+  infoTime: 'text-base',
+  infoAddress: 'text-xs',
+  price: 'text-xs sm:text-lg text-foreground/80 mb-4',
+  buttonSize: 'sm' as const,
+  priceButtonGap: 'gap-4'
+} : {
+  container: 'max-w-4xl mx-auto',
+  headerSize: 'md' as const,
+  headerDividerMargin: 'mb-12',
+  list: 'space-y-10 mb-16',
+  listItem: 'border-b border-border pb-10 last:border-0 last:pb-0',
+  artistName: 'text-5xl sm:text-7xl md:text-8xl mb-3',
+  artistNameDj: 'text-3xl sm:text-4xl md:text-5xl mb-2',
+  artistMeta: 'text-xs md:text-sm mb-2',
+  artistMetaDj: 'text-[10px] md:text-xs mb-1',
+  logo: 'h-14 md:h-20 mb-4',
+  infoRow: 'mb-5', 
+  infoPlace: 'text-xl',
+  infoTime: 'text-xl',
+  infoAddress: 'text-sm',
+  price: 'text-sm sm:text-2xl mb-5',
+  buttonSize: 'md' as const,
+  priceButtonGap: 'gap-6' 
+};
+---
+
+<div class={theme.container}>
+  <SectionHeader 
+    title={evento.titulo} 
+    level="h3" 
+    size={theme.headerSize} 
+    dividerMarginBottom={theme.headerDividerMargin} 
+  />
+
+  {tieneArtistas && (
+    <ul class={`mx-auto ${theme.list}`}>
+      {artistasNormalizados.map((artista) => {
+        const esDj = artista.tipo === 'dj';
+        const slug = getSlug(artista.nombre);
+        const tienePagina = artistasValidos.has(slug);
+        
+        return (
+          <li class={`text-center ${theme.listItem}`}>
+            <h4 class={`font-display text-foreground font-light uppercase tracking-tight drop-shadow-2xl leading-tight px-4 ${esDj ? theme.artistNameDj : theme.artistName}`}>
+              {tienePagina ? (
+                <a 
+                  href={`${getLocaleUrl('artistas')}#${slug}`}
+                  class="hover:text-brand focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand/50 rounded-lg transition-colors duration-300"
+                  aria-label={t('event.viewArtistBio').replace('{name}', artista.nombre)}
+                >
+                  {artista.nombre}
+                </a>
+              ) : (
+                artista.nombre
+              )}
+            </h4>
+            
+            {esDj ? (
+              <p class={`text-foreground-muted ${theme.artistMetaDj} font-light uppercase tracking-wider`}>
+                {artista.origen ? `${artista.origen} · ` : ''}{artista.estilo}
+              </p>
+            ) : (
+              <>
+                {artista.origen && (
+                  <p class="text-foreground-muted text-sm font-light uppercase tracking-widest mb-2">
+                    {artista.origen}
+                  </p>
+                )}
+                {artista.estilo && (
+                  <p class="text-foreground-muted text-xs font-light italic">
+                    {artista.estilo}
+                  </p>
+                )}
+              </>
+            )}
+          </li>
+        );
+      })}
+    </ul>
+  )}
+
+  {evento.descripcion && (
+    <div class="max-w-2xl mx-auto mb-12">
+      <p class="text-foreground/70 text-sm md:text-base font-light leading-relaxed text-center">
+        {evento.descripcion}
+      </p>
+    </div>
+  )}
+
+  {logoSala && (
+    <div class="flex justify-center">
+      <img 
+        src={logoSala} 
+        alt=""
+        aria-hidden="true"
+            width="100"
+            height="100"
+        class={`w-auto object-contain ${theme.logo}`}
+        loading="lazy"
+      />
+    </div>
+  )}
+  
+  <div class={`flex flex-col md:flex-row justify-center items-center gap-2 md:gap-4 text-foreground ${theme.infoRow}`}>
+    <span class={`font-medium uppercase tracking-wider ${theme.infoPlace}`}>{evento.lugar}</span>
+    <span class="hidden md:block w-1.5 h-1.5 bg-foreground/30 rounded-full"></span>
+    <time class={`text-brand font-bold ${theme.infoTime}`}>{evento.hora}{evento.horaSuffix ?? 'h'}</time>
+    <span class="hidden md:block w-1.5 h-1.5 bg-foreground/30 rounded-full"></span>
+    <span class={`text-foreground-muted font-light tracking-wide ${theme.infoAddress}`}>{evento.direccion}</span>
+  </div>
+
+  <div class={`flex flex-col justify-center items-center ${theme.priceButtonGap}`}>
+    <span class={`text-foreground font-light tracking-wide whitespace-nowrap text-center ${theme.price}`}>
+      {evento.precio}
+    </span>
+    
+    {tieneLink && (
+      <Button 
+        href={evento.link} 
+        variant="primary" 
+        size={theme.buttonSize} 
+        class="whitespace-nowrap"
+      >
+        {evento.linkTexto || 'Comprar Entrada'}
+        <img 
+          src="/images/icons/extern_url.svg" 
+          alt="" 
+          class="w-3 h-3 sm:w-4 sm:h-4" 
+        />
+      </Button>
+    )}
+  </div>
+</div>

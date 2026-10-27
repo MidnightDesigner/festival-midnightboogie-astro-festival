@@ -1,0 +1,25 @@
+---
+interface Props {
+  class?: string;
+  hover?: 'orange' | 'white' | 'none';
+  id?: string;
+}
+
+const { class: className = '', hover = 'orange', id } = Astro.props;
+
+// Base semántica
+const baseClasses = "bg-surface border border-border rounded-card overflow-hidden transition-all duration-300";
+
+// Estados de hover mapeados a tokens
+const hoverClasses = {
+  orange: "hover:border-brand/50 hover:bg-surface-hover",
+  white: "hover:border-white/30 hover:bg-white/10",
+  none: ""
+};
+
+const finalClass = `${baseClasses} ${hoverClasses[hover]} ${className}`;
+---
+
+<div {id} class={finalClass}>
+  <slot />
+</div>

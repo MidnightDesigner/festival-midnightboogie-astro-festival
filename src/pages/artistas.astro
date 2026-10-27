@@ -1,40 +1,12 @@
 ---
-// src/pages/artistas.astro
 import Layout from '../layouts/Layout.astro';
-
-import EventSchema from '../components/EventSchema.astro';
-
-import ArtistCard from '../components/ArtistCard.astro';
-import { artistas2026 } from '../data/artistas';
-import PageHero from '../components/DesignSystem/PageHero.astro'; 
+import ArtistasPage from '~/components/pages/ArtistasPage.astro';
 ---
 
 <Layout 
   title="Artistas y Lineup" 
-  description="Conoce a los artistas del Midnight Boogie 2026: Stone Foundation, Nine Below Zero, The Lazy Tones y los mejores DJs de soul y rhythm & blues: DJ Mikel Gasteiz, DJ Chema Mítico, DJ Fernando Padilla " 
+  description="Conoce a los artistas del Midnight Boogie 2026: Stone Foundation, Nine Below Zero, The Lazy Tones y los mejores DJs de soul y rhythm & blues." 
   showStars={true}
 >
-  
-  <!-- Main SIN restricciones de ancho máximo, solo padding vertical -->
-<main class="w-full pb-16 md:pb-24">
-    
-    <!-- Encabezado de la Sección -->
-     <PageHero title="Artistas" highlight="2026">
-  <p slot="subtitle" class="text-white/70 text-sm max-w-2xl mx-auto mt-4">
-    El lineup de esta edición reúne lo mejor del soul, groove y rhythm & blues internacional.<br />
-    Descubre sus historias y su música.
-  </p>
-</PageHero>
-
-    <!-- Lista de Artistas: Espaciado vertical generoso (96px a 128px) -->
-    <div class="flex flex-col items-center space-y-24 md:space-y-32 w-full">
-      {artistas2026.map((artista) => (
-        <ArtistCard artista={artista} />
-      ))}
-    </div>
-
-  </main>
-
-
-
+  <ArtistasPage />
 </Layout>

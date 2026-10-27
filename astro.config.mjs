@@ -1,17 +1,29 @@
-// astro.config.mjs
 import { defineConfig } from 'astro/config';
-import sitemap from '@astrojs/sitemap';
 import tailwind from '@tailwindcss/vite';
 
 export default defineConfig({
   site: 'https://www.midnightboogie.net',
+
+  integrations: [
+    // sitemap eliminado: usaremos sitemap manual con hreflang correctos
+  ],
+
   vite: {
-    plugins: [tailwind()]
-    // ← Eliminado: build.rollupOptions.output.manualChunks
+    plugins: [tailwind()],
   },
-  integrations: [sitemap()],
+
   build: {
     inlineStylesheets: 'auto',
-    assetsInlineLimit: 4096
-  }
+    assetsInlineLimit: 4096,
+  },
+
+  i18n: {
+    defaultLocale: 'es',
+    locales: ['es', 'eu', 'en', 'fr'],
+    routing: {
+      prefixDefaultLocale: false,
+      redirectToDefaultLocale: true,
+      fallbackType: 'redirect',
+    },
+  },
 });

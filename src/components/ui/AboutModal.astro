@@ -1,0 +1,61 @@
+---
+import TextMeta from './TextMeta.astro';
+import Divider from './Divider.astro';
+import Modal from './Modal.astro';
+import { useTranslations, type Locale } from '../../i18n';
+
+const lang = (Astro.currentLocale || 'es') as Locale;
+const t = useTranslations(lang);
+---
+
+<button 
+  onclick="document.getElementById('about-modal').showModal()"
+  class="text-black text-xs md:text-sm font-medium uppercase tracking-widest mb-4 cursor-pointer hover:opacity-60 transition-opacity text-center md:text-left bg-transparent border-none p-0"
+  aria-haspopup="dialog"
+  aria-controls="about-modal"
+>
+  {t('footer.about')}
+</button>
+
+<Modal id="about-modal" title={t('footer.about')}>
+  <div class="space-y-6">
+    <p class="text-foreground/80 text-sm md:text-base font-light leading-relaxed">
+      Ante todo, somos un@s apasionad@s del R&B, del Soul, del R'n'R, del Jazz... y del resto de las <span class="text-brand font-medium">"músicas del Diablo"</span>.
+    </p>
+    
+    <p class="text-foreground/80 text-sm md:text-base font-light leading-relaxed">
+      Eso nos ha llevado a embarcarnos en este proyecto y a trabajar año tras año para que podáis disfrutar de actividades musicales y también educativas y culturales en un fin de semana muy especial.
+    </p>
+
+    <div class="text-foreground/80 text-sm md:text-base font-light leading-relaxed">
+      <p>Os agradecemos sinceramente que nos sigáis acompañando en este viaje.</p>
+      <p class="mt-4">Un saludo,</p>
+      <p class="mt-2 text-foreground font-medium">Igu e Isabel</p>
+    </div>
+
+    <Divider width="w-full" color="bg-border" margin="my-8" />
+
+    <div class="mt-6">
+      <p class="text-foreground/80 text-sm md:text-base font-light leading-relaxed mb-6">
+        <span class="text-brand font-medium uppercase tracking-wider">Midnight Boogie</span>, Asociación Cultural sin ánimo de lucro, es la organizadora de este evento.
+      </p>
+
+      <div class="grid grid-cols-[auto_1fr] gap-x-6 gap-y-3 md:gap-y-4 items-baseline">
+        <span class="text-foreground-disabled uppercase tracking-wider text-[10px] md:text-xs font-medium">CIF:</span>
+        <span class="text-foreground/80 text-sm md:text-base font-light">G67682088</span>
+
+        <span class="text-foreground-disabled uppercase tracking-wider text-[10px] md:text-xs font-medium">Domicilio:</span>
+        <span class="text-foreground/80 text-sm md:text-base font-light">Vitoria-Gasteiz</span>
+
+        <span class="text-foreground-disabled uppercase tracking-wider text-[10px] md:text-xs font-medium">Registro:</span>
+        <span class="text-foreground/80 text-sm md:text-base font-light">Gobierno Vasco Nº AS/A/23878/2021</span>
+      </div>
+    </div>
+
+    <Divider width="w-full" color="bg-border" margin="my-8" />
+
+    <p class="text-foreground/80 text-sm md:text-base font-light leading-relaxed">
+      Contamos con la colaboración de la <span class="text-brand font-medium">Fundación Vital Fundazioa</span>, a la que estamos muy agradecidos por su apoyo todos estos años.
+    </p>
+  </div>
+</Modal>

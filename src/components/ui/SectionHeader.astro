@@ -1,0 +1,28 @@
+---
+import SectionTitle from './SectionTitle.astro';
+import Divider from './Divider.astro';
+
+interface Props {
+  title: string;
+  level?: 'h2' | 'h3';
+  size?: 'sm' | 'md' | 'lg';
+  dividerMarginBottom?: string;
+  class?: string;
+}
+
+const { 
+  title, 
+  level = 'h2', 
+  size = 'md',
+  dividerMarginBottom = 'mb-12',
+  class: className = '' 
+} = Astro.props;
+---
+
+<div class={`flex flex-col items-center w-fit mx-auto ${className}`}>
+  <Divider width="w-full" color="bg-border-accent" margin="mb-4" />
+  
+  <SectionTitle {title} {level} {size} align="center" class="mb-0" />
+  
+  <Divider width="w-full" color="bg-border-accent" margin={`mt-4 ${dividerMarginBottom}`} />
+</div>

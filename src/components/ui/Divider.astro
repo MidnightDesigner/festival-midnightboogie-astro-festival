@@ -1,0 +1,10 @@
+---
+const { 
+  width = 'w-1/2', 
+  color = 'bg-brand', 
+  margin = 'my-8', 
+  opacity = 'opacity-80' 
+} = Astro.props;
+---
+
+<div class={`h-[1px] ${color} mx-auto ${margin} ${opacity} ${width}`}></div>

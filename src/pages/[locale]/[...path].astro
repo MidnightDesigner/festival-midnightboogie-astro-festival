@@ -1,0 +1,180 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import IndexPage from '../../components/pages/IndexPage.astro';
+import ProgramaPage from '../../components/pages/ProgramaPage.astro';
+import ArtistasPage from '../../components/pages/ArtistasPage.astro';
+import EntradasPage from '../../components/pages/EntradasPage.astro';
+import ArchivoPage from '../../components/pages/ArchivoPage.astro';
+import ContactoPage from '../../components/pages/ContactoPage.astro';
+
+const VALID_LOCALES = ['eu', 'en', 'fr'];
+const { locale, path } = Astro.params;
+
+if (!locale || !VALID_LOCALES.includes(locale)) {
+  return Astro.redirect('/');
+}
+
+const PAGE_MAP = {
+  '': IndexPage,
+  'programa': ProgramaPage,
+  'artistas': ArtistasPage,
+  'entradas': EntradasPage,
+  'archivo': ArchivoPage,
+  'contacto': ContactoPage,
+};
+
+const SEO_BY_LOCALE = {
+  es: {
+    '': {
+      title: 'Inicio',
+      description: 'Descubre el Midnight Boogie Festival 2026 en Vitoria-Gasteiz. Soul, blues, boogaloo y rhythm & blues en un entorno único.',
+      showStars: true,
+      showFooter: false,
+    },
+    'programa': {
+      title: 'Programa y Horarios',
+      description: 'Programa oficial del Midnight Boogie Weekend 2026 en Vitoria-Gasteiz. Conciertos en Sala Arkabia y Helldorado, talleres y fiestas posteriores.',
+      showStars: true,
+    },
+    'artistas': {
+      title: 'Artistas y Lineup',
+      description: 'Conoce a los artistas del Midnight Boogie 2026: Stone Foundation, Nine Below Zero, The Lazy Tones y los mejores DJs.',
+      showStars: true,
+    },
+    'entradas': {
+      title: 'Entradas y Abonos',
+      description: 'Compra tus entradas y abonos para el Midnight Boogie Festival 2026. Precios especiales en venta anticipada.',
+      showStars: true,
+    },
+    'archivo': {
+      title: 'Archivo',
+      description: 'Revive las ediciones pasadas del Midnight Boogie Festival. Fotos, vídeos y recuerdos de años anteriores.',
+    },
+    'contacto': {
+      title: 'Contacto y Prensa',
+      description: 'Ponte en contacto con el equipo del Midnight Boogie Festival.',
+    },
+  },
+  eu: {
+    '': {
+      title: 'Hasiera',
+      description: 'Ezagutu Midnight Boogie Festival 2026 Vitoria-Gasteizen. Soul, blues, boogaloo eta rhythm & blues giro paregabean.',
+      showStars: true,
+      showFooter: false,
+    },
+    'programa': {
+      title: 'Egitaraua',
+      description: 'Midnight Boogie Weekend 2026ko egitarau ofiziala Vitoria-Gasteizen. Kontzertuak Arkabia Aretoan eta Helldorado-n, tailerrak eta ondorengo festak.',
+      showStars: true,
+    },
+    'artistas': {
+      title: 'Artistak',
+      description: 'Ezagutu Midnight Boogie 2026ko artistak: Stone Foundation, Nine Below Zero, The Lazy Tones eta DJ onenak.',
+      showStars: true,
+    },
+    'entradas': {
+      title: 'Sarrerak eta Abonuak',
+      description: 'Erosi zure sarrerak eta abonuak Midnight Boogie Festival 2026rako. Prezio bereziak aldez aurretiko salmentan.',
+      showStars: true,
+    },
+    'archivo': {
+      title: 'Artxiboa',
+      description: 'Bizi ezazu Midnight Boogie-ren historia. Edizio pasatuetako argazkiak, bideoak eta oroitzapenak.',
+    },
+    'contacto': {
+      title: 'Kontaktua',
+      description: 'Jarri harremanetan Midnight Boogie Festival-eko taldearekin.',
+    },
+  },
+  en: {
+    '': {
+      title: 'Home',
+      description: 'Discover the Midnight Boogie Festival 2026 in Vitoria-Gasteiz. Soul, blues, boogaloo and rhythm & blues in a unique setting.',
+      showStars: true,
+      showFooter: false,
+    },
+    'programa': {
+      title: 'Schedule',
+      description: 'Official schedule of the Midnight Boogie Weekend 2026 in Vitoria-Gasteiz. Concerts at Sala Arkabia and Helldorado, workshops and after-parties.',
+      showStars: true,
+    },
+    'artistas': {
+      title: 'Artists & Lineup',
+      description: 'Meet the artists of Midnight Boogie 2026: Stone Foundation, Nine Below Zero, The Lazy Tones and the best DJs.',
+      showStars: true,
+    },
+    'entradas': {
+      title: 'Tickets & Passes',
+      description: 'Buy your tickets and passes for the Midnight Boogie Festival 2026. Special early-bird prices.',
+      showStars: true,
+    },
+    'archivo': {
+      title: 'Archive',
+      description: 'Relive the history of the Midnight Boogie Festival. Photos, videos and memories from past editions.',
+    },
+    'contacto': {
+      title: 'Contact & Press',
+      description: 'Get in touch with the Midnight Boogie Festival team.',
+    },
+  },
+  fr: {
+    '': {
+      title: 'Accueil',
+      description: 'Découvrez le Midnight Boogie Festival 2026 à Vitoria-Gasteiz. Soul, blues, boogaloo et rhythm & blues dans un cadre unique.',
+      showStars: true,
+      showFooter: false,
+    },
+    'programa': {
+      title: 'Programme',
+      description: 'Programme officiel du Midnight Boogie Weekend 2026 à Vitoria-Gasteiz. Concerts à la Sala Arkabia et à l’Helldorado, ateliers et after-parties.',
+      showStars: true,
+    },
+    'artistas': {
+      title: 'Artistes & Programmation',
+      description: 'Découvrez les artistes du Midnight Boogie 2026 : Stone Foundation, Nine Below Zero, The Lazy Tones et les meilleurs DJs.',
+      showStars: true,
+    },
+    'entradas': {
+      title: 'Billetterie & Pass',
+      description: 'Achetez vos billets et pass pour le Midnight Boogie Festival 2026. Prix réduits en prévente.',
+      showStars: true,
+    },
+    'archivo': {
+      title: 'Archives',
+      description: 'Revivez l’histoire du Midnight Boogie Festival. Photos, vidéos et souvenirs des éditions passées.',
+    },
+    'contacto': {
+      title: 'Contact & Presse',
+      description: 'Contactez l’équipe du Midnight Boogie Festival.',
+    },
+  },
+};
+
+const route = path || '';
+const Component = PAGE_MAP[route];
+
+const localeSeo = SEO_BY_LOCALE[locale] || SEO_BY_LOCALE.es;
+const seo = localeSeo[route];
+
+if (!Component) {
+  return new Response('Not found', { status: 404 });
+}
+
+export async function getStaticPaths() {
+  const validLocales = ['eu', 'en', 'fr'];
+  const routes = ['', 'programa', 'artistas', 'entradas', 'archivo', 'contacto'];
+
+  return validLocales.flatMap(locale =>
+    routes.map(route => ({
+      params: {
+        locale,
+        path: route || undefined,
+      },
+    }))
+  );
+}
+---
+
+<Layout {...seo}>
+  <Component />
+</Layout>

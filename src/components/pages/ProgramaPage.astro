@@ -1,0 +1,330 @@
+---
+import EventSchema from '~/components/features/EventSchema.astro';
+import EventoCard from '~/components/features/EventoCard.astro';
+import { programa2026 } from '~/data/programa';
+import PageHero from '~/components/ui/PageHero.astro';
+import Divider from '~/components/ui/Divider.astro';
+import TextMeta from '~/components/ui/TextMeta.astro';
+import Button from '~/components/ui/Button.astro';
+import Card from '~/components/ui/Card.astro';
+import ShareButtons from '~/components/ui/ShareButtons.astro';
+import { getContent } from '~/i18n/content';
+
+const lang = Astro.currentLocale || 'es';
+const c = getContent(lang).programa;
+
+const SITE = "https://www.midnightboogie.net";
+const SHARE_URL = `${SITE}${Astro.url.pathname}`;
+const SHARE_MESSAGE = c.shareMessage;
+
+const SCHEMA_DEFAULTS = {
+  ciudad: "Vitoria-Gasteiz",
+  provincia: "Álava",
+  pais: "ES",
+  codigoPostal: "01001",
+  organizador: "Midnight Boogie Festival"
+};
+
+const sanitizeFilename = (str: string) => 
+  str.toLowerCase().replace(/\s+/g, '-').replace(/[^\w-]/g, '');
+
+const buildEventSchema = (evento: any, fecha: string, tipoEvento: string) => {
+  const primerArtista = evento.artistas?.[0];
+  const nombreBase = primerArtista?.nombre || evento.titulo;
+  const imagenUrl = primerArtista?.imagen || `/images/artistas/${sanitizeFilename(nombreBase)}.jpg`;
+  const precioLimpio = (evento.precio || '').match(/\d+(?:[.,]\d+)?/)?.[0]?.replace(',', '.') || '0';
+
+  return {
+    nombre: `${nombreBase} - ${evento.lugar}`,
+    fechaInicio: fecha,
+    lugar: evento.lugar,
+    direccion: evento.direccion || "",
+    ...SCHEMA_DEFAULTS,
+    precio: precioLimpio,
+    urlEntrada: evento.link,
+    descripcion: `${nombreBase} - ${tipoEvento} en ${evento.lugar}.`,
+    imagen: imagenUrl
+  };
+};
+
+const bloqueKeys = ['presentacion', 'viernes', 'sabadoTaller', 'sabadoNoche'] as const;
+
+const isCompactoEvento = (evento: any) => {
+  const titulo = (evento.titulo || '').toLowerCase();
+  const artistas = evento.artistas || [];
+  const todosSonDjs = artistas.length > 0 && artistas.every((a: any) => 
+    (a.estilo || '').toLowerCase().includes('dj') || (a.nombre || '').toLowerCase().includes('dj')
+  );
+
+  return titulo.includes('fiesta posterior') || titulo.includes('taller') || todosSonDjs;
+};
+
+const traducirEvento = (bloqueKey: string, evento: any) => {
+  const key = `${bloqueKey}-${evento.hora}`;
+  const override = c.events[key] ?? {};
+  const compacto = isCompactoEvento(evento);
+
+  const artistas = Array.isArray(evento.artistas)
+    ? evento.artistas.map((a: any, i: number) => ({
+        ...a,
+        ...(override.artistas?.[i] ?? {})
+      }))
+    : evento.artistas;
+
+  return {
+    ...evento,
+    ...override,
+    artistas,
+    compacto
+  };
+};
+
+const programaTraducido = bloqueKeys.reduce((acc, key) => {
+  const bloque = (programa2026 as any)[key];
+  const override = c.blocks[key] ?? {};
+
+  acc[key] = {
+    ...bloque,
+    ...override,
+    eventos: bloque.eventos.map((ev: any) => traducirEvento(key, ev))
+  };
+
+  return acc;
+}, {} as Record<string, any>);
+
+const abono = {
+  ...programa2026.abono,
+  ...c.abono
+};
+
+const FLYERS_TECH = [
+  {
+    id: "presentacion",
+    imageSrc: "/images/2026/FLYERS_MNB_2026_PRESENTACION-01.png",
+    pdfSrc: "/images/2026/FLYERS_MNB_2026_PRESENTACION.pdf",
+    isRecommended: false
+  },
+  {
+    id: "completo",
+    imageSrc: "/images/2026/programa-mbw-2026-01.png",
+    pdfSrc: "/images/2026/MIDNIGHT-BOOGIE-WEEKEND-2026.pdf",
+    isRecommended: true
+  }
+];
+
+const flyers = FLYERS_TECH.map((flyer) => ({
+  ...flyer,
+  title: c.flyers[flyer.id]?.title ?? flyer.id,
+  description: c.flyers[flyer.id]?.description ?? ''
+}));
+---
+
+<main class="max-w-4xl mx-auto px-6 md:px-8 pb-16 space-y-8">
+  <PageHero 
+    title={c.heroTitle} 
+    highlight={c.heroHighlight} 
+    subtitle={c.heroSubtitle}
+    size="sm" 
+  />
+  <Divider width="max-w-3xl" color="bg-brand/60" margin="mx-auto my-12" />
+  
+  <section class="px-0 md:px-4">
+<h2 class="font-display text-foreground text-3xl md:text-5xl font-light uppercase tracking-tight mb-4 drop-shadow-lg text-center">
+  {programaTraducido.presentacion.orden === 'mes-dia' ? (
+    <>
+      {programaTraducido.presentacion.mes && <span class="text-brand">{programaTraducido.presentacion.mes} </span>}
+      {programaTraducido.presentacion.dia}
+    </>
+  ) : (
+    <>
+      {programaTraducido.presentacion.dia}
+      {programaTraducido.presentacion.mes && <span class="text-brand"> {programaTraducido.presentacion.mes}</span>}
+    </>
+  )}
+</h2>
+    <div class="text-center mb-8">
+      <TextMeta variant="section-tag" text={programaTraducido.presentacion.tag} />
+    </div>
+
+    {programaTraducido.presentacion.eventos.map((evento: any, index: number) => (
+      <>
+        <EventSchema evento={buildEventSchema(evento, "2026-09-12", "Concierto de presentación")} />
+        <div class={index > 0 ? "max-w-2xl mx-auto border-t border-border pt-12 mt-12" : ""}>
+          <EventoCard evento={evento} />
+        </div>
+      </>
+    ))}
+  </section>
+
+  <Divider width="max-w-3xl" color="bg-brand/60" margin="mx-auto my-12" />
+
+  <section class="px-0 md:px-4">
+    <h2 class="font-display text-foreground text-3xl md:text-5xl font-light uppercase tracking-tight mb-4 drop-shadow-lg text-center">
+  {programaTraducido.viernes.orden === 'mes-dia' ? (
+    <>
+      {programaTraducido.viernes.mes && <span class="text-brand">{programaTraducido.viernes.mes} </span>}
+      {programaTraducido.viernes.dia}
+    </>
+  ) : (
+    <>
+      {programaTraducido.viernes.dia}
+      {programaTraducido.viernes.mes && <span class="text-brand"> {programaTraducido.viernes.mes}</span>}
+    </>
+  )}
+</h2>
+    <p class="sr-only">{programaTraducido.viernes.tag}</p>
+
+    {programaTraducido.viernes.eventos.map((evento: any, index: number) => (
+      <>
+        <EventSchema evento={buildEventSchema(evento, "2026-11-27", "Concierto")} />
+        <div class={index > 0 ? "max-w-2xl mx-auto border-t border-border pt-12 mt-12" : ""}>
+          <EventoCard evento={evento} />
+        </div>
+      </>
+    ))}
+  </section>
+
+  <Divider width="max-w-3xl" color="bg-brand/60" margin="mx-auto my-12" />
+
+  <section class="px-0 md:px-4">
+   <h2 class="font-display text-foreground text-3xl md:text-5xl font-light uppercase tracking-tight mb-4 drop-shadow-lg text-center">
+  {programaTraducido.sabadoTaller.orden === 'mes-dia' ? (
+    <>
+      {programaTraducido.sabadoTaller.mes && <span class="text-brand">{programaTraducido.sabadoTaller.mes} </span>}
+      {programaTraducido.sabadoTaller.dia}
+    </>
+  ) : (
+    <>
+      {programaTraducido.sabadoTaller.dia}
+      {programaTraducido.sabadoTaller.mes && <span class="text-brand"> {programaTraducido.sabadoTaller.mes}</span>}
+    </>
+  )}
+</h2>
+    <div class="text-center mb-8">
+      <TextMeta variant="section-tag" text={programaTraducido.sabadoTaller.tag} />
+    </div>
+
+    {programaTraducido.sabadoTaller.eventos.map((evento: any, index: number) => (
+      <>
+        <EventSchema evento={buildEventSchema(evento, "2026-11-28", "Taller familiar")} />
+        <div class={index > 0 ? "max-w-2xl mx-auto border-t border-border pt-12 mt-12" : ""}>
+          <EventoCard evento={evento} />
+        </div>
+      </>
+    ))}
+  </section>
+
+  <Divider width="max-w-3xl" color="bg-brand/60" margin="mx-auto my-12" />
+
+  <section class="px-0 md:px-4">
+    <h2 class="font-display text-foreground text-3xl md:text-5xl font-light uppercase tracking-tight mb-4 drop-shadow-lg text-center">
+  {programaTraducido.sabadoNoche.orden === 'mes-dia' ? (
+    <>
+      {programaTraducido.sabadoNoche.mes && <span class="text-brand">{programaTraducido.sabadoNoche.mes} </span>}
+      {programaTraducido.sabadoNoche.dia}
+    </>
+  ) : (
+    <>
+      {programaTraducido.sabadoNoche.dia}
+      {programaTraducido.sabadoNoche.mes && <span class="text-brand"> {programaTraducido.sabadoNoche.mes}</span>}
+    </>
+  )}
+</h2>
+    <p class="sr-only">{programaTraducido.sabadoNoche.tag}</p>
+
+    {programaTraducido.sabadoNoche.eventos.map((evento: any, index: number) => (
+      <>
+        <EventSchema evento={buildEventSchema(evento, "2026-11-28", "Noche de Soul & Rock'n'Roll")} />
+        <div class={index > 0 ? "max-w-2xl mx-auto border-t border-border pt-12 mt-12" : ""}>
+          <EventoCard evento={evento} />
+        </div>
+      </>
+    ))}
+  </section>
+
+  {abono && (
+    <div class="flex justify-center mt-16 mb-12">
+      <Card class="flex flex-col items-center p-8 md:p-12 text-center max-w-md w-full" hover="orange">
+        <TextMeta variant="price" text={`${abono.label}: ${abono.precio}`} class="justify-center" />
+        <TextMeta variant="tag" text={abono.descripcion} class="justify-center mb-6" />
+        
+        {abono.link && (
+          <Button href={abono.link} variant="primary" class="w-full justify-center gap-2">
+            {abono.linkTexto}
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-4 h-4">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 6H5.25A2.25 2.25 0 003 8.25v10.5A2.25 2.25 0 005.25 21h10.5A2.25 2.25 0 0018 18.75V10.5m-10.5 6L21 3m0 0h-5.25M21 3v5.25" />
+            </svg>
+          </Button>
+        )}
+      </Card>
+    </div>
+  )}
+
+  <section class="mt-24 md:mt-32">
+    <h2 class="font-display text-foreground text-2xl md:text-3xl font-light uppercase tracking-tight mb-4 text-center">
+      {c.promoTitle}
+    </h2>
+    <TextMeta variant="default-center" text={c.promoSubtitle} class="mb-12" />
+
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+      {flyers.map((flyer) => (
+        <Card class="p-6 flex flex-col relative" hover="orange">
+          {flyer.isRecommended && (
+            <span class="absolute top-4 right-4 bg-brand text-background text-[10px] font-bold uppercase tracking-widest px-3 py-1 rounded-full z-10">
+              {c.recommendedBadge}
+            </span>
+          )}
+          
+          <div class="aspect-[3/4] bg-surface rounded-lg overflow-hidden mb-6 flex items-center justify-center border border-border">
+            <img src={flyer.imageSrc} alt={flyer.title} class="w-full h-full object-contain p-4" loading="lazy" />
+          </div>
+          
+          <h3 class="font-display text-foreground text-xl font-medium mb-2 text-center">{flyer.title}</h3>
+          <TextMeta variant="tag-center" text={flyer.description} class="justify-center mb-6" />
+          
+          <Button href={flyer.pdfSrc} variant="primary" class="w-full justify-center mb-4" download>
+            {c.downloadButton}
+          </Button>
+
+          <ShareButtons url={SHARE_URL} text={SHARE_MESSAGE} />
+        </Card>
+      ))}
+    </div>
+
+    <div 
+      id="copy-toast" 
+      class="fixed bottom-8 left-1/2 -translate-x-1/2 bg-foreground text-background px-6 py-3 rounded-full shadow-2xl font-medium text-sm opacity-0 pointer-events-none transition-opacity duration-300 z-50"
+      data-fallback={c.copyFallback}
+    >
+      {c.toastSuccess}
+    </div>
+  </section>
+</main>
+
+<script lang="ts">
+  document.addEventListener('click', async (e) => {
+    const button = (e.target as HTMLElement).closest<HTMLButtonElement>('.copy-link-btn');
+    if (!button) return;
+
+    const url = button.getAttribute('data-url');
+    const toast = document.getElementById('copy-toast');
+    
+    if (!url || !toast) return;
+
+    try {
+      await navigator.clipboard.writeText(url);
+      
+      toast.classList.remove('opacity-0', 'pointer-events-none');
+      toast.classList.add('opacity-100');
+      
+      setTimeout(() => {
+        toast.classList.remove('opacity-100');
+        toast.classList.add('opacity-0', 'pointer-events-none');
+      }, 2000);
+    } catch (err) {
+      console.error('Error al copiar al portapapeles:', err);
+      const fallback = toast.getAttribute('data-fallback') || 'No se pudo copiar el enlace: ';
+      alert(fallback + url);
+    }
+  });
+</script>

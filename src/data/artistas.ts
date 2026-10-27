@@ -1,10 +1,3 @@
-// src/data/artistas.ts
-// ============================================
-// FICHERO DE EDICIÓN DE ARTISTAS
-// Para añadir un nuevo artista, copia el bloque
-// { ... } y pégalo debajo del último.
-// ============================================
-
 export interface Artista {
   slug: string;
   nombre: string;
@@ -33,17 +26,14 @@ export const artistas2026: Artista[] = [
       "Entre los artistas con los que han colaborado destacan Paul Weller, Kathryn Williams, Durand Jones, Peter Capaldi, Mick Talbot, William Bell, Bettye LaVette y Andy Fairweather Low, además de contar con remixes de Dennis Bovell, Leo Zero y Opolopo."
     ]
   },
-   {
+  {
     slug: "nine-below-zero",
     nombre: "NINE BELOW ZERO",
     origen: "UNITED KINGDOM",
     estilo: "R&B, PUB ROCK",
     imagen: "/images/2026/nine-below-zero.jpg",
     web: "https://www.ninebelowzero.com",
-    video: "https://www.youtube.com/watch?v=yNuzkZLzNMo&list=RDyNuzkZLzNMo&start_radio=1", 
-
-
-// ⚠️ RECUERDA: Cambiar esto por la URL real de YouTube cuando la tengas
+    video: "https://www.youtube.com/watch?v=yNuzkZLzNMo&list=RDyNuzkZLzNMo&start_radio=1",
     biografia: [
       "La banda británica de R&B Nine Below Zero, considerada banda de culto por toda Europa, se fundó en Londres en 1977, justo en medio del boom del punk-rock en Inglaterra. Su inspiración, sin embargo, era bien distinta, con miras al blues de Chicago y con influencias de John Mayall, The Kinks y The Who. Guardaban, no obstante, una influencia del punk rock de aquellos años, con el extremadamente energético ataque a sus instrumentos en los directos de la banda.",
       "Considerados por la crítica los más directos rivales de Dr. Feelgood, la banda ha experimentado cambios en su formación, manteniendo no obstante sus dos frontmen: DENNIS GREAVES a la guitarra y voz (lideró también la mítica banda THE TRUTH) y MARK FELTHAM a la armónica y voz, que acompañó al gran RORY GALLAGHER durante 11 años, y que además tiene una grandiosa lista de colaboraciones en grabaciones de Roger Daltrey (The Who), Oasis, The Alarm, New Model Army, Manfred Mann, Nazareth...",
@@ -57,8 +47,8 @@ export const artistas2026: Artista[] = [
     origen: "BARCELONA",
     estilo: "BOOGALOO",
     imagen: "/images/2026/los-fulanos.jpg",
-    web: "https://www.facebook.com/losfulanosbcn", // ⚠️ RECUERDA: Añadir la web real cuando la tengas
-    video: "https://www.youtube.com/watch?v=aR5SPAJr69A", // ⚠️ RECUERDA: Añadir la URL de YouTube cuando la tengas
+    web: "https://www.facebook.com/losfulanosbcn",
+    video: "https://www.youtube.com/watch?v=aR5SPAJr69A",
     biografia: [
       "Después de 10 años de merecido descanso tras una intensa trayectoria por los escenarios de toda Europa, Los Fulanos, la banda más incendiaria del Latin Soul y el Boogaloo barcelonés, regresan a la carga con una formación arrolladora y la incorporación de Paquito Sex Machine a las voces, inyectando nueva energía, ritmo y elegancia a su sonido inconfundible.",
       "Decir Los Fulanos es decir Boogaloo, el género mestizo nacido en el Spanish Harlem a principios de los años sesenta, venerado en los circuitos del Acid Jazz y el Northern Soul, y apadrinado por DJs como Gilles Peterson o Masters at Work. Sin más argumento que el amor por el género, Los Fulanos regeneraron la escena Latin Soul barcelonesa —siguiendo la tradición de bandas como Dr. Calypso— con directos incendiarios en los que rendían homenaje a figuras como Ray Barretto, Joe Bataan o Pete Rodríguez.",
@@ -68,15 +58,14 @@ export const artistas2026: Artista[] = [
       "Fieles a su esencia, la banda presenta un repertorio non-stop donde el sabor 100% Fulano de sus composiciones originales se entrelaza con los himnos inmortales de Barretto, Rodríguez y Bataan. ¡Ya es un hecho! 2025 marcó el gran reencuentro de Los Fulanos y vuelven a la carga. Are you ready for more?"
     ]
   },
-  
   {
     slug: "the-lazy-tones",
     nombre: "THE LAZY TONES",
     origen: "VALENCIA",
     estilo: "BLUES Y R&B",
     imagen: "/images/2026/lazy-tones.jpg",
-    web: "https://thelazytones.jimdofree.com/", // ⚠️ RECUERDA: Añadir la web real cuando la tengas
-    video: "https://www.youtube.com/watch?v=42sS5ae9rTc", // ⚠️ RECUERDA: Añadir la URL de YouTube cuando la tengas
+    web: "https://thelazytones.jimdofree.com/",
+    video: "https://www.youtube.com/watch?v=42sS5ae9rTc",
     biografia: [
       "Nacidos en Valencia y profundamente inspirados por el sonido de Chess Records, Lazy Tones recupera la esencia del blues eléctrico de Chicago, el jump blues y el rhythm & blues que dieron forma al rock & roll. Un sonido forjado por artistas como Muddy Waters, Howlin’ Wolf, Little Walter, o Willie Dixon, cuya música cambió para siempre la historia de la música popular.",
       "Su repertorio combina versiones cuidadosamente seleccionadas de los grandes clásicos del blues con composiciones propias que conservan el espíritu, la fuerza y la autenticidad de aquella época. Lejos de limitarse a reproducir el pasado, Lazy Tones aporta una personalidad propia, manteniendo vivo el lenguaje del blues con canciones originales que podrían haber sonado en un club del South Side de Chicago en los años cincuenta.",
@@ -84,16 +73,14 @@ export const artistas2026: Artista[] = [
       "Porque el blues no pertenece al pasado. Sigue vivo cada vez que se toca con honestidad."
     ]
   },
- 
-
-   {
+  {
     slug: "haylen",
     nombre: "HAYLEN",
     origen: "FRANCE",
     estilo: "SOUL, BLUES, R'N'R",
     imagen: "/images/2026/haylen-2.jpg",
-    web: "https://www.haylenofficial.com", // ⚠️ RECUERDA: Añadir la web real cuando la tengas
-    video: "https://youtu.be/vxDYKQAaQT8?si=QM63YTgKFgRV0bVl", // ⚠️ RECUERDA: Añadir la URL de YouTube cuando la tengas
+    web: "https://www.haylenofficial.com",
+    video: "https://youtu.be/vxDYKQAaQT8?si=QM63YTgKFgRV0bVl",
     biografia: [
       "Después de una gira de presentación de 5 fechas en España en enero de este año y con SOLD OUT en todas ellas, y de actuar en varios festivales de verano (Fisterra Experience, Motorbeach, Blues de Antequera, Semana Grande Bilbao...), volverá en Noviembre para continuar su gira por salas.",
       "Haylen tiene una voz poderosa y carismática, una verdadera rockera con tacones altos y una energía escénica magnética. Cantante, guitarrista, autora-compositora, encarna una feminidad libre y moderna, nutrida de influencias vintage y de una profunda ansia de vivir. Su universo mezcla con maestría Soul, Blues y Rock'n'Roll, con una estética auténtica, una modernidad comprometida y un amor sincero por el escenario.",
@@ -105,46 +92,43 @@ export const artistas2026: Artista[] = [
       "En julio de 2025 llega la consagración: cumple uno de sus mayores sueños, tocar en el mítico escenario del Ronnie Scott’s en Londres, junto a su amiga Aisha Khan, en una fecha que se agota por completo."
     ]
   },
-
-    {
+  {
     slug: "syl-al",
     nombre: "SYL AL",
     origen: "FRANCE",
     estilo: "DJ - Música seleccionada",
     imagen: "/images/2026/syl_al.jpg",
-    web: "https://youtu.be/cPmppt8QP3w?si=A4eAFJ1-7a7IwFz6", // ✏️ Actualizar con la web real
-    video: "https://youtu.be/cPmppt8QP3w?si=A4eAFJ1-7a7IwFz6",
+    web: "https://youtu.be/cPmppt8QP3w", 
+    video: "https://youtu.be/cPmppt8QP3w",
     biografia: [
-      "Soy Syl All, francés de la región de Burdeos. Comencé a coleccionar discos a principios de los años 90 y, poco después, di el salto a las cabinas como DJ.Mi gran pasión es la música afroamericana de finales de los años 50 y los 60: Rhythm & Blues primitivo, Soul clásico, Mod Jazz, Latin Boogaloo, Bossa Nova, Exotica, sonidos Hammond, bongós y flauta, además de Ska y música jamaicana, R&B británico y Garage.",
-      "A lo largo de los años he participado en destacados festivales y encuentros de la escena mod y Rhythm & Blues europea, como Clean Cut, The Beat Goes On, León Mod Weekender, 123 R&B (Reino Unido), Paris Mod Weekend y Afterglow (Belfast), y compartiendo cabina con algunos de los mejores DJs del circuito internacional. Además de estos festivales, actúo habitualmente en restaurantes audiófilos y eventos privados de mi región, compartiendo una pasión que me acompaña desde hace más de tres décadas: descubrir y hacer bailar al público con música auténtica, elegante y atemporal.Es un auténtico placer haber sido invitado como DJ para esta nueva edición del Midnight Boogie Weekend. Espero que disfrutéis de mi selección musical tanto como yo disfrutaré compartiéndola con vosotros.",
-      "¡Muchas gracias y nos vemos en la pista de baile!.",
+      "Soy Syl Al, francés de la región de Burdeos. Comencé a coleccionar discos a principios de los años 90 y, poco después, di el salto a las cabinas como DJ. Mi gran pasión es la música afroamericana de finales de los años 50 y los 60: Rhythm & Blues primitivo, Soul clásico, Mod Jazz, Latin Boogaloo, Bossa Nova, Exotica, sonidos Hammond, bongós y flauta, además de Ska y música jamaicana, R&B británico y Garage.",
+      "A lo largo de los años he participado en destacados festivales y encuentros de la escena mod y Rhythm & Blues europea, como Clean Cut, The Beat Goes On, León Mod Weekender, 123 R&B (Reino Unido), Paris Mod Weekend y Afterglow (Belfast), y compartiendo cabina con algunos de los mejores DJs del circuito internacional. Además de estos festivales, actúo habitualmente en restaurantes audiófilos y eventos privados de mi región, compartiendo una pasión que me acompaña desde hace más de tres décadas: descubrir y hacer bailar al público con música auténtica, elegante y atemporal. Es un auténtico placer haber sido invitado como DJ para esta nueva edición del Midnight Boogie Weekend. Espero que disfrutéis de mi selección musical tanto como yo disfrutaré compartiéndola con vosotros.",
+      "¡Muchas gracias y nos vemos en la pista de baile!",
       "TOP 5",
       "1. Otis Rush - I am satisfied CHESS.",
       "2. Toni Harper - Heavenly love RCA.",
       "3. Willie Mae Thornton - Just like a dog PEACOCK",
       "4. John Byner - Baby please dont go POP SIDE",
-      "5. Xavier Cugat - One mint julep MERCURY ",
+      "5. Xavier Cugat - One mint julep MERCURY"
     ]
   },
-
   {
     slug: "bea-gb",
     nombre: "BEA GB",
     origen: "GASTEIZ",
     estilo: "DJ - Música seleccionada",
     imagen: "/images/2026/bea-gb.webp",
-    web: "https://youtu.be/WaOh-wBJ6MY?si=V7w_dKnxdQgbFhY5",
-    video: "https://youtu.be/WaOh-wBJ6MY?si=V7w_dKnxdQgbFhY5",
+    web: "https://youtu.be/WaOh-wBJ6MY",
+    video: "https://youtu.be/WaOh-wBJ6MY",
     biografia: [
-      "Hola a todos, estoy encantada de participar en este Midnight Boogie, impulsado por amigos muy queridos, que comparten mi pasión por esta música del alma. Y es que en tantos años se   amontonan en mi cabeza miles de anécdotas y buenos ratos, un tiempo en el que no he dejado de disfrutar aprendiendo y descubriendo los más estimulantes sonidos. 25 años que se han ido volando y durante los cuales prácticamente se ha definido mi parte en la mejor escena del mundo. Hay muchas formas de protestar y muchos elegimos esta, elegancia, estilo, clase, compromiso, resistencia… y fiesta!.",
+      "Hola a todos, estoy encantada de participar en este Midnight Boogie, impulsado por amigos muy queridos, que comparten mi pasión por esta música del alma. Y es que en tantos años se amontonan en mi cabeza miles de anécdotas y buenos ratos, un tiempo en el que no he dejado de disfrutar aprendiendo y descubriendo los más estimulantes sonidos. 25 años que se han ido volando y durante los cuales prácticamente se ha definido mi parte en la mejor escena del mundo. Hay muchas formas de protestar y muchos elegimos esta, elegancia, estilo, clase, compromiso, resistencia… y fiesta!",
       "Mis sets están compuestos por soul (60’s-early70’s) y rhythm&blues, y siempre incluyo algo de latin refrescante. He tenido la ocasión de pinchar en eventos como el Mod Generation Club, Mojo Workin’, Beat Goes On, Euro Ye-Yé, All Saints Mod Holiday Lavarone, Clean Cut y Ebroclub.",
       "TOP 5:",
       "1. I'm shakin - Little Willie John",
       "2. Heartbreaker - BB King",
       "3. Sweet lover no more - Gene McDaniels",
       "4. Keep an eye on love - Ernestine Anderson",
-      "5. He'll come back - Sylvia Shemwell",
+      "5. He'll come back - Sylvia Shemwell"
     ]
-  },
- 
+  }
 ];

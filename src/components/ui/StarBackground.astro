@@ -1,0 +1,24 @@
+---
+// Fondo estelar del festival.
+---
+
+<div 
+  class="fixed inset-0 z-0 pointer-events-none bg-background overflow-hidden" 
+  transition:persist 
+  transition:name="star-bg"
+  aria-hidden="true"
+>
+  <picture>
+    <source srcset="/images/fondo-estrellas.avif" type="image/avif" />
+    <img 
+      src="/images/fondo-estrellas.jpg" 
+      alt="" 
+      width="1920"
+      height="1080"
+      loading="eager"
+      decoding="async"
+      class="w-full h-full object-cover"
+    />
+  </picture>
+  <div class="absolute inset-0 bg-overlay-light"></div>
+</div>

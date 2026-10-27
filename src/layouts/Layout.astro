@@ -1,10 +1,10 @@
 ---
-// src/layouts/Layout.astro
 import Analytics from '@vercel/analytics/astro';
 import '../styles/global.css';
-import Header from '../components/Header.astro';
-import Footer from '../components/Footer.astro';
-import StarBackground from '../components/StarBackground.astro';
+import Header from '../components/shared/Header.astro';
+import Footer from '../components/shared/Footer.astro';
+import StarBackground from '../components/ui/StarBackground.astro';
+import { getRelativeLocaleUrl } from 'astro:i18n';
 
 interface Props {
   title: string;
@@ -23,53 +23,73 @@ const {
 } = Astro.props;
 
 const siteUrl = "https://www.midnightboogie.net";
-const fullTitle = title.includes("Midnight Boogie") ? title : `${title} | Midnight Boogie 2026`;
-const fullImageUrl = image.startsWith("http") ? image : `${siteUrl}${image}`;
+const fullTitle = title?.includes("Midnight Boogie") ? title : `${title || 'Midnight Boogie'} | Midnight Boogie 2026`;
+const fullImageUrl = image?.startsWith("http") ? image : `${siteUrl}${image || '/images/og-default.png'}`;
+
+const currentLocale = Astro.currentLocale || 'es';
+
+function stripLocale(pathname: string) {
+  for (const l of ['eu', 'en', 'fr']) {
+    if (pathname === `/${l}` || pathname === `/${l}/`) return '/';
+    if (pathname.startsWith(`/${l}/`)) return pathname.slice(`/${l}`.length);
+  }
+  return pathname;
+}
+
+const basePath = stripLocale(Astro.url.pathname);
+const cleanPath = basePath === '/' ? '' : basePath.replace(/\/+$/, '');
 const currentUrl = `${siteUrl}${Astro.url.pathname}`;
+
+const localeUrls = {
+  es: `${siteUrl}${getRelativeLocaleUrl('es', cleanPath)}`,
+  eu: `${siteUrl}${getRelativeLocaleUrl('eu', cleanPath)}`,
+  en: `${siteUrl}${getRelativeLocaleUrl('en', cleanPath)}`,
+  fr: `${siteUrl}${getRelativeLocaleUrl('fr', cleanPath)}`,
+};
+
+const ogLocaleMap: Record<string, string> = {
+  es: 'es_ES',
+  eu: 'eu_ES',
+  en: 'en_GB',
+  fr: 'fr_FR',
+};
+const ogLocale = ogLocaleMap[currentLocale] || 'es_ES';
 ---
 
 <!doctype html>
-<html lang="es">
+<html lang={currentLocale}>
   <head>
-
-<meta property="og:locale" content={Astro.params.locale || 'es_ES'} />
-<link rel="alternate" hreflang="es" href="https://midnightboogie.net/es/" />
-<link rel="alternate" hreflang="eu" href="https://midnightboogie.net/eu/" />
-<link rel="alternate" hreflang="en" href="https://midnightboogie.net/en/" />
-<link rel="alternate" hreflang="fr" href="https://midnightboogie.net/fr/" />
-<link rel="alternate" hreflang="x-default" href="https://midnightboogie.net/" />
-
-
-
-
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Jost:wght@300;400;500;600;700;900&display=swap" rel="stylesheet" />
     
-    <!-- Título -->
     <title>{fullTitle}</title>
-    
-    <!-- Meta descripción -->
     <meta name="description" content={description} />
-    
-    <!-- Canonical URL -->
     <link rel="canonical" href={currentUrl} />
-    
-    <!-- Robots -->
     <meta name="robots" content="index, follow" />
-    
-    <!-- View Transition -->
     <meta name="view-transition" content="same-origin" />
     
-    <!-- Open Graph -->
+    <link rel="alternate" hreflang="es-ES" href={localeUrls.es} />
+    <link rel="alternate" hreflang="eu" href={localeUrls.eu} />
+    <link rel="alternate" hreflang="en-GB" href={localeUrls.en} />
+    <link rel="alternate" hreflang="fr-FR" href={localeUrls.fr} />
+    <link rel="alternate" hreflang="x-default" href={localeUrls.es} />
+    
     <meta property="og:type" content="website" />
     <meta property="og:url" content={currentUrl} />
     <meta property="og:title" content={fullTitle} />
     <meta property="og:description" content={description} />
     <meta property="og:image" content={fullImageUrl} />
-    <meta property="og:locale" content="es_ES" />
+    <meta property="og:locale" content={ogLocale} />
+    <meta property="og:locale:alternate" content="es_ES" />
+    <meta property="og:locale:alternate" content="eu_ES" />
+    <meta property="og:locale:alternate" content="en_GB" />
+    <meta property="og:locale:alternate" content="fr_FR" />
     <meta property="og:site_name" content="Midnight Boogie" />
     
-    <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:url" content={currentUrl} />
     <meta name="twitter:title" content={fullTitle} />
@@ -77,16 +97,17 @@ const currentUrl = `${siteUrl}${Astro.url.pathname}`;
     <meta name="twitter:image" content={fullImageUrl} />
     <meta name="twitter:creator" content="@midnightboogie" />
     
-    <!-- Favicon -->
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
     
-    <!-- Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Jost:wght@300;400;500;600;700;900&display=swap" rel="stylesheet">
+
+
+  <link rel="preload" as="image" href="/images/fondo-estrellas.avif" type="image/avif" fetchpriority="high" />
+
+   
     
-    <!-- Schema.org para home -->
+ 
+
     {Astro.url.pathname === '/' && (
       <script type="application/ld+json" set:html={JSON.stringify({
         "@context": "https://schema.org",
@@ -114,7 +135,7 @@ const currentUrl = `${siteUrl}${Astro.url.pathname}`;
     )}
   </head>
   
-  <body class="m-0 p-0 bg-neutral-950 text-white font-jost antialiased flex flex-col min-h-screen relative">
+  <body class="m-0 p-0 bg-background text-foreground font-sans antialiased flex flex-col min-h-screen relative">
     {showStars && <StarBackground transition:persist />}
     
     <Header />
@@ -127,9 +148,4 @@ const currentUrl = `${siteUrl}${Astro.url.pathname}`;
     
     <Analytics />
   </body>
-  
-  <style is:global>
-    .font-jost { font-family: 'Jost', sans-serif; }
-    .font-avantgarde { font-family: 'Avant Garde', sans-serif; }
-  </style>
 </html>

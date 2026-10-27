@@ -1,46 +1,17 @@
 {
   "models": [
     {
-      "title": "Gemini Flash",
+      "title": "Gemini 2.0 Flash",
       "provider": "gemini",
-      "apiKey": "${env.GEMINI_API_KEY}",
-      "model": "gemini-2.0-flash-exp",
-      "role": "default",
-      "maxTokens": 8192
-    },
-    {
-      "title": "Codeium",
-      "provider": "codeium",
-      "apiKey": "",
-      "role": "autocomplete"
+      "model": "gemini-2.0-flash",
+      "apiKey": "${GEMINI_API_KEY}",
+      "apiBase": "https://generativelanguage.googleapis.com/v1beta"
     }
   ],
   "tabAutocompleteModel": {
-    "title": "Codeium",
-    "provider": "codeium"
-  },
-  "rules": [
-    "Eres un desarrollador senior experto en Astro, React, TypeScript y Tailwind CSS",
-    "Siempre muestra Diffs ANTES de aplicar cambios en archivos",
-    "Nunca edites archivos fuera del directorio /src",
-    "Respeta los design tokens existentes: primary rgb(233,157,56), dark rgb(15,15,15)",
-    "Mantén consistencia con ITC Avant Garde Gothic Pro como fuente principal",
-    "Prioriza responsive design para móviles < 612px"
-  ],
-  "slashCommands": [
-    {
-      "name": "architect",
-      "description": "Analiza el repositorio completo y crea un plan de trabajo"
-    },
-    {
-      "name": "edit",
-      "description": "Edita archivos específicos mostrando diffs"
-    },
-    {
-      "name": "ask",
-      "description": "Preguntas sobre contexto específico del proyecto"
-    }
-  ],
-  "usageStatisticsEnabled": false,
-  "disableIndexing": false
+    "title": "Gemini Flash Lite",
+    "provider": "gemini",
+    "model": "gemini-2.0-flash-lite",
+    "apiKey": "${GEMINI_API_KEY}"
+  }
 }

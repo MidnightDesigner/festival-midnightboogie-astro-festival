@@ -17,4 +17,9 @@ Disallow: /*?utm_*
 Allow: /*?category=*
 Allow: /*?sort=*
 
+# Bloquear rutas de desarrollo o admin si las hubiera
+Disallow: /_astro/
+Disallow: /design-system/
+
+
 Sitemap: https://www.midnightboogie.net/sitemap.xml

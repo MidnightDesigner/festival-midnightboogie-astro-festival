@@ -1,5 +1,3 @@
-// src/data/entradas.ts
-
 export interface Entrada {
   id: string;
   fecha: string;
@@ -7,18 +5,15 @@ export interface Entrada {
   evento: string;
   artista: string;
   lugar: string;
-  direccion?: string;  
+  direccion?: string;
   precioAnticipada: string;
-  precioTaquilla?: string; // Opcional (pon "?" al final si no siempre existe)
+  precioTaquilla?: string;
   link: string;
   linkTexto: string;
-  estado: "Disponibles" | "Últimas entradas" | "Agotadas";
+  estado: "Disponibles" | "Últimas entradas" | "Entradas agotadas";
 }
 
 export const entradas2026: Entrada[] = [
-  // ============================================
-  // EVENTO 1: PRESENTACIÓN SEPTIEMBRE
-  // ============================================
   {
     id: "sabado-12-septiembre",
     fecha: "Sábado 12 de Septiembre",
@@ -33,10 +28,6 @@ export const entradas2026: Entrada[] = [
     linkTexto: "Comprar en Arkabia",
     estado: "Últimas entradas"
   },
-
-  // ============================================
-  // EVENTO 2: ABONO WEEKEND
-  // ============================================
   {
     id: "abono-weekend",
     fecha: "Viernes 27 - Sábado 28 Noviembre",
@@ -46,15 +37,10 @@ export const entradas2026: Entrada[] = [
     lugar: "Helldorado",
     direccion: "Venta de la Estrella, 6, Pab. 44, Vitoria-Gasteiz",
     precioAnticipada: "39€",
-
     link: "https://www.musikaze.net/web/?menu=138&pagina=&item=62415&siteID=infiernodorado",
     linkTexto: "Comprar Abono",
     estado: "Disponibles"
   },
-
-  // ============================================
-  // EVENTO 3: VIERNES 27 NOVIEMBRE
-  // ============================================
   {
     id: "viernes-27-noviembre",
     fecha: "Viernes 27 de Noviembre",
@@ -69,11 +55,6 @@ export const entradas2026: Entrada[] = [
     linkTexto: "Comprar en Musikaze",
     estado: "Disponibles"
   },
-
-
-  // ============================================
-  // EVENTO 4: SÁBADO 28 NOVIEMBRE TALLER
-  // ============================================
   {
     id: "sabado-28-noviembre",
     fecha: "Sábado 28 de Noviembre",
@@ -87,19 +68,12 @@ export const entradas2026: Entrada[] = [
     linkTexto: "Inscribirse en Fundación Vital Fundazioa",
     estado: "Disponibles"
   },
-
-
-
-
-  // ============================================
-  // EVENTO 4: SÁBADO 28 NOVIEMBRE NOCHE
-  // ============================================
   {
     id: "sabado-28-noche",
     fecha: "Sábado 28 de Noviembre",
     hora: "21:00h",
     evento: "Noche de Soul & R'n'R",
-    artista: "Haylen · Nine Below Zero ",
+    artista: "Haylen · Nine Below Zero",
     lugar: "Helldorado",
     direccion: "Venta de la Estrella, 6, Pab. 44, Vitoria-Gasteiz",
     precioAnticipada: "22€",
@@ -108,9 +82,4 @@ export const entradas2026: Entrada[] = [
     linkTexto: "Comprar en Musikaze",
     estado: "Disponibles"
   }
-
-  // ============================================
-  // AÑADIR MÁS EVENTOS AQUÍ DEBAJO:
-  // ============================================
-  // Copia cualquiera de los bloques anteriores y cámbialo
 ];

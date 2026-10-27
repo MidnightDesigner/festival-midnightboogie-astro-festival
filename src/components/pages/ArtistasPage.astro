@@ -1,0 +1,38 @@
+---
+import ArtistCard from '~/components/features/ArtistCard.astro';
+import { artistas2026 } from '~/data/artistas';
+import type { Artista } from '~/data/artistas';
+import PageHero from '~/components/ui/PageHero.astro';
+import { getContent } from '~/i18n/content';
+import { getSlug } from '~/lib/getSlug';
+
+const lang = Astro.currentLocale || 'es';
+const c = getContent(lang).artistas;
+
+const artistasTraducidos = artistas2026.map((artista) => {
+  const key = getSlug(artista.nombre);
+  const override = c.items[key] ?? {};
+
+  return {
+    ...artista,
+    ...(override.origen ? { origen: override.origen } : {}),
+    ...(override.estilo ? { estilo: override.estilo } : {}),
+    ...(override.biografia ? { biografia: override.biografia } : {})
+  } as Artista;
+});
+---
+
+<main class="w-full pb-16 md:pb-24">
+  <PageHero 
+    title={c.heroTitle} 
+    highlight={c.heroHighlight} 
+    subtitle={c.heroSubtitle}
+    size="sm" 
+  />
+
+  <div class="flex flex-col items-center space-y-24 md:space-y-32 w-full">
+    {artistasTraducidos.map((artista) => (
+      <ArtistCard artista={artista} />
+    ))}
+  </div>
+</main>
