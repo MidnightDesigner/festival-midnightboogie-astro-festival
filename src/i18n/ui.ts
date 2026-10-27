@@ -1,5 +1,6 @@
 export const ui = {
   es: {
+        'index.viewProgram': 'Ver Programa',
     // Navegación
     'nav.programa': 'Programa',
     'nav.artistas': 'Artistas',
@@ -50,6 +51,7 @@ export const ui = {
   },
 
   eu: {
+        'index.viewProgram': 'Ikusi Programa',
     // Navegación — 💬 nativo
     'nav.programa': 'Egitaraua',
     'nav.artistas': 'Artistak',
@@ -100,6 +102,7 @@ export const ui = {
   },
 
    en: {
+        'index.viewProgram': 'View Program',
     'nav.programa': 'Schedule',
     'nav.artistas': 'Artists',
     'nav.entradas': 'Tickets',
@@ -134,6 +137,7 @@ export const ui = {
     'menu.open': 'Open menu',
   },
   fr: {
+        'index.viewProgram': 'Voir le Programme',
     'nav.programa': 'Programme',
     'nav.artistas': 'Artistes',
     'nav.entradas': 'Billetterie',
@@ -167,7 +171,7 @@ export const ui = {
     'modal.close': 'Fermer la fenêtre',
     'menu.open': 'Ouvrir le menu',
   },
-  
+
 } as const;
 
 export type UIDict = (typeof ui)['es'];

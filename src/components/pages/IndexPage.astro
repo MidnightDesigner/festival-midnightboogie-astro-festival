@@ -1,10 +1,15 @@
 ---
+import { useTranslations, type Locale } from '~/i18n';
+
 const PAGE_CONFIG = {
   year: "2026",
   location: "VITORIA GASTEIZ",
   heroImage: "/images/2026/Midnightboogie-2026.avif",
   sponsorImage: "/images/vital/sponsor-vital.svg",
 };
+
+const lang = (Astro.currentLocale || 'es') as Locale;
+const t = useTranslations(lang);
 ---
 
 <a 
@@ -26,8 +31,27 @@ const PAGE_CONFIG = {
     Midnight Boogie Festival {PAGE_CONFIG.year} - Soul, Blues & Rhythm & Blues en {PAGE_CONFIG.location}
   </h1>
   
-  <div class="absolute inset-0 bg-black/10 pointer-events-none"></div>
-  
+  <!-- Overlay oscuro sutil -->
+  <div class="absolute inset-0 bg-black/20 pointer-events-none"></div>
+
+  <!-- ✨ Cielo estrellado sobre el hero -->
+  <div class="absolute inset-0 pointer-events-none" aria-hidden="true">
+    <!-- Capa 1: Estrellas pequeñas (muchas, tenues, fondo) -->
+    <div class="stars hero-stars-xs"></div>
+
+    <!-- Capa 2: Estrellas medianas -->
+    <div class="stars hero-stars-sm"></div>
+
+    <!-- Capa 3: Estrellas grandes (brillantes) -->
+    <div class="stars hero-stars-md"></div>
+
+    <!-- Capa 4: Estrellas gigantes / destellos -->
+    <div class="stars hero-stars-lg"></div>
+
+    <!-- Capa 5: Super-destellos (muy pocas, muy brillantes, parpadeo dramático) -->
+    <div class="stars hero-stars-xl"></div>
+  </div>
+
   <div class="absolute bottom-6 left-6 md:bottom-10 md:left-10 z-20 pointer-events-none">
     <div class="flex items-center gap-3">
       <div class="w-8 h-[2px] bg-brand"></div>
@@ -37,12 +61,118 @@ const PAGE_CONFIG = {
     </div>
   </div>
   
-  <div class="absolute bottom-8 right-8 md:bottom-10 md:right-10 opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-30 hidden md:block">
-    <span class="bg-white/90 text-black px-6 py-3 rounded-full text-sm font-bold uppercase tracking-widest shadow-lg backdrop-blur-sm">
-      Ver Programa
-    </span>
-  </div>
+<div class="absolute bottom-8 right-8 md:bottom-10 md:right-10 opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-30 hidden md:block">
+  <span class="bg-white/90 text-black px-6 py-3 rounded-full text-sm font-bold uppercase tracking-widest shadow-lg backdrop-blur-sm">
+    {t('index.viewProgram')}
+  </span>
+</div>
 </a>
+
+<style>
+  /* Contenedor común de estrellas del hero */
+  .stars {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    will-change: transform, opacity;
+  }
+
+  /* Capa 1: Estrellas muy pequeñas y densas (fondo) */
+  .hero-stars-xs {
+    background-image:
+      radial-gradient(1px 1px at 20px 30px, rgba(255, 255, 255, 0.7), transparent),
+      radial-gradient(1px 1px at 80px 120px, rgba(255, 255, 255, 0.5), transparent),
+      radial-gradient(1px 1px at 150px 40px, rgba(255, 255, 255, 0.6), transparent),
+      radial-gradient(1px 1px at 220px 180px, rgba(255, 255, 255, 0.4), transparent),
+      radial-gradient(1px 1px at 300px 80px, rgba(255, 255, 255, 0.55), transparent),
+      radial-gradient(1px 1px at 380px 220px, rgba(255, 255, 255, 0.45), transparent);
+    background-size: 420px 280px;
+    animation: twinkle-hero 4s ease-in-out infinite alternate;
+  }
+
+  /* Capa 2: Estrellas pequeñas */
+  .hero-stars-sm {
+    background-image:
+      radial-gradient(2px 2px at 50px 100px, rgba(255, 255, 255, 0.85), transparent),
+      radial-gradient(2px 2px at 180px 200px, rgba(255, 255, 255, 0.7), transparent),
+      radial-gradient(2px 2px at 280px 60px, rgba(255, 255, 255, 0.8), transparent),
+      radial-gradient(2px 2px at 400px 160px, rgba(255, 255, 255, 0.65), transparent);
+    background-size: 480px 300px;
+    animation: twinkle-hero 6s ease-in-out infinite alternate-reverse;
+  }
+
+  /* Capa 3: Estrellas medianas (visibles y brillantes) */
+  .hero-stars-md {
+    background-image:
+      radial-gradient(3px 3px at 120px 80px, rgba(255, 255, 255, 0.95), transparent),
+      radial-gradient(3px 3px at 260px 180px, rgba(255, 255, 255, 0.85), transparent),
+      radial-gradient(3px 3px at 380px 100px, rgba(255, 255, 255, 0.9), transparent);
+    background-size: 520px 340px;
+    animation: twinkle-hero 8s ease-in-out infinite alternate;
+  }
+
+  /* Capa 4: Estrellas grandes (destellos notables) */
+  .hero-stars-lg {
+    background-image:
+      radial-gradient(4px 4px at 90px 140px, rgba(255, 255, 255, 1), transparent),
+      radial-gradient(4px 4px at 320px 220px, rgba(255, 255, 255, 0.95), transparent),
+      radial-gradient(3.5px 3.5px at 450px 80px, rgba(255, 255, 255, 0.9), transparent);
+    background-size: 600px 380px;
+    animation: twinkle-hero 10s ease-in-out infinite alternate-reverse, drift-hero 80s linear infinite;
+  }
+
+  /* Capa 5: Super-destellos (muy pocas, muy brillantes, parpadeo dramático) */
+  .hero-stars-xl {
+    background-image:
+      radial-gradient(5px 5px at 180px 120px, rgba(255, 255, 255, 1), transparent),
+      radial-gradient(6px 6px at 420px 200px, rgba(255, 255, 255, 1), transparent);
+    background-size: 700px 420px;
+    animation: twinkle-dramatic 10s ease-in-out infinite;
+  }
+
+  /* Animación de pulso/vibración (opacidad + micro-zoom) */
+  @keyframes twinkle-hero {
+    from {
+      opacity: 0.3;
+      transform: scale(0.92);
+    }
+    to {
+      opacity: 1;
+      transform: scale(1.1);
+    }
+  }
+
+  /* Animación dramática para los super-destellos */
+  @keyframes twinkle-dramatic {
+    0%, 100% {
+      opacity: 0.2;
+      transform: scale(0.8);
+    }
+    50% {
+      opacity: 1;
+      transform: scale(1.25);
+    }
+  }
+
+  /* Desplazamiento ultra-lento para parallax */
+  @keyframes drift-hero {
+    from { background-position: 0 0; }
+    to { background-position: 120px 60px; }
+  }
+
+  /* ♿ Accesibilidad: respeta prefers-reduced-motion */
+  @media (prefers-reduced-motion: reduce) {
+    .hero-stars-xs,
+    .hero-stars-sm,
+    .hero-stars-md,
+    .hero-stars-lg,
+    .hero-stars-xl {
+      animation: none;
+      opacity: 0.85;
+      transform: scale(1);
+    }
+  }
+</style>
 
 <section class="h-[100px] md:h-[150px] flex justify-center items-center bg-brand border-t border-black/10 shrink-0">
   <img 

@@ -2,6 +2,11 @@ import type { PageContent } from './types';
 import artistasEu from './eu.artistas';
 
 const eu: PageContent = {
+
+  index: {
+    viewProgram: "Ikusi Programa",
+  },
+
   contacto: {
     heroTitle: "Hitz egin dezagun",
     heroSubtitle: "Sarrerei buruzko zalantzarik baduzu, prentsa zara edo lankidetzaren bat proposatu nahi duzu? Hemen gaude laguntzeko.",

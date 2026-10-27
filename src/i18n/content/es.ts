@@ -1,6 +1,12 @@
 import type { PageContent } from './types';
 
 const es: PageContent = {
+
+  index: {
+    viewProgram: "Ver Programa",
+  },
+
+
   contacto: {
     heroTitle: "Hablemos",
     heroSubtitle: "¿Tienes dudas sobre las entradas, eres de la prensa o quieres proponer una colaboración?. Estamos aquí para ayudarte.",

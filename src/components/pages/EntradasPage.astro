@@ -138,6 +138,19 @@ const entradas = entradas2026.map((entrada) => {
       {c.toastSuccess}
     </div>
   </section>
+
+<!-- ⚠️ Avisos importantes de Musikaze (Investigación UX) -->
+<div class="max-w-3xl mx-auto mt-12 px-6 py-6 bg-surface/50 border border-border rounded-card text-center backdrop-blur-sm">
+  <p class="text-foreground text-sm md:text-base font-medium leading-relaxed mb-3 flex items-center justify-center gap-2">
+    <span class="text-brand text-xl" aria-hidden="true">⚠️</span> 
+    {c.ticketNotice}
+  </p>
+  <p class="text-foreground-muted text-sm font-light leading-relaxed flex items-center justify-center gap-2">
+    <span class="text-brand" aria-hidden="true">✉️</span> 
+    {c.ticketContact}
+  </p>
+</div>
+
 </main>
 
 <script lang="ts">

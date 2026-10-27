@@ -2,6 +2,11 @@ import type { PageContent } from './types';
 import artistasFr from './fr.artistas';
 
 const fr: PageContent = {
+
+  index: {
+    viewProgram: "Voir le Programme",
+  },
+
   contacto: {
     heroTitle: "Parlons-en",
     heroSubtitle: "Vous avez des questions sur les billets, vous êtes journaliste, ou vous souhaitez proposer une collaboration ? Nous sommes là pour vous aider.",

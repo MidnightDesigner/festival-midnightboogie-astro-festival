@@ -1,15 +1,20 @@
 ---
-// Fondo estelar del festival.
+/**
+ * Fondo estelar del festival.
+ * Estrategia: Textura base AVIF + 3 capas de estrellas procedurales CSS.
+ * Rendimiento: 0 imágenes extra, animaciones GPU-aceleradas.
+ * Accesibilidad: Respeta prefers-reduced-motion.
+ */
 ---
 
 <div 
   class="fixed inset-0 z-0 pointer-events-none bg-background overflow-hidden" 
-  transition:persist 
-  transition:name="star-bg"
   aria-hidden="true"
 >
+  <!-- Capa 1: Textura de nebulosa (imagen optimizada) -->
   <picture>
     <source srcset="/images/fondo-estrellas.avif" type="image/avif" />
+    <source srcset="/images/fondo-estrellas.webp" type="image/webp" />
     <img 
       src="/images/fondo-estrellas.jpg" 
       alt="" 
@@ -20,5 +25,87 @@
       class="w-full h-full object-cover"
     />
   </picture>
-  <div class="absolute inset-0 bg-overlay-light"></div>
+
+  <!-- Capa 2: Estrellas pequeñas (muchas, tenues, parpadeo rápido) -->
+  <div class="stars stars-sm"></div>
+
+  <!-- Capa 3: Estrellas medianas (parpadeo medio) -->
+  <div class="stars stars-md"></div>
+
+  <!-- Capa 4: Estrellas grandes (pocas, brillantes, parpadeo lento) -->
+  <div class="stars stars-lg"></div>
+
+  <!-- Capa 5: Overlay sutil para garantizar legibilidad del texto -->
+  <div class="absolute inset-0 bg-black/20"></div>
 </div>
+
+<style>
+  /* Contenedor común para todas las capas de estrellas */
+  .stars {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    will-change: transform, opacity; /* Optimización para la GPU */
+  }
+
+  /* Capa 1: Estrellas pequeñas (vibración rápida + desplazamiento lento) */
+  .stars-sm {
+    background-image: 
+      radial-gradient(1.5px 1.5px at 25px 35px, rgba(255, 255, 255, 0.8), transparent),
+      radial-gradient(1.5px 1.5px at 75px 90px, rgba(255, 255, 255, 0.6), transparent),
+      radial-gradient(1.5px 1.5px at 125px 25px, rgba(255, 255, 255, 0.7), transparent),
+      radial-gradient(1.5px 1.5px at 170px 120px, rgba(255, 255, 255, 0.5), transparent),
+      radial-gradient(1.5px 1.5px at 210px 60px, rgba(255, 255, 255, 0.65), transparent);
+    background-size: 240px 240px;
+    animation: twinkle-pulse 5s ease-in-out infinite alternate, drift 60s linear infinite;
+  }
+
+  /* Capa 2: Estrellas medianas (vibración media en dirección contraria) */
+  .stars-md {
+    background-image: 
+      radial-gradient(2px 2px at 60px 170px, rgba(255, 255, 255, 0.9), transparent),
+      radial-gradient(2px 2px at 150px 230px, rgba(255, 255, 255, 0.7), transparent),
+      radial-gradient(2px 2px at 250px 110px, rgba(255, 255, 255, 0.8), transparent);
+    background-size: 320px 320px;
+    animation: twinkle-pulse 7s ease-in-out infinite alternate-reverse;
+  }
+
+  /* Capa 3: Estrellas grandes (vibración lenta y pronunciada, como destellos) */
+  .stars-lg {
+    background-image: 
+      radial-gradient(2.5px 2.5px at 100px 70px, rgba(255, 255, 255, 1), transparent),
+      radial-gradient(2.5px 2.5px at 280px 200px, rgba(255, 255, 255, 0.85), transparent),
+      radial-gradient(2px 2px at 50px 250px, rgba(255, 255, 255, 0.9), transparent);
+    background-size: 420px 420px;
+    animation: twinkle-pulse 9s ease-in-out infinite alternate;
+  }
+
+  /* Animación de pulso/vibración (Opacidad + Micro-zoom) */
+  @keyframes twinkle-pulse {
+    from { 
+      opacity: 0.4; 
+      transform: scale(0.95); 
+    }
+    to {   
+      opacity: 1; 
+      transform: scale(1.08); 
+    }
+  }
+
+  /* Animación de desplazamiento lento (Parallax sutil) */
+  @keyframes drift {
+    from { background-position: 0 0; }
+    to { background-position: 100px 50px; }
+  }
+
+  /* ♿ Accesibilidad: Si el usuario prefiere movimiento reducido, quitamos las animaciones */
+  @media (prefers-reduced-motion: reduce) {
+    .stars-sm,
+    .stars-md,
+    .stars-lg {
+      animation: none;
+      opacity: 0.8;
+      transform: scale(1);
+    }
+  }
+</style>

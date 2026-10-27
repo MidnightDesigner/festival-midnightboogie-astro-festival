@@ -123,6 +123,9 @@ export interface ArtistasContent {
 }
 
 export interface PageContent {
+    index: {
+    viewProgram: string;
+    };
   contacto: ContactoContent;
   entradas: EntradasContent;
   archivo: ArchivoContent;
