@@ -1,7 +1,5 @@
 @import "tailwindcss";
 
-
-
 @theme {
   /* === COLORES SEMÁNTICOS (Single Source of Truth) === */
   --color-brand: rgb(233, 157, 56);
@@ -23,42 +21,31 @@
   --color-warning: #f59e0b;
   --color-error: #ef4444;
 
-    /* === COLORES DE MARCAS EXTERNAS (Social Sharing) === */
+  /* === COLORES DE MARCAS EXTERNAS (Social Sharing) === */
   --color-social-whatsapp: #25D366;
   --color-social-facebook: #1877F2;
   --color-social-instagram-from: #feda75;
   --color-social-instagram-via: #d62976;
   --color-social-instagram-to: #962fbf;
 
-    /* === COLORES DE MARCA (UI SOBRE FONDO CLARO / BRAND) === */
+  /* === COLORES DE MARCA (UI SOBRE FONDO CLARO / BRAND) === */
   --color-brand-text: rgba(0, 0, 0, 0.8);
   --color-brand-muted: rgba(0, 0, 0, 0.6);
   --color-brand-border: rgba(0, 0, 0, 0.1);
   --color-brand-border-accent: rgba(0, 0, 0, 0.2);
 
-    /* Nuevos tokens de overlay */
+  /* === OVERLAYS === */
   --color-overlay-light: rgba(0, 0, 0, 0.4);
   --color-overlay-medium: rgba(0, 0, 0, 0.6);
   --color-overlay-heavy: rgba(0, 0, 0, 0.8);
   
-  --color-border: rgba(255, 255, 255, 0.10);
-  --color-border-accent: rgba(255, 255, 255, 0.20);
-  
-  --color-foreground: #ffffff;
-  --color-foreground-muted: rgba(255, 255, 255, 0.60);
-  --color-foreground-disabled: rgba(255, 255, 255, 0.40);
-  
-  --color-success: #22c55e;
-  --color-warning: #f59e0b;
-  --color-error: #ef4444;
-
   /* === TIPOGRAFÍA === */
   --font-display: "ITC Avant Garde Gothic Pro", "Century Gothic", "Jost", sans-serif;
   --font-body: "Inter", system-ui, -apple-system, sans-serif;
   
   /* === RADIOS === */
   --radius-button: 9999px;
-  --radius-card: 1rem; /* Equivale a tu 2xl */
+  --radius-card: 1rem;
   
   /* === SOMBRAS === */
   --shadow-glow: 0 0 20px rgba(233, 157, 56, 0.4);
