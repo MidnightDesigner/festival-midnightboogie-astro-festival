@@ -11,91 +11,94 @@
   },
   "color": {
     "brand": {
-      "DEFAULT": { "value": "rgb(233, 157, 56)", "description": "Color principal del festival (Midnight Orange)" },
-      "hover": { "value": "rgb(255, 170, 70)", "description": "Estado hover para elementos de marca" },
-      "text": { "value": "rgba(0, 0, 0, 0.8)", "description": "Texto principal sobre fondo de marca (naranja)" },
-      "muted": { "value": "rgba(0, 0, 0, 0.6)", "description": "Texto secundario sobre fondo de marca" },
-      "border": { "value": "rgba(0, 0, 0, 0.1)", "description": "Bordes sutiles sobre fondo de marca" },
-      "borderAccent": { "value": "rgba(0, 0, 0, 0.2)", "description": "Bordes destacados sobre fondo de marca" }
+      "DEFAULT": { "value": "rgb(233, 157, 56)", "description": "Main festival color (Midnight Orange)" },
+      "hover": { "value": "rgb(255, 170, 70)", "description": "Hover state for brand elements" },
+      "text": { "value": "rgba(0, 0, 0, 0.8)", "description": "Main text on brand background (orange)" },
+      "muted": { "value": "rgba(0, 0, 0, 0.6)", "description": "Secondary text on brand background" },
+      "border": { "value": "rgba(0, 0, 0, 0.1)", "description": "Subtle borders on brand background" },
+      "borderAccent": { "value": "rgba(0, 0, 0, 0.2)", "description": "Accent borders on brand background" }
     },
     "background": {
       "value": "#0a0a0a",
-      "description": "Fondo principal oscuro de la aplicación"
+      "description": "Main dark background of the application"
     },
     "surface": {
-      "DEFAULT": { "value": "rgba(255, 255, 255, 0.05)", "description": "Fondo translúcido para tarjetas y contenedores" },
-      "hover": { "value": "rgba(255, 255, 255, 0.10)", "description": "Estado hover para superficies" },
-      "overlay": { "value": "rgba(0, 0, 0, 0.85)", "description": "Overlay pesado para modales y lightboxes" }
+      "DEFAULT": { "value": "rgba(255, 255, 255, 0.05)", "description": "Translucent background for cards and containers" },
+      "hover": { "value": "rgba(255, 255, 255, 0.10)", "description": "Hover state for surfaces" },
+      "overlay": { "value": "rgba(0, 0, 0, 0.85)", "description": "Heavy overlay for modals and lightboxes" }
     },
     "overlay": {
-      "light": { "value": "rgba(0, 0, 0, 0.4)", "description": "Overlay suave para hovers de imágenes" },
-      "medium": { "value": "rgba(0, 0, 0, 0.6)", "description": "Overlay medio para cards y elementos interactivos" },
-      "heavy": { "value": "rgba(0, 0, 0, 0.8)", "description": "Overlay pesado para backdrops de diálogos" }
+      "light": { "value": "rgba(0, 0, 0, 0.4)", "description": "Soft overlay for image hovers" },
+      "medium": { "value": "rgba(0, 0, 0, 0.6)", "description": "Medium overlay for cards and interactive elements" },
+      "heavy": { "value": "rgba(0, 0, 0, 0.8)", "description": "Heavy overlay for dialog backdrops" }
     },
     "foreground": {
-      "DEFAULT": { "value": "#ffffff", "description": "Texto principal de alto contraste" },
-      "muted": { "value": "rgba(255, 255, 255, 0.60)", "description": "Texto secundario o terciario" },
-      "disabled": { "value": "rgba(255, 255, 255, 0.40)", "description": "Texto o iconos en estado deshabilitado" }
+      "DEFAULT": { "value": "#ffffff", "description": "High contrast main text" },
+      "muted": { "value": "rgba(255, 255, 255, 0.60)", "description": "Secondary or tertiary text" },
+      "disabled": { "value": "rgba(255, 255, 255, 0.40)", "description": "Text or icons in disabled state" }
     },
     "border": {
-      "DEFAULT": { "value": "rgba(255, 255, 255, 0.10)", "description": "Bordes sutiles en componentes oscuros" },
-      "accent": { "value": "rgba(255, 255, 255, 0.20)", "description": "Bordes destacados o en foco" }
+      "DEFAULT": { "value": "rgba(255, 255, 255, 0.10)", "description": "Subtle borders in dark components" },
+      "accent": { "value": "rgba(255, 255, 255, 0.20)", "description": "Accent or focused borders" }
     },
     "semantic": {
-      "success": { "value": "#22c55e", "description": "Estado exitoso / Disponibles" },
-      "warning": { "value": "#f59e0b", "description": "Advertencia / Últimas entradas" },
-      "error": { "value": "#ef4444", "description": "Error / Agotado" }
+      "success": { "value": "#22c55e", "description": "Success state / Available" },
+      "warning": { "value": "#f59e0b", "description": "Warning / Last tickets" },
+      "error": { "value": "#ef4444", "description": "Error / Sold out" }
     },
     "social": {
-      "whatsapp": { "value": "#25D366", "description": "Color oficial de WhatsApp" },
-      "facebook": { "value": "#1877F2", "description": "Color oficial de Facebook" },
+      "whatsapp": { "value": "#25D366", "description": "Official WhatsApp color" },
+      "facebook": { "value": "#1877F2", "description": "Official Facebook color" },
       "instagram": {
-        "from": { "value": "#feda75", "description": "Gradiente Instagram: inicio" },
-        "via": { "value": "#d62976", "description": "Gradiente Instagram: medio" },
-        "to": { "value": "#962fbf", "description": "Gradiente Instagram: fin" }
+        "from": { "value": "#feda75", "description": "Instagram gradient: start" },
+        "via": { "value": "#d62976", "description": "Instagram gradient: middle" },
+        "to": { "value": "#962fbf", "description": "Instagram gradient: end" }
       }
     }
   },
   "typography": {
     "fontFamily": {
-      "display": { "value": "'ITC Avant Garde Gothic Pro', 'Century Gothic', 'Jost', sans-serif", "description": "Fuente principal para títulos" },
-      "body": { "value": "Inter, system-ui, -apple-system, sans-serif", "description": "Fuente secundaria para cuerpo y UI" }
+      "display": { "value": "'ITC Avant Garde Gothic Pro', 'Century Gothic', 'Jost', sans-serif", "description": "Primary font for headings" },
+      "body": { "value": "Inter, system-ui, -apple-system, sans-serif", "description": "Secondary font for body and UI" }
     },
     "fontSize": {
-      "xs": { "value": "0.75rem", "description": "12px - Etiquetas pequeñas" },
+      "xs": { "value": "0.75rem", "description": "12px - Small labels" },
       "sm": { "value": "0.875rem", "description": "14px - Metadata" },
-      "base": { "value": "1rem", "description": "16px - Cuerpo estándar" },
-      "lg": { "value": "1.125rem", "description": "18px - Destacado" },
+      "base": { "value": "1rem", "description": "16px - Standard body" },
+      "lg": { "value": "1.125rem", "description": "18px - Highlight" },
       "xl": { "value": "1.25rem", "description": "20px - H3" },
       "2xl": { "value": "1.5rem", "description": "24px - H2" },
       "3xl": { "value": "1.875rem", "description": "30px - H1 tablet" },
       "4xl": { "value": "2.25rem", "description": "36px - H1 desktop" },
-      "5xl": { "value": "3rem", "description": "48px - Hero grande" }
+      "5xl": { "value": "3rem", "description": "48px - Large hero" }
     },
     "letterSpacing": {
-      "tight": { "value": "-0.02em", "description": "Títulos densos" },
-      "normal": { "value": "0", "description": "Cuerpo estándar" },
-      "wide": { "value": "0.05em", "description": "Etiquetas uppercase" },
-      "widest": { "value": "0.1em", "description": "Labels decorativos" }
+      "tight": { "value": "-0.02em", "description": "Dense headings" },
+      "normal": { "value": "0", "description": "Standard body" },
+      "wide": { "value": "0.05em", "description": "Uppercase labels" },
+      "widest": { "value": "0.1em", "description": "Decorative labels" }
     }
   },
   "spacing": {
-    "unit": { "value": "0.25rem", "description": "4px - Unidad base" },
-    "1.5": { "value": "0.375rem", "description": "6px - REGLA DE ORO: Gap entre nombre y dirección de ubicación" },
-    "4": { "value": "1rem", "description": "16px - Estándar UI" },
-    "8": { "value": "2rem", "description": "32px - Separación de bloques" },
-    "12": { "value": "3rem", "description": "48px - Separación de secciones" },
-    "16": { "value": "4rem", "description": "64px - Separación mayor" }
+    "unit": { "value": "0.25rem", "description": "4px - Base unit" },
+    "1.5": { "value": "0.375rem", "description": "6px - GOLDEN RULE: Gap between location name and address" },
+    "4": { "value": "1rem", "description": "16px - UI Standard" },
+    "8": { "value": "2rem", "description": "32px - Block separation" },
+    "12": { "value": "3rem", "description": "48px - Section separation" },
+    "16": { "value": "4rem", "description": "64px - Major separation" }
   },
   "borderRadius": {
-    "button": { "value": "9999px", "description": "Botones redondos" },
-    "card": { "value": "1rem", "description": "16px - Tarjetas y contenedores" }
+    "button": { "value": "9999px", "description": "Round buttons" },
+    "card": { "value": "1rem", "description": "16px - Cards and containers" }
   },
   "shadow": {
-    "glow": { "value": "0 0 20px rgba(233, 157, 56, 0.4)", "description": "Resplandor naranja para elementos destacados" },
-    "2xl": { "value": "0 20px 25px rgba(0, 0, 0, 0.5)", "description": "Sombra profunda para modales" }
+    "glow": { "value": "0 0 20px rgba(233, 157, 56, 0.4)", "description": "Orange glow for highlighted elements" },
+    "2xl": { "value": "0 20px 25px rgba(0, 0, 0, 0.5)", "description": "Deep shadow for modals" }
   },
   "zIndex": {
+    "background": { "value": -10, "description": "Global starry background, forced behind all content" },
+    "base": { "value": 0, "description": "Base level for normal elements" },
+    "heroContent": { "value": 10, "description": "Hero content and main sections, above the background" },
     "dropdown": { "value": 100 },
     "sticky": { "value": 200 },
     "fixed": { "value": 300 },
@@ -103,8 +106,13 @@
     "modal": { "value": 500 },
     "toast": { "value": 600 }
   },
+  "animation": {
+    "twinkle": { "value": "6s ease-in-out infinite alternate", "description": "Subtle star twinkling (general background)" },
+    "twinkleDramatic": { "value": "5s ease-in-out infinite", "description": "Dramatic twinkling of super-flares (hero)" },
+    "drift": { "value": "80s linear infinite", "description": "Ultra-slow displacement for parallax effect" }
+  },
   "accessibility": {
-    "minTouchTarget": { "value": "44px", "description": "WCAG / iOS HIG: Tamaño mínimo táctil" },
-    "minContrastAA": { "value": "4.5:1", "description": "WCAG AA para texto normal" }
+    "minTouchTarget": { "value": "44px", "description": "WCAG / iOS HIG: Minimum touch target size" },
+    "minContrastAA": { "value": "4.5:1", "description": "WCAG AA for normal text" }
   }
 }

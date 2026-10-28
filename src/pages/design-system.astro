@@ -12,35 +12,35 @@ import Accordion from '../components/ui/Accordion.astro';
 import Modal from '../components/ui/Modal.astro';
 import Skeleton from '../components/ui/Skeleton.astro';
 
-const salaLogos = [
-  { nombre: "Sala Arkabia", src: "/images/salas-logos/arkabia-BLACK.webp" },
-  { nombre: "Helldorado", src: "/images/salas-logos/helldorado.png" },
-  { nombre: "Ttipia", src: "/images/salas-logos/ttipia.webp" },
-  { nombre: "Creative Soul", src: "/images/salas-logos/creative-soul.webp" }
+const venueLogos = [
+  { name: "Arkabia Hall", src: "/images/salas-logos/arkabia-BLACK.webp" },
+  { name: "Helldorado", src: "/images/salas-logos/helldorado.png" },
+  { name: "Ttipia", src: "/images/salas-logos/ttipia.webp" },
+  { name: "Creative Soul", src: "/images/salas-logos/creative-soul.webp" }
 ];
 ---
 
 <Layout title="Design System | Midnight Boogie" showFooter={false}>
   <main class="max-w-6xl mx-auto px-6 py-12 space-y-20 min-h-screen">
     
-    <PageHero title="Design System" highlight="2026" subtitle="Biblia visual oficial: tipografía, componentes, iconos y reglas de espaciado." />
+    <PageHero title="Design System" highlight="2026" subtitle="Official visual bible: typography, components, icons, and spacing rules." />
     <Divider width="max-w-3xl" color="bg-[rgb(233,157,56)]/60" margin="mx-auto my-8" />
 
     <!-- ========================================== -->
-    <!-- 1. TIPOGRAFÍA -->
+    <!-- 1. TYPOGRAPHY -->
     <!-- ========================================== -->
     <section class="space-y-6">
-      <SectionTitle title="1. Tipografía" />
+      <SectionTitle title="1. Typography" />
       <div class="p-8 bg-surface backdrop-blur-sm rounded-2xl border border-border space-y-8">
         <div class="space-y-4">
-          <p class="text-white/40 text-xs uppercase tracking-widest">Fuente Principal (Títulos)</p>
+          <p class="text-white/40 text-xs uppercase tracking-widest">Primary Font (Headings)</p>
           <h1 class="font-display text-4xl md:text-5xl font-light text-white uppercase tracking-tight">Avantgarde (Light)</h1>
           <h2 class="font-display text-3xl md:text-4xl font-medium text-white uppercase tracking-tight">Avantgarde (Medium)</h2>
           <h3 class="font-display text-2xl md:text-3xl font-bold text-white uppercase tracking-tight">Avantgarde (Bold)</h3>
         </div>
         <Divider width="w-full" color="bg-white/10" />
         <div class="space-y-4">
-          <p class="text-white/40 text-xs uppercase tracking-widest">Fuente Secundaria (Cuerpo / UI)</p>
+          <p class="text-white/40 text-xs uppercase tracking-widest">Secondary Font (Body / UI)</p>
           <p class="text-white text-lg font-normal">Inter / System UI (Normal - 400)</p>
           <p class="text-white/80 text-base font-medium">Inter / System UI (Medium - 500)</p>
           <p class="text-white/60 text-sm font-light">Inter / System UI (Light - 300)</p>
@@ -49,71 +49,71 @@ const salaLogos = [
     </section>
 
     <!-- ========================================== -->
-    <!-- 2. BOTONES -->
+    <!-- 2. BUTTONS -->
     <!-- ========================================== -->
     <section class="space-y-6">
-      <SectionTitle title="2. Botones (Buttons)" />
+      <SectionTitle title="2. Buttons" />
       <div class="p-8 bg-surface backdrop-blur-sm rounded-2xl border border-border space-y-6">
-        <p class="text-white/60 text-sm mb-4">Variantes principales. Los estados hover y active se aplican automáticamente por CSS.</p>
+        <p class="text-white/60 text-sm mb-4">Main variants. Hover and active states are applied automatically via CSS.</p>
         <div class="flex flex-wrap items-center gap-4 border-b border-border pb-6">
-          <Button variant="primary">Comprar Entradas</Button>
-          <Button variant="secondary">Descargar PDF</Button>
-          <Button variant="primary" size="sm">Ver más</Button>
+          <Button variant="primary">Buy Tickets</Button>
+          <Button variant="secondary">Download PDF</Button>
+          <Button variant="primary" size="sm">View more</Button>
         </div>
-        <p class="text-white/60 text-sm mb-4">Estado deshabilitado (ej. cuando no hay acción posible).</p>
+        <p class="text-white/60 text-sm mb-4">Disabled state (e.g., when no action is possible).</p>
         <button disabled class="inline-flex items-center justify-center gap-2 px-8 py-3 rounded-full text-sm font-bold uppercase tracking-widest cursor-not-allowed bg-white/10 text-white/40 border border-border">
-          Entradas agotadas
+          Sold out
         </button>
       </div>
     </section>
 
     <!-- ========================================== -->
-    <!-- 3. ESTADOS DE DISPONIBILIDAD (INFORMATIVOS) -->
+    <!-- 3. AVAILABILITY STATES (Badges) -->
     <!-- ========================================== -->
     <section class="space-y-6">
-      <SectionTitle title="3. Estados de Disponibilidad (Badges)" />
+      <SectionTitle title="3. Availability States (Badges)" />
       <div class="p-8 bg-surface backdrop-blur-sm rounded-2xl border border-border space-y-6">
-        <p class="text-white/60 text-sm mb-4">Indicadores visuales puramente informativos del estado de las entradas.</p>
+        <p class="text-white/60 text-sm mb-4">Purely informative visual indicators of ticket status.</p>
         <div class="flex flex-wrap gap-4">
-          <TextMeta variant="badge" text="Disponibles" class="bg-green-500/30 text-green-300 border border-green-500/50" />
-          <TextMeta variant="badge" text="Últimas entradas" class="bg-[rgb(233,157,56)]/30 text-brand border border-[rgb(233,157,56)]/50" />
-          <TextMeta variant="badge" text="Entradas agotadas" class="bg-red-500/30 text-red-300 border border-red-500/50" />
+          <TextMeta variant="badge" text="Available" class="bg-green-500/30 text-green-300 border border-green-500/50" />
+          <TextMeta variant="badge" text="Last tickets" class="bg-[rgb(233,157,56)]/30 text-brand border border-[rgb(233,157,56)]/50" />
+          <TextMeta variant="badge" text="Sold out" class="bg-red-500/30 text-red-300 border border-red-500/50" />
         </div>
       </div>
     </section>
 
     <!-- ========================================== -->
-    <!-- 4. COMPONENTE CARD -->
+    <!-- 4. UNIVERSAL CONTAINER (Card) -->
     <!-- ========================================== -->
     <section class="space-y-6">
-      <SectionTitle title="4. Contenedor Universal (Card)" />
+      <SectionTitle title="4. Universal Container (Card)" />
       <div class="p-8 bg-surface backdrop-blur-sm rounded-2xl border border-border space-y-6">
-        <p class="text-white/60 text-sm mb-4">Caja semitransparente base. Pasa el ratón para ver la interacción natural de borde.</p>
+        <p class="text-white/60 text-sm mb-4">Base semi-transparent box. Hover to see the natural border interaction.</p>
         <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
           <Card class="p-6 w-full text-center">
-            <p class="text-white">Card por defecto (Hover Naranja)</p>
+            <p class="text-white">Default Card (Orange Hover)</p>
           </Card>
           <Card class="p-6 w-full text-center" hover="white">
-            <p class="text-white">Card con Hover Blanco</p>
+            <p class="text-white">Card with White Hover</p>
           </Card>
         </div>
       </div>
     </section>
 
     <!-- ========================================== -->
-    <!-- 5. TEXTMETA Y UBICACIONES -->
+    <!-- 5. TEXTMETA & LOCATION RULES -->
     <!-- ========================================== -->
     <section class="space-y-6">
-      <SectionTitle title="5. TextMeta y Regla de Ubicaciones" />
+      <SectionTitle title="5. TextMeta & Location Rules" />
       <div class="p-8 bg-surface backdrop-blur-sm rounded-2xl border border-border space-y-8">
-        <p class="text-white/60 text-sm">⚠️ <strong>Regla de oro:</strong> Para ubicaciones, usar SIEMPRE un contenedor flex con <code class="text-brand">gap-1.5</code> para evitar que el nombre y la dirección se peguen.</p>
+        <p class="text-white/60 text-sm">⚠️ <strong>Golden Rule:</strong> For locations, ALWAYS use a flex container with <code class="text-brand">gap-1.5</code> to prevent the name and address from sticking together.</p>
         <div class="flex items-start gap-3 p-4 rounded-xl hover:bg-surface transition-colors cursor-default">
           <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5 text-brand mt-0.5 flex-shrink-0">
             <path stroke-linecap="round" stroke-linejoin="round" d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z" />
             <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z" />
           </svg>
           <div class="flex flex-col gap-1.5">
-            <TextMeta variant="venue-name" text="SALA ARKABIA" />
+            <TextMeta variant="venue-name" text="ARKABIA HALL" />
             <TextMeta variant="venue-address" text="Postas 13-15, Vitoria-Gasteiz" />
           </div>
         </div>
@@ -121,36 +121,36 @@ const salaLogos = [
     </section>
 
     <!-- ========================================== -->
-    <!-- 6. REGLAS DE ESPACIADO -->
+    <!-- 6. SPACING RULES -->
     <!-- ========================================== -->
     <section class="space-y-6">
-      <SectionTitle title="6. Reglas de Espaciado (Spacing)" />
+      <SectionTitle title="6. Spacing Rules" />
       <div class="p-8 bg-surface backdrop-blur-sm rounded-2xl border border-border space-y-6">
-        <p class="text-white/60 text-sm mb-4">Estándares de separación para mantener la consistencia visual.</p>
+        <p class="text-white/60 text-sm mb-4">Separation standards to maintain visual consistency.</p>
         <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
           <div class="space-y-2">
-            <p class="text-white/40 text-xs uppercase tracking-widest">gap-1.5 (6px) - Detalles tight</p>
+            <p class="text-white/40 text-xs uppercase tracking-widest">gap-1.5 (6px) - Tight details</p>
             <div class="flex flex-col gap-1.5">
               <div class="h-2 bg-[rgb(233,157,56)] rounded"></div>
               <div class="h-2 bg-white/20 rounded"></div>
             </div>
           </div>
           <div class="space-y-2">
-            <p class="text-white/40 text-xs uppercase tracking-widest">gap-4 (16px) - Estándar UI</p>
+            <p class="text-white/40 text-xs uppercase tracking-widest">gap-4 (16px) - UI Standard</p>
             <div class="flex flex-col gap-4">
               <div class="h-2 bg-[rgb(233,157,56)] rounded"></div>
               <div class="h-2 bg-white/20 rounded"></div>
             </div>
           </div>
           <div class="space-y-2">
-            <p class="text-white/40 text-xs uppercase tracking-widest">gap-8 (32px) - Separación de bloques</p>
+            <p class="text-white/40 text-xs uppercase tracking-widest">gap-8 (32px) - Block separation</p>
             <div class="flex flex-col gap-8">
               <div class="h-2 bg-[rgb(233,157,56)] rounded"></div>
               <div class="h-2 bg-white/20 rounded"></div>
             </div>
           </div>
           <div class="space-y-2">
-            <p class="text-white/40 text-xs uppercase tracking-widest">mb-8 (32px) - Margen inferior estándar</p>
+            <p class="text-white/40 text-xs uppercase tracking-widest">mb-8 (32px) - Standard bottom margin</p>
             <div class="flex flex-col">
               <div class="h-8 bg-[rgb(233,157,56)] rounded mb-8"></div>
               <div class="h-2 bg-white/20 rounded"></div>
@@ -161,50 +161,50 @@ const salaLogos = [
     </section>
 
     <!-- ========================================== -->
-    <!-- 7. ACTIVOS VISUALES: LOGOS E ICONOS -->
+    <!-- 7. VISUAL ASSETS (Logos & Icons) -->
     <!-- ========================================== -->
     <section class="space-y-6">
-      <SectionTitle title="7. Activos Visuales (Logos e Iconos)" />
+      <SectionTitle title="7. Visual Assets (Logos & Icons)" />
       <div class="p-8 bg-surface backdrop-blur-sm rounded-2xl border border-border space-y-10">
         
-        <!-- Logotipo Principal -->
+        <!-- Main Logo -->
         <div>
-          <p class="text-white/40 text-xs uppercase tracking-widest mb-4">Logotipo Principal (Fondo Gris Medio)</p>
+          <p class="text-white/40 text-xs uppercase tracking-widest mb-4">Main Logo (Medium Gray Background)</p>
           <div class="bg-neutral-500 border border-white/20 rounded-xl p-6 flex items-center justify-center h-32">
             <img src="/images/logo-midnightboogie.svg" alt="Midnight Boogie Logo" class="h-16 w-auto object-contain" />
           </div>
         </div>
 
-        <!-- Patrocinadores (Tamaño absoluto igualado) -->
+        <!-- Sponsors (Absolute matched size) -->
         <div>
-          <p class="text-white/40 text-xs uppercase tracking-widest mb-4">Patrocinadores (Fondo Claro)</p>
+          <p class="text-white/40 text-xs uppercase tracking-widest mb-4">Sponsors (Light Background)</p>
           <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
             <div class="bg-white border border-white/20 rounded-xl p-6 flex flex-col items-center justify-center h-40">
               <img src="/images/vital/logo-vital.jpg" alt="Vital Color" class="h-14 w-auto object-contain mb-3" />
               <span class="text-black/40 text-[10px] uppercase font-medium">Color (Original)</span>
             </div>
             <div class="bg-white border border-white/20 rounded-xl p-6 flex flex-col items-center justify-center h-40">
-              <img src="/images/vital/vital_bn_muestra.png" alt="Vital B/N" class="h-14 w-auto object-contain mb-3" />
-              <span class="text-black/40 text-[10px] uppercase font-medium">Blanco y Negro (Monocromo)</span>
+              <img src="/images/vital/vital_bn_muestra.png" alt="Vital B/W" class="h-14 w-auto object-contain mb-3" />
+              <span class="text-black/40 text-[10px] uppercase font-medium">Black & White (Monochrome)</span>
             </div>
           </div>
         </div>
 
-        <!-- Logos de Salas -->
+        <!-- Venue Logos -->
         <div>
-          <p class="text-white/40 text-xs uppercase tracking-widest mb-4">Logotipos de Salas</p>
+          <p class="text-white/40 text-xs uppercase tracking-widest mb-4">Venue Logos</p>
           <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
-            {salaLogos.map((sala) => (
+            {venueLogos.map((venue) => (
               <div class="bg-surface border border-border rounded-xl p-4 flex items-center justify-center h-24">
-                <img src={sala.src} alt={sala.nombre} class="max-h-full max-w-full object-contain" />
+                <img src={venue.src} alt={venue.name} class="max-h-full max-w-full object-contain" />
               </div>
             ))}
           </div>
         </div>
 
-        <!-- Iconos de Redes Sociales -->
+        <!-- Social Media Icons -->
         <div>
-          <p class="text-white/40 text-xs uppercase tracking-widest mb-4">Iconos de Redes Sociales (Interactivos)</p>
+          <p class="text-white/40 text-xs uppercase tracking-widest mb-4">Social Media Icons (Interactive)</p>
           <div class="flex flex-wrap gap-6">
             <button class="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center text-white transition-all duration-300 hover:bg-[#1877F2] hover:scale-110" aria-label="Facebook">
               <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.988C18.343 21.128 22 16.991 22 12z"/></svg>
@@ -221,25 +221,25 @@ const salaLogos = [
           </div>
         </div>
 
-        <!-- Iconos UI -->
+        <!-- UI Icons -->
         <div>
-          <p class="text-white/40 text-xs uppercase tracking-widest mb-4">Iconos de Interfaz (UI) - Interactivos</p>
+          <p class="text-white/40 text-xs uppercase tracking-widest mb-4">UI Icons - Interactive</p>
           <div class="flex flex-wrap gap-6">
             <div class="flex flex-col items-center gap-2 group cursor-pointer">
               <svg class="w-6 h-6 text-brand transition-transform duration-300 group-hover:scale-125" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z" /><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z" /></svg>
-              <span class="text-white/50 text-[10px] group-hover:text-white transition-colors">Mapa</span>
+              <span class="text-white/50 text-[10px] group-hover:text-white transition-colors">Map</span>
             </div>
             <div class="flex flex-col items-center gap-2 group cursor-pointer">
               <svg class="w-6 h-6 text-white transition-transform duration-300 group-hover:scale-125 group-hover:text-brand" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M13.5 6H5.25A2.25 2.25 0 003 8.25v10.5A2.25 2.25 0 005.25 21h10.5A2.25 2.25 0 0018 18.75V10.5m-10.5 6L21 3m0 0h-5.25M21 3v5.25" /></svg>
-              <span class="text-white/50 text-[10px] group-hover:text-white transition-colors">Externo</span>
+              <span class="text-white/50 text-[10px] group-hover:text-white transition-colors">External</span>
             </div>
             <div class="flex flex-col items-center gap-2 group cursor-pointer">
               <svg class="w-6 h-6 text-white transition-transform duration-300 group-hover:scale-125 group-hover:text-red-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M6 18L18 6M6 6l12 12" /></svg>
-              <span class="text-white/50 text-[10px] group-hover:text-white transition-colors">Cerrar</span>
+              <span class="text-white/50 text-[10px] group-hover:text-white transition-colors">Close</span>
             </div>
             <div class="flex flex-col items-center gap-2 group cursor-pointer">
               <svg class="w-6 h-6 text-brand transition-transform duration-300 group-hover:translate-y-1" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19.5 8.25l-7.5 7.5-7.5-7.5" /></svg>
-              <span class="text-white/50 text-[10px] group-hover:text-white transition-colors">Expandir</span>
+              <span class="text-white/50 text-[10px] group-hover:text-white transition-colors">Expand</span>
             </div>
           </div>
         </div>
@@ -247,12 +247,12 @@ const salaLogos = [
     </section>
 
     <!-- ========================================== -->
-    <!-- 8. RADIOS DE BORDE -->
+    <!-- 8. BORDER RADIUS -->
     <!-- ========================================== -->
     <section class="space-y-6">
-      <SectionTitle title="8. Radios de Borde (Border Radius)" />
+      <SectionTitle title="8. Border Radius" />
       <div class="p-8 bg-surface backdrop-blur-sm rounded-2xl border border-border space-y-6">
-        <p class="text-white/60 text-sm">Reglas de redondeo para mantener la consistencia.</p>
+        <p class="text-white/60 text-sm">Rounding rules to maintain consistency.</p>
         <div class="flex flex-wrap gap-8 items-end">
           <div class="flex flex-col items-center gap-2">
             <div class="w-16 h-16 bg-white/10 rounded-lg border border-white/20"></div>
@@ -271,32 +271,32 @@ const salaLogos = [
     </section>
 
     <!-- ========================================== -->
-    <!-- 9. CAJAS COMPLEJAS (TAMAÑO REAL Y FUNCIONAL) -->
+    <!-- 9. COMPLEX BOXES (Real Size & Functional) -->
     <!-- ========================================== -->
     <section class="space-y-6">
-      <SectionTitle title="9. Cajas Complejas (Ejemplos en Tamaño Real)" />
-      <p class="text-white/60 text-sm mb-8 max-w-3xl">Componentes mostrados en su estructura y ancho real. Las tarjetas de Archivo y Promo se muestran en cuadrícula para simular su tamaño relativo en el site.</p>
+      <SectionTitle title="9. Complex Boxes (Real Size & Functional)" />
+      <p class="text-white/60 text-sm mb-8 max-w-3xl">Components shown in their actual structure and width. Archive and Promo cards are displayed in a grid to simulate their relative size on the site.</p>
       
       <div class="space-y-12 max-w-3xl mx-auto">
         
         <!-- MOCK 1: TICKET CARD -->
         <div class="space-y-3">
-          <p class="text-white/40 text-xs uppercase tracking-widest">Ticket Card (Concierto)</p>
+          <p class="text-white/40 text-xs uppercase tracking-widest">Ticket Card (Concert)</p>
           <Card class="mx-auto w-full">
             <div class="p-6 md:p-8">
               <div class="mb-4">
-                <TextMeta variant="date" text="VIERNES 27 NOVIEMBRE · 22:00H" />
+                <TextMeta variant="date" text="FRIDAY NOVEMBER 27 · 10:00 PM" />
               </div>
-              <h3 class="font-display text-white/70 text-sm md:text-base font-light uppercase tracking-[0.2em] mb-2">Conciertos de Noviembre</h3>
+              <h3 class="font-display text-white/70 text-sm md:text-base font-light uppercase tracking-[0.2em] mb-2">November Concerts</h3>
               <h2 class="font-display text-white text-3xl md:text-5xl font-light uppercase tracking-tight mb-6 drop-shadow-lg">THE LAZY TONES</h2>
               <div class="w-full h-[1px] bg-white/10 my-4"></div>
               
               <div class="flex mb-6">
-                <img src="/images/salas-logos/helldorado.png" alt="Logo de Helldorado" class="h-14 md:h-20 w-auto object-contain" loading="lazy" />
+                <img src="/images/salas-logos/helldorado.png" alt="Helldorado Logo" class="h-14 md:h-20 w-auto object-contain" loading="lazy" />
               </div>
 
-              <a href="#" class="flex items-start gap-3 mb-6 group/lugar w-fit">
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5 text-brand mt-0.5 flex-shrink-0 group-hover/lugar:scale-110 transition-transform">
+              <a href="#" class="flex items-start gap-3 mb-6 group/venue w-fit">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5 text-brand mt-0.5 flex-shrink-0 group-hover/venue:scale-110 transition-transform">
                   <path stroke-linecap="round" stroke-linejoin="round" d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z" />
                   <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z" />
                 </svg>
@@ -307,22 +307,22 @@ const salaLogos = [
               </a>
 
               <div class="mb-6">
-                <TextMeta variant="badge" text="Disponibles" class="bg-green-500/30 text-green-300 border border-green-500/50" />
+                <TextMeta variant="badge" text="Available" class="bg-green-500/30 text-green-300 border border-green-500/50" />
               </div>
 
               <div class="flex items-center mb-6 gap-12">
                 <div>
-                  <TextMeta variant="tag" text="Anticipada:" class="mb-1" />
+                  <TextMeta variant="tag" text="Advance:" class="mb-1" />
                   <TextMeta variant="price" text="15€" class="mb-0" />
                 </div>
                 <div>
-                  <TextMeta variant="tag" text="Taquilla:" class="mb-1" />
+                  <TextMeta variant="tag" text="Box Office:" class="mb-1" />
                   <TextMeta variant="price" text="18€" class="mb-0" />
                 </div>
               </div>
 
               <Button href="#" variant="primary" class="w-full md:w-auto gap-2">
-                Comprar Entrada
+                Buy Ticket
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-4 h-4">
                   <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 6H5.25A2.25 2.25 0 003 8.25v10.5A2.25 2.25 0 005.25 21h10.5A2.25 2.25 0 0018 18.75V10.5m-10.5 6L21 3m0 0h-5.25M21 3v5.25" />
                 </svg>
@@ -331,18 +331,18 @@ const salaLogos = [
           </Card>
         </div>
 
-        <!-- MOCK 2: ARTIST CARD (ACTUALIZADO CON ACCORDION) -->
+        <!-- MOCK 2: ARTIST CARD -->
         <div class="space-y-3">
-          <p class="text-white/40 text-xs uppercase tracking-widest">Artist Card (Perfil de Artista con Acordeón Nativo)</p>
+          <p class="text-white/40 text-xs uppercase tracking-widest">Artist Card (Artist Profile with Native Accordion)</p>
           <Card class="mx-auto w-full">
             <div class="px-6 md:px-12 lg:px-16 pt-10 md:pt-14 pb-6 md:pb-10 text-center">
               <h3 class="font-display text-white text-3xl md:text-5xl font-light uppercase tracking-tight mb-4 drop-shadow-lg">STONE FOUNDATION</h3>
-              <TextMeta variant="meta" text="Reino Unido · Soul · R&B" class="justify-center" />
+              <TextMeta variant="meta" text="United Kingdom · Soul · R&B" class="justify-center" />
             </div>
 
             <div class="w-full">
               <div class="w-full aspect-[16/9] md:aspect-[2/1] bg-neutral-800 flex items-center justify-center cursor-pointer relative group">
-                <span class="font-display text-4xl text-neutral-600 group-hover:text-neutral-500 transition-colors">FOTO ARTISTA</span>
+                <span class="font-display text-4xl text-neutral-600 group-hover:text-neutral-500 transition-colors">ARTIST PHOTO</span>
                 <div class="absolute inset-0 bg-black/0 group-hover:bg-black/30 transition-colors duration-300 flex items-center justify-center">
                   <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-12 h-12 text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                     <path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607zM10.5 7.5v6m3-3h-6" />
@@ -353,15 +353,14 @@ const salaLogos = [
 
             <div class="px-6 md:px-12 lg:px-16 pt-10 md:pt-14 pb-10 md:pb-14 text-center">
               <p class="text-white/70 text-sm md:text-base font-light leading-relaxed mb-6">
-                Banda británica de soul clásico con más de 20 años de trayectoria, reconocida por sus potentes directos y su fidelidad al sonido Motown.
+                Classic British soul band with over 20 years of history, recognized for their powerful live shows and fidelity to the Motown sound.
               </p>
 
-              <!-- ✅ AQUÍ ESTÁ LA MAGIA: Componente Accordion reutilizable, sin JS inline -->
-              <Accordion title="Ver biografía completa y enlaces">
-                <p>Han publicado 4 álbumes de estudio y compartido escenario con leyendas del género. Su último disco ha sido aclamado por la crítica internacional.</p>
+              <Accordion title="View full biography and links">
+                <p>They have released 4 studio albums and shared the stage with genre legends. Their latest album has been acclaimed by international critics.</p>
 
                 <div class="pt-6 border-t border-border mt-6">
-                  <p class="text-white/60 text-xs md:text-sm font-normal uppercase tracking-[0.2em] mb-4">Web Oficial</p>
+                  <p class="text-white/60 text-xs md:text-sm font-normal uppercase tracking-[0.2em] mb-4">Official Website</p>
                   <a href="#" class="inline-flex flex-wrap items-center justify-center gap-2 text-brand text-sm md:text-base font-medium uppercase tracking-[0.15em] hover:text-white transition-all duration-300 max-w-full mx-auto">
                     <span>www.stonefoundationband.com</span>
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-4 h-4 flex-shrink-0">
@@ -371,7 +370,7 @@ const salaLogos = [
                 </div>
 
                 <div class="pt-6 border-t border-border mt-6">
-                  <p class="text-white/60 text-xs md:text-sm font-normal uppercase tracking-[0.2em] mb-4">Vídeo</p>
+                  <p class="text-white/60 text-xs md:text-sm font-normal uppercase tracking-[0.2em] mb-4">Video</p>
                   <div class="relative w-full aspect-video rounded-lg overflow-hidden bg-black shadow-2xl flex items-center justify-center">
                     <span class="text-white/30 text-sm">[ YouTube Embed Placeholder ]</span>
                   </div>
@@ -381,46 +380,46 @@ const salaLogos = [
           </Card>
         </div>
 
-        <!-- MOCK 3 y 4: ARCHIVE Y PROMO -->
+        <!-- MOCK 3 & 4: ARCHIVE AND PROMO -->
         <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
           <div class="space-y-3">
-            <p class="text-white/40 text-xs uppercase tracking-widest">Archive Card (Tamaño real de grid)</p>
+            <p class="text-white/40 text-xs uppercase tracking-widest">Archive Card (Actual grid size)</p>
             <Card class="p-0 overflow-hidden group cursor-pointer">
               <div class="aspect-[3/4] bg-neutral-900 relative overflow-hidden">
                 <span class="font-display text-6xl text-neutral-700 absolute inset-0 flex items-center justify-center">2025</span>
                 <div class="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center pointer-events-none">
-                  <span class="px-6 py-3 bg-[rgb(233,157,56)] text-neutral-950 font-semibold rounded-full text-sm">Ver flyer</span>
+                  <span class="px-6 py-3 bg-[rgb(233,157,56)] text-neutral-950 font-semibold rounded-full text-sm">View flyer</span>
                 </div>
               </div>
               <div class="p-4 flex flex-col flex-grow">
-                <h3 class="font-display text-white text-xl mb-1 group-hover:text-brand transition-colors">Edición 2025</h3>
-                <p class="text-brand text-sm mb-3 font-medium">25-26 Noviembre</p>
-                <p class="text-white/80 text-sm leading-relaxed flex-grow">Décima edición del festival con artistas internacionales y lleno absoluto.</p>
+                <h3 class="font-display text-white text-xl mb-1 group-hover:text-brand transition-colors">2025 Edition</h3>
+                <p class="text-brand text-sm mb-3 font-medium">November 25-26</p>
+                <p class="text-white/80 text-sm leading-relaxed flex-grow">Tenth edition of the festival with international artists and a complete sell-out.</p>
               </div>
             </Card>
           </div>
 
           <div class="space-y-3">
-            <p class="text-white/40 text-xs uppercase tracking-widest">Promo / Download Card (Tamaño real)</p>
+            <p class="text-white/40 text-xs uppercase tracking-widest">Promo / Download Card (Actual size)</p>
             <Card class="p-6 flex flex-col items-center text-center relative">
               <div class="absolute top-4 right-4 bg-[rgb(233,157,56)] text-black text-[10px] font-bold uppercase tracking-widest px-3 py-1 rounded-full z-10">
-                Recomiéndalo
+                Recommend it
               </div>
               <div class="w-full aspect-[3/4] bg-neutral-900 rounded-lg mb-6 flex items-center justify-center border border-border overflow-hidden">
                 <span class="font-display text-5xl text-neutral-700">FLYER</span>
               </div>
-              <h3 class="font-display text-white text-xl mb-2">Flyer Festival Completo</h3>
-              <TextMeta variant="tag-center" text="Programación completa, artistas y detalles del evento." class="mb-0" />
-              <Button href="#" variant="primary" size="sm" class="w-full justify-center mt-6">Descargar PDF</Button>
+              <h3 class="font-display text-white text-xl mb-2">Full Festival Flyer</h3>
+              <TextMeta variant="tag-center" text="Full lineup, artists, and event details." class="mb-0" />
+              <Button href="#" variant="primary" size="sm" class="w-full justify-center mt-6">Download PDF</Button>
               
               <div class="flex justify-center gap-3 mt-6 pt-6 border-t border-border w-full">
-                <button class="w-8 h-8 rounded-full bg-white/10 flex items-center justify-center text-white transition-all duration-300 hover:bg-[#25D366] hover:scale-110" aria-label="Compartir en WhatsApp">
+                <button class="w-8 h-8 rounded-full bg-white/10 flex items-center justify-center text-white transition-all duration-300 hover:bg-[#25D366] hover:scale-110" aria-label="Share on WhatsApp">
                   <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
                 </button>
-                <button class="w-8 h-8 rounded-full bg-white/10 flex items-center justify-center text-white transition-all duration-300 hover:bg-[#1877F2] hover:scale-110" aria-label="Compartir en Facebook">
+                <button class="w-8 h-8 rounded-full bg-white/10 flex items-center justify-center text-white transition-all duration-300 hover:bg-[#1877F2] hover:scale-110" aria-label="Share on Facebook">
                   <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
                 </button>
-                <button class="w-8 h-8 rounded-full bg-white/10 flex items-center justify-center text-white transition-all duration-300 hover:bg-gradient-to-tr hover:from-[#feda75] hover:via-[#d62976] hover:to-[#962fbf] hover:scale-110" aria-label="Compartir en Instagram">
+                <button class="w-8 h-8 rounded-full bg-white/10 flex items-center justify-center text-white transition-all duration-300 hover:bg-gradient-to-tr hover:from-[#feda75] hover:via-[#d62976] hover:to-[#962fbf] hover:scale-110" aria-label="Share on Instagram">
                   <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
                 </button>
               </div>
@@ -434,30 +433,30 @@ const salaLogos = [
     <!-- 10. FOOTER -->
     <!-- ========================================== -->
     <section class="mt-20">
-      <SectionTitle title="10. Footer (Pie de página)" align="center" class="mb-8" />
+      <SectionTitle title="10. Footer" align="center" class="mb-8" />
       <p class="text-white/60 text-sm text-center mb-8 max-w-2xl mx-auto">
-        El footer es un componente real e interactivo. Pasa el ratón por los enlaces para ver los estados hover.
+        The footer is a real, interactive component. Hover over the links to see the hover states.
       </p>
       <Footer />
     </section>
 
     <!-- ========================================== -->
-    <!-- 11. ESTADOS DE FORMULARIO -->
+    <!-- 11. FORM STATES (Inputs) -->
     <!-- ========================================== -->
     <section class="space-y-6">
-      <SectionTitle title="11. Estados de Formulario (Inputs)" />
+      <SectionTitle title="11. Form States (Inputs)" />
       <div class="p-8 bg-surface backdrop-blur-sm rounded-2xl border border-border space-y-6">
-        <p class="text-white/60 text-sm mb-4">Reglas visuales para campos de entrada de datos.</p>
+        <p class="text-white/60 text-sm mb-4">Visual rules for data entry fields.</p>
         <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
           <div class="space-y-2">
             <label class="text-white/60 text-xs uppercase tracking-wider">Default & Focus State</label>
-            <input type="text" placeholder="Escribe tu email..." class="w-full bg-surface border border-border rounded-lg px-4 py-3 text-white placeholder-white/30 focus:outline-none focus:border-[rgb(233,157,56)] focus:ring-1 focus:ring-[rgb(233,157,56)]/50 transition-all" />
-            <p class="text-white/40 text-[10px]">Haz clic para ver el anillo naranja de foco.</p>
+            <input type="text" placeholder="Type your email..." class="w-full bg-surface border border-border rounded-lg px-4 py-3 text-white placeholder-white/30 focus:outline-none focus:border-[rgb(233,157,56)] focus:ring-1 focus:ring-[rgb(233,157,56)]/50 transition-all" />
+            <p class="text-white/40 text-[10px]">Click to see the orange focus ring.</p>
           </div>
           <div class="space-y-2">
             <label class="text-red-400 text-xs uppercase tracking-wider">Error State</label>
-            <input type="text" value="email-invalido" class="w-full bg-red-500/5 border border-red-500/50 rounded-lg px-4 py-3 text-red-300 focus:outline-none focus:border-red-400 focus:ring-1 focus:ring-red-400/50 transition-all" />
-            <p class="text-red-400/80 text-xs mt-1">Por favor, introduce un email válido.</p>
+            <input type="text" value="invalid-email" class="w-full bg-red-500/5 border border-red-500/50 rounded-lg px-4 py-3 text-red-300 focus:outline-none focus:border-red-400 focus:ring-1 focus:ring-red-400/50 transition-all" />
+            <p class="text-red-400/80 text-xs mt-1">Please enter a valid email.</p>
           </div>
         </div>
       </div>
@@ -467,56 +466,56 @@ const salaLogos = [
     <!-- 12. EMPTY STATES -->
     <!-- ========================================== -->
     <section class="space-y-6">
-      <SectionTitle title="12. Empty States (Estados Vacíos)" />
+      <SectionTitle title="12. Empty States" />
       <div class="p-8 bg-surface backdrop-blur-sm rounded-2xl border border-border space-y-6">
-        <p class="text-white/60 text-sm mb-4">Cómo mostrar la ausencia de resultados de forma elegante.</p>
+        <p class="text-white/60 text-sm mb-4">How to elegantly show the absence of results.</p>
         <div class="flex flex-col items-center justify-center text-center py-12 border-2 border-dashed border-border rounded-xl">
           <svg class="w-12 h-12 text-white/20 mb-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
           </svg>
-          <h3 class="font-display text-white text-xl mb-2">No se encontraron resultados</h3>
-          <p class="text-white/50 text-sm max-w-xs">No hay ediciones disponibles para el año seleccionado. Prueba con otra fecha.</p>
+          <h3 class="font-display text-white text-xl mb-2">No results found</h3>
+          <p class="text-white/50 text-sm max-w-xs">No editions available for the selected year. Try another date.</p>
         </div>
       </div>
     </section>
 
     <!-- ========================================== -->
-    <!-- 13. SOMBRAS Y PROFUNDIDAD -->
+    <!-- 13. SHADOWS & DEPTH -->
     <!-- ========================================== -->
     <section class="space-y-6">
-      <SectionTitle title="13. Sombras y Profundidad (Shadows)" />
+      <SectionTitle title="13. Shadows & Depth" />
       <div class="p-8 bg-surface backdrop-blur-sm rounded-2xl border border-border space-y-6">
-        <p class="text-white/60 text-sm mb-4">Jerarquía de sombras para dar profundidad a los elementos.</p>
+        <p class="text-white/60 text-sm mb-4">Shadow hierarchy to give depth to elements.</p>
         <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
           <div class="flex flex-col items-center gap-4">
             <div class="w-32 h-32 bg-white/10 rounded-2xl shadow-2xl flex items-center justify-center">
               <span class="text-white/50 text-xs">shadow-2xl</span>
             </div>
-            <span class="text-white/50 text-[10px] uppercase tracking-widest">Modales y Tarjetas</span>
+            <span class="text-white/50 text-[10px] uppercase tracking-widest">Modals and Cards</span>
           </div>
           <div class="flex flex-col items-center gap-4">
             <div class="w-32 h-32 flex items-center justify-center">
               <h2 class="font-display text-white text-2xl drop-shadow-lg">Drop Shadow</h2>
             </div>
-            <span class="text-white/50 text-[10px] uppercase tracking-widest">Títulos Principales</span>
+            <span class="text-white/50 text-[10px] uppercase tracking-widest">Main Headings</span>
           </div>
         </div>
       </div>
     </section>
 
     <!-- ========================================== -->
-    <!-- 14. ACORDEÓN (ACCORDION) -->
+    <!-- 14. ACCORDION -->
     <!-- ========================================== -->
     <section class="space-y-6">
-      <SectionTitle title="14. Acordeón (Accordion)" />
+      <SectionTitle title="14. Accordion" />
       <div class="p-8 bg-surface backdrop-blur-sm rounded-2xl border border-border space-y-6">
-        <p class="text-white/60 text-sm mb-4">Componente nativo (<code>&lt;details&gt;</code>) para mostrar/ocultar contenido. Cero JavaScript, totalmente accesible y navegable por teclado.</p>
+        <p class="text-white/60 text-sm mb-4">Native component (<code>&lt;details&gt;</code>) to show/hide content. Zero JavaScript, fully accessible, and keyboard navigable.</p>
         <div class="max-w-2xl">
-          <Accordion title="¿Dónde puedo comprar las entradas físicas?" open={false}>
-            <p>Actualmente, Midnight Boogie opera exclusivamente con venta de entradas online y en taquilla el día del evento. Te recomendamos llevar el código QR en tu móvil para agilizar el acceso.</p>
+          <Accordion title="Where can I buy physical tickets?" open={false}>
+            <p>Currently, Midnight Boogie operates exclusively with online ticket sales and box office sales on the day of the event. We recommend having the QR code on your mobile phone to speed up access.</p>
           </Accordion>
-          <Accordion title="Política de devoluciones" open={true}>
-            <p>Las entradas solo son reembolsables en caso de cancelación oficial del evento por parte de la organización o de la sala. No se admiten devoluciones por cambio de opinión o imposibilidad de asistencia.</p>
+          <Accordion title="Refund Policy" open={true}>
+            <p>Tickets are only refundable in case of official cancellation of the event by the organization or the venue. No refunds are accepted for change of mind or inability to attend.</p>
           </Accordion>
         </div>
       </div>
@@ -528,26 +527,26 @@ const salaLogos = [
     <section class="space-y-6">
       <SectionTitle title="15. Modal / Dialog" />
       <div class="p-8 bg-surface backdrop-blur-sm rounded-2xl border border-border space-y-6">
-        <p class="text-white/60 text-sm mb-4">Ventana emergente nativa (<code>&lt;dialog&gt;</code>). Gestiona automáticamente el foco, el cierre con la tecla ESC y el clic fuera del modal.</p>
+        <p class="text-white/60 text-sm mb-4">Native popup window (<code>&lt;dialog&gt;</code>). Automatically manages focus, closing with the ESC key, and clicking outside the modal.</p>
         
-        <!-- Botón Trigger -->
+        <!-- Trigger Button -->
         <button 
           onclick="document.getElementById('demo-modal').showModal()"
           class="inline-flex items-center justify-center gap-2 px-8 py-3 rounded-full text-sm font-bold uppercase tracking-widest bg-[rgb(233,157,56)] text-black hover:bg-[rgb(255,170,70)] transition-colors"
         >
-          Abrir Modal de Demostración
+          Open Demo Modal
         </button>
 
-        <!-- Componente Modal -->
-        <Modal id="demo-modal" title="Confirmación de Compra">
-          <p>Estás a punto de reservar <strong>2 entradas</strong> para <strong>THE LAZY TONES</strong>.</p>
-          <p class="text-white/50 text-sm">El tiempo de reserva es de 10 minutos. Pasado este tiempo, las entradas volverán a estar disponibles para el público.</p>
+        <!-- Modal Component -->
+        <Modal id="demo-modal" title="Purchase Confirmation">
+          <p>You are about to reserve <strong>2 tickets</strong> for <strong>THE LAZY TONES</strong>.</p>
+          <p class="text-white/50 text-sm">The reservation time is 10 minutes. After this time, the tickets will be available to the public again.</p>
           <div class="flex gap-3 mt-8">
             <form method="dialog">
-              <button class="px-6 py-2 bg-white/10 hover:bg-white/20 border border-white/20 rounded-full text-sm font-bold uppercase tracking-widest transition-colors text-white">Cancelar</button>
+              <button class="px-6 py-2 bg-white/10 hover:bg-white/20 border border-white/20 rounded-full text-sm font-bold uppercase tracking-widest transition-colors text-white">Cancel</button>
             </form>
             <form method="dialog">
-              <button class="px-6 py-2 bg-[rgb(233,157,56)] hover:bg-[rgb(255,170,70)] text-black rounded-full text-sm font-bold uppercase tracking-widest transition-colors">Confirmar Reserva</button>
+              <button class="px-6 py-2 bg-[rgb(233,157,56)] hover:bg-[rgb(255,170,70)] text-black rounded-full text-sm font-bold uppercase tracking-widest transition-colors">Confirm Reservation</button>
             </form>
           </div>
         </Modal>
@@ -558,9 +557,9 @@ const salaLogos = [
     <!-- 16. SKELETON LOADERS -->
     <!-- ========================================== -->
     <section class="space-y-6">
-      <SectionTitle title="16. Skeleton Loaders (Estados de Carga)" />
+      <SectionTitle title="16. Skeleton Loaders" />
       <div class="p-8 bg-surface backdrop-blur-sm rounded-2xl border border-border space-y-6">
-        <p class="text-white/60 text-sm mb-4">Esqueletos de carga que replican las dimensiones exactas de los componentes finales para evitar el <em>Cumulative Layout Shift (CLS)</em> y mejorar la percepción de rendimiento.</p>
+        <p class="text-white/60 text-sm mb-4">Loading skeletons that replicate the exact dimensions of the final components to prevent <em>Cumulative Layout Shift (CLS)</em> and improve perceived performance.</p>
         
         <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
           <div class="space-y-3">
@@ -574,7 +573,7 @@ const salaLogos = [
         </div>
 
         <div class="space-y-3 max-w-md">
-          <p class="text-white/40 text-xs uppercase tracking-widest">Skeleton: Texto / Lista</p>
+          <p class="text-white/40 text-xs uppercase tracking-widest">Skeleton: Text / List</p>
           <div class="space-y-3 p-4">
             <Skeleton variant="text" />
             <Skeleton variant="text" class="w-5/6" />
@@ -585,103 +584,101 @@ const salaLogos = [
     </section>
 
     <!-- ========================================== -->
-    <!-- 17. PRINCIPIOS DE ARQUITECTURA Y ACCESIBILIDAD -->
+    <!-- 17. ARCHITECTURE & ACCESSIBILITY PRINCIPLES -->
     <!-- ========================================== -->
     <section class="space-y-6">
-      <SectionTitle title="17. Principios de Arquitectura y Accesibilidad" />
+      <SectionTitle title="17. Architecture & Accessibility Principles" />
       <p class="text-foreground-muted text-sm mb-8 max-w-3xl">
-        Documentación viva de las reglas de negocio, estructura de componentes y estándares de accesibilidad que gobiernan este sistema.
+        Living documentation of the business rules, component structure, and accessibility standards governing this system.
       </p>
 
       <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
         
-        <!-- COMPONENTES CORE -->
+        <!-- CORE COMPONENTS -->
         <Card class="p-6 flex flex-col h-full" hover="orange">
           <h3 class="font-display text-foreground text-xl font-medium mb-4 flex items-center gap-2">
             <svg class="w-5 h-5 text-brand" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10" /></svg>
-            Componentes Core
+            Core Components
           </h3>
           <div class="space-y-4 flex-grow">
             <div class="border-l-2 border-brand pl-4">
               <TextMeta variant="tag" text="<Button />" class="mb-1" />
-              <p class="text-foreground/70 text-sm">Variantes: <code class="text-brand bg-brand/10 px-1 rounded">primary</code> y <code class="text-brand bg-brand/10 px-1 rounded">secondary</code>. Soporta <code class="text-brand bg-brand/10 px-1 rounded">size="sm"</code> y <code class="text-brand bg-brand/10 px-1 rounded">md</code>.</p>
+              <p class="text-foreground/70 text-sm">Variants: <code class="text-brand bg-brand/10 px-1 rounded">primary</code> and <code class="text-brand bg-brand/10 px-1 rounded">secondary</code>. Supports <code class="text-brand bg-brand/10 px-1 rounded">size="sm"</code> and <code class="text-brand bg-brand/10 px-1 rounded">md</code>.</p>
             </div>
             <div class="border-l-2 border-brand pl-4">
               <TextMeta variant="tag" text="<Card />" class="mb-1" />
-              <p class="text-foreground/70 text-sm">Contenedor universal. Prop <code class="text-brand bg-brand/10 px-1 rounded">hover</code>: "orange" (default), "white", "none". Padding y radius gestionados internamente.</p>
+              <p class="text-foreground/70 text-sm">Universal container. Prop <code class="text-brand bg-brand/10 px-1 rounded">hover</code>: "orange" (default), "white", "none". Padding and radius managed internally.</p>
             </div>
             <div class="border-l-2 border-brand pl-4">
               <TextMeta variant="tag" text="<TextMeta />" class="mb-1" />
-              <p class="text-foreground/70 text-sm">Tipografía semántica. <strong>Regla de oro:</strong> Para ubicaciones, usar siempre container flex + <code class="text-brand bg-brand/10 px-1 rounded">gap-1.5</code> (6px) entre nombre y dirección.</p>
+              <p class="text-foreground/70 text-sm">Semantic typography. <strong>Golden Rule:</strong> For locations, always use a flex container + <code class="text-brand bg-brand/10 px-1 rounded">gap-1.5</code> (6px) between name and address.</p>
             </div>
           </div>
         </Card>
 
-        <!-- INTERNACIONALIZACIÓN (i18n) -->
+        <!-- INTERNATIONALIZATION (i18n) -->
         <Card class="p-6 flex flex-col h-full" hover="orange">
           <h3 class="font-display text-foreground text-xl font-medium mb-4 flex items-center gap-2">
             <svg class="w-5 h-5 text-brand" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
-            Internacionalización (i18n)
+            Internationalization (i18n)
           </h3>
-          <p class="text-foreground/70 text-sm mb-4">El Euskera tiene prioridad por contexto cultural y normativo local, seguido del Español como idioma principal actual.</p>
+          <p class="text-foreground/70 text-sm mb-4">Basque (Euskera) has priority due to local cultural and regulatory context, followed by Spanish as the current primary language.</p>
           <div class="grid grid-cols-2 gap-3">
             <div class="bg-surface p-3 rounded-card border border-border text-center">
               <TextMeta variant="badge" text="EU" class="bg-brand/20 text-brand border-brand/40 mb-2 mx-auto w-fit" />
-              <p class="text-foreground text-xs font-medium">Euskera (1º)</p>
+              <p class="text-foreground text-xs font-medium">Basque (1st)</p>
             </div>
             <div class="bg-surface p-3 rounded-card border border-border text-center">
               <TextMeta variant="badge" text="ES" class="bg-brand/20 text-brand border-brand/40 mb-2 mx-auto w-fit" />
-              <p class="text-foreground text-xs font-medium">Español (2º)</p>
+              <p class="text-foreground text-xs font-medium">Spanish (2nd)</p>
             </div>
             <div class="bg-surface p-3 rounded-card border border-border text-center">
               <TextMeta variant="badge" text="EN" class="bg-surface-hover text-foreground-muted border-border mb-2 mx-auto w-fit" />
-              <p class="text-foreground text-xs font-medium">Inglés (3º)</p>
+              <p class="text-foreground text-xs font-medium">English (3rd)</p>
             </div>
             <div class="bg-surface p-3 rounded-card border border-border text-center">
               <TextMeta variant="badge" text="FR" class="bg-surface-hover text-foreground-muted border-border mb-2 mx-auto w-fit" />
-              <p class="text-foreground text-xs font-medium">Francés (4º)</p>
+              <p class="text-foreground text-xs font-medium">French (4th)</p>
             </div>
           </div>
         </Card>
 
-        <!-- ACCESIBILIDAD (A11Y) -->
+        <!-- ACCESSIBILITY (A11Y) -->
         <Card class="p-6 md:col-span-2" hover="orange">
           <h3 class="font-display text-foreground text-xl font-medium mb-6 flex items-center gap-2">
             <svg class="w-5 h-5 text-brand" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" /></svg>
-            Checklist de Accesibilidad (A11Y) Mínimo Requerido
+            Minimum Accessibility (A11Y) Checklist
           </h3>
           <div class="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-4">
             <div class="flex items-start gap-3">
-              <svg class="w-5 h-5 text-success flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg>
-              <p class="text-foreground/80 text-sm">Todos los botones e iconos interactivos tienen <code class="text-brand bg-brand/10 px-1 rounded">aria-label</code> descriptivo.</p>
+              <svg class="w-5 h-5 text-green-400 flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg>
+              <p class="text-foreground/80 text-sm">All interactive buttons and icons have a descriptive <code class="text-brand bg-brand/10 px-1 rounded">aria-label</code>.</p>
             </div>
             <div class="flex items-start gap-3">
-              <svg class="w-5 h-5 text-success flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg>
-              <p class="text-foreground/80 text-sm">Iconos SVG decorativos usan <code class="text-brand bg-brand/10 px-1 rounded">aria-hidden="true"</code>.</p>
+              <svg class="w-5 h-5 text-green-400 flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg>
+              <p class="text-foreground/80 text-sm">Decorative SVG icons use <code class="text-brand bg-brand/10 px-1 rounded">aria-hidden="true"</code>.</p>
             </div>
             <div class="flex items-start gap-3">
-              <svg class="w-5 h-5 text-success flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg>
-              <p class="text-foreground/80 text-sm">Focus rings visibles en todos los elementos interactivos (navegación por teclado).</p>
+              <svg class="w-5 h-5 text-green-400 flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg>
+              <p class="text-foreground/80 text-sm">Visible focus rings on all interactive elements (keyboard navigation).</p>
             </div>
             <div class="flex items-start gap-3">
-              <svg class="w-5 h-5 text-success flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg>
-              <p class="text-foreground/80 text-sm">Contraste mínimo WCAG AA (<strong>4.5:1</strong>) para texto normal.</p>
+              <svg class="w-5 h-5 text-green-400 flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg>
+              <p class="text-foreground/80 text-sm">Minimum WCAG AA contrast ratio (<strong>4.5:1</strong>) for normal text.</p>
             </div>
             <div class="flex items-start gap-3">
-              <svg class="w-5 h-5 text-success flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg>
+              <svg class="w-5 h-5 text-green-400 flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg>
               <p class="text-foreground/80 text-sm">Touch targets ≥ <strong>44px × 44px</strong> (iOS Human Interface Guidelines).</p>
             </div>
             <div class="flex items-start gap-3">
-              <svg class="w-5 h-5 text-success flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg>
-              <p class="text-foreground/80 text-sm">Modales y Lightboxes atrapan el foco (<strong>focus trap</strong>) y se cierran con <code class="text-brand bg-brand/10 px-1 rounded">Escape</code>.</p>
+              <svg class="w-5 h-5 text-green-400 flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg>
+              <p class="text-foreground/80 text-sm">Modals and Lightboxes trap focus (<strong>focus trap</strong>) and close with <code class="text-brand bg-brand/10 px-1 rounded">Escape</code>.</p>
             </div>
           </div>
         </Card>
 
       </div>
     </section>
-
-
 
   </main>
 </Layout>
