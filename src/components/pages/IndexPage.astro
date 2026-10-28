@@ -12,6 +12,7 @@ const PAGE_CONFIG = {
 
 const lang = (Astro.currentLocale || 'es') as Locale;
 const t = useTranslations(lang);
+const programHref = lang === 'es' ? '/programa' : `/${lang}/programa`;
 ---
 
 <!-- 1. Global Starry Background (Stays behind everything) -->
@@ -22,11 +23,10 @@ const t = useTranslations(lang);
   
   <!-- Hero Section -->
   <a 
-    href="/programa"
+    href={programHref}
     class="relative block w-full group overflow-hidden" 
-    aria-label="Ver programa del festival"
+    aria-label={t('index.viewProgram')}
   >
-    <!-- Hero Cover Image -->
     <img 
       src={PAGE_CONFIG.heroImage} 
       alt={`Midnight Boogie Festival ${PAGE_CONFIG.year}`} 
