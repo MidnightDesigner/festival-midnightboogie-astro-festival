@@ -11,7 +11,7 @@
   },
   "color": {
     "brand": {
-      "DEFAULT": { "value": "rgb(233, 157, 56)", "description": "Main festival color (Midnight Orange)" },
+      "DEFAULT": { "value": "rgb(243, 151, 28)", "description": "Main festival color (Midnight Orange)" },
       "hover": { "value": "rgb(255, 170, 70)", "description": "Hover state for brand elements" },
       "text": { "value": "rgba(0, 0, 0, 0.8)", "description": "Main text on brand background (orange)" },
       "muted": { "value": "rgba(0, 0, 0, 0.6)", "description": "Secondary text on brand background" },
