@@ -98,16 +98,15 @@ export const programa2026: Programa2026 = {
     mes: "Noviembre 2026",
     tag: "Actividad Familiar",
     eventos: [
-      {
-        hora: "12:00",
-        lugar: "Creative Soul",
-        direccion: "Pintor Pablo Uranga Kalea 22",
-        titulo: "Taller Creative Soul",
-        descripcion: "Taller musical para los más pequeños. Un clásico en nuestra programación: la escuela de música Creative Soul ofrecerá un taller muy didáctico de improvisación y experimentación musical para los peques.",
-        precio: "Gratis con inscripción",
-        link: "https://www.fundacionvital.eus/taller-musical-infantil-creative-soul",
-        linkTexto: "Inscripción en la web de Fundación Vital"
-      }
+{
+  hora: "12:00",
+  lugar: "Sala Arkabia", // ⬅️ Nombre propio / marca (sin traducir)
+  titulo: "¡La música también es cosa de txikis!",
+  descripcion: "Dentro del Midnight Boogie Weekend, la escuela Creative Soul ofrecerá un taller de improvisación y experimentación musical para niños y niñas de 6 a 10 años.",
+  precio: "Actividad gratuita con plazas limitadas. ¡Inscríbete ya!",
+  link: "https://www.fundacionvital.eus/taller-musical-infantil-0",
+  linkTexto: "Inscríbete ya"
+}
     ]
   },
   sabadoNoche: {

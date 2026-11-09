@@ -19,7 +19,7 @@ const eu: PageContent = {
       { nombre: "Arkabia Aretoa", direccion: "Postas 13-15, Gasteiz", evento: "Aurkezpen-kontzertua · Iraila" },
       { nombre: "Ttipia Taberna", direccion: "Zapatería 94, Vitoria-Gasteiz", evento: "Ondorengo festa" },
       { nombre: "Helldorado", direccion: "Venta de la Estrella, 6, 44. pabiloia", evento: "Azaroko kontzertuak · Ostirala eta larunbata" },
-      { nombre: "Creative Soul", direccion: "Pintor Pablo Uranga Kalea 22", evento: "Familia-tailerra · Larunbata, azaroa" }
+{ nombre: "Sala Arkabia", direccion: "Postas 13-15, Gasteiz", evento: "Familia-tailerra · Larunbata, azaroa" }
     ]
   },
   entradas: {
@@ -33,8 +33,7 @@ const eu: PageContent = {
     toastSuccess: "Esteka kopiatuta! Itsatsi Instagram-en",
     copyFallback: "Ezinezkoa izan da esteka kopiatzea. Mesedez, kopiatu eskuz: ",
     shareMessage: "Ez galdu Midnight Boogie Weekend 2026! 🎸",
-    ticketNotice: "Erosle guztiek bazkide izan behar dute. Erosteko, bazkide gisa identifikatu behar zara.",
-    ticketContact: "Ordutegiei, adingabeen sarbideari edo antolaketari buruzko zalantzarik? Idatzi webmaster@helldorado.net helbidera",
+    
     flyers: {
       presentacion: { title: "Aurkezpen Flyer", description: "Aurkezpen kontzertuak eta lehen hitzorduak." },
       completo: { title: "Jaialdiaren Flyer osoa", description: "Egitarau osoa, artistak eta ekitaldiaren xehetasunak." }
@@ -43,8 +42,14 @@ const eu: PageContent = {
       "sabado-12-septiembre": { fecha: "Irailaren 12a, larunbata", evento: "Aurkezpen-kontzertua", artista: "Stone Foundation", lugar: "Arkabia Aretoa", precioAnticipada: "15 €", precioTaquilla: "18 €", linkTexto: "Erosi Sarrerak" },
       "abono-weekend": { fecha: "Azaroak 27, ostirala - Azaroak 28, larunbata", evento: "Asteburuko bonua", artista: "Bi kontzertuetarako sarbidea", lugar: "Helldorado", precioAnticipada: "39 €", linkTexto: "Erosi bonua" },
       "viernes-27-noviembre": { fecha: "Azaroak 27, ostirala", evento: "Blues eta Boogaloo gaua", artista: "The Lazy Tones · Los Fulanos", lugar: "Helldorado", precioAnticipada: "22 €", precioTaquilla: "26 €", linkTexto: "Erosi Musikazen" },
-      "sabado-28-noviembre": { fecha: "Azaroak 28, larunbata", evento: "Sormen-tailerra", artista: "Haurrentzako sormen-tailerra", lugar: "Creative Soul", precioAnticipada: "Doan, izena emanda", linkTexto: "Eman izena Vital Fundazioaren webgunean" },
-      "sabado-28-noche": { fecha: "Azaroak 28, larunbata", evento: "Soul eta R'n'R gaua", artista: "Haylen · Nine Below Zero", lugar: "Helldorado", precioAnticipada: "22 €", precioTaquilla: "26 €", linkTexto: "Erosi Musikazen" }
+"sabado-28-noviembre": {
+  fecha: "Azaroaren 28a, larunbata",
+  evento: "Musika txikien kontua ere bada!",
+  artista: "Inprobisazio eta esperimentazio tailerra (6-10 urte)",
+  lugar: "Sala Arkabia",
+  precioAnticipada: "Doan, izena emanda",
+  linkTexto: "Eman izena orain!"
+}
     }
   },
   archivo: {
@@ -135,15 +140,15 @@ const eu: PageContent = {
           { origen: "GASTEIZ", estilo: "DJ - Musika aukeraketa" }
         ]
       },
-      "sabadoTaller-12:00": {
-        titulo: "Creative Soul tailerra",
-       descripcion: "Musika tailerra txikientzat (6-10 urte). Gure programan klasiko bat: Creative Soul musika eskolak inprobisazio eta esperimentazio musikaleko tailer oso hezigarria eskainiko die haurrei. Leku mugatuak: 30. Mesedez, etorri 10 minutu lehenago jarduera ez atzeratzeko.",
-        precio: "Doan, izena emanda",
-        linkTexto: "Eman izena Vital Fundazioaren webgunean",
-        lugar: "Creative Soul",
-        direccion: "Pintor Pablo Uranga Kalea 22",
-        horaSuffix: "etan"
-      },
+"sabadoTaller-12:00": {
+  titulo: "Musika tailerra txikientzat",
+  descripcion: "Musika tailerra txikientzat (6-10 urte). Midnight Boogie Weekend jaialdiaren barruan, Creative Soul eskolak musika-inprobisazioko eta esperimentazioko tailer oso hezigarria eskainiko die haurrentzat. Leku mugatuak. Mesedez, etorri 10 minutu lehenago jarduera ez atzeratzeko.",
+  precio: "Doan, izena emanda",
+  linkTexto: "Eman izena orain!",
+  lugar: "Sala Arkabia",
+  direccion: "Postas 13-15, Vitoria-Gasteiz",
+  horaSuffix: "etan"
+},
       "sabadoNoche-21:00": {
         titulo: "Soul & R'n'R Gaua",
         precio: "22 € aldez aurretik / 26 € leihatilan",

@@ -7,11 +7,11 @@ import { getContent } from '~/i18n/content';
 import { getSlug } from '~/lib/getSlug';
 
 const lang = Astro.currentLocale || 'es';
-const c = getContent(lang).artistas;
+const c = getContent(lang)?.artistas ?? { heroTitle: "Artistas", heroHighlight: "2026", heroSubtitle: "", items: {} };
 
 const artistasTraducidos = artistas2026.map((artista) => {
   const key = getSlug(artista.nombre);
-  const override = c.items[key] ?? {};
+  const override = c?.items?.[key] ?? {};
 
   return {
     ...artista,

@@ -69,7 +69,7 @@ const footerLinks = [
       <ul class="space-y-3 text-center md:text-right">
         {footerLinks.map(({ path, key }) => (
           <li>
-<a href={getLocaleUrl(path)} class="text-black/80 text-sm font-medium hover:text-black transition-colors duration-300">{t(key)}</a>
+          <a href={getLocaleUrl(path)} class="text-black/80 text-sm font-medium hover:text-black transition-colors duration-300">{t(key)}</a>
           </li>
         ))}
       </ul>

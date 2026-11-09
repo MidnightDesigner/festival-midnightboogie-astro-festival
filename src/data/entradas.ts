@@ -55,19 +55,19 @@ export const entradas2026: Entrada[] = [
     linkTexto: "Comprar en Musikaze",
     estado: "Disponibles"
   },
-  {
-    id: "sabado-28-noviembre",
-    fecha: "Sábado 28 de Noviembre",
-    hora: "12:00h",
-    evento: "Taller Creativo",
-    artista: "Taller creativo para los más pequeños",
-    lugar: "Creative Soul",
-    direccion: "Pintor Pablo Uranga Kalea 22, Vitoria-Gasteiz",
-    precioAnticipada: "Gratis con inscripción",
-    link: "https://www.fundacionvital.eus/taller-musical-infantil-creative-soul",
-    linkTexto: "Inscribirse en Fundación Vital Fundazioa",
-    estado: "Disponibles"
-  },
+{
+  id: "sabado-28-noviembre",
+  fecha: "Sábado 28 de Noviembre",
+  hora: "12:00h",
+  evento: "¡La música también es cosa de txikis!",
+  artista: "Taller de improvisación y experimentación (6-10 años)",
+  lugar: "Sala Arkabia", // ⬅️ Nombre propio / marca (sin traducir)
+  direccion: "Postas 13-15, Vitoria-Gasteiz",
+  precioAnticipada: "Gratis con inscripción",
+  link: "https://www.fundacionvital.eus/taller-musical-infantil-0",
+  linkTexto: "Inscríbete ya",
+  estado: "Disponibles"
+},
   {
     id: "sabado-28-noche",
     fecha: "Sábado 28 de Noviembre",

@@ -19,7 +19,7 @@ const es: PageContent = {
       { nombre: "Sala Arkabia", direccion: "Postas 13-15, Vitoria-Gasteiz", evento: "Concierto de Presentación · Septiembre" },
       { nombre: "Ttipia Taberna", direccion: "Zapatería 94, Vitoria-Gasteiz", evento: "Fiesta Posterior" },
       { nombre: "Helldorado", direccion: "Venta de la Estrella, 6 Pab. 44, Vitoria-Gasteiz", evento: "Conciertos de Noviembre · Viernes y Sábado" },
-      { nombre: "Creative Soul", direccion: "Pintor Pablo Uranga Kalea 22, Vitoria-Gasteiz", evento: "Taller Familiar · Sábado Noviembre" }
+      { nombre: "Sala Arkabia", direccion: "Postas 13-15, Vitoria-Gasteiz", evento: "Taller Familiar · Sábado Noviembre" }
     ]
   },
     entradas: {
@@ -33,8 +33,7 @@ const es: PageContent = {
     toastSuccess: "¡Enlace copiado! Pégalo en Instagram",
     copyFallback: "No se pudo copiar el enlace. Por favor, cópialo manualmente: ",
     shareMessage: "¡No te pierdas el Midnight Boogie Weekend 2026! 🎸 ",
-    ticketNotice: "Todos los compradores deben ser socios. Para comprar debes identificarte como socio.",
-    ticketContact: "¿Dudas sobre horarios, acceso de menores u organización? Escríbenos a webmaster@helldorado.net",
+    
     flyers: {
       presentacion: { title: "Flyer Presentación", description: "Conciertos de presentación y primeras fechas." },
       completo: { title: "Flyer Festival Completo", description: "Programación completa, artistas y detalles del evento." }
@@ -43,7 +42,14 @@ const es: PageContent = {
       "sabado-12-septiembre": { fecha: "Sábado 12 de Septiembre", evento: "Concierto de Presentación", artista: "Stone Foundation", lugar: "Sala Arkabia", precioAnticipada: "15€", precioTaquilla: "18€", linkTexto: "Comprar en Arkabia" },
       "abono-weekend": { fecha: "Viernes 27 - Sábado 28 Noviembre", evento: "Abono Weekend", artista: "Acceso a ambos conciertos", lugar: "Helldorado", precioAnticipada: "39€", linkTexto: "Comprar Abono" },
       "viernes-27-noviembre": { fecha: "Viernes 27 de Noviembre", evento: "Noche de Blues & Boogaloo", artista: "The Lazy Tones · Los Fulanos", lugar: "Helldorado", precioAnticipada: "22€", precioTaquilla: "26€", linkTexto: "Comprar en Musikaze" },
-      "sabado-28-noviembre": { fecha: "Sábado 28 de Noviembre", evento: "Taller Creativo", artista: "Taller creativo para los más pequeños", lugar: "Creative Soul", precioAnticipada: "Gratis con inscripción", linkTexto: "Inscribirse en Fundación Vital Fundazioa" },
+      "sabado-28-noviembre": {
+        fecha: "Sábado 28 de Noviembre",
+        evento: "¡La música también es cosa de txikis!",
+        artista: "Taller de improvisación y experimentación (6-10 años)",
+        lugar: "Sala Arkabia",
+        precioAnticipada: "Gratis con inscripción",
+        linkTexto: "Inscríbete ya"
+      },
       "sabado-28-noche": { fecha: "Sábado 28 de Noviembre", evento: "Noche de Soul & R'n'R", artista: "Haylen · Nine Below Zero", lugar: "Helldorado", precioAnticipada: "22€", precioTaquilla: "26€", linkTexto: "Comprar en Musikaze" }
     }
   },
@@ -133,12 +139,12 @@ const es: PageContent = {
         ]
       },
       "sabadoTaller-12:00": {
-        titulo: "Taller Creative Soul",
-        descripcion: "Taller musical para los más pequeños (edades 6 a 10 años). Un clásico en nuestra programación: la escuela de música Creative Soul ofrecerá un taller muy didáctico de improvisación y experimentación musical para los peques. Plazas limitadas: 30. Se ruega acudir con 10 minutos de antelación para no retrasar la actividad.",
+        titulo: "Taller Musical Infantil",
+        descripcion: "Taller musical para los más pequeños (edades 6 a 10 años). Dentro del Midnight Boogie Weekend, la escuela Creative Soul ofrecerá un taller muy didáctico de improvisación y experimentación musical para los peques. Plazas limitadas. Se ruega acudir con 10 minutos de antelación para no retrasar la actividad.",
         precio: "Gratis con inscripción",
-        linkTexto: "Inscripción en la web de Fundación Vital",
-        lugar: "Creative Soul",
-        direccion: "Pintor Pablo Uranga Kalea 22",
+        linkTexto: "Inscríbete ya",
+        lugar: "Sala Arkabia",
+        direccion: "Postas 13-15, Vitoria-Gasteiz",
         horaSuffix: "h"
       },
       "sabadoNoche-21:00": {
@@ -163,12 +169,7 @@ const es: PageContent = {
       linkTexto: "Comprar abono"
     }
   },
-    artistas: {
-    heroTitle: "Artistas",
-    heroHighlight: "2026",
-    heroSubtitle: "El lineup de esta edición reúne lo mejor del soul, groove y rhythm & blues internacional. Descubre sus historias y su música.",
-    items: {}
-  }
+  artistas: []
 };
 
 

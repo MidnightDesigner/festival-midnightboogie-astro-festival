@@ -19,7 +19,8 @@ const en: PageContent = {
       { nombre: "Sala Arkabia", direccion: "Postas 13-15, Vitoria-Gasteiz", evento: "Opening Concert · September" },
       { nombre: "Ttipia Taberna", direccion: "Zapatería 94, Vitoria-Gasteiz", evento: "After Party" },
       { nombre: "Helldorado", direccion: "Venta de la Estrella, 6 Pab. 44, Vitoria-Gasteiz", evento: "November Concerts · Friday & Saturday" },
-      { nombre: "Creative Soul", direccion: "Pintor Pablo Uranga Kalea 22, Vitoria-Gasteiz", evento: "Family Workshop · Saturday November" }
+      { nombre: "Sala Arkabia", direccion: "Postas 13-15, Vitoria-Gasteiz", evento: "Family Workshop · Saturday November" },
+
     ]
   },
   entradas: {
@@ -33,8 +34,7 @@ const en: PageContent = {
     toastSuccess: "Link copied! Paste it on Instagram",
     copyFallback: "Could not copy the link. Please copy it manually: ",
     shareMessage: "Don't miss the Midnight Boogie Weekend 2026! 🎸 ",
-    ticketNotice: "All buyers must be members. To purchase, you must identify yourself as a member.",
-    ticketContact: "Questions about schedules, minors' access, or the organization? Write to webmaster@helldorado.net",
+    
     flyers: {
       presentacion: { title: "Opening Flyer", description: "Opening concerts and first dates." },
       completo: { title: "Full Festival Flyer", description: "Full schedule, artists and event details." }
@@ -43,7 +43,14 @@ const en: PageContent = {
       "sabado-12-septiembre": { fecha: "Saturday, September 12", evento: "Opening Concert", artista: "Stone Foundation", lugar: "Sala Arkabia", precioAnticipada: "€15", precioTaquilla: "€18", linkTexto: "Buy at Arkabia" },
       "abono-weekend": { fecha: "Friday 27 - Saturday 28 November", evento: "Weekend Pass", artista: "Access to both concerts", lugar: "Helldorado", precioAnticipada: "€39", linkTexto: "Buy Pass" },
       "viernes-27-noviembre": { fecha: "Friday, November 27", evento: "Blues & Boogaloo Night", artista: "The Lazy Tones · Los Fulanos", lugar: "Helldorado", precioAnticipada: "€22", precioTaquilla: "€26", linkTexto: "Buy at Musikaze" },
-      "sabado-28-noviembre": { fecha: "Saturday, November 28", evento: "Creative Workshop", artista: "Creative workshop for the little ones", lugar: "Creative Soul", precioAnticipada: "Free with registration", linkTexto: "Register at Fundación Vital website" },
+      "sabado-28-noviembre": {
+  fecha: "Saturday, November 28",
+  evento: "Music is for kids too!",
+  artista: "Improvisation and experimentation workshop (6-10 years)",
+  lugar: "Sala Arkabia",
+  precioAnticipada: "Free with registration",
+  linkTexto: "Sign up now"
+},
       "sabado-28-noche": { fecha: "Saturday, November 28", evento: "Soul & R'n'R Night", artista: "Haylen · Nine Below Zero", lugar: "Helldorado", precioAnticipada: "€22", precioTaquilla: "€26", linkTexto: "Buy at Musikaze" }
     }
   },
@@ -126,15 +133,15 @@ const en: PageContent = {
           { origen: "GASTEIZ", estilo: "DJ - Music Selection" }
         ]
       },
-      "sabadoTaller-12:00": {
-        titulo: "Creative Soul Workshop",
-        descripcion: "Music workshop for the little ones. A classic in our programme: the Creative Soul music school will offer a highly educational improvisation and music experimentation workshop for kids.",
-        precio: "Free with registration",
-        linkTexto: "Register at Fundación Vital website",
-        lugar: "Creative Soul",
-        direccion: "Pintor Pablo Uranga Kalea 22",
-        horaSuffix: "h"
-      },
+"sabadoTaller-12:00": {
+  titulo: "Kids Music Workshop",
+  descripcion: "Music workshop for kids (ages 6 to 10). As part of the Midnight Boogie Weekend, the Creative Soul music school will offer a highly educational improvisation and music experimentation workshop for children. Limited spots. Please arrive 10 minutes early to avoid delaying the activity.",
+  precio: "Free with registration",
+  linkTexto: "Sign up now",
+  lugar: "Sala Arkabia",
+  direccion: "Postas 13-15, Vitoria-Gasteiz",
+  horaSuffix: "h"
+},
       "sabadoNoche-21:00": {
         titulo: "Soul & R'n'R Night",
         precio: "€22 advance / €26 box office",

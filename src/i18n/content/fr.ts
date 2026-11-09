@@ -19,7 +19,7 @@ const fr: PageContent = {
       { nombre: "Sala Arkabia", direccion: "Postas 13-15, Vitoria-Gasteiz", evento: "Concert d'Ouverture · Septembre" },
       { nombre: "Ttipia Taberna", direccion: "Zapatería 94, Vitoria-Gasteiz", evento: "After Party" },
       { nombre: "Helldorado", direccion: "Venta de la Estrella, 6 Pab. 44, Vitoria-Gasteiz", evento: "Concerts de Novembre · Vendredi & Samedi" },
-      { nombre: "Creative Soul", direccion: "Pintor Pablo Uranga Kalea 22, Vitoria-Gasteiz", evento: "Atelier Familial · Samedi Novembre" }
+{ nombre: "Sala Arkabia", direccion: "Postas 13-15, Vitoria-Gasteiz", evento: "Atelier Familial · Samedi Novembre" }
     ]
   },
   entradas: {
@@ -33,8 +33,7 @@ const fr: PageContent = {
     toastSuccess: "Lien copié ! Collez-le sur Instagram",
     copyFallback: "Impossible de copier le lien. Merci de le copier manuellement : ",
     shareMessage: "Ne manquez pas le Midnight Boogie Weekend 2026 ! 🎸 ",
-    ticketNotice: "Tous les acheteurs doivent être membres. Pour acheter, vous devez vous identifier en tant que membre.",
-    ticketContact: "Des questions sur les horaires, l'accès des mineurs ou l'organisation ? Écrivez à webmaster@helldorado.net",
+    
     flyers: {
       presentacion: { title: "Flyer d'Ouverture", description: "Concerts d'ouverture et premières dates." },
       completo: { title: "Flyer Festival Complet", description: "Programme complet, artistes et détails de l'événement." }
@@ -43,7 +42,14 @@ const fr: PageContent = {
       "sabado-12-septiembre": { fecha: "Samedi 12 septembre", evento: "Concert d'Ouverture", artista: "Stone Foundation", lugar: "Sala Arkabia", precioAnticipada: "15€", precioTaquilla: "18€", linkTexto: "Acheter sur Arkabia" },
       "abono-weekend": { fecha: "Vendredi 27 - Samedi 28 Novembre", evento: "Pass Weekend", artista: "Accès aux deux concerts", lugar: "Helldorado", precioAnticipada: "39€", linkTexto: "Acheter le Pass" },
       "viernes-27-noviembre": { fecha: "Vendredi 27 novembre", evento: "Soirée Blues & Boogaloo", artista: "The Lazy Tones · Los Fulanos", lugar: "Helldorado", precioAnticipada: "22€", precioTaquilla: "26€", linkTexto: "Acheter sur Musikaze" },
-      "sabado-28-noviembre": { fecha: "Samedi 28 novembre", evento: "Atelier Créatif", artista: "Atelier créatif pour les plus petits", lugar: "Creative Soul", precioAnticipada: "Gratuit sur inscription", linkTexto: "S'inscrire sur le site de Fundación Vital" },
+      "sabado-28-noviembre": {
+  fecha: "Samedi 28 Novembre",
+  evento: "La musique, c'est aussi pour les enfants !",
+  artista: "Atelier d'improvisation et d'expérimentation (6-10 ans)",
+  lugar: "Sala Arkabia",
+  precioAnticipada: "Gratuit sur inscription",
+  linkTexto: "Inscrivez-vous"
+},
       "sabado-28-noche": { fecha: "Samedi 28 novembre", evento: "Soirée Soul & R'n'R", artista: "Haylen · Nine Below Zero", lugar: "Helldorado", precioAnticipada: "22€", precioTaquilla: "26€", linkTexto: "Acheter sur Musikaze" }
     }
   },
@@ -126,14 +132,15 @@ const fr: PageContent = {
           { origen: "GASTEIZ", estilo: "DJ - Sélection Musicale" }
         ]
       },
-      "sabadoTaller-12:00": {
-        titulo: "Atelier Creative Soul",
-      descripcion: "Atelier musical pour les plus petits (de 6 à 10 ans). Un classique de notre programmation : l'école de musique Creative Soul proposera un atelier très pédagogique d'improvisation et d'expérimentation musicale pour les enfants. Places limitées : 30. Merci d'arriver 10 minutes à l'avance pour ne pas retarder l'activité.",
-        linkTexto: "S'inscrire sur le site de Fundación Vital",
-        lugar: "Creative Soul",
-        direccion: "Pintor Pablo Uranga Kalea 22",
-        horaSuffix: "h"
-      },
+"sabadoTaller-12:00": {
+  titulo: "Atelier Musical pour Enfants",
+  descripcion: "Atelier musical pour les enfants (de 6 à 10 ans). Dans le cadre du Midnight Boogie Weekend, l'école de musique Creative Soul proposera un atelier très pédagogique d'improvisation et d'expérimentation musicale pour les enfants. Places limitées. Merci d'arriver 10 minutes à l'avance pour ne pas retarder l'activité.",
+  precio: "Gratuit sur inscription",
+  linkTexto: "Inscrivez-vous maintenant",
+  lugar: "Sala Arkabia",
+  direccion: "Postas 13-15, Vitoria-Gasteiz",
+  horaSuffix: "h"
+},
       "sabadoNoche-21:00": {
         titulo: "Soirée Soul & R'n'R",
         precio: "22€ prévente / 26€ sur place",

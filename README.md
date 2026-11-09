@@ -1,31 +1,20 @@
 markdown
 
 
-
-## 🧩 Project Structure: Core Components
-
-### `Button`
-Reusable button with support for links and style variants.
-
-**Usage example:**
-```vue
-<Button href="#" variant="primary" class="w-full justify-center mt-4">
-  Download PDF
-</Button>
-
+12345678910
+## 🧩 Project Structure: Core Components### `Button`Reusable button with support for links and style variants.**Usage example:**```vue<Button href="#" variant="primary" class="w-full justify-center mt-4">  Download PDF</Button>
 Variants (variant):
 primary → Orange background, white text.
 outline → White border, transparent background.
-
 Card
 
 Card container with customizable hover effects.
 Usage example:
+vue
 
-<Card class="p-6" hover="white">
-  <p class="text-white">Card content</p>
-</Card>
 
+123
+<Card class="p-6" hover="white">  <p class="text-white">Card content</p></Card>
 Props:
 hover → Defines the hover effect.
 "orange" (default)
@@ -35,21 +24,18 @@ TextMeta
 
 Component for displaying text metadata (venue names, addresses, etc.).
 Usage example:
-
-<TextMeta variant="venue-name" text="SALA ARKABIA" />
-<TextMeta variant="venue-address" text="Postas 13-15, Vitoria-Gasteiz" />
+vue
 
 
+12
+<TextMeta variant="venue-name" text="SALA ARKABIA" /><TextMeta variant="venue-address" text="Postas 13-15, Vitoria-Gasteiz" />
 ⚠️ Usage Note: It is mandatory to wrap these components in a flex container with gap-1.5 to maintain visual consistency and correct spacing:
-
-<div class="flex flex-col gap-1.5">
-  <TextMeta variant="venue-name" text="SALA ARKABIA" />
-  <TextMeta variant="venue-address" text="Postas 13-15, Vitoria-Gasteiz" />
-</div>
+vue
 
 
-
- 
+1234
+<div class="flex flex-col gap-1.5">  <TextMeta variant="venue-name" text="SALA ARKABIA" />  <TextMeta variant="venue-address" text="Postas 13-15, Vitoria-Gasteiz" /></div>
+<br>  
 🌍 Internationalization (i18n)
 
 Supported Languages
@@ -78,7 +64,7 @@ text
 
 12345
 locales/├── eu.json├── es.json├── en.json└── fr.json
- 
+<br>  
 ♿ Accessibility (A11Y)
 
 Minimum Required Checklist
