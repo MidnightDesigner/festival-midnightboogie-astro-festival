@@ -19,43 +19,35 @@ const t = useTranslations(lang);
 
 <Modal id="about-modal" title={t('footer.about')}>
   <div class="space-y-6">
-    <p class="text-foreground/80 text-sm md:text-base font-light leading-relaxed">
-      Ante todo, somos un@s apasionad@s del R&B, del Soul, del R'n'R, del Jazz... y del resto de las <span class="text-brand font-medium">"músicas del Diablo"</span>.
-    </p>
+    <p set:html={t('about.p1')} class="text-foreground/80 text-sm md:text-base font-light leading-relaxed"></p>
     
-    <p class="text-foreground/80 text-sm md:text-base font-light leading-relaxed">
-      Eso nos ha llevado a embarcarnos en este proyecto y a trabajar año tras año para que podáis disfrutar de actividades musicales y también educativas y culturales en un fin de semana muy especial.
-    </p>
+    <p set:html={t('about.p2')} class="text-foreground/80 text-sm md:text-base font-light leading-relaxed"></p>
 
     <div class="text-foreground/80 text-sm md:text-base font-light leading-relaxed">
-      <p>Os agradecemos sinceramente que nos sigáis acompañando en este viaje.</p>
-      <p class="mt-4">Un saludo,</p>
-      <p class="mt-2 text-foreground font-medium">Igu e Isabel</p>
+      <p>{t('about.p3_1')}</p>
+      <p class="mt-4">{t('about.p3_2')}</p>
+      <p class="mt-2 text-foreground font-medium">{t('about.p3_3')}</p>
     </div>
 
     <Divider width="w-full" color="bg-border" margin="my-8" />
 
     <div class="mt-6">
-      <p class="text-foreground/80 text-sm md:text-base font-light leading-relaxed mb-6">
-        <span class="text-brand font-medium uppercase tracking-wider">Midnight Boogie</span>, Asociación Cultural sin ánimo de lucro, es la organizadora de este evento.
-      </p>
+      <p set:html={t('about.org')} class="text-foreground/80 text-sm md:text-base font-light leading-relaxed mb-6"></p>
 
       <div class="grid grid-cols-[auto_1fr] gap-x-6 gap-y-3 md:gap-y-4 items-baseline">
-        <span class="text-foreground-disabled uppercase tracking-wider text-[10px] md:text-xs font-medium">CIF:</span>
+        <span class="text-foreground-disabled uppercase tracking-wider text-[10px] md:text-xs font-medium">{t('about.cif_label')}</span>
         <span class="text-foreground/80 text-sm md:text-base font-light">G67682088</span>
 
-        <span class="text-foreground-disabled uppercase tracking-wider text-[10px] md:text-xs font-medium">Domicilio:</span>
+        <span class="text-foreground-disabled uppercase tracking-wider text-[10px] md:text-xs font-medium">{t('about.address_label')}</span>
         <span class="text-foreground/80 text-sm md:text-base font-light">Vitoria-Gasteiz</span>
 
-        <span class="text-foreground-disabled uppercase tracking-wider text-[10px] md:text-xs font-medium">Registro:</span>
+        <span class="text-foreground-disabled uppercase tracking-wider text-[10px] md:text-xs font-medium">{t('about.registry_label')}</span>
         <span class="text-foreground/80 text-sm md:text-base font-light">Gobierno Vasco Nº AS/A/23878/2021</span>
       </div>
     </div>
 
     <Divider width="w-full" color="bg-border" margin="my-8" />
 
-    <p class="text-foreground/80 text-sm md:text-base font-light leading-relaxed">
-      Contamos con la colaboración de la <span class="text-brand font-medium">Fundación Vital Fundazioa</span>, a la que estamos muy agradecidos por su apoyo todos estos años.
-    </p>
+    <p set:html={t('about.sponsor')} class="text-foreground/80 text-sm md:text-base font-light leading-relaxed"></p>
   </div>
 </Modal>
